@@ -1,0 +1,406 @@
+/* ============================================================
+   BrightSmile Dental — Team Page Styles
+   ============================================================ */
+
+/* --- Reset & Base ------------------------------------------ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --clr-primary:    #1a6fc4;
+  --clr-primary-dk: #145aa0;
+  --clr-accent:     #27b8a6;
+  --clr-text:       #1e2b3c;
+  --clr-muted:      #56687a;
+  --clr-border:     #dde3ec;
+  --clr-bg-light:   #f5f8fc;
+  --clr-white:      #ffffff;
+  --radius:         10px;
+  --shadow-sm:      0 2px 8px rgba(0,0,0,.06);
+  --shadow-md:      0 6px 24px rgba(0,0,0,.10);
+  --ff-heading:     'Georgia', serif;
+  --ff-body:        system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --max-w:          1120px;
+}
+
+body {
+  font-family: var(--ff-body);
+  color: var(--clr-text);
+  line-height: 1.65;
+  background: var(--clr-white);
+}
+
+img { display: block; max-width: 100%; }
+a  { color: var(--clr-primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* --- Container --------------------------------------------- */
+.container {
+  width: min(var(--max-w), 100%);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+/* --- Buttons ----------------------------------------------- */
+.btn {
+  display: inline-block;
+  padding: .65rem 1.4rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: .95rem;
+  cursor: pointer;
+  transition: background .18s, color .18s, border-color .18s;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.btn-primary {
+  background: var(--clr-primary);
+  color: var(--clr-white);
+  border: 2px solid var(--clr-primary);
+}
+.btn-primary:hover {
+  background: var(--clr-primary-dk);
+  border-color: var(--clr-primary-dk);
+  text-decoration: none;
+}
+.btn-outline {
+  background: transparent;
+  color: var(--clr-primary);
+  border: 2px solid var(--clr-primary);
+}
+.btn-outline:hover {
+  background: var(--clr-primary);
+  color: var(--clr-white);
+  text-decoration: none;
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--clr-white);
+  border: 2px solid rgba(255,255,255,.6);
+}
+.btn-ghost:hover {
+  background: rgba(255,255,255,.15);
+  text-decoration: none;
+}
+
+/* --- Site Header ------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--clr-white);
+  border-bottom: 1px solid var(--clr-border);
+  box-shadow: var(--shadow-sm);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding-block: .9rem;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+  font-family: var(--ff-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--clr-text);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.logo-icon { color: var(--clr-accent); font-size: 1.1em; }
+.main-nav {
+  display: flex;
+  gap: 1.6rem;
+  margin-left: auto;
+}
+.main-nav a {
+  color: var(--clr-muted);
+  font-weight: 500;
+  font-size: .95rem;
+  transition: color .15s;
+}
+.main-nav a:hover,
+.main-nav a.active {
+  color: var(--clr-primary);
+  text-decoration: none;
+}
+
+/* --- Page Hero --------------------------------------------- */
+.page-hero {
+  background: linear-gradient(135deg, #e8f0fb 0%, #d4ecf7 100%);
+  padding: 3.5rem 0 3rem;
+  border-bottom: 1px solid var(--clr-border);
+}
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: .85rem;
+  color: var(--clr-muted);
+  margin-bottom: 1rem;
+}
+.breadcrumb a { color: var(--clr-muted); }
+.breadcrumb a:hover { color: var(--clr-primary); }
+.page-hero h1 {
+  font-family: var(--ff-heading);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  color: var(--clr-text);
+  margin-bottom: .75rem;
+  line-height: 1.2;
+}
+.hero-sub {
+  max-width: 640px;
+  font-size: 1.1rem;
+  color: var(--clr-muted);
+}
+
+/* --- Team Section ------------------------------------------ */
+.team-section {
+  padding: 4rem 0 5rem;
+}
+
+/* Featured dentist card */
+.team-featured {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 3rem;
+  align-items: start;
+  background: var(--clr-bg-light);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  margin-bottom: 4rem;
+  box-shadow: var(--shadow-sm);
+}
+.member-photo-wrap {
+  flex-shrink: 0;
+}
+.member-photo {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  background: #c8d8ea;
+}
+.member-badge {
+  display: inline-block;
+  background: var(--clr-accent);
+  color: var(--clr-white);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: .25rem .7rem;
+  border-radius: 4px;
+  margin-bottom: .75rem;
+}
+.member-name {
+  font-family: var(--ff-heading);
+  font-size: 1.9rem;
+  color: var(--clr-text);
+  margin-bottom: .9rem;
+  line-height: 1.2;
+}
+.member-bio {
+  font-size: 1rem;
+  color: var(--clr-muted);
+  margin-bottom: 1.2rem;
+  line-height: 1.7;
+}
+.member-credentials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-bottom: 1.5rem;
+}
+.member-credentials span {
+  background: var(--clr-white);
+  border: 1px solid var(--clr-border);
+  border-radius: 20px;
+  font-size: .82rem;
+  color: var(--clr-muted);
+  padding: .25rem .75rem;
+}
+
+/* Section heading for grid */
+.section-heading {
+  font-family: var(--ff-heading);
+  font-size: 1.6rem;
+  color: var(--clr-text);
+  margin-bottom: 2rem;
+  padding-bottom: .75rem;
+  border-bottom: 2px solid var(--clr-border);
+}
+
+/* Team grid */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.75rem;
+}
+.team-card {
+  background: var(--clr-white);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform .2s, box-shadow .2s;
+}
+.team-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+.card-photo-wrap {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: #c8d8ea;
+}
+.card-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+.card-body {
+  padding: 1.4rem;
+}
+.card-role {
+  display: block;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--clr-accent);
+  margin-bottom: .35rem;
+}
+.card-name {
+  font-family: var(--ff-heading);
+  font-size: 1.2rem;
+  color: var(--clr-text);
+  margin-bottom: .75rem;
+}
+.card-bio {
+  font-size: .93rem;
+  color: var(--clr-muted);
+  line-height: 1.7;
+}
+
+/* --- CTA Section ------------------------------------------- */
+.cta-section {
+  background: linear-gradient(135deg, var(--clr-primary) 0%, #0f4fa0 100%);
+  padding: 4rem 0;
+  text-align: center;
+  color: var(--clr-white);
+}
+.cta-inner h2 {
+  font-family: var(--ff-heading);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin-bottom: .75rem;
+}
+.cta-inner p {
+  font-size: 1.05rem;
+  opacity: .88;
+  margin-bottom: 2rem;
+}
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* --- Site Footer ------------------------------------------- */
+.site-footer {
+  background: var(--clr-text);
+  color: rgba(255,255,255,.75);
+  padding-top: 3rem;
+}
+.footer-inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+.footer-brand {
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--clr-white);
+}
+.footer-brand p {
+  font-weight: 400;
+  font-size: .85rem;
+  margin-top: .5rem;
+  color: rgba(255,255,255,.55);
+}
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+.footer-links h4 {
+  color: var(--clr-white);
+  font-size: .85rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-bottom: .25rem;
+}
+.footer-links a {
+  color: rgba(255,255,255,.65);
+  font-size: .88rem;
+}
+.footer-links a:hover { color: var(--clr-white); text-decoration: none; }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.1);
+  padding: 1rem 0;
+}
+.footer-bottom .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .5rem;
+  font-size: .82rem;
+  color: rgba(255,255,255,.45);
+}
+.footer-bottom a { color: rgba(255,255,255,.55); }
+.footer-bottom a:hover { color: var(--clr-white); }
+
+/* --- Responsive -------------------------------------------- */
+@media (max-width: 900px) {
+  .team-featured {
+    grid-template-columns: 1fr;
+  }
+  .member-photo {
+    height: 260px;
+    width: 260px;
+    border-radius: 50%;
+    margin-inline: auto;
+  }
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .header-inner {
+    flex-wrap: wrap;
+  }
+  .main-nav {
+    gap: 1rem;
+    font-size: .88rem;
+    margin-left: 0;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .header-inner .btn { display: none; }
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-inner {
+    grid-template-columns: 1fr;
+  }
+  .cta-buttons { flex-direction: column; align-items: center; }
+}
