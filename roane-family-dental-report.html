@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roane Family Dental - Marketing & SEO Report</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:#f0f4f8;color:#1a202c;line-height:1.6}
+.container{max-width:1100px;margin:0 auto;padding:20px}
+.cover{background:linear-gradient(135deg,#1a365d 0%,#2b6cb0 50%,#1a365d 100%);color:#fff;border-radius:16px;padding:60px 50px;margin-bottom:30px;position:relative;overflow:hidden}
+.cover::after{content:'';position:absolute;top:-50%;right:-20%;width:500px;height:500px;background:rgba(255,255,255,.05);border-radius:50%}
+.cover h1{font-size:2.6em;font-weight:800;margin-bottom:8px}
+.cover .subtitle{font-size:1.2em;opacity:.85;margin-bottom:30px}
+.cover-meta{display:flex;gap:30px;flex-wrap:wrap;font-size:.95em;opacity:.8}
+.cover-meta span{display:flex;align-items:center;gap:6px}
+.section{background:#fff;border-radius:12px;padding:35px 40px;margin-bottom:24px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.section h2{font-size:1.5em;color:#1a365d;margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid #e2e8f0;display:flex;align-items:center;gap:10px}
+.section h3{font-size:1.15em;color:#2d3748;margin:20px 0 10px}
+.score-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:20px}
+.score-card{background:linear-gradient(135deg,#f7fafc,#edf2f7);border-radius:12px;padding:24px;text-align:center;border:1px solid #e2e8f0}
+.score-card .big{font-size:2.4em;font-weight:800;color:#1a365d}
+.score-card .label{font-size:.85em;color:#718096;margin-top:4px}
+.score-card.green .big{color:#38a169}
+.score-card.red .big{color:#e53e3e}
+.score-card.orange .big{color:#dd6b20}
+.score-card.blue .big{color:#3182ce}
+.stars{color:#f6ad55;font-size:1.3em;letter-spacing:2px}
+table{width:100%;border-collapse:collapse;margin:15px 0}
+th{background:#1a365d;color:#fff;padding:12px 16px;text-align:left;font-size:.85em;text-transform:uppercase;letter-spacing:.5px}
+td{padding:11px 16px;border-bottom:1px solid #e2e8f0;font-size:.92em}
+tr:hover td{background:#f7fafc}
+.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.78em;font-weight:600;text-transform:uppercase}
+.badge.high{background:#fed7d7;color:#c53030}
+.badge.medium{background:#fefcbf;color:#975a16}
+.badge.low{background:#c6f6d5;color:#276749}
+.bar-chart{margin:15px 0}
+.bar-row{display:flex;align-items:center;margin-bottom:10px}
+.bar-label{width:160px;font-size:.88em;color:#4a5568;flex-shrink:0}
+.bar-track{flex:1;background:#e2e8f0;border-radius:8px;height:28px;position:relative;overflow:hidden}
+.bar-fill{height:100%;border-radius:8px;display:flex;align-items:center;justify-content:flex-end;padding-right:10px;font-size:.78em;font-weight:700;color:#fff;transition:width .5s}
+.bar-fill.blue{background:linear-gradient(90deg,#3182ce,#2b6cb0)}
+.bar-fill.green{background:linear-gradient(90deg,#38a169,#2f855a)}
+.bar-fill.orange{background:linear-gradient(90deg,#dd6b20,#c05621)}
+.bar-fill.red{background:linear-gradient(90deg,#e53e3e,#c53030)}
+.bar-fill.teal{background:linear-gradient(90deg,#319795,#2c7a7b)}
+.timeline{position:relative;padding-left:30px;margin:20px 0}
+.timeline::before{content:'';position:absolute;left:12px;top:0;bottom:0;width:3px;background:#e2e8f0;border-radius:2px}
+.timeline-item{position:relative;margin-bottom:24px}
+.timeline-item::before{content:'';position:absolute;left:-24px;top:4px;width:16px;height:16px;border-radius:50%;border:3px solid #1a365d;background:#fff}
+.timeline-item.phase1::before{background:#e53e3e;border-color:#e53e3e}
+.timeline-item.phase2::before{background:#dd6b20;border-color:#dd6b20}
+.timeline-item.phase3::before{background:#3182ce;border-color:#3182ce}
+.timeline-item.phase4::before{background:#38a169;border-color:#38a169}
+.timeline-phase{font-weight:700;font-size:1em;margin-bottom:6px}
+.timeline-actions{list-style:none;padding:0}
+.timeline-actions li{padding:4px 0;font-size:.9em;color:#4a5568;padding-left:14px;position:relative}
+.timeline-actions li::before{content:'';position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:50%;background:#a0aec0}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:700px){.two-col{grid-template-columns:1fr}.cover{padding:30px 25px}.cover h1{font-size:1.8em}.section{padding:20px 24px}}
+.alert{padding:14px 18px;border-radius:8px;margin:12px 0;font-size:.92em;display:flex;align-items:flex-start;gap:10px}
+.alert.critical{background:#fed7d7;border-left:4px solid #e53e3e;color:#742a2a}
+.alert.warning{background:#fefcbf;border-left:4px solid #d69e2e;color:#744210}
+.alert.success{background:#c6f6d5;border-left:4px solid #38a169;color:#22543d}
+.alert.info{background:#bee3f8;border-left:4px solid #3182ce;color:#2a4365}
+.footer{text-align:center;padding:30px;color:#a0aec0;font-size:.85em}
+.tag-row{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.tag{background:#edf2f7;color:#4a5568;padding:4px 12px;border-radius:20px;font-size:.82em}
+.tag.missing{background:#fed7d7;color:#c53030}
+.tag.found{background:#c6f6d5;color:#276749}
+.cannibal-example{background:#fff5f5;border:1px solid #fed7d7;border-radius:10px;padding:20px;margin:12px 0}
+.cannibal-example .vs{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:10px 0}
+.cannibal-example .page-box{flex:1;min-width:200px;padding:14px;border-radius:8px;font-size:.9em}
+.cannibal-example .page-box.service{background:#c6f6d5;border:1px solid #9ae6b4}
+.cannibal-example .page-box.blog{background:#fed7d7;border:1px solid #feb2b2}
+.cannibal-example .vs-icon{font-size:1.4em;font-weight:800;color:#e53e3e;flex-shrink:0}
+.cannibal-fix{background:#f0fff4;border:1px solid #c6f6d5;border-radius:8px;padding:14px 18px;margin:8px 0;font-size:.92em}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- COVER -->
+<div class="cover">
+  <h1>Marketing & SEO Report</h1>
+  <div class="subtitle">Roane Family Dental &mdash; West Linn, OR</div>
+  <div class="cover-meta">
+    <span>&#127760; roanefamilydental.com</span>
+    <span>&#128205; 2180 8th Ct #100, West Linn, OR 97068</span>
+    <span>&#128222; (503) 657-1215</span>
+    <span>&#128197; April 4, 2026</span>
+  </div>
+</div>
+
+<!-- EXECUTIVE SUMMARY -->
+<div class="section">
+  <h2>&#128202; Executive Summary</h2>
+  <p style="margin-bottom:20px;font-size:1.02em">Roane Family Dental is a trusted West Linn practice led by Dr. Matt Roane with <strong>outstanding patient satisfaction</strong> (5-star aggregate rating). However, the practice faces significant digital challenges: the website blocks search engine crawlers, uses an outdated ASP-based architecture with poor URL structure, has <strong>no blog content</strong>, inconsistent business address listings, and minimal social media presence. These issues are limiting organic visibility in a competitive West Linn/Portland metro dental market.</p>
+
+  <div class="score-row">
+    <div class="score-card green"><div class="big">5.0</div><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="label">Aggregate Rating (211 reviews)</div></div>
+    <div class="score-card orange"><div class="big">~17</div><div class="label">Indexed Pages</div></div>
+    <div class="score-card red"><div class="big">260</div><div class="label">Facebook Followers</div></div>
+    <div class="score-card red"><div class="big">15</div><div class="label">Yelp Reviews</div></div>
+  </div>
+
+  <h3>Top 5 Priority Actions</h3>
+  <div class="alert critical"><strong>1.</strong> Fix 403 errors blocking search engine crawlers &mdash; site is actively preventing Googlebot from indexing</div>
+  <div class="alert critical"><strong>2.</strong> Resolve address inconsistency across directories (1673 10th St vs. 2180 8th Ct)</div>
+  <div class="alert critical"><strong>3.</strong> Modernize URL structure &mdash; replace .asp parameter URLs with clean, SEO-friendly paths</div>
+  <div class="alert warning"><strong>4.</strong> Create missing service pages and launch blog content strategy</div>
+  <div class="alert info"><strong>5.</strong> Build social media presence and implement review generation system</div>
+</div>
+
+<!-- BUSINESS OVERVIEW -->
+<div class="section">
+  <h2>&#127973; Business Overview</h2>
+  <div class="two-col">
+    <div>
+      <h3>Practice Details</h3>
+      <table>
+        <tr><td><strong>Lead Dentist</strong></td><td>Dr. Matt Roane, DMD</td></tr>
+        <tr><td><strong>Education</strong></td><td>University of Louisville</td></tr>
+        <tr><td><strong>Years in Practice</strong></td><td>10+ years in West Linn</td></tr>
+        <tr><td><strong>Hours</strong></td><td>Mon-Wed 8am-5pm, Thu 7am-1pm</td></tr>
+        <tr><td><strong>Phone</strong></td><td>(503) 657-1215</td></tr>
+        <tr><td><strong>Location</strong></td><td>West Linn, OR 97068</td></tr>
+        <tr><td><strong>Service Area</strong></td><td>West Linn, Oregon City, Lake Oswego, Portland metro</td></tr>
+      </table>
+    </div>
+    <div>
+      <h3>Services Offered</h3>
+      <table>
+        <tr><td><strong>General</strong></td><td>Checkups, cleanings, X-rays, family dentistry</td></tr>
+        <tr><td><strong>Cosmetic</strong></td><td>Smile makeovers, whitening</td></tr>
+        <tr><td><strong>Restorative</strong></td><td>Implants, crowns, bridges</td></tr>
+        <tr><td><strong>Orthodontics</strong></td><td>Clear aligners</td></tr>
+        <tr><td><strong>Pediatric</strong></td><td>Dentistry for kids</td></tr>
+        <tr><td><strong>Periodontal</strong></td><td>Gum disease treatment</td></tr>
+        <tr><td><strong>Sedation</strong></td><td>Sedation dentistry options</td></tr>
+        <tr><td><strong>Emergency</strong></td><td>Emergency dental care</td></tr>
+      </table>
+    </div>
+  </div>
+  <h3>Technology & Differentiators</h3>
+  <div class="tag-row">
+    <span class="tag">3D Radiographic Imaging</span>
+    <span class="tag">Digital X-Rays</span>
+    <span class="tag">Intraoral Cameras</span>
+    <span class="tag">Spa-Like Comfort Focus</span>
+    <span class="tag">Anxiety-Friendly Environment</span>
+    <span class="tag">Transparent Billing</span>
+  </div>
+</div>
+
+<!-- ONLINE REPUTATION -->
+<div class="section">
+  <h2>&#11088; Online Reputation</h2>
+  <div class="bar-chart">
+    <div class="bar-row"><span class="bar-label">Zaubee Agg. (211)</span><div class="bar-track"><div class="bar-fill green" style="width:100%">5.0 &#9733;</div></div></div>
+    <div class="bar-row"><span class="bar-label">Yelp (15)</span><div class="bar-track"><div class="bar-fill orange" style="width:30%">~15 reviews</div></div></div>
+    <div class="bar-row"><span class="bar-label">Healthgrades (2)</span><div class="bar-track"><div class="bar-fill red" style="width:70%">3.5 &#9733;</div></div></div>
+    <div class="bar-row"><span class="bar-label">Facebook</span><div class="bar-track"><div class="bar-fill teal" style="width:40%">260 followers</div></div></div>
+  </div>
+  <div class="two-col">
+    <div>
+      <h3 style="color:#38a169">Strengths</h3>
+      <ul style="padding-left:18px;font-size:.92em">
+        <li>5.0 stars aggregate across 211 reviews &mdash; exceptional</li>
+        <li>Patients consistently praise Dr. Roane as "best dentist they've had"</li>
+        <li>Strong reputation for alleviating dental anxiety</li>
+        <li>Staff (Kelly, Crystal) singled out by name in reviews</li>
+        <li>Praised for transparency in billing and treatment</li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="color:#e53e3e">Opportunities</h3>
+      <ul style="padding-left:18px;font-size:.92em">
+        <li>Only 15 Yelp reviews &mdash; far below competitors</li>
+        <li>Only 2 Healthgrades reviews (3.5 stars hurts visibility)</li>
+        <li>No systematic post-visit review request workflow</li>
+        <li>Google review count not clearly established &mdash; needs growth</li>
+        <li>Should respond to all reviews (positive and negative)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SEO AUDIT -->
+<div class="section">
+  <h2>&#128269; SEO Audit Findings</h2>
+
+  <h3>Technical SEO Issues</h3>
+  <div class="alert critical"><strong>CRITICAL:</strong> Website returns 403 errors to crawlers and bots. robots.txt and sitemap.xml are inaccessible. If Googlebot faces the same blocks, the site is being actively de-indexed. Check server/hosting security settings immediately.</div>
+  <div class="alert critical"><strong>CRITICAL:</strong> Address inconsistency across the web &mdash; Yelp and older listings show <strong>"1673 10th St"</strong> while newer listings show <strong>"2180 8th Ct #100"</strong>. Google penalizes NAP (Name, Address, Phone) inconsistency in local search rankings.</div>
+  <div class="alert critical"><strong>CRITICAL:</strong> URL structure uses legacy ASP parameters (e.g., <code>/p/dentist-West-Linn-OR-Family-Dentistry-p44881.asp</code>). These are long, unreadable, and SEO-unfriendly. Modern dental sites use clean URLs like <code>/services/family-dentistry</code>.</div>
+  <div class="alert warning"><strong>WARNING:</strong> Two different homepage versions indexed &mdash; <code>roanefamilydental.com/</code> and <code>www.roanefamilydental.com/Index.asp</code>. This creates duplicate content issues. Must canonicalize to a single version.</div>
+  <div class="alert warning"><strong>WARNING:</strong> No blog content found anywhere on the site. Zero informational content to capture top-of-funnel search traffic.</div>
+
+  <h3>Site Architecture &mdash; Indexed Pages</h3>
+  <div class="two-col">
+    <div>
+      <h3 style="color:#38a169;margin-top:8px">Pages Found (~17)</h3>
+      <div class="tag-row">
+        <span class="tag found">Homepage</span>
+        <span class="tag found">About Us</span>
+        <span class="tag found">Meet Dr. Roane</span>
+        <span class="tag found">Meet Our Team</span>
+        <span class="tag found">Dental Services</span>
+        <span class="tag found">Family Dentistry</span>
+        <span class="tag found">Dental Implants</span>
+        <span class="tag found">Restorative Dentistry</span>
+        <span class="tag found">Dentistry for Kids</span>
+        <span class="tag found">Periodontal Care</span>
+        <span class="tag found">Dental Cleanings</span>
+        <span class="tag found">Technology</span>
+        <span class="tag found">Patient Information</span>
+        <span class="tag found">Reviews</span>
+        <span class="tag found">Contact Us</span>
+        <span class="tag found">Sitemap</span>
+      </div>
+    </div>
+    <div>
+      <h3 style="color:#e53e3e;margin-top:8px">Missing Pages</h3>
+      <div class="tag-row">
+        <span class="tag missing">Cosmetic Dentistry</span>
+        <span class="tag missing">Teeth Whitening</span>
+        <span class="tag missing">Veneers</span>
+        <span class="tag missing">Emergency Dentistry</span>
+        <span class="tag missing">Sedation Dentistry</span>
+        <span class="tag missing">Clear Aligners</span>
+        <span class="tag missing">Crowns & Bridges</span>
+        <span class="tag missing">Root Canals</span>
+        <span class="tag missing">Extractions</span>
+        <span class="tag missing">Smile Makeovers</span>
+        <span class="tag missing">Neighborhood Pages</span>
+        <span class="tag missing">Blog / Educational Content</span>
+        <span class="tag missing">Insurance / Financing Page</span>
+      </div>
+    </div>
+  </div>
+
+  <h3>Title Tag Analysis</h3>
+  <table>
+    <tr><th>Page</th><th>Current Title</th><th>Issue</th></tr>
+    <tr><td>Homepage</td><td>Dentist West Linn, OR | Roane Family Dental</td><td><span class="badge low">OK</span></td></tr>
+    <tr><td>Meet the Team</td><td>Meet Our Team &bull; Dentist West Linn &bull; Roane Family Dental</td><td><span class="badge low">OK</span></td></tr>
+    <tr><td>Services</td><td>Dental Services West Linn OR | Roane Family Dental | Dentist</td><td><span class="badge low">OK</span></td></tr>
+    <tr><td>Family Dentistry</td><td>Family Dentistry West Linn, OR | Roane Family Dental</td><td><span class="badge low">OK</span></td></tr>
+    <tr><td>Dental Implants</td><td>Dental Implants West Linn, OR | Roane Family Dental</td><td><span class="badge low">OK</span></td></tr>
+    <tr><td>Patient Info</td><td>Patient Information | Roane Family Dental | West Linn, OR dentist</td><td><span class="badge low">OK</span></td></tr>
+    <tr><td>Reviews</td><td>Reviews and Testimonials | Roane Family Dental - West Linn, OR</td><td><span class="badge low">OK</span></td></tr>
+    <tr><td>Restorative</td><td>Restorative Dentistry West Linn, OR | Roane Family Dental</td><td><span class="badge low">OK</span></td></tr>
+    <tr><td>Index.asp (www)</td><td>Roane Family Dental West Linn, OR | Family Dental | Dentist</td><td><span class="badge high">Duplicate of Homepage</span></td></tr>
+  </table>
+  <div class="alert info"><strong>Note:</strong> Title tags are generally well-structured with location keywords. The main issue is the duplicate www/Index.asp version and the need for more service-specific pages to target additional keywords.</div>
+</div>
+
+<!-- LOCAL SEO -->
+<div class="section">
+  <h2>&#128205; Local SEO & Directory Presence</h2>
+  <div class="two-col">
+    <div>
+      <h3 style="color:#38a169">Confirmed Listings</h3>
+      <div class="tag-row">
+        <span class="tag found">Google Business Profile</span>
+        <span class="tag found">Yelp</span>
+        <span class="tag found">Healthgrades</span>
+        <span class="tag found">Facebook</span>
+        <span class="tag found">Nextdoor</span>
+        <span class="tag found">Yellow Pages</span>
+        <span class="tag found">Birdeye</span>
+        <span class="tag found">Zaubee</span>
+        <span class="tag found">Wheree</span>
+        <span class="tag found">WebMD</span>
+        <span class="tag found">US News Health</span>
+        <span class="tag found">Sharecare</span>
+        <span class="tag found">ADA Find-a-Dentist</span>
+        <span class="tag found">Best of the Web</span>
+        <span class="tag found">Family Dental Directory</span>
+      </div>
+    </div>
+    <div>
+      <h3 style="color:#e53e3e">Missing / Weak Listings</h3>
+      <div class="tag-row">
+        <span class="tag missing">ZocDoc</span>
+        <span class="tag missing">Vitals.com</span>
+        <span class="tag missing">1-800-DENTIST</span>
+        <span class="tag missing">Opencare (unclaimed)</span>
+        <span class="tag missing">DenScore (unclaimed)</span>
+      </div>
+      <div class="alert warning" style="margin-top:14px"><strong>Address Conflict:</strong> Some directories list <strong>1673 10th St</strong> while others show <strong>2180 8th Ct #100</strong>. This must be resolved immediately &mdash; pick the correct current address and update ALL listings.</div>
+    </div>
+  </div>
+  <h3>Google Business Profile Recommendations</h3>
+  <ul style="padding-left:18px;font-size:.92em">
+    <li>Verify primary category is <strong>"Dentist"</strong> with secondary categories: Family Dentist, Cosmetic Dentist, Emergency Dental Service, Pediatric Dentist</li>
+    <li>Publish Google Posts weekly (offers, dental tips, team highlights, patient stories)</li>
+    <li>Seed Q&A section with common patient questions (insurance, sedation, implants cost)</li>
+    <li>Upload fresh photos monthly &mdash; team, office interior, technology, before/after</li>
+    <li>Add service area covering West Linn, Lake Oswego, Oregon City, Tualatin, Wilsonville</li>
+    <li>Ensure hours, address, and phone are 100% consistent with website and all directories</li>
+  </ul>
+</div>
+
+<!-- KEYWORD OPPORTUNITIES -->
+<div class="section">
+  <h2>&#128273; Keyword Opportunities</h2>
+  <table>
+    <tr><th>Keyword</th><th>Search Volume</th><th>Current Status</th><th>Priority</th></tr>
+    <tr><td>dentist west linn</td><td>High</td><td>Has homepage</td><td><span class="badge high">HIGH</span></td></tr>
+    <tr><td>dentist west linn or</td><td>High</td><td>Has homepage</td><td><span class="badge high">HIGH</span></td></tr>
+    <tr><td>best dentist west linn</td><td>Medium</td><td>Low visibility</td><td><span class="badge high">HIGH</span></td></tr>
+    <tr><td>family dentist west linn</td><td>Medium</td><td>Has page</td><td><span class="badge high">HIGH</span></td></tr>
+    <tr><td>dental implants west linn</td><td>Medium</td><td>Has page</td><td><span class="badge high">HIGH</span></td></tr>
+    <tr><td>emergency dentist west linn</td><td>Medium</td><td><span class="badge high">No page</span></td><td><span class="badge high">HIGH</span></td></tr>
+    <tr><td>cosmetic dentist west linn</td><td>Medium</td><td><span class="badge high">No page</span></td><td><span class="badge high">HIGH</span></td></tr>
+    <tr><td>sedation dentistry west linn</td><td>Low-Med</td><td><span class="badge high">No page</span></td><td><span class="badge high">HIGH</span></td></tr>
+    <tr><td>pediatric dentist west linn</td><td>Medium</td><td>Has page (kids)</td><td><span class="badge medium">MED</span></td></tr>
+    <tr><td>teeth whitening west linn</td><td>Low-Med</td><td><span class="badge high">No page</span></td><td><span class="badge medium">MED</span></td></tr>
+    <tr><td>dentist lake oswego</td><td>High</td><td><span class="badge high">No page</span></td><td><span class="badge medium">MED</span></td></tr>
+    <tr><td>dentist oregon city</td><td>High</td><td><span class="badge high">No page</span></td><td><span class="badge medium">MED</span></td></tr>
+    <tr><td>clear aligners west linn</td><td>Low-Med</td><td><span class="badge high">No page</span></td><td><span class="badge medium">MED</span></td></tr>
+    <tr><td>root canal west linn</td><td>Low</td><td><span class="badge high">No page</span></td><td><span class="badge medium">MED</span></td></tr>
+    <tr><td>veneers west linn</td><td>Low</td><td><span class="badge high">No page</span></td><td><span class="badge medium">MED</span></td></tr>
+  </table>
+</div>
+
+<!-- COMPETITIVE LANDSCAPE -->
+<div class="section">
+  <h2>&#9878; Competitive Landscape</h2>
+  <table>
+    <tr><th>Competitor</th><th>Key Strengths</th><th>Threat Level</th></tr>
+    <tr><td><strong>Westover DMD</strong></td><td>5 stars on Google/Yelp/Facebook, same-day crowns, modern tech stack</td><td><span class="badge high">HIGH</span></td></tr>
+    <tr><td><strong>West Linn Family Dental</strong></td><td>Dr. Jeremy Cobb, strong local brand, "West Linn" in name (SEO advantage)</td><td><span class="badge high">HIGH</span></td></tr>
+    <tr><td><strong>West Linn Dental</strong></td><td>Affordable positioning, accepts many insurance plans, strong domain name</td><td><span class="badge high">HIGH</span></td></tr>
+    <tr><td><strong>ZenTech Dentistry</strong></td><td>20+ years experience, cosmetic + family focus, modern branding</td><td><span class="badge medium">MEDIUM</span></td></tr>
+    <tr><td><strong>Hidden Springs Family Dentistry</strong></td><td>All-ages practice, West Linn location</td><td><span class="badge medium">MEDIUM</span></td></tr>
+    <tr><td><strong>Advance Dental Arts Center</strong></td><td>Dr. Kim Wright, Portland metro service area, comprehensive services</td><td><span class="badge medium">MEDIUM</span></td></tr>
+    <tr><td><strong>Adroit Family Dental</strong></td><td>Invisalign, whitening, cosmetic focus</td><td><span class="badge low">LOW</span></td></tr>
+  </table>
+
+  <div class="alert warning"><strong>Competitive Note:</strong> Two competitors have "West Linn" directly in their business name ("West Linn Family Dental" and "West Linn Dental"), giving them a natural SEO advantage for the primary local keyword. Roane Family Dental must compensate with stronger content, more reviews, and better technical SEO.</div>
+
+  <h3>Your Differentiators</h3>
+  <div class="tag-row" style="margin-top:10px">
+    <span class="tag found">5-Star Reputation</span>
+    <span class="tag found">Anxiety-Friendly Care</span>
+    <span class="tag found">3D Imaging Technology</span>
+    <span class="tag found">10+ Years in Community</span>
+    <span class="tag found">Named Staff in Reviews</span>
+    <span class="tag found">Transparent Billing</span>
+  </div>
+</div>
+
+<!-- SOCIAL MEDIA -->
+<div class="section">
+  <h2>&#128241; Social Media Analysis</h2>
+  <div class="score-row">
+    <div class="score-card"><div class="big" style="color:#1877F2">260</div><div class="label">Facebook Followers</div></div>
+    <div class="score-card"><div class="big" style="color:#E1306C">None</div><div class="label">Dedicated Instagram</div></div>
+    <div class="score-card"><div class="big" style="color:#333">None</div><div class="label">TikTok Presence</div></div>
+    <div class="score-card"><div class="big" style="color:#0A66C2">Listed</div><div class="label">LinkedIn (Dr. Roane)</div></div>
+  </div>
+  <div class="alert critical"><strong>Assessment:</strong> 260 Facebook followers after 10+ years in practice is critically low. No dedicated Instagram account exists for the practice. This is a major missed opportunity &mdash; competitors with active social media are building community trust and visibility that directly impacts local SEO signals.</div>
+  <h3>Recommended Content Pillars</h3>
+  <div class="tag-row">
+    <span class="tag">Before/After Smile Transformations</span>
+    <span class="tag">Dr. Roane &amp; Team Spotlights</span>
+    <span class="tag">Dental Tips &amp; Myth-Busting</span>
+    <span class="tag">Patient Testimonial Videos</span>
+    <span class="tag">Behind-the-Scenes / Office Tour</span>
+    <span class="tag">West Linn Community Involvement</span>
+    <span class="tag">Kids Dental Health Education</span>
+    <span class="tag">Short-Form Video (Reels/TikTok)</span>
+  </div>
+</div>
+
+<!-- BLOG STRATEGY & CANNIBALIZATION -->
+<div class="section">
+  <h2>&#9888; Blog Strategy & Keyword Cannibalization Risk</h2>
+  <p style="margin-bottom:16px;font-size:1.02em">Roane Family Dental currently has <strong>zero blog content</strong>. When launching a blog, it is critical to avoid <strong>keyword cannibalization</strong> &mdash; where blog posts compete with service pages for the same search terms, confusing Google and hurting both pages' rankings.</p>
+
+  <div class="alert critical"><strong>Key Rule:</strong> Service pages target transactional keywords (e.g., "dental implants west linn"). Blog posts target informational keywords that <em>support</em> the service page without competing with it.</div>
+
+  <h3>Cannibalization Examples to Avoid</h3>
+
+  <div class="cannibal-example">
+    <strong>Example 1: Dental Implants</strong>
+    <div class="vs">
+      <div class="page-box service"><strong>&#9989; Service Page (Exists)</strong><br>"Dental Implants West Linn, OR"<br><em>Target: "dental implants west linn"</em></div>
+      <div class="vs-icon">vs.</div>
+      <div class="page-box blog"><strong>&#10060; Blog Post (Avoid This)</strong><br>"Dental Implants in West Linn &mdash; Everything You Need to Know"<br><em>Target: "dental implants west linn"</em></div>
+    </div>
+    <div class="cannibal-fix">&#128161; <strong>Fix:</strong> Instead, write <em>"How Long Do Dental Implants Last?"</em> or <em>"Dental Implants vs. Dentures: Which Is Right for You?"</em> &mdash; these answer informational queries and link back to the Implants service page.</div>
+  </div>
+
+  <div class="cannibal-example">
+    <strong>Example 2: Family Dentistry</strong>
+    <div class="vs">
+      <div class="page-box service"><strong>&#9989; Service Page (Exists)</strong><br>"Family Dentistry West Linn, OR"<br><em>Target: "family dentist west linn"</em></div>
+      <div class="vs-icon">vs.</div>
+      <div class="page-box blog"><strong>&#10060; Blog Post (Avoid This)</strong><br>"Best Family Dentist in West Linn"<br><em>Target: "family dentist west linn"</em></div>
+    </div>
+    <div class="cannibal-fix">&#128161; <strong>Fix:</strong> Instead, write <em>"At What Age Should Your Child First Visit the Dentist?"</em> or <em>"How to Make Dental Visits Fun for Kids"</em> &mdash; these attract parents searching for info and funnel them to the Family Dentistry page.</div>
+  </div>
+
+  <div class="cannibal-example">
+    <strong>Example 3: Periodontal Care</strong>
+    <div class="vs">
+      <div class="page-box service"><strong>&#9989; Service Page (Exists)</strong><br>"Periodontal Care West Linn, OR"<br><em>Target: "gum disease treatment west linn"</em></div>
+      <div class="vs-icon">vs.</div>
+      <div class="page-box blog"><strong>&#10060; Blog Post (Avoid This)</strong><br>"Periodontal Care in West Linn, OR"<br><em>Target: "periodontal care west linn"</em></div>
+    </div>
+    <div class="cannibal-fix">&#128161; <strong>Fix:</strong> Instead, write <em>"5 Warning Signs of Gum Disease You Shouldn't Ignore"</em> or <em>"Can Gum Disease Cause Heart Problems?"</em> &mdash; informational intent that links to the Periodontal Care page.</div>
+  </div>
+
+  <h3>Blog Content Strategy: The Right Approach</h3>
+  <table>
+    <tr><th>Service Page (Transactional)</th><th>&#10060; Don't Write This Blog</th><th>&#9989; Write This Instead</th></tr>
+    <tr><td>Dental Implants West Linn</td><td>"Implants in West Linn Guide"</td><td>"Am I a Candidate for Dental Implants?"</td></tr>
+    <tr><td>Family Dentistry West Linn</td><td>"Family Dentist West Linn"</td><td>"How Often Should You Really Visit the Dentist?"</td></tr>
+    <tr><td>Periodontal Care West Linn</td><td>"Gum Disease Treatment West Linn"</td><td>"Can You Reverse Gum Disease at Home?"</td></tr>
+    <tr><td>Dentistry for Kids West Linn</td><td>"Pediatric Dentist West Linn"</td><td>"How to Help Your Child Overcome Fear of the Dentist"</td></tr>
+    <tr><td>Emergency Dentistry (new page)</td><td>"Emergency Dentist West Linn"</td><td>"Knocked Out a Tooth? Here's What to Do in the First 30 Minutes"</td></tr>
+    <tr><td>Sedation Dentistry (new page)</td><td>"Sedation Dentist West Linn"</td><td>"What Does Sedation Dentistry Feel Like?"</td></tr>
+    <tr><td>Clear Aligners (new page)</td><td>"Clear Aligners West Linn"</td><td>"Clear Aligners vs. Traditional Braces: Pros and Cons"</td></tr>
+  </table>
+
+  <div class="alert info"><strong>Strategy:</strong> Every blog post should target a unique informational keyword and include an internal link to the relevant service page. This builds topical authority, avoids cannibalization, and funnels organic traffic toward conversion pages.</div>
+</div>
+
+<!-- ACTION PLAN -->
+<div class="section">
+  <h2>&#128640; Prioritized Action Plan</h2>
+  <div class="timeline">
+
+    <div class="timeline-item phase1">
+      <div class="timeline-phase" style="color:#e53e3e">Phase 1: Critical Fixes (Weeks 1-2)</div>
+      <ul class="timeline-actions">
+        <li>Fix 403 crawler/bot blocking &mdash; verify Googlebot can access all pages</li>
+        <li>Resolve address inconsistency: update ALL directories to current correct address</li>
+        <li>Set up proper canonical tags (www vs non-www, Index.asp vs homepage)</li>
+        <li>Verify robots.txt allows crawling and references XML sitemap</li>
+        <li>Submit XML sitemap to Google Search Console</li>
+        <li>Fully optimize Google Business Profile (categories, photos, hours, Q&A)</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item phase2">
+      <div class="timeline-phase" style="color:#dd6b20">Phase 2: Quick Wins (Weeks 2-4)</div>
+      <ul class="timeline-actions">
+        <li>Create missing service pages: Cosmetic Dentistry, Emergency, Sedation, Whitening, Veneers, Clear Aligners, Root Canals, Crowns & Bridges</li>
+        <li>Add schema markup (LocalBusiness, Dentist, MedicalOrganization)</li>
+        <li>Implement systematic review generation workflow (text/email post-visit)</li>
+        <li>Claim and optimize missing directory listings (ZocDoc, Vitals, Opencare)</li>
+        <li>Create dedicated Insurance & Financing page</li>
+        <li>Plan URL migration strategy &mdash; redirect .asp URLs to clean paths</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item phase3">
+      <div class="timeline-phase" style="color:#3182ce">Phase 3: Growth Initiatives (Months 2-3)</div>
+      <ul class="timeline-actions">
+        <li>Launch blog with informational content (avoid cannibalizing service pages)</li>
+        <li>Create neighborhood pages (Lake Oswego, Oregon City, Tualatin, Wilsonville)</li>
+        <li>Create and launch Instagram account for the practice</li>
+        <li>Build FAQ content for featured snippets & AI search engines</li>
+        <li>Increase social media to 3-4 posts/week with video content</li>
+        <li>Begin building local backlinks (Chamber of Commerce, West Linn community orgs)</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item phase4">
+      <div class="timeline-phase" style="color:#38a169">Phase 4: Long-Term Strategy (Months 3-6)</div>
+      <ul class="timeline-actions">
+        <li>Execute full URL migration from .asp to clean URL structure</li>
+        <li>Develop "Best Dentist in West Linn" cornerstone content</li>
+        <li>Create comparison pages (Implants vs. Bridges, Aligners vs. Braces, etc.)</li>
+        <li>Launch patient video testimonial program</li>
+        <li>Build topical clusters around high-value services (implants, cosmetic, sedation)</li>
+        <li>Optimize for AI search engines (AEO/GEO)</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- METRICS -->
+<div class="section">
+  <h2>&#128200; Key Metrics & Targets</h2>
+  <table>
+    <tr><th>Metric</th><th>Current</th><th>3-Month Target</th><th>6-Month Target</th></tr>
+    <tr><td>Aggregate Reviews</td><td>~211</td><td><strong>275+</strong></td><td><strong>375+</strong></td></tr>
+    <tr><td>Google Rating</td><td>TBD (verify)</td><td>4.9+ &#9733;</td><td>Maintain 4.9+</td></tr>
+    <tr><td>Yelp Reviews</td><td>15</td><td><strong>30+</strong></td><td><strong>50+</strong></td></tr>
+    <tr><td>Healthgrades Reviews</td><td>2</td><td><strong>15+</strong></td><td><strong>30+</strong></td></tr>
+    <tr><td>Indexed Pages</td><td>~17</td><td><strong>35+</strong></td><td><strong>55+</strong></td></tr>
+    <tr><td>Facebook Followers</td><td>260</td><td><strong>500+</strong></td><td><strong>900+</strong></td></tr>
+    <tr><td>Instagram Followers</td><td>0 (no account)</td><td><strong>300+</strong></td><td><strong>750+</strong></td></tr>
+    <tr><td>Organic Traffic</td><td>Baseline TBD</td><td>+30%</td><td>+60%</td></tr>
+    <tr><td>GBP Actions (calls, directions)</td><td>Baseline TBD</td><td>Track & Grow</td><td>+35%</td></tr>
+  </table>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p><strong>Roane Family Dental &mdash; Marketing & SEO Report</strong></p>
+  <p>Prepared April 4, 2026 | Confidential</p>
+</div>
+
+</div>
+</body>
+</html>
