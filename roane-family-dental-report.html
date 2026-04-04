@@ -57,12 +57,14 @@ tr:hover td{background:#f7fafc}
 .timeline-actions li{padding:4px 0;font-size:.9em;color:#4a5568;padding-left:14px;position:relative}
 .timeline-actions li::before{content:'';position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:50%;background:#a0aec0}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-@media(max-width:700px){.two-col{grid-template-columns:1fr}.cover{padding:30px 25px}.cover h1{font-size:1.8em}.section{padding:20px 24px}}
-.alert{padding:14px 18px;border-radius:8px;margin:12px 0;font-size:.92em;display:flex;align-items:flex-start;gap:10px}
+@media(max-width:700px){.two-col{grid-template-columns:1fr}.cover{padding:30px 20px}.cover h1{font-size:1.8em}.section{padding:20px 16px}.score-row{grid-template-columns:repeat(2,1fr)}.bar-label{width:100px;font-size:.8em}.bar-fill{font-size:.7em;padding-right:6px}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap}th,td{padding:8px 10px;font-size:.8em}.cover-meta{gap:12px;font-size:.85em}.section h2{font-size:1.2em;flex-wrap:wrap}.cannibal-example .vs{flex-direction:column}.cannibal-example .page-box{min-width:100%}.cannibal-example .vs-icon{align-self:center}.timeline{padding-left:24px}.cannibal-example{padding:14px}.cannibal-fix{padding:10px 12px;font-size:.85em}}
+.alert{padding:14px 18px;border-radius:8px;margin:12px 0;font-size:.92em;display:block;overflow-wrap:break-word;word-wrap:break-word;word-break:break-word}
 .alert.critical{background:#fed7d7;border-left:4px solid #e53e3e;color:#742a2a}
 .alert.warning{background:#fefcbf;border-left:4px solid #d69e2e;color:#744210}
 .alert.success{background:#c6f6d5;border-left:4px solid #38a169;color:#22543d}
 .alert.info{background:#bee3f8;border-left:4px solid #3182ce;color:#2a4365}
+code{background:#f7fafc;padding:2px 6px;border-radius:4px;font-size:.85em;word-break:break-all;display:inline}
+.container{overflow-x:hidden}
 .footer{text-align:center;padding:30px;color:#a0aec0;font-size:.85em}
 .tag-row{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
 .tag{background:#edf2f7;color:#4a5568;padding:4px 12px;border-radius:20px;font-size:.82em}
