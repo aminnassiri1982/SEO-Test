@@ -1,77 +1,91 @@
 import os
-import sys
+import subprocess
 
-FOLDER = os.path.expanduser("~/Downloads/dr. chan")
-
-SEO_NAMES = [
-    "cypress-dentist-dr-chan",
-    "cypress-dental-office",
-    "cypress-tx-family-dentist",
-    "cypress-cosmetic-dentistry",
-    "cypress-teeth-cleaning",
-    "cypress-dental-exam",
-    "cypress-dental-xray",
-    "cypress-smile-makeover",
-    "cypress-teeth-whitening",
-    "cypress-dental-implants",
-    "cypress-porcelain-veneers",
-    "cypress-emergency-dentist",
-    "cypress-pediatric-dentist",
-    "cypress-orthodontics",
-    "cypress-dental-crowns",
-    "cypress-root-canal-treatment",
-    "cypress-dental-bonding",
-    "cypress-gum-disease-treatment",
-    "cypress-invisalign-dentist",
-    "cypress-dental-care-team",
-    "cypress-modern-dental-office",
-    "cypress-dental-waiting-room",
-    "cypress-dental-technology",
-    "cypress-patient-consultation",
-    "cypress-dentist-near-me",
-]
+FOLDER = r"C:\Users\aminn\Downloads\Dr.chan"
 
 IMAGE_EXTENSIONS = {".jpg", ".jpeg", ".png", ".gif", ".webp", ".bmp", ".tiff", ".tif", ".avif"}
 
+NAMES = {
+    "s": [
+        "cypress-dentist-dr-chan",
+        "cypress-dental-team-member",
+        "cypress-dental-hygienist",
+        "cypress-dental-assistant",
+        "cypress-dental-receptionist",
+        "cypress-dental-staff",
+        "cypress-dentist-headshot",
+        "cypress-dental-team",
+    ],
+    "p": [
+        "cypress-dental-patient-smile",
+        "cypress-happy-dental-patient",
+        "cypress-patient-teeth-whitening",
+        "cypress-patient-dental-exam",
+        "cypress-patient-consultation",
+        "cypress-patient-dental-cleaning",
+        "cypress-patient-dental-care",
+        "cypress-patient-smile-makeover",
+    ],
+    "o": [
+        "cypress-dental-office",
+        "cypress-dental-waiting-room",
+        "cypress-dental-treatment-room",
+        "cypress-modern-dental-office",
+        "cypress-dental-equipment",
+        "cypress-dental-reception-area",
+        "cypress-dental-operatory",
+        "cypress-dental-office-interior",
+    ],
+}
 
-def rename_images():
-    if not os.path.isdir(FOLDER):
-        print(f"ERROR: Folder not found: {FOLDER}")
-        print("Make sure the folder path is exactly: ~/Downloads/dr. chan")
-        sys.exit(1)
+counts = {"s": 0, "p": 0, "o": 0}
 
-    files = sorted([
-        f for f in os.listdir(FOLDER)
-        if os.path.splitext(f)[1].lower() in IMAGE_EXTENSIONS
-    ])
+files = sorted([f for f in os.listdir(FOLDER) if os.path.splitext(f)[1].lower() in IMAGE_EXTENSIONS])
 
-    if not files:
-        print("No image files found in the folder.")
-        sys.exit(0)
+if not files:
+    print("No images found in folder.")
+    input("Press Enter to exit.")
+    exit()
 
-    print(f"Found {len(files)} image(s) in: {FOLDER}\n")
+print(f"Found {len(files)} image(s). Each image will open automatically.\n")
+print("For each image, press:")
+print("  S = Staff")
+print("  P = Patient")
+print("  O = Office")
+print("  Q = Quit\n")
 
-    renamed = []
-    for i, filename in enumerate(files):
-        ext = os.path.splitext(filename)[1].lower()
-        if i < len(SEO_NAMES):
-            new_name = f"{SEO_NAMES[i]}{ext}"
-        else:
-            new_name = f"cypress-dentist-image-{i + 1:02d}{ext}"
+for f in files:
+    full_path = os.path.join(FOLDER, f)
+    subprocess.Popen(["explorer", full_path])
 
-        src = os.path.join(FOLDER, filename)
-        dst = os.path.join(FOLDER, new_name)
+    print(f"Image: {f}")
+    choice = input("  Type S / P / O then Enter: ").strip().lower()
 
-        if os.path.exists(dst) and src != dst:
-            print(f"  SKIP (already exists): {new_name}")
-            continue
+    if choice == "q":
+        print("Quitting early.")
+        break
 
-        os.rename(src, dst)
-        renamed.append((filename, new_name))
-        print(f"  {filename}  →  {new_name}")
+    if choice not in ("s", "p", "o"):
+        print("  Skipped (invalid input).\n")
+        continue
 
-    print(f"\nDone. Renamed {len(renamed)} file(s).")
+    idx = counts[choice]
+    name_list = NAMES[choice]
+    if idx < len(name_list):
+        base = name_list[idx]
+    else:
+        base = f"cypress-{choice}-dental-photo-{idx + 1:02d}"
 
+    ext = os.path.splitext(f)[1].lower()
+    new_name = f"{base}{ext}"
+    dest = os.path.join(FOLDER, new_name)
 
-if __name__ == "__main__":
-    rename_images()
+    os.rename(full_path, dest)
+    counts[choice] += 1
+    print(f"  Renamed -> {new_name}\n")
+
+print("\nAll done!")
+print(f"  Staff renamed:   {counts['s']}")
+print(f"  Patient renamed: {counts['p']}")
+print(f"  Office renamed:  {counts['o']}")
+input("\nPress Enter to close.")
