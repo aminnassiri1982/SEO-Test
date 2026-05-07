@@ -175,6 +175,12 @@ p { font-size: clamp(0.95rem, 1.5vw, 1.05rem); color: var(--text-mid); }
   gap: 1px;
   text-decoration: none;
 }
+.nav__logo-img {
+  height: 48px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
 .nav__logo-main {
   font-family: var(--font-serif);
   font-size: 1.35rem;
