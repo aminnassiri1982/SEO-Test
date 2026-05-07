@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Phoenix Leadership — Book a Consultation</title>
+  <meta name="description" content="Connect with Phoenix Leadership to strengthen leadership in your dental practice, improve communication, and build better systems for growth.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" id="mainNav">
+    <a href="index.html" class="nav__logo">
+      <span class="nav__logo-main">Phoenix Leadership</span>
+      <span class="nav__logo-sub">Dental Practice Coaching</span>
+    </a>
+    <div class="nav__links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="why-phoenix.html">Why Phoenix Leadership</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="contact.html" class="btn nav__cta">Book a Consultation</a>
+    </div>
+    <button class="nav__hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav__mobile" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="why-phoenix.html">Why Phoenix Leadership</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="btn btn--primary nav__cta">Book a Consultation</a>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="page-hero__bg"></div>
+    <div class="container page-hero__content">
+      <span class="eyebrow fade-up">Get In Touch</span>
+      <div class="divider fade-up"></div>
+      <h1 class="fade-up">Contact<br><em style="color: var(--champagne);">Phoenix Leadership</em></h1>
+      <p class="lead fade-up" style="margin-top: 22px; color: var(--champagne-light);">Let's build the leadership your practice needs.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT MAIN -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- LEFT: Info -->
+        <div class="fade-up">
+          <span class="eyebrow">Start Here</span>
+          <div class="divider"></div>
+          <h2>Start with a conversation</h2>
+          <p class="lead" style="margin-top: 24px;">If you are ready to strengthen leadership in your practice, improve communication, support your office manager more effectively, or create stronger systems for growth, I would be happy to connect.</p>
+
+          <div class="contact-info-block" style="margin-top: 48px;">
+
+            <div class="contact-info-item">
+              <div class="contact-info-label">Who I Work With</div>
+              <div class="who-list">
+                <div class="who-list-item">Practice owners</div>
+                <div class="who-list-item">Office managers</div>
+                <div class="who-list-item">New practice owners</div>
+                <div class="who-list-item">Growing dental teams</div>
+                <div class="who-list-item">Practices ready for stronger leadership support</div>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-label">Founder</div>
+              <div class="contact-info-value">
+                <p style="color: var(--champagne-light); font-weight: 500;">Dr. Bayan Moshiri, Ph.D.</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 4px;">Healthcare Executive | Leadership Strategist<br>Culture & Communication Coach</p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-label">Email</div>
+              <div class="contact-info-value">
+                <a href="mailto:consult@drbayanmoshiri.com">consult@drbayanmoshiri.com</a>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-label">Phone</div>
+              <div class="contact-info-value">
+                <a href="tel:6467276678">646-727-6678</a>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-label">Website</div>
+              <div class="contact-info-value" style="color: var(--champagne-light);">phoenixleadership.com</div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- RIGHT: Form -->
+        <div class="fade-up">
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border); padding: clamp(32px, 5vw, 56px);">
+            <span class="eyebrow">Ready to Connect?</span>
+            <div class="divider"></div>
+            <h3 style="color: var(--white); margin-bottom: 8px;">Get In Touch</h3>
+            <p style="color: var(--champagne-light); margin-bottom: 34px; font-size: 0.9rem;">Fill out the form below and I will be in touch to schedule a conversation.</p>
+
+            <form class="form" id="contactForm" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="firstName">First Name *</label>
+                  <input type="text" id="firstName" name="firstName" placeholder="Jane" required>
+                </div>
+                <div class="form-group">
+                  <label for="lastName">Last Name *</label>
+                  <input type="text" id="lastName" name="lastName" placeholder="Smith" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" placeholder="jane@yourpractice.com" required>
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="(000) 000-0000">
+              </div>
+
+              <div class="form-group">
+                <label for="practiceName">Practice Name</label>
+                <input type="text" id="practiceName" name="practiceName" placeholder="Your Dental Practice">
+              </div>
+
+              <div class="form-group">
+                <label for="role">Your Role</label>
+                <select id="role" name="role">
+                  <option value="" disabled selected>Select your role</option>
+                  <option value="practice-owner">Practice Owner / Dentist</option>
+                  <option value="office-manager">Office Manager</option>
+                  <option value="new-owner">New Practice Owner</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="service">Service of Interest</label>
+                <select id="service" name="service">
+                  <option value="" disabled selected>Select a service</option>
+                  <option value="study-club">Leadership Study Club Seminar Series</option>
+                  <option value="existing-coaching">Coaching for Existing Practices</option>
+                  <option value="new-practice">Coaching for New Practice Owners</option>
+                  <option value="long-program">6- to 12-Month Leadership Development Program</option>
+                  <option value="unsure">Not Sure Yet</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message / Questions</label>
+                <textarea id="message" name="message" placeholder="Tell me a bit about your practice and what you are hoping to strengthen..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn--primary">Get In Touch</button>
+
+              <p id="formSuccess" style="display: none; color: var(--champagne); font-size: 0.88rem; text-align: center; margin-top: 16px; padding: 16px; border: 1px solid var(--border-strong);">
+                Thank you for reaching out. I will be in touch shortly to schedule a conversation.
+              </p>
+              <p id="formError" style="display: none; color: #e07070; font-size: 0.85rem; text-align: center; margin-top: 12px;">
+                Please fill in all required fields before submitting.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- READY SECTION -->
+  <section class="section section--pale">
+    <div class="container">
+      <div style="max-width: 680px; margin: 0 auto; text-align: center;" class="fade-up">
+        <span class="eyebrow">Questions?</span>
+        <div class="divider divider--center"></div>
+        <h2>Ready to connect?</h2>
+        <p class="lead" style="margin-top: 26px;">If you have questions or would like to explore which service may be the best fit for your practice, please reach out. I am happy to start with a simple conversation.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 32px; justify-content: center; margin-top: 44px;">
+          <div style="text-align: center;">
+            <div style="font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--champagne); margin-bottom: 10px;">Email</div>
+            <a href="mailto:consult@drbayanmoshiri.com" style="font-size: 1rem; color: var(--text-dark); transition: color 0.3s;" onmouseover="this.style.color='var(--brown)'" onmouseout="this.style.color='var(--text-dark)'">consult@drbayanmoshiri.com</a>
+          </div>
+          <div style="width: 1px; background: var(--border-strong); align-self: stretch;"></div>
+          <div style="text-align: center;">
+            <div style="font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--champagne); margin-bottom: 10px;">Phone</div>
+            <a href="tel:6467276678" style="font-size: 1rem; color: var(--text-dark); transition: color 0.3s;" onmouseover="this.style.color='var(--brown)'" onmouseout="this.style.color='var(--text-dark)'">646-727-6678</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo-main">Phoenix Leadership</div>
+          <div class="footer__logo-sub">Dental Practice Coaching</div>
+          <p class="footer__tagline">Leadership shapes culture. Culture shapes performance. Performance shapes growth.</p>
+        </div>
+        <div>
+          <div class="footer__col-title">Navigation</div>
+          <div class="footer__links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="why-phoenix.html">Why Phoenix Leadership</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__col-title">Services</div>
+          <div class="footer__links">
+            <a href="services.html">Leadership Study Club</a>
+            <a href="services.html">Coaching for Practices</a>
+            <a href="services.html">New Practice Coaching</a>
+            <a href="services.html">6–12 Month Program</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer__col-title">Contact</div>
+          <div class="footer__contact-items">
+            <div class="footer__contact-item">Dr. Bayan Moshiri, Ph.D.</div>
+            <div class="footer__contact-item">Founder, Phoenix Leadership</div>
+            <div class="footer__contact-item"><a href="mailto:consult@drbayanmoshiri.com">consult@drbayanmoshiri.com</a></div>
+            <div class="footer__contact-item"><a href="tel:6467276678">646-727-6678</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; 2025 Phoenix Leadership. All rights reserved.</p>
+        <p class="footer__copyright" style="font-style: italic; font-family: var(--font-serif);">Rise with Stronger Leadership</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
