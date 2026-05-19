@@ -404,7 +404,9 @@ const related = [
   .rcs-steps-section { padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px); border-bottom: 1px solid var(--color-line); }
   .rcs-steps-inner { display: grid; grid-template-columns: 380px 1fr; gap: clamp(48px, 7vw, 96px); align-items: start; max-width: 1200px;
     margin: 0 auto; }
-  .rcs-steps-header { position: sticky; top: calc(var(--header-h) + 32px); }
+  .rcs-steps-header { position: sticky; top: calc(var(--header-h) + 32px);   align-self: start;
+}
+  align-self: start;
   .rcs-steps-list { display: flex; flex-direction: column; }
   .rcs-step { display: grid; grid-template-columns: 64px 1fr; gap: 0 clamp(16px, 3vw, 32px); padding: clamp(28px, 4vh, 44px) 0; border-bottom: 1px solid var(--color-line); }
   .rcs-step:first-child { border-top: 1px solid var(--color-line); }
