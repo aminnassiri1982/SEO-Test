@@ -1,7 +1,7 @@
 ---
 export interface Props {
   variant?: 'transparent' | 'solid';
-  active?: 'services' | 'team' | 'tech' | 'journal' | 'faq' | 'contact';
+  active?: 'diagnosis' | 'services' | 'team' | 'tech' | 'journal' | 'faq' | 'contact';
 }
 
 const { variant = 'transparent', active } = Astro.props;
@@ -40,14 +40,13 @@ const headerClass = variant === 'solid' ? 'site-header is-inner' : 'site-header'
 
   </div>
 
-  <!-- DESKTOP NAV — visible links on every page -->
+  <!-- DESKTOP NAV — centered under logo -->
   <nav class="main-nav desktop-only" aria-label="Primary">
-    <a href="/services/"   class={active === 'services' ? 'is-active' : ''}>Services</a>
-    <a href="/team/"       class={active === 'team'     ? 'is-active' : ''}>Team</a>
-    <a href="/technology/" class={active === 'tech'     ? 'is-active' : ''}>Technology</a>
-    <a href="/blog/"       class={active === 'journal'  ? 'is-active' : ''}>Journal</a>
-    <a href="/faq/"        class={active === 'faq'      ? 'is-active' : ''}>FAQ</a>
-    <a href="/contact/"    class={active === 'contact'  ? 'is-active' : ''}>Contact</a>
+    <a href="/#diagnosis"  class={active === 'diagnosis' ? 'is-active' : ''}>Diagnosis</a>
+    <a href="/services/"   class={active === 'services'  ? 'is-active' : ''}>Services</a>
+    <a href="/team/"       class={active === 'team'      ? 'is-active' : ''}>Team</a>
+    <a href="/technology/" class={active === 'tech'      ? 'is-active' : ''}>Tech</a>
+    <a href="/faq/"        class={active === 'faq'       ? 'is-active' : ''}>FAQ</a>
   </nav>
 </header>
 
@@ -70,12 +69,13 @@ const headerClass = variant === 'solid' ? 'site-header is-inner' : 'site-header'
   </div>
 
   <nav class="mobile-menu-nav" aria-label="Mobile navigation">
-    <a href="/services/"   style="--i:0" tabindex="-1">Services</a>
-    <a href="/team/"       style="--i:1" tabindex="-1">Team</a>
-    <a href="/technology/" style="--i:2" tabindex="-1">Technology</a>
-    <a href="/blog/"       style="--i:3" tabindex="-1">Journal</a>
-    <a href="/faq/"        style="--i:4" tabindex="-1">FAQ</a>
-    <a href="/contact/"    style="--i:5" tabindex="-1">Contact</a>
+    <a href="/#diagnosis"  style="--i:0" tabindex="-1">Diagnosis</a>
+    <a href="/services/"   style="--i:1" tabindex="-1">Services</a>
+    <a href="/team/"       style="--i:2" tabindex="-1">Team</a>
+    <a href="/technology/" style="--i:3" tabindex="-1">Tech</a>
+    <a href="/blog/"       style="--i:4" tabindex="-1">Journal</a>
+    <a href="/faq/"        style="--i:5" tabindex="-1">FAQ</a>
+    <a href="/contact/"    style="--i:6" tabindex="-1">Contact</a>
   </nav>
 
   <div class="mobile-menu-footer">
