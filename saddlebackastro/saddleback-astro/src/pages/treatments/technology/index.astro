@@ -80,8 +80,8 @@ const related = [
         <a href="/request-an-appointment/" class="lht-btn-filled">Request an Appointment</a>
       </div>
       <div class="lht-stats-bar">
-        {stats.map(s => (
-          <div class="lht-stat">
+        {stats.map((s, i) => (
+          <div class="lht-stat" data-reveal data-reveal-delay={String(i + 1)}>
             <span class="lht-stat-value">{s.value}</span>
             <span class="lht-stat-label">{s.label}</span>
           </div>
@@ -92,14 +92,14 @@ const related = [
     <!-- WHAT -->
     <section class="lht-what">
       <div class="lht-what-inner">
-        <div class="lht-what-text">
+        <div class="lht-what-text" data-reveal="right">
           <p class="lht-eyebrow">Our Equipment</p>
           <h2 class="lht-section-title">Technology that changes what is possible.</h2>
           <p class="lht-body">Endodontics has been transformed in the past twenty years by instrumentation that makes the invisible visible and the unpredictable predictable. We use every tool in this arsenal — not as marketing, but because each one genuinely changes outcomes when applied to the right case.</p>
           <p class="lht-body">The operating microscope alone changed our specialty more than any other development. Everything else — CBCT, rotary NiTi, digital radiography — extends that foundation of precision.</p>
           <a href="/technology/" class="lht-btn-outline">Our Full Technology Suite</a>
         </div>
-        <div class="lht-what-img">
+        <div class="lht-what-img" data-reveal="left">
           <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=900&q=80" alt="Root canal instruments and equipment" loading="lazy" />
         </div>
       </div>
@@ -107,11 +107,11 @@ const related = [
 
     <!-- BENEFITS -->
     <section class="lht-benefits">
-      <p class="lht-eyebrow lht-center">Why it matters</p>
-      <h2 class="lht-section-title lht-center">What precision technology means for you.</h2>
+      <p class="lht-eyebrow lht-center" data-reveal>Why it matters</p>
+      <h2 class="lht-section-title lht-center" data-reveal>What precision technology means for you.</h2>
       <div class="lht-benefits-grid">
-        {benefits.map(b => (
-          <div class="lht-benefit">
+        {benefits.map((b, i) => (
+          <div class="lht-benefit" data-reveal data-reveal-delay={String((i % 3) + 1)}>
             <div class="lht-benefit-icon" aria-hidden="true"></div>
             <h3 class="lht-benefit-title">{b.title}</h3>
             <p class="lht-benefit-body">{b.body}</p>
@@ -125,7 +125,7 @@ const related = [
       {technologies.map((t, i) => (
         <article class={`lht-row ${i % 2 === 1 ? 'lht-row--alt' : ''}`}>
           <div class="lht-row-accent"></div>
-          <div class="lht-row-content">
+          <div class="lht-row-content" data-reveal="scale">
             <span class="lht-row-num">{t.number}</span>
             <h2 class="lht-row-name">{t.name}</h2>
             <p class="lht-row-body">{t.body}</p>
@@ -140,11 +140,11 @@ const related = [
     <!-- FAQ -->
     <section class="lht-faq">
       <div class="lht-faq-inner">
-        <p class="lht-eyebrow">Common Questions</p>
-        <h2 class="lht-section-title">Technology FAQ.</h2>
+        <p class="lht-eyebrow" data-reveal>Common Questions</p>
+        <h2 class="lht-section-title" data-reveal>Technology FAQ.</h2>
         <div class="lht-faq-list">
           {faqs.map(f => (
-            <details class="lht-faq-item" name="lht-faq">
+            <details class="lht-faq-item" name="lht-faq" data-reveal>
               <summary class="lht-faq-q">
                 <span>{f.q}</span>
                 <span class="lht-faq-icon" aria-hidden="true"></span>
@@ -158,11 +158,11 @@ const related = [
 
     <!-- RELATED -->
     <section class="lht-related">
-      <p class="lht-eyebrow lht-center">Also in Laguna Hills</p>
-      <h2 class="lht-section-title lht-center">Related treatments.</h2>
+      <p class="lht-eyebrow lht-center" data-reveal>Also in Laguna Hills</p>
+      <h2 class="lht-section-title lht-center" data-reveal>Related treatments.</h2>
       <div class="lht-related-grid">
-        {related.map(r => (
-          <a href={r.href} class="lht-related-card">
+        {related.map((r, i) => (
+          <a href={r.href} class="lht-related-card" data-reveal data-reveal-delay={String((i % 3) + 1)}>
             <h3 class="lht-related-name">{r.label}</h3>
             <p class="lht-related-desc">{r.desc}</p>
             <span class="lht-related-arrow" aria-hidden="true">→</span>
@@ -173,7 +173,7 @@ const related = [
 
     <!-- BOTTOM CTA -->
     <section class="lht-cta">
-      <div class="lht-cta-inner">
+      <div class="lht-cta-inner" data-reveal>
         <h2 class="lht-cta-title">Precision endodontics, close to home.</h2>
         <p class="lht-cta-body">Call <a href="tel:+19498373033">(949) 837-3033</a> or request online. Located at 25800 Jeronimo Road, Suite 300, Mission Viejo — minutes from Laguna Hills.</p>
         <div class="lht-cta-btns">

@@ -62,12 +62,12 @@ const treatments = [
 
     <section class="tx-treatments">
       <div class="tx-treatments-header">
-        <p class="tx-treatments-eyebrow">What We Treat</p>
-        <h2 class="tx-treatments-headline">Every endodontic service, under one roof.</h2>
+        <p class="tx-treatments-eyebrow" data-reveal>What We Treat</p>
+        <h2 class="tx-treatments-headline" data-reveal>Every endodontic service, under one roof.</h2>
       </div>
       <div class="tx-treatment-grid">
-        {treatments.map(t => (
-          <a class="tx-treatment-card" href={t.href}>
+        {treatments.map((t, i) => (
+          <a class="tx-treatment-card" href={t.href} data-reveal data-reveal-delay={String((i % 3) + 1)}>
             <h3 class="tx-treatment-title">{t.title}</h3>
             <p class="tx-treatment-desc">{t.description}</p>
             <span class="tx-treatment-arrow" aria-hidden="true">→</span>
@@ -78,7 +78,7 @@ const treatments = [
 
     <section class="tx-office-section">
       <div class="tx-office-inner">
-        <div class="tx-office-info">
+        <div class="tx-office-info" data-reveal>
           <p class="tx-office-eyebrow">Our Office</p>
           <h2 class="tx-office-headline">Convenient to Laguna Hills<br/>and all of South OC.</h2>
           <div class="tx-office-details">
@@ -105,7 +105,7 @@ const treatments = [
     </section>
 
     <section class="tx-cta-band">
-      <div class="tx-cta-inner">
+      <div class="tx-cta-inner" data-reveal>
         <p class="tx-cta-eyebrow">Ready to schedule?</p>
         <h2 class="tx-cta-headline">Same-day urgent appointments available.</h2>
         <p class="tx-cta-body">
