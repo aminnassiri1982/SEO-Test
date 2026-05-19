@@ -71,8 +71,8 @@ const related = [
         <a href="/request-an-appointment/" class="aps-hero-btn">Request an Appointment</a>
       </div>
       <div class="aps-stats-bar">
-        {stats.map(s => (
-          <div class="aps-stat">
+        {stats.map((s, i) => (
+          <div class="aps-stat" data-reveal data-reveal-delay={String(i + 1)}>
             <span class="aps-stat-value">{s.value}</span>
             <span class="aps-stat-label">{s.label}</span>
           </div>
@@ -83,14 +83,14 @@ const related = [
     <!-- WHAT IS IT -->
     <section class="aps-what">
       <div class="aps-what-inner">
-        <div class="aps-what-text">
+        <div class="aps-what-text" data-reveal="right">
           <p class="aps-section-eyebrow">Apical Surgery</p>
           <h2 class="aps-section-title">What is an apicoectomy?</h2>
           <p class="aps-body-text">An apicoectomy — also called apical surgery or root-end surgery — is a minor surgical procedure that accesses the root tip of a tooth through a small incision in the gum. The infected root tip is removed, and the end of the root canal is sealed with a biocompatible material to prevent reinfection and allow healing.</p>
           <p class="aps-body-text">Modern microsurgical technique — using the operating microscope, ultrasonic instruments, and MTA — has transformed apicoectomy from a rough procedure into a precise, predictable treatment with published success rates above 92%. For teeth that cannot be treated non-surgically, it is often the best way to save the natural tooth.</p>
           <a href="/request-an-appointment/" class="aps-outline-btn">Request an Appointment</a>
         </div>
-        <div class="aps-what-image">
+        <div class="aps-what-image" data-reveal="left">
           <img
             src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?auto=format&fit=crop&w=900&q=80"
             alt="Microsurgical instruments used in apicoectomy procedure"
@@ -102,11 +102,11 @@ const related = [
 
     <!-- BENEFITS -->
     <section class="aps-benefits">
-      <p class="aps-section-eyebrow aps-centered">Why choose microsurgical apicoectomy?</p>
-      <h2 class="aps-section-title aps-centered">Benefits of apical surgery.</h2>
+      <p class="aps-section-eyebrow aps-centered" data-reveal>Why choose microsurgical apicoectomy?</p>
+      <h2 class="aps-section-title aps-centered" data-reveal>Benefits of apical surgery.</h2>
       <div class="aps-benefits-grid">
-        {benefits.map(b => (
-          <div class="aps-benefit-card">
+        {benefits.map((b, i) => (
+          <div class="aps-benefit-card" data-reveal data-reveal-delay={String((i % 3) + 1)}>
             <div class="aps-benefit-icon" aria-hidden="true"></div>
             <h3 class="aps-benefit-title">{b.title}</h3>
             <p class="aps-benefit-body">{b.body}</p>
@@ -119,13 +119,13 @@ const related = [
     <section class="aps-steps-section">
       <div class="aps-steps-inner">
         <div class="aps-steps-header">
-          <p class="aps-section-eyebrow">The Procedure</p>
-          <h2 class="aps-section-title">Our step-by-step<br/>surgical process.</h2>
+          <p class="aps-section-eyebrow" data-reveal>The Procedure</p>
+          <h2 class="aps-section-title" data-reveal>Our step-by-step<br/>surgical process.</h2>
           <p class="aps-body-text">Each surgical appointment follows the same careful sequence — precise, tissue-sparing, and performed entirely under microscope magnification.</p>
         </div>
         <div class="aps-steps-list">
           {steps.map(s => (
-            <div class="aps-step">
+            <div class="aps-step" data-reveal>
               <div class="aps-step-num">{s.number}</div>
               <div>
                 <h3 class="aps-step-title">{s.title}</h3>
@@ -140,14 +140,14 @@ const related = [
     <!-- TECHNOLOGY -->
     <section class="aps-tech">
       <div class="aps-tech-inner">
-        <div class="aps-tech-image">
+        <div class="aps-tech-image" data-reveal="left">
           <img
             src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=900&q=80"
             alt="CBCT and microscope technology used in apical surgery planning"
             loading="lazy"
           />
         </div>
-        <div class="aps-tech-text">
+        <div class="aps-tech-text" data-reveal="right">
           <p class="aps-section-eyebrow">Technology</p>
           <h2 class="aps-section-title">Microsurgical technology<br/>that changes outcomes.</h2>
           <ul class="aps-tech-list">
@@ -175,11 +175,11 @@ const related = [
 
     <!-- WHEN NEEDED -->
     <section class="aps-when">
-      <p class="aps-section-eyebrow aps-centered">Indications</p>
-      <h2 class="aps-section-title aps-centered">When apical surgery is indicated.</h2>
+      <p class="aps-section-eyebrow aps-centered" data-reveal>Indications</p>
+      <h2 class="aps-section-title aps-centered" data-reveal>When apical surgery is indicated.</h2>
       <div class="aps-when-grid">
-        {symptoms.map(s => (
-          <div class="aps-when-card">
+        {symptoms.map((s, i) => (
+          <div class="aps-when-card" data-reveal data-reveal-delay={String(i + 1)}>
             <h3 class="aps-when-title">{s.title}</h3>
             <p class="aps-when-body">{s.body}</p>
           </div>
@@ -190,14 +190,14 @@ const related = [
     <!-- WHY CHOOSE US -->
     <section class="aps-why">
       <div class="aps-why-inner">
-        <div class="aps-why-image">
+        <div class="aps-why-image" data-reveal="left">
           <img
             src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80"
             alt="Saddleback Valley Endodontics microsurgical specialist team"
             loading="lazy"
           />
         </div>
-        <div class="aps-why-text">
+        <div class="aps-why-text" data-reveal="right">
           <p class="aps-section-eyebrow">South OC Microsurgical Specialist</p>
           <h2 class="aps-section-title">Why choose us for apical surgery in Laguna Hills?</h2>
           <ul class="aps-why-list">
@@ -215,12 +215,12 @@ const related = [
     <section class="aps-faq">
       <div class="aps-faq-inner">
         <div class="aps-faq-header">
-          <p class="aps-section-eyebrow">Frequently Asked Questions</p>
-          <h2 class="aps-section-title">Apical surgery FAQ.</h2>
+          <p class="aps-section-eyebrow" data-reveal>Frequently Asked Questions</p>
+          <h2 class="aps-section-title" data-reveal>Apical surgery FAQ.</h2>
         </div>
         <div class="aps-faq-list">
           {faqs.map(f => (
-            <details class="aps-faq-item" name="aps-faq">
+            <details class="aps-faq-item" name="aps-faq" data-reveal>
               <summary class="aps-faq-q">
                 <span>{f.q}</span>
                 <span class="aps-faq-icon" aria-hidden="true"></span>
@@ -285,11 +285,11 @@ const related = [
 
     <!-- RELATED TREATMENTS -->
     <section class="aps-related">
-      <p class="aps-section-eyebrow aps-centered">Also in Laguna Hills</p>
-      <h2 class="aps-section-title aps-centered">Related endodontic treatments.</h2>
+      <p class="aps-section-eyebrow aps-centered" data-reveal>Also in Laguna Hills</p>
+      <h2 class="aps-section-title aps-centered" data-reveal>Related endodontic treatments.</h2>
       <div class="aps-related-grid">
-        {related.map(r => (
-          <a href={r.href} class="aps-related-card">
+        {related.map((r, i) => (
+          <a href={r.href} class="aps-related-card" data-reveal data-reveal-delay={String((i % 3) + 1)}>
             <h3 class="aps-related-name">{r.label}</h3>
             <p class="aps-related-desc">{r.desc}</p>
             <span class="aps-related-arrow" aria-hidden="true">→</span>
@@ -300,12 +300,11 @@ const related = [
 
     <!-- BOTTOM CTA -->
     <section class="aps-bottom-cta">
-      <div class="aps-bottom-cta-inner">
+      <div class="aps-bottom-cta-inner" data-reveal>
         <h2 class="aps-bottom-cta-title">Persistent infection doesn't have to mean extraction.</h2>
         <p class="aps-bottom-cta-body">Call <a href="tel:+19498373033">(949) 837-3033</a> or request a consultation online. Microsurgical apicoectomy may save your tooth.</p>
         <div class="aps-bottom-cta-btns">
           <a href="/request-an-appointment/" class="aps-cta-filled-btn">Request an Appointment</a>
-          <a href="tel:+19498373033" class="aps-outline-btn">Call (949) 837-3033</a>
         </div>
       </div>
     </section>
@@ -709,7 +708,7 @@ const related = [
     padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
     background: var(--color-ink); color: var(--color-paper);
   }
-  .aps-bottom-cta-inner { max-width: 720px; }
+  .aps-bottom-cta-inner { max-width: 720px; margin: 0 auto; text-align: center; }
   .aps-bottom-cta-title {
     font-family: var(--font-display); font-weight: 300;
     font-size: clamp(32px, 5vw, 64px); line-height: 1.05;
@@ -720,7 +719,7 @@ const related = [
     color: rgba(255,255,255,0.72); margin: 0 0 36px;
   }
   .aps-bottom-cta-body a { color: #fff; border-bottom: 1px solid rgba(255,255,255,0.4); }
-  .aps-bottom-cta-btns { display: flex; flex-wrap: wrap; gap: 16px; }
+  .aps-bottom-cta-btns { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
   .aps-bottom-cta .aps-cta-filled-btn { background: #fff; color: var(--color-ink); border-color: #fff; }
   .aps-bottom-cta .aps-cta-filled-btn:hover { background: transparent; color: #fff; }
   .aps-bottom-cta .aps-outline-btn { border-color: rgba(255,255,255,0.5); color: rgba(255,255,255,0.82); }

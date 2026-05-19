@@ -69,11 +69,11 @@ const faqs = [
     </section>
 
     <section class="sed-options-section">
-      <p class="sed-options-eyebrow">Sedation Options</p>
-      <h2 class="sed-options-headline">Two levels of relief.</h2>
+      <p class="sed-options-eyebrow" data-reveal>Sedation Options</p>
+      <h2 class="sed-options-headline" data-reveal>Two levels of relief.</h2>
       <div class="sed-options-grid">
-        {options.map(o => (
-          <div class="sed-option">
+        {options.map((o, i) => (
+          <div class="sed-option" data-reveal data-reveal-delay={String(i + 1)}>
             <span class="sed-option-num">{o.number}</span>
             <h3 class="sed-option-name">{o.name}</h3>
             <p class="sed-option-body">{o.body}</p>
@@ -87,12 +87,12 @@ const faqs = [
 
     <section class="sed-faq-section">
       <div class="sed-faq-header">
-        <p class="sed-faq-eyebrow">Common Questions</p>
-        <h2 class="sed-faq-headline">Sedation FAQ.</h2>
+        <p class="sed-faq-eyebrow" data-reveal>Common Questions</p>
+        <h2 class="sed-faq-headline" data-reveal>Sedation FAQ.</h2>
       </div>
       <div class="sed-faq-list">
         {faqs.map(f => (
-          <details class="sed-faq-item" name="sed-faq">
+          <details class="sed-faq-item" name="sed-faq" data-reveal>
             <summary class="sed-faq-q">
               <span>{f.q}</span>
               <span class="sed-faq-icon" aria-hidden="true"></span>
@@ -106,7 +106,7 @@ const faqs = [
     </section>
 
     <section class="sed-cta-band">
-      <div class="sed-cta-inner">
+      <div class="sed-cta-inner" data-reveal>
         <p class="sed-cta-eyebrow">Serving Laguna Hills & Mission Viejo</p>
         <h2 class="sed-cta-headline">Let us know — we will take care of the rest.</h2>
         <p class="sed-cta-body">
@@ -324,7 +324,7 @@ const faqs = [
   }
 
   .sed-cta-band { padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px); }
-  .sed-cta-inner { max-width: 640px; }
+  .sed-cta-inner { max-width: 640px; margin: 0 auto; text-align: center; }
   .sed-cta-eyebrow {
     font-size: 11px;
     letter-spacing: 0.36em;

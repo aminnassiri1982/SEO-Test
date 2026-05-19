@@ -94,8 +94,8 @@ const faqs = [
     </section>
 
     <section class="di-table-section">
-      <p class="di-table-eyebrow">Side by Side</p>
-      <h2 class="di-table-headline">How they compare.</h2>
+      <p class="di-table-eyebrow" data-reveal>Side by Side</p>
+      <h2 class="di-table-headline" data-reveal>How they compare.</h2>
       <div class="di-table">
         <div class="di-table-head">
           <div class="di-col-factor"></div>
@@ -114,12 +114,12 @@ const faqs = [
 
     <section class="di-faq-section">
       <div class="di-faq-header">
-        <p class="di-faq-eyebrow">Common Questions</p>
-        <h2 class="di-faq-headline">Implant vs. root canal FAQ.</h2>
+        <p class="di-faq-eyebrow" data-reveal>Common Questions</p>
+        <h2 class="di-faq-headline" data-reveal>Implant vs. root canal FAQ.</h2>
       </div>
       <div class="di-faq-list">
         {faqs.map(f => (
-          <details class="di-faq-item" name="di-faq">
+          <details class="di-faq-item" name="di-faq" data-reveal>
             <summary class="di-faq-q">
               <span>{f.q}</span>
               <span class="di-faq-icon" aria-hidden="true"></span>
@@ -330,7 +330,7 @@ const faqs = [
   }
 
   .di-cta-band { padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px); }
-  .di-cta-inner { max-width: 640px; }
+  .di-cta-inner { max-width: 640px; margin: 0 auto; text-align: center; }
   .di-cta-eyebrow {
     font-size: 11px;
     letter-spacing: 0.36em;
