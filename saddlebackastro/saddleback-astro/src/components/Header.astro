@@ -1,20 +1,20 @@
 ---
 export interface Props {
   variant?: 'transparent' | 'solid';
-  active?: 'diagnosis' | 'services' | 'team' | 'tech' | 'journal' | 'faq';
+  active?: 'services' | 'team' | 'tech' | 'journal' | 'faq' | 'contact';
 }
 
 const { variant = 'transparent', active } = Astro.props;
 const headerClass = variant === 'solid' ? 'site-header is-inner' : 'site-header';
 ---
 
+<!-- Single-row header: hamburger | logo | utility — on every viewport -->
 <header class={headerClass} id="siteHeader">
   <div class="header-top">
 
-    <!-- LEFT: Contact Us (desktop) / Hamburger (mobile) -->
+    <!-- LEFT: Hamburger (always visible — opens full-screen menu) -->
     <div class="header-utility header-utility--left">
-      <a href="/#contact" class="label-long desktop-only">Contact Us</a>
-      <button class="menu-toggle mobile-only" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
@@ -27,9 +27,9 @@ const headerClass = variant === 'solid' ? 'site-header is-inner' : 'site-header'
       <span class="logo-line2">Endodontics</span>
     </a>
 
-    <!-- RIGHT: Doctors + Search -->
+    <!-- RIGHT: Contact Us + Search -->
     <div class="header-utility header-utility--right">
-      <a href="/#doctors" class="label-long desktop-only">Doctors</a>
+      <a href="/contact/" class="header-contact-link">Contact Us</a>
       <button class="search-btn underline-on-hover" aria-label="Search">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="11" cy="11" r="7"></circle>
@@ -39,92 +39,89 @@ const headerClass = variant === 'solid' ? 'site-header is-inner' : 'site-header'
     </div>
 
   </div>
-
-  <!-- DESKTOP NAV -->
-  <nav class="main-nav desktop-only" aria-label="Primary">
-    <a href="/#diagnosis" class={active === 'diagnosis' ? 'is-active' : ''}>Diagnosis</a>
-    <a href="/#services"  class={active === 'services'  ? 'is-active' : ''}>Services</a>
-    <a href="/#team"      class={active === 'team'      ? 'is-active' : ''}>Team</a>
-    <a href="/#tech"      class={active === 'tech'      ? 'is-active' : ''}>Tech</a>
-    <a href="/blog/"      class={active === 'journal'   ? 'is-active' : ''}>Journal</a>
-    <a href="/#faq"       class={active === 'faq'       ? 'is-active' : ''}>FAQ</a>
-  </nav>
 </header>
 
-<!-- MOBILE DRAWER -->
-<div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
-  <div class="mobile-drawer-overlay" id="drawerOverlay"></div>
-  <aside class="mobile-drawer-panel" aria-label="Mobile menu">
-    <button class="drawer-close" id="drawerClose" aria-label="Close menu">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <line x1="6" y1="6" x2="18" y2="18"></line>
-        <line x1="18" y1="6" x2="6" y2="18"></line>
+<!-- =====================================================
+     FULL-SCREEN OVERLAY MENU (Omega-style)
+     Works on every viewport — desktop & mobile
+     ===================================================== -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Navigation">
+
+  <!-- Overlay top bar: logo + close -->
+  <div class="mobile-menu-bar">
+    <a href="/" class="mobile-menu-logo" tabindex="-1">
+      <span class="logo-line1">Saddleback Valley</span>
+      <span class="logo-line2">Endodontics</span>
+    </a>
+    <button class="mobile-menu-close" id="menuClose" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4">
+        <line x1="5"  y1="5"  x2="19" y2="19"></line>
+        <line x1="19" y1="5"  x2="5"  y2="19"></line>
       </svg>
     </button>
+  </div>
 
-    <nav class="mobile-nav" aria-label="Mobile primary">
-      <a href="/#diagnosis" class={active === 'diagnosis' ? 'is-active' : ''}>Diagnosis</a>
-      <a href="/#services"  class={active === 'services'  ? 'is-active' : ''}>Services</a>
-      <a href="/#team"      class={active === 'team'      ? 'is-active' : ''}>Team</a>
-      <a href="/#tech"      class={active === 'tech'      ? 'is-active' : ''}>Tech</a>
-      <a href="/blog/"      class={active === 'journal'   ? 'is-active' : ''}>Journal</a>
-      <a href="/#faq"       class={active === 'faq'       ? 'is-active' : ''}>FAQ</a>
-    </nav>
+  <!-- Primary nav links — --i drives the stagger delay -->
+  <nav class="mobile-menu-nav" aria-label="Site navigation">
+    <a href="/services/"   style="--i:0" tabindex="-1">Services</a>
+    <a href="/team/"       style="--i:1" tabindex="-1">Team</a>
+    <a href="/technology/" style="--i:2" tabindex="-1">Technology</a>
+    <a href="/blog/"       style="--i:3" tabindex="-1">Journal</a>
+    <a href="/faq/"        style="--i:4" tabindex="-1">FAQ</a>
+    <a href="/contact/"    style="--i:5" tabindex="-1">Contact</a>
+  </nav>
 
-    <div class="mobile-utility">
-      <a href="/#contact">Contact Us</a>
-      <a href="/#doctors">Doctors</a>
-    </div>
-  </aside>
+  <!-- Bottom utility strip -->
+  <div class="mobile-menu-footer">
+    <a href="tel:+19496001234" tabindex="-1">(949) 600-1234</a>
+    <span class="mobile-menu-sep" aria-hidden="true">·</span>
+    <a href="/contact/" tabindex="-1">Book a Consultation</a>
+  </div>
+
 </div>
 
 <script>
-  // Transparent → solid on scroll (homepage only)
-  const header = document.getElementById('siteHeader');
+  const header   = document.getElementById('siteHeader');
+  const toggle   = document.getElementById('menuToggle');
+  const menu     = document.getElementById('mobileMenu');
+  const closeBtn = document.getElementById('menuClose');
+
+  // Transparent → solid on scroll (pages without .is-inner hero)
   if (header && !header.classList.contains('is-inner')) {
     const threshold = () => window.innerHeight - 80;
-    const onScroll = () => {
-      if (window.scrollY > threshold()) header.classList.add('is-solid');
-      else header.classList.remove('is-solid');
-    };
+    const onScroll  = () => header.classList.toggle('is-solid', window.scrollY > threshold());
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
   }
 
-  // Mobile drawer
-  const toggle  = document.getElementById('menuToggle');
-  const drawer  = document.getElementById('mobileDrawer');
-  const overlay = document.getElementById('drawerOverlay');
-  const closeBtn = document.getElementById('drawerClose');
-
-  function openDrawer() {
-    drawer.classList.add('is-open');
-    drawer.setAttribute('aria-hidden', 'false');
+  function openMenu() {
+    if (!menu || !toggle) return;
+    menu.classList.add('is-open');
+    menu.setAttribute('aria-hidden', 'false');
     toggle.setAttribute('aria-expanded', 'true');
-    toggle.classList.add('is-active');
     document.body.style.overflow = 'hidden';
+    menu.querySelectorAll('[tabindex="-1"]').forEach(el => el.removeAttribute('tabindex'));
+    setTimeout(() => closeBtn?.focus(), 60);
   }
-  function closeDrawer() {
-    drawer.classList.remove('is-open');
-    drawer.setAttribute('aria-hidden', 'true');
+
+  function closeMenu() {
+    if (!menu || !toggle) return;
+    menu.classList.remove('is-open');
+    menu.setAttribute('aria-hidden', 'true');
     toggle.setAttribute('aria-expanded', 'false');
-    toggle.classList.remove('is-active');
     document.body.style.overflow = '';
+    menu.querySelectorAll('a').forEach(el => el.setAttribute('tabindex', '-1'));
+    toggle.focus();
   }
 
-  if (toggle && drawer && overlay && closeBtn) {
-    toggle.addEventListener('click', openDrawer);
-    overlay.addEventListener('click', closeDrawer);
-    closeBtn.addEventListener('click', closeDrawer);
+  toggle?.addEventListener('click', openMenu);
+  closeBtn?.addEventListener('click', closeMenu);
 
-    // Close drawer when clicking any nav link
-    drawer.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', closeDrawer);
-    });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menu?.classList.contains('is-open')) closeMenu();
+  });
 
-    // Close on Escape
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && drawer.classList.contains('is-open')) closeDrawer();
-    });
-  }
+  menu?.querySelectorAll('.mobile-menu-nav a').forEach(link =>
+    link.addEventListener('click', closeMenu)
+  );
 </script>

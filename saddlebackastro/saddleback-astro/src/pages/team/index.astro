@@ -1,0 +1,295 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const doctors = [
+  {
+    name: 'Dr. A. Reyes',
+    title: 'Founding Partner',
+    credentials: 'DDS, MS · Board Certified Endodontist',
+    portrait: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=800&q=80',
+    bio: [
+      'Dr. Reyes founded the practice with a clear conviction: that specialist endodontics should begin with a diagnosis conversation, not a procedure recommendation. Twenty-two years of clinical practice and a fellowship in microsurgical endodontics inform every consultation.',
+      'He trained at the UCLA School of Dentistry, completed a two-year residency in endodontics, and has maintained board certification through the American Board of Endodontics since 2008. His clinical focus is complex retreatment and cases referred after failed prior treatment.',
+    ],
+    focus: ['Complex retreatment', 'Microsurgical endodontics', 'Cracked tooth diagnosis', 'Interdisciplinary case planning'],
+    education: ['DDS — UCLA School of Dentistry', 'MS Endodontics — Loma Linda University', 'Board Certified — American Board of Endodontics'],
+  },
+  {
+    name: 'Dr. J. Okafor',
+    title: 'Partner',
+    credentials: 'DDS, MS · Fellowship-Trained',
+    portrait: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80',
+    bio: [
+      'Dr. Okafor leads the practice\'s imaging and microsurgical program. Her fellowship training in advanced diagnostics means she approaches every case from the CBCT image outward — understanding the three-dimensional anatomy before any instrument is placed.',
+      'She joined the practice in 2018 after completing fellowship training and has since built one of the most active cone-beam CT programs among endodontic specialty offices in Southern California.',
+    ],
+    focus: ['CBCT-guided treatment planning', 'Endodontic microsurgery', 'Dental trauma', 'Calcified canal management'],
+    education: ['DDS — University of Southern California', 'MS Endodontics — University of Washington', 'Fellowship — Advanced Endodontics, Boston University'],
+  },
+  {
+    name: 'Dr. M. Chen',
+    title: 'Associate',
+    credentials: 'DDS, MS',
+    portrait: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=800&q=80',
+    bio: [
+      'Dr. Chen joined Saddleback Valley Endodontics after her endodontic residency, bringing particular depth in managing pediatric trauma cases and teeth in patients undergoing cancer treatment — a population whose dental needs require close coordination with oncology teams.',
+      'She is fluent in Mandarin and Cantonese, and sees a broad caseload that includes many patients referred from across Orange County and Los Angeles.',
+    ],
+    focus: ['Pediatric endodontics', 'Oncology patient care', 'Dental trauma', 'Multilingual consultation (Mandarin, Cantonese)'],
+    education: ['DDS — University of California, San Francisco', 'MS Endodontics — New York University', 'Residency — Children\'s Hospital Los Angeles'],
+  },
+];
+---
+
+<BaseLayout
+  title="Our Team — Saddleback Valley Endodontics"
+  description="Meet the fellowship-trained endodontists at Saddleback Valley Endodontics in Mission Viejo, CA."
+>
+
+  <Header variant="solid" active="team" />
+
+  <main>
+
+    <section class="page-intro">
+      <p class="page-eyebrow">Team</p>
+      <h1 class="page-title">The doctors.</h1>
+      <p class="page-lede">
+        Three fellowship-trained endodontists. Every case reviewed at the attending level.
+        We do not delegate specialist decisions.
+      </p>
+    </section>
+
+    <section class="team-list">
+      {doctors.map((doc, i) => (
+        <article class="doctor-card" id={`doctor-${i + 1}`}>
+          <div class="doctor-portrait-wrap">
+            <img class="doctor-portrait" src={doc.portrait} alt={doc.name} />
+          </div>
+          <div class="doctor-info">
+            <p class="doctor-eyebrow">{doc.credentials}</p>
+            <h2 class="doctor-name">{doc.name}</h2>
+            <p class="doctor-title-label">{doc.title}</p>
+            <div class="doctor-bio">
+              {doc.bio.map(p => <p>{p}</p>)}
+            </div>
+            <div class="doctor-columns">
+              <div>
+                <h3 class="doctor-col-label">Clinical Focus</h3>
+                <ul class="doctor-list">
+                  {doc.focus.map(f => <li>{f}</li>)}
+                </ul>
+              </div>
+              <div>
+                <h3 class="doctor-col-label">Education &amp; Training</h3>
+                <ul class="doctor-list">
+                  {doc.education.map(e => <li>{e}</li>)}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </article>
+      ))}
+    </section>
+
+    <section class="team-referral">
+      <div class="referral-inner">
+        <p class="referral-eyebrow">For Referring Doctors</p>
+        <h2 class="referral-title">We work alongside your team, not around it.</h2>
+        <p class="referral-body">
+          We send a detailed consultation report after every patient visit. Urgent referrals
+          are seen the same day when possible. Call us directly or use the referral form.
+        </p>
+        <a href="/contact/#referral" class="cta-btn">Refer a Patient</a>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+
+</BaseLayout>
+
+<style is:global>
+  main { padding-top: var(--header-h-top); }
+
+  .page-intro {
+    padding: clamp(80px, 13vh, 140px) clamp(28px, 6vw, 88px) clamp(60px, 9vh, 100px);
+    max-width: 960px;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .page-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    margin: 0 0 32px;
+  }
+  .page-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(52px, 8vw, 104px);
+    line-height: 1;
+    letter-spacing: -0.015em;
+    margin: 0 0 28px;
+  }
+  .page-lede {
+    font-size: clamp(16px, 1.5vw, 19px);
+    line-height: 1.65;
+    color: var(--color-ink-soft);
+    max-width: 58ch;
+    margin: 0;
+  }
+
+  .team-list {
+    padding: 0 clamp(28px, 6vw, 88px);
+  }
+
+  .doctor-card {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: clamp(40px, 6vw, 96px);
+    padding: clamp(72px, 11vh, 120px) 0;
+    border-bottom: 1px solid var(--color-line);
+    align-items: start;
+  }
+
+  .doctor-portrait-wrap {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    background: #f0ede5;
+    position: sticky;
+    top: calc(var(--header-h-top) + 32px);
+  }
+  .doctor-portrait {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: filter 0.6s var(--ease-out);
+  }
+  .doctor-card:hover .doctor-portrait { filter: grayscale(0%); }
+
+  .doctor-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    margin: 0 0 16px;
+  }
+
+  .doctor-name {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(36px, 4.5vw, 60px);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin: 0 0 8px;
+  }
+
+  .doctor-title-label {
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    margin: 0 0 36px;
+  }
+
+  .doctor-bio p {
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.72;
+    color: var(--color-ink-soft);
+    margin: 0 0 20px;
+    max-width: 62ch;
+  }
+
+  .doctor-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid var(--color-line);
+  }
+
+  .doctor-col-label {
+    font-size: 10px;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    margin: 0 0 18px;
+  }
+
+  .doctor-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .doctor-list li {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--color-ink-soft);
+    padding: 7px 0;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .doctor-list li:first-child { border-top: 1px solid var(--color-line); }
+
+  .team-referral {
+    background: var(--color-paper-warm);
+    padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
+    border-top: 1px solid var(--color-line);
+  }
+  .referral-inner { max-width: 680px; }
+  .referral-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    margin: 0 0 28px;
+  }
+  .referral-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: 1.1;
+    letter-spacing: -0.008em;
+    margin: 0 0 24px;
+  }
+  .referral-body {
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.68;
+    color: var(--color-ink-soft);
+    margin: 0 0 36px;
+  }
+  .cta-btn {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 16px 36px;
+    border: 1px solid var(--color-ink);
+    color: var(--color-ink);
+    transition: background 0.28s var(--ease-out), color 0.28s var(--ease-out);
+  }
+  .cta-btn:hover {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  @media (max-width: 900px) {
+    .doctor-card { grid-template-columns: 1fr; }
+    .doctor-portrait-wrap { max-width: 320px; position: static; aspect-ratio: 1 / 1; }
+  }
+  @media (max-width: 560px) {
+    .doctor-columns { grid-template-columns: 1fr; gap: 32px; }
+    .doctor-portrait-wrap { max-width: 100%; }
+  }
+</style>

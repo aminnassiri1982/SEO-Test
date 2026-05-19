@@ -1,0 +1,226 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const services = [
+  {
+    number: '01',
+    title: 'Root Canal Treatment',
+    description:
+      'When the pulp — the nerve and blood-vessel tissue inside a tooth — becomes infected or inflamed, removal and sealing of the canal system is the definitive treatment. Performed under high magnification, modern root canal therapy is typically completed in one or two visits with minimal discomfort.',
+    details: ['Single and multi-rooted teeth', 'Performed under operating microscope', 'Single-visit cases when anatomy allows', 'Guided by cone-beam CT imaging'],
+  },
+  {
+    number: '02',
+    title: 'Root Canal Retreatment',
+    description:
+      'A previous root canal that has failed — due to missed canals, inadequate sealing, or new infection — is not necessarily a tooth lost. We locate and correct the source of failure, re-instrument, and re-obturate. Retreatment success rates are high when the underlying cause is identified accurately.',
+    details: ['Broken instrument removal', 'Missed and calcified canal location', 'Re-instrumentation and obturation', 'Post removal when required'],
+  },
+  {
+    number: '03',
+    title: 'Endodontic Microsurgery',
+    description:
+      'When non-surgical retreatment cannot resolve persistent infection at the root tip, microsurgical apicoectomy is the next step. Under the operating microscope, we access the root end directly, remove infected tissue, and place a biocompatible retrograde seal. Recovery is typically faster than patients expect.',
+    details: ['Apicoectomy (root-end resection)', 'Retrograde filling under magnification', 'Ultrasonic root-end preparation', 'Guided bone regeneration when indicated'],
+  },
+  {
+    number: '04',
+    title: 'Cracked Tooth Diagnosis',
+    description:
+      'Cracks are among the most difficult dental problems to diagnose. They can be invisible on standard X-rays and replicate the symptoms of other conditions. We use a combination of operating microscopy, cone-beam CT, and clinical testing to characterize the crack before recommending a treatment path.',
+    details: ['Microscopic crack mapping', 'CBCT evaluation of extent', 'Prognosis assessment before crown placement', 'Referral coordination when extraction is indicated'],
+  },
+  {
+    number: '05',
+    title: 'Dental Trauma',
+    description:
+      'Traumatic injuries — fractured crowns, luxated teeth, avulsions — require rapid, accurate assessment and, when appropriate, immediate intervention. We work closely with referring general dentists to manage acute trauma and monitor the long-term pulpal response, which can evolve for months after an injury.',
+    details: ['Concussion, subluxation, and luxation injuries', 'Avulsion replantation and follow-up', 'Root fracture management', 'Long-term pulp vitality monitoring'],
+  },
+];
+---
+
+<BaseLayout
+  title="Services — Saddleback Valley Endodontics"
+  description="Root canal treatment, retreatment, microsurgery, cracked tooth diagnosis, and dental trauma care — all performed under operating microscope by fellowship-trained specialists."
+>
+
+  <Header variant="solid" active="services" />
+
+  <main>
+
+    <section class="page-intro">
+      <p class="page-eyebrow">Services</p>
+      <h1 class="page-title">What we treat.</h1>
+      <p class="page-lede">
+        Every case begins with diagnosis. We use the full range of specialist tools —
+        cone-beam CT, operating microscope, digital radiography — to understand the tooth
+        before we decide what it needs.
+      </p>
+    </section>
+
+    <section class="services-list">
+      {services.map((s, i) => (
+        <article class="service-row" id={`service-${i + 1}`}>
+          <div class="service-number">{s.number}</div>
+          <div class="service-body">
+            <h2 class="service-title">{s.title}</h2>
+            <p class="service-desc">{s.description}</p>
+            <ul class="service-details">
+              {s.details.map(d => <li>{d}</li>)}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </section>
+
+    <section class="services-cta">
+      <p class="services-cta-line">Ready to talk about your case?</p>
+      <a href="/contact/" class="cta-btn">Request a Consultation</a>
+    </section>
+
+  </main>
+
+  <Footer />
+
+</BaseLayout>
+
+<style is:global>
+  main { padding-top: var(--header-h-top); }
+
+  .page-intro {
+    padding: clamp(80px, 13vh, 140px) clamp(28px, 6vw, 88px) clamp(60px, 9vh, 100px);
+    max-width: 960px;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .page-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    margin: 0 0 32px;
+  }
+  .page-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(52px, 8vw, 104px);
+    line-height: 1;
+    letter-spacing: -0.015em;
+    margin: 0 0 28px;
+  }
+  .page-lede {
+    font-size: clamp(16px, 1.5vw, 19px);
+    line-height: 1.65;
+    color: var(--color-ink-soft);
+    max-width: 58ch;
+    margin: 0;
+  }
+
+  .services-list {
+    padding: 0 clamp(28px, 6vw, 88px);
+  }
+
+  .service-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 0 clamp(32px, 5vw, 72px);
+    padding: clamp(56px, 8vh, 96px) 0;
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .service-number {
+    font-family: var(--font-display);
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 300;
+    color: var(--color-ink-soft);
+    line-height: 1.1;
+    padding-top: 6px;
+    opacity: 0.45;
+  }
+
+  .service-title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(28px, 3.5vw, 44px);
+    line-height: 1.1;
+    letter-spacing: -0.005em;
+    margin: 0 0 24px;
+  }
+
+  .service-desc {
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.72;
+    color: var(--color-ink-soft);
+    max-width: 66ch;
+    margin: 0 0 28px;
+  }
+
+  .service-details {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 0;
+  }
+  .service-details li {
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    width: 50%;
+    padding-right: 16px;
+    padding-left: 18px;
+    position: relative;
+  }
+  .service-details li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 6px;
+    height: 1px;
+    background: var(--color-ink-soft);
+  }
+
+  .services-cta {
+    padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+  }
+  .services-cta-line {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 52px);
+    font-weight: 300;
+    font-style: italic;
+    margin: 0;
+    color: var(--color-ink-soft);
+  }
+  .cta-btn {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 16px 36px;
+    border: 1px solid var(--color-ink);
+    color: var(--color-ink);
+    transition: background 0.28s var(--ease-out), color 0.28s var(--ease-out);
+  }
+  .cta-btn:hover {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  @media (max-width: 640px) {
+    .service-row { grid-template-columns: 1fr; gap: 12px 0; }
+    .service-number { font-size: 28px; padding-top: 0; }
+    .service-details li { width: 100%; }
+  }
+</style>

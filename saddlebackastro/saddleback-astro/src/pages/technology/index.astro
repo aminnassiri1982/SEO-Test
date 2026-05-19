@@ -1,0 +1,217 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const technologies = [
+  {
+    number: '01',
+    name: 'Operating Microscope',
+    tagline: 'We see what we cannot otherwise see.',
+    image: 'https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?auto=format&fit=crop&w=1200&q=80',
+    body: 'The operating microscope changed endodontics more than any other single development. At magnifications between 4× and 25×, with coaxial illumination that follows the surgeon\'s line of sight directly into the canal, structures that were previously invisible become workable. Calcifications. Hairline cracks. Untreated accessory canals. File fragments from prior treatment. The microscope does not guarantee a good outcome, but it changes what is knowable before and during treatment — and that matters enormously.',
+    specs: ['4× to 25× magnification range', 'Coaxial LED illumination', 'Video documentation of every case', 'Used in all surgical and non-surgical cases'],
+  },
+  {
+    number: '02',
+    name: 'Cone-Beam CT Imaging',
+    tagline: 'Three dimensions, before the first instrument.',
+    image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1200&q=80',
+    body: 'Conventional dental radiographs are two-dimensional projections of three-dimensional anatomy. They miss things — extra canals, the true extent of resorption, the precise relationship between a root tip and adjacent structures. Cone-beam computed tomography gives us a volumetric image of the tooth and surrounding bone that we can navigate slice by slice. We use CBCT selectively: not as a default for every patient, but for cases where the three-dimensional picture changes the treatment decision.',
+    specs: ['Limited-field CBCT (low-dose)', 'Sub-millimeter voxel resolution', 'Pre-treatment planning for surgical cases', 'Trauma and resorption assessment'],
+  },
+  {
+    number: '03',
+    name: 'Nickel-Titanium Instrumentation',
+    tagline: 'Precision mechanics inside a curved canal.',
+    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80',
+    body: 'NiTi rotary files have a super-elastic quality that allows them to follow the natural curve of a canal without straightening it, perforating it, or breaking. We use a single-use protocol — every set of files is used once, then discarded — which eliminates instrument fatigue as a failure mode entirely. Electronic apex locators confirm working length continuously throughout instrumentation. The combination of rotary NiTi files and real-time length measurement has made canal preparation far more predictable than it was under a hand-filing protocol.',
+    specs: ['Reciprocating and continuous-rotation systems', 'Single-use protocol (no instrument reuse)', 'Electronic apex location throughout', 'Matched to canal anatomy by case'],
+  },
+  {
+    number: '04',
+    name: 'Digital Radiography',
+    tagline: 'Immediate, low-dose, high-resolution images.',
+    image: 'https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=1200&q=80',
+    body: 'We use direct digital radiography throughout treatment. Images appear immediately, can be zoomed and adjusted without losing resolution, and expose patients to a fraction of the radiation of conventional film. For endodontic cases, we typically take working-length, mid-treatment, and final-obturation radiographs — each assessed in real time on a large monitor at the chair.',
+    specs: ['Up to 90% radiation reduction vs. film', 'Immediate chairside review', 'Digital storage and sharing with referring dentist', 'High-contrast periapical sensors'],
+  },
+];
+---
+
+<BaseLayout
+  title="Technology — Saddleback Valley Endodontics"
+  description="Operating microscope, cone-beam CT, NiTi rotary instrumentation, and digital radiography — the tools that make modern endodontics precise and predictable."
+>
+
+  <Header variant="solid" active="tech" />
+
+  <main>
+
+    <section class="page-intro">
+      <p class="page-eyebrow">Technology</p>
+      <h1 class="page-title">The tools that let us see.</h1>
+      <p class="page-lede">
+        Endodontics has been transformed in the past twenty years by instrumentation that
+        makes the invisible visible. We use every tool in that arsenal, selectively and
+        deliberately.
+      </p>
+    </section>
+
+    <section class="tech-list">
+      {technologies.map((t, i) => (
+        <article class={`tech-row ${i % 2 === 1 ? 'tech-row--reverse' : ''}`}>
+          <div class="tech-image-wrap">
+            <img class="tech-image" src={t.image} alt={t.name} loading="lazy" />
+          </div>
+          <div class="tech-content">
+            <p class="tech-number">{t.number}</p>
+            <h2 class="tech-name">{t.name}</h2>
+            <p class="tech-tagline">{t.tagline}</p>
+            <p class="tech-body">{t.body}</p>
+            <ul class="tech-specs">
+              {t.specs.map(s => <li>{s}</li>)}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </section>
+
+  </main>
+
+  <Footer />
+
+</BaseLayout>
+
+<style is:global>
+  main { padding-top: var(--header-h-top); }
+
+  .page-intro {
+    padding: clamp(80px, 13vh, 140px) clamp(28px, 6vw, 88px) clamp(60px, 9vh, 100px);
+    max-width: 960px;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .page-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    margin: 0 0 32px;
+  }
+  .page-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(52px, 8vw, 104px);
+    line-height: 1;
+    letter-spacing: -0.015em;
+    margin: 0 0 28px;
+  }
+  .page-lede {
+    font-size: clamp(16px, 1.5vw, 19px);
+    line-height: 1.65;
+    color: var(--color-ink-soft);
+    max-width: 58ch;
+    margin: 0;
+  }
+
+  .tech-list { }
+
+  .tech-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 640px;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .tech-row--reverse { direction: rtl; }
+  .tech-row--reverse > * { direction: ltr; }
+
+  .tech-image-wrap {
+    overflow: hidden;
+    background: #f0ede5;
+  }
+  .tech-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.4s var(--ease-out);
+  }
+  .tech-row:hover .tech-image { transform: scale(1.04); }
+
+  .tech-content {
+    padding: clamp(56px, 8vw, 96px) clamp(40px, 6vw, 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .tech-number {
+    font-family: var(--font-display);
+    font-size: 52px;
+    font-weight: 300;
+    color: var(--color-ink-soft);
+    opacity: 0.28;
+    margin: 0 0 24px;
+    line-height: 1;
+  }
+
+  .tech-name {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(28px, 3.5vw, 42px);
+    line-height: 1.08;
+    letter-spacing: -0.005em;
+    margin: 0 0 12px;
+  }
+
+  .tech-tagline {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(16px, 1.6vw, 20px);
+    color: var(--color-ink-soft);
+    margin: 0 0 28px;
+    line-height: 1.4;
+  }
+
+  .tech-body {
+    font-size: clamp(14px, 1.2vw, 16px);
+    line-height: 1.72;
+    color: var(--color-ink-soft);
+    margin: 0 0 32px;
+  }
+
+  .tech-specs {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .tech-specs li {
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    padding: 10px 0 10px 18px;
+    border-bottom: 1px solid var(--color-line);
+    position: relative;
+  }
+  .tech-specs li:first-child { border-top: 1px solid var(--color-line); }
+  .tech-specs li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 6px;
+    height: 1px;
+    background: currentColor;
+  }
+
+  @media (max-width: 860px) {
+    .tech-row { grid-template-columns: 1fr; min-height: auto; direction: ltr !important; }
+    .tech-image-wrap { aspect-ratio: 16 / 9; }
+    .tech-row--reverse .tech-image-wrap { order: -1; }
+  }
+</style>
