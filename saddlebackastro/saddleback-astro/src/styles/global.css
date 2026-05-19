@@ -264,11 +264,15 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .footer-bottom > div:last-child a:first-child { margin-left: 0; }
 }
 /* =====================================================
-   HAMBURGER — always visible, every viewport
+   HAMBURGER — mobile only
    ===================================================== */
 
+/* Hidden on desktop, shown on mobile via breakpoint below */
+.mobile-only  { display: none; }
+.desktop-only { display: initial; }
+
 .menu-toggle {
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   width: 28px;
@@ -284,33 +288,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   transition: opacity 0.2s var(--ease-out);
 }
 
-/* "Contact Us" text link — hide on small screens */
-.header-contact-link {
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  position: relative;
-  padding: 6px 0;
-}
-.header-contact-link::after {
-  content: '';
-  position: absolute;
-  left: 0; right: 0; bottom: 0;
-  height: 1px;
-  background: currentColor;
-  transform: scaleX(0);
-  transform-origin: left center;
-  transition: transform 0.35s var(--ease-out);
-}
-.header-contact-link:hover::after { transform: scaleX(1); }
-
-@media (max-width: 540px) {
-  .header-contact-link { display: none; }
-}
-
 /* =====================================================
-   FULL-SCREEN OVERLAY MENU  (Omega-style)
+   FULL-SCREEN OVERLAY MENU  (Omega-style, mobile)
    ===================================================== */
 
 .mobile-menu {
@@ -447,13 +426,21 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .mobile-menu-sep { opacity: 0.35; }
 
 /* =====================================================
-   Responsive tweaks (no nav row on any viewport now)
+   Breakpoint — swap desktop nav for mobile hamburger
    ===================================================== */
-.site-header .main-nav { display: none; }
+@media (max-width: 860px) {
+  .desktop-only { display: none !important; }
+  .mobile-only  { display: inline-flex; }
+  .menu-toggle  { display: flex; }
+
+  /* Hide desktop nav row on mobile */
+  .site-header .main-nav { display: none !important; }
+
+  .header-utility { gap: 12px; }
+}
 
 @media (max-width: 760px) {
   .header-top { padding: 0 18px; }
-  .header-utility { gap: 14px; }
   .logo-line1 { font-size: 16px; }
   .logo-line2 { font-size: 7.5px; letter-spacing: 0.38em; text-indent: 0.38em; }
 }

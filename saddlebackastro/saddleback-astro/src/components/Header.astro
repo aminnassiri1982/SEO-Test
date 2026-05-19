@@ -8,13 +8,13 @@ const { variant = 'transparent', active } = Astro.props;
 const headerClass = variant === 'solid' ? 'site-header is-inner' : 'site-header';
 ---
 
-<!-- Single-row header: hamburger | logo | utility — on every viewport -->
 <header class={headerClass} id="siteHeader">
   <div class="header-top">
 
-    <!-- LEFT: Hamburger (always visible — opens full-screen menu) -->
+    <!-- LEFT: Contact Us (desktop) / Hamburger (mobile) -->
     <div class="header-utility header-utility--left">
-      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+      <a href="/contact/" class="label-long desktop-only">Contact Us</a>
+      <button class="menu-toggle mobile-only" id="menuToggle" aria-label="Open menu" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
@@ -27,9 +27,9 @@ const headerClass = variant === 'solid' ? 'site-header is-inner' : 'site-header'
       <span class="logo-line2">Endodontics</span>
     </a>
 
-    <!-- RIGHT: Contact Us + Search -->
+    <!-- RIGHT: For Doctors + Search -->
     <div class="header-utility header-utility--right">
-      <a href="/contact/" class="header-contact-link">Contact Us</a>
+      <a href="/contact/#doctors" class="label-long desktop-only">For Doctors</a>
       <button class="search-btn underline-on-hover" aria-label="Search">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="11" cy="11" r="7"></circle>
@@ -39,15 +39,23 @@ const headerClass = variant === 'solid' ? 'site-header is-inner' : 'site-header'
     </div>
 
   </div>
+
+  <!-- DESKTOP NAV — visible links on every page -->
+  <nav class="main-nav desktop-only" aria-label="Primary">
+    <a href="/services/"   class={active === 'services' ? 'is-active' : ''}>Services</a>
+    <a href="/team/"       class={active === 'team'     ? 'is-active' : ''}>Team</a>
+    <a href="/technology/" class={active === 'tech'     ? 'is-active' : ''}>Technology</a>
+    <a href="/blog/"       class={active === 'journal'  ? 'is-active' : ''}>Journal</a>
+    <a href="/faq/"        class={active === 'faq'      ? 'is-active' : ''}>FAQ</a>
+    <a href="/contact/"    class={active === 'contact'  ? 'is-active' : ''}>Contact</a>
+  </nav>
 </header>
 
 <!-- =====================================================
-     FULL-SCREEN OVERLAY MENU (Omega-style)
-     Works on every viewport — desktop & mobile
+     FULL-SCREEN OVERLAY MENU — mobile only (Omega-style)
      ===================================================== -->
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Navigation">
 
-  <!-- Overlay top bar: logo + close -->
   <div class="mobile-menu-bar">
     <a href="/" class="mobile-menu-logo" tabindex="-1">
       <span class="logo-line1">Saddleback Valley</span>
@@ -61,8 +69,7 @@ const headerClass = variant === 'solid' ? 'site-header is-inner' : 'site-header'
     </button>
   </div>
 
-  <!-- Primary nav links — --i drives the stagger delay -->
-  <nav class="mobile-menu-nav" aria-label="Site navigation">
+  <nav class="mobile-menu-nav" aria-label="Mobile navigation">
     <a href="/services/"   style="--i:0" tabindex="-1">Services</a>
     <a href="/team/"       style="--i:1" tabindex="-1">Team</a>
     <a href="/technology/" style="--i:2" tabindex="-1">Technology</a>
@@ -71,7 +78,6 @@ const headerClass = variant === 'solid' ? 'site-header is-inner' : 'site-header'
     <a href="/contact/"    style="--i:5" tabindex="-1">Contact</a>
   </nav>
 
-  <!-- Bottom utility strip -->
   <div class="mobile-menu-footer">
     <a href="tel:+19496001234" tabindex="-1">(949) 600-1234</a>
     <span class="mobile-menu-sep" aria-hidden="true">·</span>
@@ -86,7 +92,7 @@ const headerClass = variant === 'solid' ? 'site-header is-inner' : 'site-header'
   const menu     = document.getElementById('mobileMenu');
   const closeBtn = document.getElementById('menuClose');
 
-  // Transparent → solid on scroll (pages without .is-inner hero)
+  // Transparent → solid on scroll (homepage only)
   if (header && !header.classList.contains('is-inner')) {
     const threshold = () => window.innerHeight - 80;
     const onScroll  = () => header.classList.toggle('is-solid', window.scrollY > threshold());
