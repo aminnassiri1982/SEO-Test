@@ -1,0 +1,516 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+
+const stats = [
+  { value: '100+',  label: 'Years of Research' },
+  { value: 'EBD',   label: 'Evidence-Based Care' },
+  { value: 'ADA',   label: 'ADA & AAE Endorsed' },
+  { value: 'Zero',  label: 'Proven Systemic Risk' },
+];
+
+const benefits = [
+  { icon: '', title: 'Evidence-Based Care', body: 'Every claim we make about root canal safety is grounded in peer-reviewed research published in major dental and medical journals — not anecdote or internet myth.' },
+  { icon: '', title: 'ADA & AAE Endorsed', body: 'Root canal treatment is endorsed by the American Dental Association, the American Association of Endodontists, and every major dental specialty organization worldwide.' },
+  { icon: '', title: 'Preserves Natural Tooth', body: 'Keeping your natural tooth through root canal treatment is consistently shown to be better for long-term oral health than extraction and replacement with an implant or bridge.' },
+  { icon: '', title: 'Safer Than Extraction', body: 'The evidence for systemic risk from root canal treatment is absent. The evidence for complications from unnecessary extraction — including bone loss and prosthetic failure — is well established.' },
+];
+
+const steps = [
+  { number: '01', title: 'Pain: What the Research Shows', body: 'Modern root canal treatment under local anesthesia is no more painful than a routine filling. Studies consistently show patients who have experienced both rate the procedures similarly. Post-operative soreness resolves within days in most cases.' },
+  { number: '02', title: 'The Cancer Myth: Origin & Refutation', body: 'Claims linking root canals to cancer stem from flawed "focal infection" research conducted over a century ago. Numerous large-scale epidemiological studies — including a 2013 JADA study — show no association between root canal treatment and cancer.' },
+  { number: '03', title: 'Systemic Disease: No Causal Link', body: 'No peer-reviewed evidence establishes that root canal treatment causes heart disease, arthritis, kidney disease, or any other systemic condition. The focal infection theory that proposed this link was scientifically rejected in the 1950s.' },
+  { number: '04', title: 'Focal Infection Theory: Historical Context', body: 'Early 20th-century research by Weston Price proposed that bacteria sealed in root canals caused systemic disease. Subsequent controlled studies failed to replicate his findings. The theory was abandoned by mainstream medicine and dentistry decades ago.' },
+  { number: '05', title: 'Modern Biocompatibility', body: 'Contemporary endodontic materials — gutta-percha, bioceramic sealers, MTA — have been extensively studied for biocompatibility and are considered safe by regulatory bodies worldwide. Tissue response to these materials is minimal and well characterized.' },
+];
+
+const symptoms = [
+  { title: '"Root canals cause cancer"', body: 'This claim originates from flawed early 20th-century research. Multiple large peer-reviewed studies, including longitudinal epidemiological data, show no association between root canal treatment and cancer risk.' },
+  { title: '"Root canals make you sick"', body: 'There is no scientific evidence that root canal treatment causes heart disease, arthritis, kidney problems, or any other systemic illness. This myth persists on the internet but has no foundation in controlled clinical research.' },
+  { title: '"Root canals are extremely painful"', body: 'Root canal treatment is performed under local anesthesia. Clinical surveys consistently show that patients rate root canal discomfort as similar to a routine filling — and far less than the toothache that prompted treatment.' },
+  { title: '"A treated tooth is dead"', body: 'A root-canal-treated tooth has had its pulp removed but retains its attachment to the surrounding bone and periodontal ligament. With a proper crown restoration, it functions like any other natural tooth — often for decades.' },
+];
+
+const faqs = [
+  { q: 'Did root canals ever cause cancer?', a: 'No. The claim that root canals cause cancer originates from early 20th-century research by Weston Price that was not reproducible under controlled conditions. A 2013 study published in JAMA Otolaryngology found that patients with a history of multiple root canal treatments actually had a reduced risk of certain cancers. The scientific consensus is clear: root canal treatment does not cause cancer.' },
+  { q: 'Can root canal treatment cause systemic disease?', a: 'No peer-reviewed evidence supports a causal link between root canal treatment and systemic disease. The focal infection theory that proposed this was rejected by the scientific and medical communities in the mid-20th century after controlled studies failed to replicate early findings. The ADA, AAE, and major medical organizations are in agreement on this point.' },
+  { q: 'Is a root-canal-treated tooth "dead"?', a: 'The pulp tissue is removed, but the tooth itself retains its periodontal ligament, root structure, and functional attachment to the jawbone. It is sensory-inactive — it cannot feel hot or cold — but it is not dead in a clinically relevant sense. A properly restored root-canal-treated tooth can remain in function for decades.' },
+  { q: 'Is root canal treatment safe?', a: 'Yes. Root canal treatment has been performed safely for over a century and is one of the most thoroughly studied procedures in dentistry. The materials used — gutta-percha, bioceramic sealers — are biocompatible and rigorously tested. The risks of not treating an infected tooth (spread of infection, sepsis, bone loss, tooth loss) far exceed any theoretical risk from the procedure itself.' },
+];
+
+const related = [
+  { label: 'Root Canal Treatment', href: '/treatments/root-canal-treatment/', desc: 'Evidence-based first-line treatment for infected pulp.' },
+  { label: 'Root Canal Retreatment', href: '/treatments/root-canal-retreatment/', desc: 'When a prior root canal requires revision.' },
+  { label: 'Anxiety & Sedation', href: '/treatments/anxiety-sedation/', desc: 'Comfort options for patients with dental anxiety.' },
+  { label: 'Implant vs. Root Canal', href: '/treatments/dental-implant/', desc: 'An honest, research-based comparison of both options.' },
+];
+---
+
+<BaseLayout
+  title="Root Canal Safety — Facts, Myths & Evidence | Saddleback Valley Endodontics, Laguna Hills, CA"
+  description="Root canal safety explained with evidence: no cancer link, no systemic disease risk, ADA-endorsed, 100+ years of research. Laguna Hills, CA. (949) 837-3033."
+>
+  <Header variant="solid" />
+
+  <main class="rcs-page">
+
+    <!-- HERO -->
+    <section class="rcs-hero">
+      <div class="rcs-hero-image">
+        <img
+          src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=1600&q=80"
+          alt="Dentist reviewing root canal safety research with a patient at Saddleback Valley Endodontics"
+        />
+        <div class="rcs-hero-overlay"></div>
+      </div>
+      <div class="rcs-hero-content">
+        <p class="rcs-section-eyebrow">Laguna Hills, CA</p>
+        <h1 class="rcs-hero-title">Root Canal Safety:<br/>The Evidence.</h1>
+        <p class="rcs-hero-sub">Separating fact from internet myth — with over a century of research on your side.</p>
+        <a href="/request-an-appointment/" class="rcs-hero-btn">Request an Appointment</a>
+      </div>
+      <div class="rcs-stats-bar">
+        {stats.map(s => (
+          <div class="rcs-stat">
+            <span class="rcs-stat-value">{s.value}</span>
+            <span class="rcs-stat-label">{s.label}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- WHAT IS IT -->
+    <section class="rcs-what">
+      <div class="rcs-what-inner">
+        <div class="rcs-what-text">
+          <p class="rcs-section-eyebrow">Root Canal Safety</p>
+          <h2 class="rcs-section-title">What does the evidence say about root canal safety?</h2>
+          <p class="rcs-body-text">Root canal treatment has been performed safely for over a century. Decades of peer-reviewed research, regulatory review of materials, and endorsement by every major dental and medical organization confirm that the procedure is safe, effective, and preferable to extraction in most cases.</p>
+          <p class="rcs-body-text">Concerns about root canal safety circulate widely online, but they originate from early 20th-century research that has been thoroughly reviewed and rejected by the scientific community. We believe patients deserve honest, evidence-based answers — not reassurance based on authority alone.</p>
+          <a href="/request-an-appointment/" class="rcs-outline-btn">Request an Appointment</a>
+        </div>
+        <div class="rcs-what-image">
+          <img
+            src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?auto=format&fit=crop&w=900&q=80"
+            alt="Clinician discussing evidence-based root canal care with a patient"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="rcs-benefits">
+      <p class="rcs-section-eyebrow rcs-centered">Why the evidence matters</p>
+      <h2 class="rcs-section-title rcs-centered">What the science supports.</h2>
+      <div class="rcs-benefits-grid">
+        {benefits.map(b => (
+          <div class="rcs-benefit-card">
+            <div class="rcs-benefit-icon" aria-hidden="true"></div>
+            <h3 class="rcs-benefit-title">{b.title}</h3>
+            <p class="rcs-benefit-body">{b.body}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- STEPS / EVIDENCE POINTS -->
+    <section class="rcs-steps-section">
+      <div class="rcs-steps-inner">
+        <div class="rcs-steps-header">
+          <p class="rcs-section-eyebrow">What the Evidence Shows</p>
+          <h2 class="rcs-section-title">Five evidence points every patient should know.</h2>
+          <p class="rcs-body-text">We review the research behind the most common safety concerns so you can make an informed decision — not one based on fear.</p>
+        </div>
+        <div class="rcs-steps-list">
+          {steps.map(s => (
+            <div class="rcs-step">
+              <div class="rcs-step-num">{s.number}</div>
+              <div>
+                <h3 class="rcs-step-title">{s.title}</h3>
+                <p class="rcs-step-body">{s.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNOLOGY -->
+    <section class="rcs-tech">
+      <div class="rcs-tech-inner">
+        <div class="rcs-tech-image">
+          <img
+            src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=900&q=80"
+            alt="Modern endodontic technology used for safe, precise treatment"
+            loading="lazy"
+          />
+        </div>
+        <div class="rcs-tech-text">
+          <p class="rcs-section-eyebrow">Technology & Materials</p>
+          <h2 class="rcs-section-title">Safe by design:<br/>modern materials &amp; technique.</h2>
+          <ul class="rcs-tech-list">
+            <li>
+              <strong>Biocompatible Materials</strong>
+              <span>Gutta-percha, bioceramic sealers, and MTA have been studied extensively for tissue biocompatibility. No carcinogenicity, genotoxicity, or systemic toxicity has been demonstrated in rigorous testing.</span>
+            </li>
+            <li>
+              <strong>Single-Use Instruments</strong>
+              <span>All rotary files are single-use and discarded after each case, eliminating cross-contamination risk and ensuring maximum instrument integrity.</span>
+            </li>
+            <li>
+              <strong>Digital Radiography</strong>
+              <span>Low-dose digital sensors reduce radiation exposure by up to 80% compared to traditional film — a meaningful safety improvement for patients receiving multiple X-rays.</span>
+            </li>
+            <li>
+              <strong>Aseptic Technique</strong>
+              <span>Rubber dam isolation maintains a sterile field throughout the procedure, preventing contamination of the canal system and reducing post-treatment infection risk.</span>
+            </li>
+          </ul>
+          <a href="/treatments/technology/" class="rcs-outline-btn">Our Full Technology Suite</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MISCONCEPTIONS -->
+    <section class="rcs-when">
+      <p class="rcs-section-eyebrow rcs-centered">Common Misconceptions</p>
+      <h2 class="rcs-section-title rcs-centered">Four myths — and what the research actually shows.</h2>
+      <div class="rcs-when-grid">
+        {symptoms.map(s => (
+          <div class="rcs-when-card">
+            <h3 class="rcs-when-title">{s.title}</h3>
+            <p class="rcs-when-body">{s.body}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="rcs-why">
+      <div class="rcs-why-inner">
+        <div class="rcs-why-image">
+          <img
+            src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80"
+            alt="Saddleback Valley Endodontics — transparent, research-based patient care"
+            loading="lazy"
+          />
+        </div>
+        <div class="rcs-why-text">
+          <p class="rcs-section-eyebrow">Research-Informed Care</p>
+          <h2 class="rcs-section-title">Why choose us for honest, evidence-based endodontic care?</h2>
+          <ul class="rcs-why-list">
+            <li><strong>Clinician transparency.</strong> We take safety questions seriously. We review the evidence with you at consultation — not just tell you what you want to hear — so your decision is genuinely informed.</li>
+            <li><strong>Patient education first.</strong> Our team spends real time explaining the research behind root canal safety, the history of the myths, and why mainstream science has moved past them.</li>
+            <li><strong>Research-informed decisions.</strong> Treatment recommendations are based on current evidence — peer-reviewed literature, ADA and AAE guidelines — not tradition, marketing, or fear.</li>
+            <li><strong>Honest diagnosis.</strong> If a tooth cannot be saved, we will tell you. If extraction and implant is genuinely the better option for your situation, we will explain why — we have no financial incentive to over-treat.</li>
+          </ul>
+          <a href="/request-an-appointment/" class="rcs-cta-filled-btn">Request an Appointment</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="rcs-faq">
+      <div class="rcs-faq-inner">
+        <div class="rcs-faq-header">
+          <p class="rcs-section-eyebrow">Frequently Asked Questions</p>
+          <h2 class="rcs-section-title">Root canal safety FAQ.</h2>
+        </div>
+        <div class="rcs-faq-list">
+          {faqs.map(f => (
+            <details class="rcs-faq-item" name="rcs-faq">
+              <summary class="rcs-faq-q">
+                <span>{f.q}</span>
+                <span class="rcs-faq-icon" aria-hidden="true"></span>
+              </summary>
+              <div class="rcs-faq-a"><p>{f.a}</p></div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- APPOINTMENT FORM -->
+    <section class="rcs-form-section">
+      <div class="rcs-form-inner">
+        <div class="rcs-form-text">
+          <p class="rcs-section-eyebrow">Schedule Today</p>
+          <h2 class="rcs-section-title">Questions? Request a consultation in Laguna Hills, CA.</h2>
+          <ul class="rcs-form-details">
+            <li><span class="rcs-form-label">Phone</span><a href="tel:+19498373033">(949) 837-3033</a></li>
+            <li><span class="rcs-form-label">Address</span><span>25800 Jeronimo Rd, Suite 300<br/>Mission Viejo, CA 92691</span></li>
+            <li><span class="rcs-form-label">Hours</span><span>Mon–Thu 8 am–5 pm · Fri 8 am–2 pm</span></li>
+          </ul>
+        </div>
+        <form class="rcs-form" name="rcs-appointment" netlify data-netlify="true" action="/contact/thank-you/">
+          <input type="hidden" name="form-name" value="rcs-appointment" />
+          <div class="rcs-form-row rcs-form-row--two">
+            <div class="rcs-form-field">
+              <label for="rcs_first">First name</label>
+              <input type="text" id="rcs_first" name="firstName" autocomplete="given-name" required />
+            </div>
+            <div class="rcs-form-field">
+              <label for="rcs_last">Last name</label>
+              <input type="text" id="rcs_last" name="lastName" autocomplete="family-name" required />
+            </div>
+          </div>
+          <div class="rcs-form-row rcs-form-row--two">
+            <div class="rcs-form-field">
+              <label for="rcs_email">Email</label>
+              <input type="email" id="rcs_email" name="email" autocomplete="email" required />
+            </div>
+            <div class="rcs-form-field">
+              <label for="rcs_phone">Phone</label>
+              <input type="tel" id="rcs_phone" name="phone" autocomplete="tel" />
+            </div>
+          </div>
+          <div class="rcs-form-row">
+            <div class="rcs-form-field">
+              <label for="rcs_reason">Reason for visit</label>
+              <select id="rcs_reason" name="reason" required>
+                <option value="" disabled selected>Select one…</option>
+                <option value="root-canal">Root canal treatment</option>
+                <option value="second-opinion">Second opinion</option>
+                <option value="safety-questions">Safety questions / consultation</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+          <button type="submit" class="rcs-form-submit">Submit Request</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- RELATED TREATMENTS -->
+    <section class="rcs-related">
+      <p class="rcs-section-eyebrow rcs-centered">Also in Laguna Hills</p>
+      <h2 class="rcs-section-title rcs-centered">Related endodontic treatments.</h2>
+      <div class="rcs-related-grid">
+        {related.map(r => (
+          <a href={r.href} class="rcs-related-card">
+            <h3 class="rcs-related-name">{r.label}</h3>
+            <p class="rcs-related-desc">{r.desc}</p>
+            <span class="rcs-related-arrow" aria-hidden="true">→</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- BOTTOM CTA -->
+    <section class="rcs-bottom-cta">
+      <div class="rcs-bottom-cta-inner">
+        <h2 class="rcs-bottom-cta-title">Have questions? We have evidence.</h2>
+        <p class="rcs-bottom-cta-body">Call <a href="tel:+19498373033">(949) 837-3033</a> or request a consultation online. We welcome safety questions and answer them honestly.</p>
+        <div class="rcs-bottom-cta-btns">
+          <a href="/request-an-appointment/" class="rcs-cta-filled-btn">Request an Appointment</a>
+          <a href="tel:+19498373033" class="rcs-outline-btn">Call (949) 837-3033</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style is:global>
+  .rcs-page { padding-top: var(--header-h); }
+
+  .rcs-section-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    margin: 0 0 16px;
+  }
+  .rcs-section-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(28px, 4vw, 52px);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin: 0 0 24px;
+  }
+  .rcs-body-text {
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.72;
+    color: var(--color-ink-soft);
+    margin: 0 0 18px;
+  }
+  .rcs-centered { text-align: center; }
+
+  .rcs-hero-btn,
+  .rcs-cta-filled-btn {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 16px 36px;
+    background: var(--color-ink);
+    color: var(--color-paper);
+    border: 1px solid var(--color-ink);
+    transition: background 0.28s var(--ease-out), color 0.28s var(--ease-out);
+  }
+  .rcs-hero-btn:hover,
+  .rcs-cta-filled-btn:hover { background: transparent; color: var(--color-ink); }
+  .rcs-outline-btn {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 14px 32px;
+    border: 1px solid var(--color-ink);
+    color: var(--color-ink);
+    transition: background 0.28s var(--ease-out), color 0.28s var(--ease-out);
+  }
+  .rcs-outline-btn:hover { background: var(--color-ink); color: var(--color-paper); }
+
+  .rcs-hero { position: relative; min-height: 520px; display: flex; flex-direction: column; justify-content: flex-end; }
+  .rcs-hero-image { position: absolute; inset: 0; overflow: hidden; }
+  .rcs-hero-image img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+  .rcs-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(10,10,10,0.25) 0%, rgba(10,10,10,0.65) 100%); }
+  .rcs-hero-content { position: relative; padding: clamp(56px, 10vh, 120px) clamp(28px, 6vw, 88px) 48px; color: #fff; max-width: 800px; }
+  .rcs-hero-content .rcs-section-eyebrow { color: rgba(255,255,255,0.65); }
+  .rcs-hero-title { font-family: var(--font-display); font-weight: 300; font-size: clamp(36px, 5.5vw, 72px); line-height: 1.05; letter-spacing: -0.015em; margin: 0 0 18px; color: #fff; }
+  .rcs-hero-sub { font-size: clamp(15px, 1.4vw, 18px); color: rgba(255,255,255,0.82); margin: 0 0 32px; max-width: 52ch; line-height: 1.6; }
+  .rcs-hero-btn { border-color: #fff; background: #fff; color: var(--color-ink); }
+  .rcs-hero-btn:hover { background: transparent; color: #fff; }
+
+  .rcs-stats-bar { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); background: var(--color-paper); border-top: 1px solid var(--color-line); }
+  .rcs-stat { display: flex; flex-direction: column; align-items: center; padding: clamp(20px, 3.5vh, 32px) 16px; border-right: 1px solid var(--color-line); text-align: center; }
+  .rcs-stat:last-child { border-right: 0; }
+  .rcs-stat-value { font-family: var(--font-display); font-size: clamp(28px, 3.5vw, 44px); font-weight: 300; line-height: 1; margin-bottom: 6px; }
+  .rcs-stat-label { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; color: var(--color-ink-soft); }
+
+  .rcs-what { border-bottom: 1px solid var(--color-line); padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px); }
+  .rcs-what-inner { display: grid; grid-template-columns: 1fr 480px; gap: clamp(48px, 7vw, 96px); align-items: center; max-width: 1200px; }
+  .rcs-what-image { overflow: hidden; }
+  .rcs-what-image img { width: 100%; display: block; }
+
+  .rcs-benefits { padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px); background: var(--color-paper-warm); border-bottom: 1px solid var(--color-line); }
+  .rcs-benefits-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(24px, 4vw, 48px); margin-top: clamp(40px, 6vh, 64px); max-width: 1200px; margin-left: auto; margin-right: auto; }
+  .rcs-benefit-card { border-top: 2px solid var(--color-line); padding-top: clamp(20px, 3vh, 32px); }
+  .rcs-benefit-icon { width: 28px; height: 28px; border: 1px solid var(--color-ink); border-radius: 50%; margin-bottom: 20px; }
+  .rcs-benefit-title { font-family: var(--font-display); font-weight: 400; font-size: clamp(18px, 1.8vw, 22px); margin: 0 0 12px; line-height: 1.2; }
+  .rcs-benefit-body { font-size: clamp(13px, 1.1vw, 15px); line-height: 1.65; color: var(--color-ink-soft); margin: 0; }
+
+  .rcs-steps-section { padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px); border-bottom: 1px solid var(--color-line); }
+  .rcs-steps-inner { display: grid; grid-template-columns: 380px 1fr; gap: clamp(48px, 7vw, 96px); align-items: start; max-width: 1200px; }
+  .rcs-steps-header { position: sticky; top: calc(var(--header-h) + 32px); }
+  .rcs-steps-list { display: flex; flex-direction: column; }
+  .rcs-step { display: grid; grid-template-columns: 64px 1fr; gap: 0 clamp(16px, 3vw, 32px); padding: clamp(28px, 4vh, 44px) 0; border-bottom: 1px solid var(--color-line); }
+  .rcs-step:first-child { border-top: 1px solid var(--color-line); }
+  .rcs-step-num { font-family: var(--font-display); font-size: clamp(28px, 3vw, 40px); font-weight: 300; color: var(--color-ink-soft); opacity: 0.3; line-height: 1.1; padding-top: 2px; }
+  .rcs-step-title { font-family: var(--font-display); font-weight: 400; font-size: clamp(18px, 2vw, 24px); line-height: 1.15; margin: 0 0 10px; }
+  .rcs-step-body { font-size: clamp(14px, 1.2vw, 16px); line-height: 1.7; color: var(--color-ink-soft); margin: 0; }
+
+  .rcs-tech { border-bottom: 1px solid var(--color-line); padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px); background: var(--color-paper-warm); }
+  .rcs-tech-inner { display: grid; grid-template-columns: 480px 1fr; gap: clamp(48px, 7vw, 96px); align-items: center; max-width: 1200px; }
+  .rcs-tech-image img { width: 100%; display: block; }
+  .rcs-tech-list { list-style: none; margin: 0 0 32px; padding: 0; }
+  .rcs-tech-list li { padding: 14px 0; border-bottom: 1px solid var(--color-line); font-size: clamp(14px, 1.2vw, 16px); color: var(--color-ink-soft); line-height: 1.55; }
+  .rcs-tech-list li:first-child { border-top: 1px solid var(--color-line); }
+  .rcs-tech-list li strong { display: block; color: var(--color-ink); font-weight: 500; margin-bottom: 3px; font-size: clamp(13px, 1.1vw, 15px); letter-spacing: 0.04em; }
+  .rcs-tech-list li span { font-size: clamp(13px, 1.1vw, 15px); }
+
+  .rcs-when { padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px); border-bottom: 1px solid var(--color-line); }
+  .rcs-when-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(24px, 4vw, 40px); margin-top: clamp(40px, 6vh, 64px); max-width: 1200px; margin-left: auto; margin-right: auto; }
+  .rcs-when-card { background: var(--color-paper-warm); border: 1px solid var(--color-line); padding: clamp(24px, 3.5vw, 36px); }
+  .rcs-when-title { font-family: var(--font-display); font-weight: 400; font-size: clamp(16px, 1.6vw, 20px); line-height: 1.2; margin: 0 0 12px; }
+  .rcs-when-body { font-size: clamp(13px, 1.1vw, 15px); line-height: 1.65; color: var(--color-ink-soft); margin: 0; }
+
+  .rcs-why { padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px); border-bottom: 1px solid var(--color-line); }
+  .rcs-why-inner { display: grid; grid-template-columns: 480px 1fr; gap: clamp(48px, 7vw, 96px); align-items: center; max-width: 1200px; }
+  .rcs-why-image img { width: 100%; display: block; }
+  .rcs-why-list { list-style: none; margin: 0 0 36px; padding: 0; display: flex; flex-direction: column; gap: 0; }
+  .rcs-why-list li { font-size: clamp(14px, 1.2vw, 16px); line-height: 1.65; color: var(--color-ink-soft); padding: 14px 0; border-bottom: 1px solid var(--color-line); }
+  .rcs-why-list li:first-child { border-top: 1px solid var(--color-line); }
+  .rcs-why-list li strong { color: var(--color-ink); font-weight: 500; }
+
+  .rcs-faq { padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px); border-bottom: 1px solid var(--color-line); background: var(--color-paper-warm); }
+  .rcs-faq-inner { max-width: 900px; }
+  .rcs-faq-header { margin-bottom: clamp(40px, 6vh, 60px); }
+  .rcs-faq-item { border-bottom: 1px solid var(--color-line); }
+  .rcs-faq-item:first-child { border-top: 1px solid var(--color-line); }
+  .rcs-faq-q { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: clamp(20px, 3vh, 30px) 0; cursor: pointer; list-style: none; font-family: var(--font-display); font-size: clamp(18px, 2vw, 26px); font-weight: 400; line-height: 1.2; color: var(--color-ink); transition: color 0.2s var(--ease-out); }
+  .rcs-faq-q::-webkit-details-marker { display: none; }
+  .rcs-faq-q:hover { color: var(--color-ink-soft); }
+  .rcs-faq-icon { flex-shrink: 0; width: 20px; height: 20px; position: relative; }
+  .rcs-faq-icon::before,
+  .rcs-faq-icon::after { content: ''; position: absolute; background: currentColor; transition: transform 0.3s var(--ease-out), opacity 0.25s var(--ease-out); }
+  .rcs-faq-icon::before { width: 1px; height: 100%; left: 50%; top: 0; transform: translateX(-50%); }
+  .rcs-faq-icon::after  { width: 100%; height: 1px; top: 50%; left: 0; transform: translateY(-50%); }
+  .rcs-faq-item[open] .rcs-faq-icon::before { transform: translateX(-50%) rotate(90deg); opacity: 0; }
+  .rcs-faq-a { padding: 0 0 clamp(20px, 3.5vh, 32px); max-width: 66ch; }
+  .rcs-faq-a p { font-size: clamp(15px, 1.3vw, 17px); line-height: 1.72; color: var(--color-ink-soft); margin: 0; }
+
+  .rcs-form-section { padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px); border-bottom: 1px solid var(--color-line); }
+  .rcs-form-inner { display: grid; grid-template-columns: 380px 1fr; gap: clamp(48px, 7vw, 96px); align-items: start; max-width: 1100px; }
+  .rcs-form-details { list-style: none; margin: 32px 0 0; padding: 0; }
+  .rcs-form-details li { display: flex; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--color-line); font-size: 14px; line-height: 1.55; color: var(--color-ink-soft); }
+  .rcs-form-details li:first-child { border-top: 1px solid var(--color-line); }
+  .rcs-form-label { font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; font-weight: 500; color: var(--color-ink-soft); min-width: 64px; padding-top: 2px; }
+  .rcs-form-details a { border-bottom: 1px solid currentColor; }
+  .rcs-form { display: flex; flex-direction: column; gap: 20px; }
+  .rcs-form-row { display: flex; flex-direction: column; gap: 20px; }
+  .rcs-form-row--two { flex-direction: row; gap: 16px; }
+  .rcs-form-row--two .rcs-form-field { flex: 1; }
+  .rcs-form-field { display: flex; flex-direction: column; gap: 7px; }
+  .rcs-form-field label { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; color: var(--color-ink-soft); }
+  .rcs-form-field input,
+  .rcs-form-field select { width: 100%; padding: 13px 14px; border: 1px solid var(--color-line); background: var(--color-paper); color: var(--color-ink); font-family: var(--font-ui); font-size: 15px; outline: none; transition: border-color 0.2s var(--ease-out); appearance: none; -webkit-appearance: none; }
+  .rcs-form-field input:focus,
+  .rcs-form-field select:focus { border-color: var(--color-ink); }
+  .rcs-form-field select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a4a4a' stroke-width='1.5'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; background-size: 16px; padding-right: 36px; }
+  .rcs-form-submit { align-self: flex-start; font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 500; padding: 16px 40px; border: 1px solid var(--color-ink); background: var(--color-ink); color: var(--color-paper); cursor: pointer; font-family: var(--font-ui); transition: background 0.28s var(--ease-out), color 0.28s var(--ease-out); margin-top: 4px; }
+  .rcs-form-submit:hover { background: transparent; color: var(--color-ink); }
+
+  .rcs-related { padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px); border-bottom: 1px solid var(--color-line); background: var(--color-paper-warm); }
+  .rcs-related-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: clamp(40px, 6vh, 56px); border-left: 1px solid var(--color-line); }
+  .rcs-related-card { display: flex; flex-direction: column; padding: clamp(24px, 3.5vw, 36px); border-right: 1px solid var(--color-line); border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); text-decoration: none; color: var(--color-ink); transition: background 0.22s var(--ease-out); gap: 10px; }
+  .rcs-related-card:hover { background: var(--color-paper); }
+  .rcs-related-name { font-family: var(--font-display); font-weight: 400; font-size: clamp(16px, 1.6vw, 20px); line-height: 1.2; margin: 0; }
+  .rcs-related-desc { font-size: 13px; line-height: 1.55; color: var(--color-ink-soft); margin: 0; flex: 1; }
+  .rcs-related-arrow { font-size: 16px; color: var(--color-ink-soft); margin-top: auto; }
+
+  .rcs-bottom-cta { padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px); background: var(--color-ink); color: var(--color-paper); }
+  .rcs-bottom-cta-inner { max-width: 720px; }
+  .rcs-bottom-cta-title { font-family: var(--font-display); font-weight: 300; font-size: clamp(32px, 5vw, 64px); line-height: 1.05; letter-spacing: -0.01em; margin: 0 0 20px; color: #fff; }
+  .rcs-bottom-cta-body { font-size: clamp(15px, 1.3vw, 17px); line-height: 1.65; color: rgba(255,255,255,0.72); margin: 0 0 36px; }
+  .rcs-bottom-cta-body a { color: #fff; border-bottom: 1px solid rgba(255,255,255,0.4); }
+  .rcs-bottom-cta-btns { display: flex; flex-wrap: wrap; gap: 16px; }
+  .rcs-bottom-cta .rcs-cta-filled-btn { background: #fff; color: var(--color-ink); border-color: #fff; }
+  .rcs-bottom-cta .rcs-cta-filled-btn:hover { background: transparent; color: #fff; }
+  .rcs-bottom-cta .rcs-outline-btn { border-color: rgba(255,255,255,0.5); color: rgba(255,255,255,0.82); }
+  .rcs-bottom-cta .rcs-outline-btn:hover { background: rgba(255,255,255,0.1); color: #fff; border-color: #fff; }
+
+  @media (max-width: 1024px) {
+    .rcs-benefits-grid,
+    .rcs-when-grid { grid-template-columns: repeat(2, 1fr); }
+    .rcs-related-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 860px) {
+    .rcs-what-inner,
+    .rcs-tech-inner,
+    .rcs-why-inner,
+    .rcs-steps-inner,
+    .rcs-form-inner { grid-template-columns: 1fr; }
+    .rcs-steps-header { position: static; }
+    .rcs-stats-bar { grid-template-columns: repeat(2, 1fr); }
+    .rcs-stat:nth-child(2) { border-right: 0; }
+  }
+  @media (max-width: 600px) {
+    .rcs-benefits-grid,
+    .rcs-when-grid,
+    .rcs-related-grid { grid-template-columns: 1fr; }
+    .rcs-related-grid { border-left: 0; }
+    .rcs-related-card { border-left: 1px solid var(--color-line); }
+    .rcs-form-row--two { flex-direction: column; }
+    .rcs-stats-bar { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
