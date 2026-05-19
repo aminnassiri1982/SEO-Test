@@ -433,7 +433,7 @@ const related = [
   .rcs-why { padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px); border-bottom: 1px solid var(--color-line); }
   .rcs-why-inner { display: grid; grid-template-columns: 480px 1fr; gap: clamp(48px, 7vw, 96px); align-items: center; max-width: 1200px;
     margin: 0 auto; }
-  .rcs-why-image img { width: 100%; display: block; }
+  .rcs-why-image { min-height: 560px; } .rcs-why-image img { width: 100%; height: 100%; min-height: 560px; object-fit: cover; display: block; }
   .rcs-why-list { list-style: none; margin: 0 0 36px; padding: 0; display: flex; flex-direction: column; gap: 0; }
   .rcs-why-list li { font-size: clamp(14px, 1.2vw, 16px); line-height: 1.65; color: var(--color-ink-soft); padding: 14px 0; border-bottom: 1px solid var(--color-line); }
   .rcs-why-list li:first-child { border-top: 1px solid var(--color-line); }
