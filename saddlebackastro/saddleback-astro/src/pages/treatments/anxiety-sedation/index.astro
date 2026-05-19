@@ -3,117 +3,275 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
 
-const options = [
-  {
-    number: '01',
-    name: 'Nitrous Oxide',
-    body: 'Nitrous oxide (laughing gas) is inhaled through a small nasal mask and takes effect within a few minutes. It produces a state of mild sedation and euphoria — patients remain fully conscious, can communicate, and respond to instructions, but feel relaxed and detached from anxiety. The effect wears off completely within 5–10 minutes of stopping administration, so patients can drive themselves home. Nitrous oxide is our first-line option for patients with mild to moderate dental anxiety.',
-    details: ['Onset in 3–5 minutes', 'Fully alert and communicative throughout', 'Wears off in 5–10 minutes after stopping', 'Safe to drive afterward', 'Available at no additional cost for anxious patients'],
-  },
-  {
-    number: '02',
-    name: 'Oral Sedation',
-    body: 'For patients with more significant anxiety, a prescribed oral sedative (typically a benzodiazepine such as triazolam) is taken 30–60 minutes before the appointment. Oral sedation produces deeper relaxation than nitrous oxide — patients are more profoundly calm and often have partial or complete amnesia for the procedure. Patients must arrange a driver for the day of their appointment; they should not drive or make important decisions for the remainder of the day.',
-    details: ['Prescribed the day before', 'A driver is required — no exceptions', 'Deeper sedation than nitrous oxide', 'Partial or full amnesia for the procedure is common', 'Vital signs monitored throughout'],
-  },
+const stats = [
+  { value: 'N₂O',       label: 'Nitrous Oxide Available' },
+  { value: 'Oral',      label: 'Sedation Option' },
+  { value: 'Same-Day',  label: 'Urgent Appointments' },
+  { value: '100%',      label: 'Judgment-Free Care' },
+];
+
+const benefits = [
+  { title: 'Nitrous Oxide',              body: 'Mild, fast-acting inhalation sedation that relaxes without putting you to sleep. Wears off in minutes — you can drive yourself home.' },
+  { title: 'Oral Sedation',              body: 'A prescribed pill taken before your appointment produces deeper relaxation. You remain conscious but deeply calm. A driver is required.' },
+  { title: 'Advanced Local Anesthesia',  body: 'We use buffered anesthetics and precise injection technique to ensure complete numbness before any procedure begins.' },
+  { title: 'Judgment-Free Environment',  body: 'Our team treats anxious patients every day. There is no judgment here — only patience, clear communication, and complete control.' },
+];
+
+const steps = [
+  { number: '01', title: 'Tell us about your anxiety',    body: 'We discuss your concerns, triggers, and history before choosing a sedation approach that fits your needs and medical history.' },
+  { number: '02', title: 'Sedation planning',             body: 'We select the right option and provide pre-appointment instructions — fasting requirements, transportation arrangements if needed.' },
+  { number: '03', title: 'Arrival & medication',          body: 'Oral sedation is taken before arrival or at the office; nitrous oxide begins at the start of your appointment once you are seated.' },
+  { number: '04', title: 'Treatment',                     body: 'You remain comfortable throughout — we check in frequently and stop if you need a break. Nothing happens without your awareness.' },
+  { number: '05', title: 'Recovery',                      body: 'Nitrous oxide clears in minutes; oral sedation requires a companion driver and a quiet rest of the day before resuming normal activity.' },
+];
+
+const indications = [
+  { title: 'History of traumatic dental experiences',    body: 'Past pain, unexpected procedures, or dismissive providers can create lasting anxiety that makes routine care feel impossible.' },
+  { title: 'Strong gag reflex',                         body: 'A sensitive gag reflex that makes dental work difficult or impossible without the relaxation that sedation provides.' },
+  { title: 'Extreme sensitivity to needles',            body: 'Fear of injections specifically — buffered anesthetics and topical agents can help, as can nitrous oxide before the injection.' },
+  { title: 'Difficulty getting numb',                   body: 'Some patients require higher doses or more injections to achieve full anesthesia — sedation makes this process far more manageable.' },
+];
+
+const whyPoints = [
+  'We treat anxious patients every day — this is not an exception to our practice, it is a core part of it',
+  'Multiple sedation levels: nitrous, oral, and expert local anesthesia',
+  'We explain every step before we do it — no surprises',
+  'Same-day urgent care available even for patients who need sedation',
 ];
 
 const faqs = [
   {
-    q: 'Will I be unconscious during sedation?',
-    a: 'Neither nitrous oxide nor oral sedation produces unconsciousness. Both are forms of conscious sedation — you remain awake, can breathe on your own, and respond to questions. The goal is comfort and anxiety reduction, not general anesthesia. If you require IV sedation or general anesthesia, we can discuss referral options.',
+    q: 'Is nitrous oxide safe?',
+    a: 'Yes — nitrous oxide has been used in dentistry for over 150 years and has an excellent safety record. It is titrated to your comfort level and reverses within minutes when the mask is removed. There are no lasting effects.',
   },
   {
-    q: 'Is sedation safe for root canal treatment?',
-    a: 'Yes. Conscious sedation is safe for most healthy adults. At your consultation, we review your medical history and any medications you take. Patients with certain medical conditions may require medical clearance or alternative approaches. The combination of local anesthesia and conscious sedation is well-established in endodontic practice.',
+    q: 'Can I eat before oral sedation?',
+    a: 'For oral sedation, we typically ask patients to avoid food and drink for several hours beforehand. We provide specific instructions at the time of prescribing based on the medication chosen.',
   },
   {
-    q: 'Do I still need local anesthesia with sedation?',
-    a: 'Yes — local anesthesia is always used regardless of sedation method. Sedation reduces anxiety; local anesthesia prevents pain by numbing the tooth and surrounding tissues. Sedation does not replace the need for profound local anesthesia. The two work together.',
+    q: 'Will I be unconscious?',
+    a: 'No. Both nitrous oxide and oral sedation produce conscious sedation — you remain awake and able to respond, but feel deeply relaxed and often have little memory of the procedure.',
   },
   {
-    q: 'How do I request sedation?',
-    a: 'Tell us at your consultation or when you call to schedule. We will discuss which option is appropriate for you, review your medical history, and make any necessary arrangements — including a prescription for oral sedation if indicated. There is no judgment for needing sedation; dental anxiety is common and we accommodate it routinely.',
+    q: 'Do I need a driver for nitrous oxide?',
+    a: 'No — nitrous oxide wears off within minutes of removing the mask, and you can drive yourself home. Oral sedation does require a driver for the day of your appointment.',
   },
+];
+
+const related = [
+  { label: 'Root Canal Treatment',         href: '/treatments/root-canal-treatment/',         desc: 'Precise, comfortable endodontic therapy that saves your natural tooth.' },
+  { label: 'Root Canal Retreatment',       href: '/treatments/root-canal-retreatment/',       desc: 'Revision of a prior root canal when symptoms return.' },
+  { label: 'Apical Surgery / Apicoectomy', href: '/treatments/apical-surgery-apicoectomy/',   desc: 'Microsurgical access to the root tip when retreatment is not possible.' },
+  { label: 'Dental Implants',              href: '/treatments/dental-implant/',               desc: 'An honest evaluation — when to save a tooth and when to replace it.' },
 ];
 ---
 
 <BaseLayout
-  title="Anxiety & Sedation for Root Canals in Laguna Hills, CA — Saddleback Valley Endodontics"
-  description="Nitrous oxide and oral sedation for anxious patients in Laguna Hills and Mission Viejo, CA. Comfortable, stress-free endodontic care. (949) 837-3033."
+  title="Anxiety & Sedation in Laguna Hills, CA — Saddleback Valley Endodontics"
+  description="Nitrous oxide and oral sedation for anxious patients in Laguna Hills and Mission Viejo, CA. Judgment-free, comfortable endodontic care. (949) 837-3033."
 >
   <Header variant="solid" />
 
-  <main>
+  <main class="sed-page">
 
-    <section class="page-intro">
-      <p class="page-eyebrow">Anxiety & Sedation · Laguna Hills, CA</p>
-      <h1 class="page-title">Comfortable care,<br/>without the fear.</h1>
-      <p class="page-lede">
-        Dental anxiety is common and nothing to be embarrassed about. We offer nitrous oxide
-        and oral sedation to help patients who need it get the treatment they need, without
-        dread or distress.
-      </p>
-    </section>
-
-    <section class="sed-intro-section">
-      <div class="sed-intro-inner">
-        <h2 class="sed-intro-headline">You do not have to white-knuckle it.</h2>
-        <p class="sed-intro-body">
-          Anxiety about dental procedures — and root canals in particular — keeps people from seeking care they need. The longer a tooth problem goes untreated, the more complex and difficult it becomes. We have seen patients arrive in acute pain because they delayed treatment for months or years out of fear. Sedation removes that barrier.
-        </p>
-        <p class="sed-intro-body">
-          Our approach is to make every appointment as comfortable as possible regardless of sedation. That means taking time with anesthesia, explaining each step, and never rushing. Sedation is available for any patient who needs it — not just those with severe phobias.
-        </p>
+    <!-- HERO -->
+    <section class="sed-hero">
+      <div class="sed-hero-image">
+        <img
+          src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1600&q=80"
+          alt="Comfortable dental care for anxious patients at Saddleback Valley Endodontics"
+        />
+        <div class="sed-hero-overlay"></div>
       </div>
-    </section>
-
-    <section class="sed-options-section">
-      <p class="sed-options-eyebrow" data-reveal>Sedation Options</p>
-      <h2 class="sed-options-headline" data-reveal>Two levels of relief.</h2>
-      <div class="sed-options-grid">
-        {options.map((o, i) => (
-          <div class="sed-option" data-reveal data-reveal-delay={String(i + 1)}>
-            <span class="sed-option-num">{o.number}</span>
-            <h3 class="sed-option-name">{o.name}</h3>
-            <p class="sed-option-body">{o.body}</p>
-            <ul class="sed-option-details">
-              {o.details.map(d => <li>{d}</li>)}
-            </ul>
+      <div class="sed-hero-content">
+        <p class="sed-section-eyebrow">Laguna Hills, CA</p>
+        <h1 class="sed-hero-title">Comfortable Care<br/>for Anxious Patients</h1>
+        <p class="sed-hero-sub">Nitrous oxide, oral sedation, and expert local anesthesia — so dental anxiety doesn't delay needed care.</p>
+        <a href="/request-an-appointment/" class="sed-hero-btn">Request an Appointment</a>
+      </div>
+      <div class="sed-stats-bar">
+        {stats.map((s, i) => (
+          <div class="sed-stat" data-reveal data-reveal-delay={String(i + 1)}>
+            <span class="sed-stat-value">{s.value}</span>
+            <span class="sed-stat-label">{s.label}</span>
           </div>
         ))}
       </div>
     </section>
 
-    <section class="sed-faq-section">
-      <div class="sed-faq-header">
-        <p class="sed-faq-eyebrow" data-reveal>Common Questions</p>
-        <h2 class="sed-faq-headline" data-reveal>Sedation FAQ.</h2>
+    <!-- WHAT IS IT -->
+    <section class="sed-what">
+      <div class="sed-what-inner">
+        <div class="sed-what-text" data-reveal="right">
+          <p class="sed-section-eyebrow">Anxiety & Sedation</p>
+          <h2 class="sed-section-title">You don't have to be afraid.</h2>
+          <p class="sed-body-text">Dental anxiety is extremely common — and nothing to be ashamed of. Whether your anxiety stems from past experiences, fear of needles, or simply the sounds and sensations of dental care, we offer multiple levels of sedation tailored to your needs. Our team is trained specifically to treat anxious patients with patience, clear communication, and complete respect for your pace.</p>
+          <p class="sed-body-text">From mild relaxation with nitrous oxide to deeper comfort with oral sedation, we work with you before the appointment to choose the right approach. Nothing happens without your knowledge and agreement. You remain in control throughout.</p>
+          <a href="/request-an-appointment/" class="sed-outline-btn">Request an Appointment</a>
+        </div>
+        <div class="sed-what-image" data-reveal="left">
+          <img
+            src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=900&q=80"
+            alt="Relaxed patient receiving comfortable care at Saddleback Valley Endodontics"
+            loading="lazy"
+          />
+        </div>
       </div>
-      <div class="sed-faq-list">
-        {faqs.map(f => (
-          <details class="sed-faq-item" name="sed-faq" data-reveal>
-            <summary class="sed-faq-q">
-              <span>{f.q}</span>
-              <span class="sed-faq-icon" aria-hidden="true"></span>
-            </summary>
-            <div class="sed-faq-a">
-              <p>{f.a}</p>
-            </div>
-          </details>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="sed-benefits">
+      <p class="sed-section-eyebrow sed-centered" data-reveal>Sedation options we offer</p>
+      <h2 class="sed-section-title sed-centered" data-reveal>Multiple levels of comfort.</h2>
+      <div class="sed-benefits-grid">
+        {benefits.map((b, i) => (
+          <div class="sed-benefit-card" data-reveal data-reveal-delay={String((i % 3) + 1)}>
+            <div class="sed-benefit-icon" aria-hidden="true"></div>
+            <h3 class="sed-benefit-title">{b.title}</h3>
+            <p class="sed-benefit-body">{b.body}</p>
+          </div>
         ))}
       </div>
     </section>
 
-    <section class="sed-cta-band">
-      <div class="sed-cta-inner" data-reveal>
-        <p class="sed-cta-eyebrow">Serving Laguna Hills & Mission Viejo</p>
-        <h2 class="sed-cta-headline">Let us know — we will take care of the rest.</h2>
-        <p class="sed-cta-body">
-          Call <a href="tel:+19498373033">(949) 837-3033</a> and tell us you would like sedation.
-          We will arrange it before your appointment. Located at 25800 Jeronimo Road, Suite 300, Mission Viejo.
-        </p>
-        <a href="/request-an-appointment/" class="sed-cta-btn">Request an Appointment</a>
+    <!-- STEPS -->
+    <section class="sed-steps-section">
+      <div class="sed-steps-inner">
+        <div class="sed-steps-header">
+          <p class="sed-section-eyebrow" data-reveal>The Process</p>
+          <h2 class="sed-section-title" data-reveal>What to expect at your visit.</h2>
+          <p class="sed-body-text">Every step is explained before it happens. We don't rush, we don't pressure, and we adjust our pace to yours throughout.</p>
+        </div>
+        <div class="sed-steps-list">
+          {steps.map(s => (
+            <div class="sed-step" data-reveal>
+              <div class="sed-step-num">{s.number}</div>
+              <div>
+                <h3 class="sed-step-title">{s.title}</h3>
+                <p class="sed-step-body">{s.body}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNOLOGY -->
+    <section class="sed-tech">
+      <div class="sed-tech-inner">
+        <div class="sed-tech-image" data-reveal="left">
+          <img
+            src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=900&q=80"
+            alt="Operating microscope and advanced technology used at Saddleback Valley Endodontics"
+            loading="lazy"
+          />
+        </div>
+        <div class="sed-tech-text" data-reveal="right">
+          <p class="sed-section-eyebrow">Technology</p>
+          <h2 class="sed-section-title">Technology that makes treatment faster and more comfortable.</h2>
+          <ul class="sed-tech-list">
+            <li>
+              <strong>Operating Microscope (4×–25×)</strong>
+              <span>Precision magnification means less time in the chair — we work more efficiently and make fewer passes, reducing overall treatment time and discomfort.</span>
+            </li>
+            <li>
+              <strong>Cone-Beam CT Imaging</strong>
+              <span>3D pre-treatment planning eliminates surprises during the procedure, reducing the chance of unexpected steps that increase anxiety or extend appointment length.</span>
+            </li>
+            <li>
+              <strong>Buffered Local Anesthetics</strong>
+              <span>pH-neutral anesthetic formulations reduce the stinging sensation of injection and take effect faster — a meaningful difference for patients who fear needles.</span>
+            </li>
+            <li>
+              <strong>Digital Radiography</strong>
+              <span>Instant, low-dose images reviewed chairside eliminate the need for repeated trips to the X-ray room, keeping your appointment streamlined.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHEN NEEDED -->
+    <section class="sed-when">
+      <p class="sed-section-eyebrow sed-centered" data-reveal>Indications</p>
+      <h2 class="sed-section-title sed-centered" data-reveal>Signs you may benefit from sedation.</h2>
+      <div class="sed-when-grid">
+        {indications.map((s, i) => (
+          <div class="sed-when-card" data-reveal data-reveal-delay={String(i + 1)}>
+            <h3 class="sed-when-title">{s.title}</h3>
+            <p class="sed-when-body">{s.body}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="sed-why">
+      <div class="sed-why-inner">
+        <div class="sed-why-image" data-reveal="left">
+          <img
+            src="/images/Saddleback-Valley-Endodontics.webp"
+            alt="Saddleback Valley Endodontics team"
+            loading="lazy"
+          />
+        </div>
+        <div class="sed-why-text" data-reveal="right">
+          <p class="sed-section-eyebrow">South OC · Judgment-Free Care</p>
+          <h2 class="sed-section-title">Why patients trust us for anxious care.</h2>
+          <ul class="sed-why-list">
+            {whyPoints.map(pt => (
+              <li>{pt}</li>
+            ))}
+          </ul>
+          <a href="/request-an-appointment/" class="sed-cta-filled-btn">Request an Appointment</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="sed-faq">
+      <div class="sed-faq-inner">
+        <div class="sed-faq-header">
+          <p class="sed-section-eyebrow" data-reveal>Frequently Asked Questions</p>
+          <h2 class="sed-section-title" data-reveal>Sedation FAQ.</h2>
+        </div>
+        <div class="sed-faq-list">
+          {faqs.map(f => (
+            <details class="sed-faq-item" name="sed-faq" data-reveal>
+              <summary class="sed-faq-q">
+                <span>{f.q}</span>
+                <span class="sed-faq-icon" aria-hidden="true"></span>
+              </summary>
+              <div class="sed-faq-a"><p>{f.a}</p></div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- RELATED TREATMENTS -->
+    <section class="sed-related">
+      <p class="sed-section-eyebrow sed-centered" data-reveal>Also in Laguna Hills</p>
+      <h2 class="sed-section-title sed-centered" data-reveal>Related endodontic treatments.</h2>
+      <div class="sed-related-grid">
+        {related.map((r, i) => (
+          <a href={r.href} class="sed-related-card" data-reveal data-reveal-delay={String((i % 3) + 1)}>
+            <h3 class="sed-related-name">{r.label}</h3>
+            <p class="sed-related-desc">{r.desc}</p>
+            <span class="sed-related-arrow" aria-hidden="true">→</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- BOTTOM CTA -->
+    <section class="sed-bottom-cta">
+      <div class="sed-bottom-cta-inner" data-reveal>
+        <h2 class="sed-bottom-cta-title">Ready for a comfortable visit?</h2>
+        <p class="sed-bottom-cta-body">Call <a href="tel:+19498373033">(949) 837-3033</a> and mention you'd like sedation. We'll walk you through your options before your appointment.</p>
+        <div class="sed-bottom-cta-btns">
+          <a href="/request-an-appointment/" class="sed-cta-filled-btn">Request an Appointment</a>
+        </div>
       </div>
     </section>
 
@@ -123,161 +281,355 @@ const faqs = [
 </BaseLayout>
 
 <style is:global>
-  main { padding-top: var(--header-h); }
+  .sed-page { padding-top: var(--header-h); }
 
-  .page-intro {
-    padding: clamp(80px, 13vh, 140px) clamp(28px, 6vw, 88px) clamp(60px, 9vh, 100px);
-    max-width: 960px;
-    margin: 0 auto;
-    border-bottom: 1px solid var(--color-line);
-  }
-  .page-eyebrow {
+  /* ── Shared typography utilities ── */
+  .sed-section-eyebrow {
     font-size: 11px;
     letter-spacing: 0.36em;
     text-transform: uppercase;
     font-weight: 500;
     color: var(--color-ink-soft);
-    margin: 0 0 32px;
+    margin: 0 0 16px;
   }
-  .page-title {
-    font-family: var(--font-display);
-    font-weight: 300;
-    font-size: clamp(52px, 8vw, 104px);
-    line-height: 1;
-    letter-spacing: -0.015em;
-    margin: 0 0 28px;
-  }
-  .page-lede {
-    font-size: clamp(16px, 1.5vw, 19px);
-    line-height: 1.65;
-    color: var(--color-ink-soft);
-    max-width: 58ch;
-    margin: 0;
-  }
-
-  .sed-intro-section {
-    padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
-    border-bottom: 1px solid var(--color-line);
-  }
-  .sed-intro-inner { max-width: 760px; }
-  .sed-intro-headline {
+  .sed-section-title {
     font-family: var(--font-display);
     font-weight: 300;
     font-size: clamp(28px, 4vw, 52px);
     line-height: 1.05;
     letter-spacing: -0.01em;
-    margin: 0 0 28px;
+    margin: 0 0 24px;
   }
-  .sed-intro-body {
+  .sed-body-text {
     font-size: clamp(15px, 1.3vw, 17px);
     line-height: 1.72;
     color: var(--color-ink-soft);
     margin: 0 0 18px;
   }
+  .sed-centered { text-align: center; }
 
-  .sed-options-section {
-    padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
-    border-bottom: 1px solid var(--color-line);
+  /* ── Buttons ── */
+  .sed-hero-btn,
+  .sed-cta-filled-btn {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 16px 36px;
+    background: var(--color-ink);
+    color: var(--color-paper);
+    border: 1px solid var(--color-ink);
+    transition: background 0.28s var(--ease-out), color 0.28s var(--ease-out);
   }
-  .sed-options-eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.36em;
+  .sed-hero-btn:hover,
+  .sed-cta-filled-btn:hover {
+    background: transparent;
+    color: var(--color-ink);
+  }
+  .sed-outline-btn {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 14px 32px;
+    border: 1px solid var(--color-ink);
+    color: var(--color-ink);
+    transition: background 0.28s var(--ease-out), color 0.28s var(--ease-out);
+  }
+  .sed-outline-btn:hover {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  /* ── HERO ── */
+  .sed-hero {
+    position: relative;
+    min-height: 520px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .sed-hero-image {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+  .sed-hero-image img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+  }
+  .sed-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(10,10,10,0.25) 0%, rgba(10,10,10,0.65) 100%);
+  }
+  .sed-hero-content {
+    position: relative;
+    padding: clamp(56px, 10vh, 120px) clamp(28px, 6vw, 88px) 48px;
+    color: #fff;
+    max-width: 800px;
+  }
+  .sed-hero-content .sed-section-eyebrow { color: rgba(255,255,255,0.65); }
+  .sed-hero-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(36px, 5.5vw, 72px);
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    margin: 0 0 18px;
+    color: #fff;
+  }
+  .sed-hero-sub {
+    font-size: clamp(15px, 1.4vw, 18px);
+    color: rgba(255,255,255,0.82);
+    margin: 0 0 32px;
+    max-width: 52ch;
+    line-height: 1.6;
+  }
+  .sed-hero-btn { border-color: #fff; background: #fff; color: var(--color-ink); }
+  .sed-hero-btn:hover { background: transparent; color: #fff; }
+
+  .sed-stats-bar {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: var(--color-paper);
+    border-top: 1px solid var(--color-line);
+  }
+  .sed-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: clamp(20px, 3.5vh, 32px) 16px;
+    border-right: 1px solid var(--color-line);
+    text-align: center;
+  }
+  .sed-stat:last-child { border-right: 0; }
+  .sed-stat-value {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .sed-stat-label {
+    font-size: 10px;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
     font-weight: 500;
     color: var(--color-ink-soft);
-    margin: 0 0 20px;
   }
-  .sed-options-headline {
-    font-family: var(--font-display);
-    font-weight: 300;
-    font-size: clamp(28px, 4vw, 52px);
-    line-height: 1.05;
-    letter-spacing: -0.01em;
-    margin: 0 0 clamp(48px, 7vh, 72px);
+
+  /* ── WHAT IS IT ── */
+  .sed-what {
+    border-bottom: 1px solid var(--color-line);
+    padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
   }
-  .sed-options-grid {
+  .sed-what-inner {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(32px, 5vw, 64px);
-    max-width: 1100px;
+    grid-template-columns: 1fr 480px;
+    gap: clamp(48px, 7vw, 96px);
+    align-items: center;
+    max-width: 1200px;
     margin: 0 auto;
   }
-  .sed-option {
-    border-top: 1px solid var(--color-line);
-    padding-top: clamp(28px, 4vh, 44px);
+  .sed-what-image { overflow: hidden; }
+  .sed-what-image img { width: 100%; display: block; }
+
+  /* ── BENEFITS ── */
+  .sed-benefits {
+    padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
+    background: var(--color-paper-warm);
+    border-bottom: 1px solid var(--color-line);
   }
-  .sed-option-num {
-    font-family: var(--font-display);
-    font-size: 36px;
-    font-weight: 300;
-    color: var(--color-ink-soft);
-    opacity: 0.28;
-    display: block;
-    margin-bottom: 16px;
-    line-height: 1;
+  .sed-benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(24px, 4vw, 48px);
+    max-width: 1200px;
+    margin: 0 auto;
   }
-  .sed-option-name {
+  .sed-benefit-card {
+    border-top: 2px solid var(--color-line);
+    padding-top: clamp(20px, 3vh, 32px);
+  }
+  .sed-benefit-icon {
+    width: 28px; height: 28px;
+    border: 1px solid var(--color-ink);
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  .sed-benefit-title {
     font-family: var(--font-display);
     font-weight: 400;
-    font-size: clamp(22px, 2.4vw, 30px);
-    line-height: 1.1;
-    margin: 0 0 16px;
-    letter-spacing: -0.005em;
+    font-size: clamp(18px, 1.8vw, 22px);
+    margin: 0 0 12px;
+    line-height: 1.2;
   }
-  .sed-option-body {
-    font-size: clamp(14px, 1.2vw, 16px);
-    line-height: 1.72;
+  .sed-benefit-body {
+    font-size: clamp(13px, 1.1vw, 15px);
+    line-height: 1.65;
     color: var(--color-ink-soft);
-    margin: 0 0 24px;
-  }
-  .sed-option-details {
-    list-style: none;
     margin: 0;
-    padding: 0;
-  }
-  .sed-option-details li {
-    font-size: 12px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: var(--color-ink-soft);
-    padding: 9px 0 9px 16px;
-    border-bottom: 1px solid var(--color-line);
-    position: relative;
-  }
-  .sed-option-details li:first-child { border-top: 1px solid var(--color-line); }
-  .sed-option-details li::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 50%;
-    width: 6px; height: 1px;
-    background: currentColor;
-    opacity: 0.5;
   }
 
-  .sed-faq-section {
+  /* ── STEPS ── */
+  .sed-steps-section {
     padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
     border-bottom: 1px solid var(--color-line);
   }
-  .sed-faq-header { margin-bottom: clamp(40px, 6vh, 60px); }
-  .sed-faq-eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.36em;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: var(--color-ink-soft);
-    margin: 0 0 20px;
+  .sed-steps-inner {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: clamp(48px, 7vw, 96px);
+    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
   }
-  .sed-faq-headline {
+  .sed-steps-header {
+    position: sticky;
+    top: calc(var(--header-h) + 32px);
+    align-self: start;
+  }
+  .sed-steps-list { display: flex; flex-direction: column; }
+  .sed-step {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 0 clamp(16px, 3vw, 32px);
+    padding: clamp(28px, 4vh, 44px) 0;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .sed-step:first-child { border-top: 1px solid var(--color-line); }
+  .sed-step-num {
     font-family: var(--font-display);
+    font-size: clamp(28px, 3vw, 40px);
     font-weight: 300;
-    font-size: clamp(28px, 4vw, 52px);
-    line-height: 1.05;
-    letter-spacing: -0.01em;
+    color: var(--color-ink-soft);
+    opacity: 0.3;
+    line-height: 1.1;
+    padding-top: 2px;
+  }
+  .sed-step-title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.15;
+    margin: 0 0 10px;
+  }
+  .sed-step-body {
+    font-size: clamp(14px, 1.2vw, 16px);
+    line-height: 1.7;
+    color: var(--color-ink-soft);
     margin: 0;
   }
-  .sed-faq-list { max-width: 840px;
-    margin: 0 auto; }
+
+  /* ── TECHNOLOGY ── */
+  .sed-tech {
+    border-bottom: 1px solid var(--color-line);
+    padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
+    background: var(--color-paper-warm);
+  }
+  .sed-tech-inner {
+    display: grid;
+    grid-template-columns: 480px 1fr;
+    gap: clamp(48px, 7vw, 96px);
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .sed-tech-image { min-height: 520px; }
+  .sed-tech-image img { width: 100%; height: 100%; min-height: 520px; object-fit: cover; display: block; }
+  .sed-tech-list {
+    list-style: none;
+    margin: 0 0 32px;
+    padding: 0;
+  }
+  .sed-tech-list li {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--color-line);
+    font-size: clamp(14px, 1.2vw, 16px);
+    color: var(--color-ink-soft);
+    line-height: 1.55;
+  }
+  .sed-tech-list li:first-child { border-top: 1px solid var(--color-line); }
+  .sed-tech-list li strong { display: block; color: var(--color-ink); font-weight: 500; margin-bottom: 3px; font-size: clamp(13px, 1.1vw, 15px); letter-spacing: 0.04em; }
+  .sed-tech-list li span { font-size: clamp(13px, 1.1vw, 15px); }
+
+  /* ── WHEN NEEDED ── */
+  .sed-when {
+    padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .sed-when-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(24px, 4vw, 40px);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .sed-when-card {
+    background: var(--color-paper-warm);
+    border: 1px solid var(--color-line);
+    padding: clamp(24px, 3.5vw, 36px);
+  }
+  .sed-when-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(16px, 1.6vw, 20px);
+    line-height: 1.2;
+    margin: 0 0 12px;
+  }
+  .sed-when-body {
+    font-size: clamp(13px, 1.1vw, 15px);
+    line-height: 1.65;
+    color: var(--color-ink-soft);
+    margin: 0;
+  }
+
+  /* ── WHY CHOOSE US ── */
+  .sed-why {
+    padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .sed-why-inner {
+    display: grid;
+    grid-template-columns: 480px 1fr;
+    gap: clamp(48px, 7vw, 96px);
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .sed-why-image { min-height: 560px; }
+  .sed-why-image img { width: 100%; height: 100%; min-height: 560px; object-fit: cover; display: block; }
+  .sed-why-list {
+    list-style: none;
+    margin: 0 0 36px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .sed-why-list li {
+    font-size: clamp(14px, 1.2vw, 16px);
+    line-height: 1.65;
+    color: var(--color-ink-soft);
+    padding: 14px 0;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .sed-why-list li:first-child { border-top: 1px solid var(--color-line); }
+  .sed-why-list li strong { color: var(--color-ink); font-weight: 500; }
+
+  /* ── FAQ ── */
+  .sed-faq {
+    padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
+    border-bottom: 1px solid var(--color-line);
+    background: var(--color-paper-warm);
+  }
+  .sed-faq-inner { max-width: 900px; margin: 0 auto; }
+  .sed-faq-header { margin-bottom: clamp(40px, 6vh, 60px); }
   .sed-faq-item { border-bottom: 1px solid var(--color-line); }
   .sed-faq-item:first-child { border-top: 1px solid var(--color-line); }
   .sed-faq-q {
@@ -297,11 +649,7 @@ const faqs = [
   }
   .sed-faq-q::-webkit-details-marker { display: none; }
   .sed-faq-q:hover { color: var(--color-ink-soft); }
-  .sed-faq-icon {
-    flex-shrink: 0;
-    width: 20px; height: 20px;
-    position: relative;
-  }
+  .sed-faq-icon { flex-shrink: 0; width: 20px; height: 20px; position: relative; }
   .sed-faq-icon::before,
   .sed-faq-icon::after {
     content: '';
@@ -312,60 +660,93 @@ const faqs = [
   .sed-faq-icon::before { width: 1px; height: 100%; left: 50%; top: 0; transform: translateX(-50%); }
   .sed-faq-icon::after  { width: 100%; height: 1px; top: 50%; left: 0; transform: translateY(-50%); }
   .sed-faq-item[open] .sed-faq-icon::before { transform: translateX(-50%) rotate(90deg); opacity: 0; }
-  .sed-faq-a {
-    padding: 0 0 clamp(20px, 3.5vh, 32px);
-    max-width: 66ch;
+  .sed-faq-a { padding: 0 0 clamp(20px, 3.5vh, 32px); max-width: 66ch; }
+  .sed-faq-a p { font-size: clamp(15px, 1.3vw, 17px); line-height: 1.72; color: var(--color-ink-soft); margin: 0; }
+
+  /* ── RELATED ── */
+  .sed-related {
+    padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
+    border-bottom: 1px solid var(--color-line);
+    background: var(--color-paper-warm);
   }
-  .sed-faq-a p {
-    font-size: clamp(15px, 1.3vw, 17px);
-    line-height: 1.72;
-    color: var(--color-ink-soft);
+  .sed-related-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: clamp(40px, 6vh, 56px);
+    border-left: 1px solid var(--color-line);
+  }
+  .sed-related-card {
+    display: flex;
+    flex-direction: column;
+    padding: clamp(24px, 3.5vw, 36px);
+    border-right: 1px solid var(--color-line);
+    border-top: 1px solid var(--color-line);
+    border-bottom: 1px solid var(--color-line);
+    text-decoration: none;
+    color: var(--color-ink);
+    transition: background 0.22s var(--ease-out);
+    gap: 10px;
+  }
+  .sed-related-card:hover { background: var(--color-paper); }
+  .sed-related-name {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(16px, 1.6vw, 20px);
+    line-height: 1.2;
     margin: 0;
   }
+  .sed-related-desc { font-size: 13px; line-height: 1.55; color: var(--color-ink-soft); margin: 0; flex: 1; }
+  .sed-related-arrow { font-size: 16px; color: var(--color-ink-soft); margin-top: auto; }
 
-  .sed-cta-band { padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px); }
-  .sed-cta-inner { max-width: 640px; margin: 0 auto; text-align: center; }
-  .sed-cta-eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.36em;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: var(--color-ink-soft);
-    margin: 0 0 28px;
-  }
-  .sed-cta-headline {
-    font-family: var(--font-display);
-    font-weight: 300;
-    font-size: clamp(28px, 4vw, 48px);
-    line-height: 1.1;
-    letter-spacing: -0.008em;
-    margin: 0 0 20px;
-  }
-  .sed-cta-body {
-    font-size: clamp(15px, 1.3vw, 17px);
-    line-height: 1.68;
-    color: var(--color-ink-soft);
-    margin: 0 0 36px;
-  }
-  .sed-cta-body a { border-bottom: 1px solid currentColor; transition: opacity 0.2s; }
-  .sed-cta-body a:hover { opacity: 0.6; }
-  .sed-cta-btn {
-    display: inline-block;
-    font-size: 12px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    font-weight: 500;
-    padding: 16px 36px;
-    border: 1px solid var(--color-ink);
-    color: var(--color-ink);
-    transition: background 0.28s var(--ease-out), color 0.28s var(--ease-out);
-  }
-  .sed-cta-btn:hover {
+  /* ── BOTTOM CTA ── */
+  .sed-bottom-cta {
+    padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
     background: var(--color-ink);
     color: var(--color-paper);
   }
+  .sed-bottom-cta-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+  .sed-bottom-cta-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(32px, 5vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin: 0 0 20px;
+    color: #fff;
+  }
+  .sed-bottom-cta-body {
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.65;
+    color: rgba(255,255,255,0.72);
+    margin: 0 0 36px;
+  }
+  .sed-bottom-cta-body a { color: #fff; border-bottom: 1px solid rgba(255,255,255,0.4); }
+  .sed-bottom-cta-btns { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+  .sed-bottom-cta .sed-cta-filled-btn { background: #fff; color: var(--color-ink); border-color: #fff; }
+  .sed-bottom-cta .sed-cta-filled-btn:hover { background: transparent; color: #fff; }
 
-  @media (max-width: 700px) {
-    .sed-options-grid { grid-template-columns: 1fr; }
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .sed-benefits-grid,
+    .sed-when-grid { grid-template-columns: repeat(2, 1fr); }
+    .sed-related-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 860px) {
+    .sed-what-inner,
+    .sed-tech-inner,
+    .sed-why-inner,
+    .sed-steps-inner { grid-template-columns: 1fr; }
+    .sed-steps-header { position: static; }
+    .sed-stats-bar { grid-template-columns: repeat(2, 1fr); }
+    .sed-stat:nth-child(2) { border-right: 0; }
+  }
+  @media (max-width: 600px) {
+    .sed-benefits-grid,
+    .sed-when-grid,
+    .sed-related-grid { grid-template-columns: 1fr; }
+    .sed-related-grid { border-left: 0; }
+    .sed-related-card { border-left: 1px solid var(--color-line); }
+    .sed-stats-bar { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
