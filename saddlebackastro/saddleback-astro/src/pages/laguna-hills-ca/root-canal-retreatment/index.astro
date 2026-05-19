@@ -1,0 +1,409 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+
+const reasons = [
+  {
+    title: 'Missed Canals',
+    body: 'Most teeth have a predictable number of canals, but anatomy varies. A molar may have three canals where four are present, or a root may divide unexpectedly. Canals missed in the original treatment remain infected and sustain periapical disease. Cone-beam CT imaging often reveals these in cases where standard radiographs are inconclusive.',
+  },
+  {
+    title: 'Inadequate Seal',
+    body: 'A root canal that was technically complete at the time of treatment can fail if the coronal restoration — the crown or filling placed afterward — breaks down, leaks, or was never placed. Bacteria recolonize the canal system from the top down, eventually causing recurrent infection at the root tip.',
+  },
+  {
+    title: 'Reinfection',
+    body: 'Even a well-treated tooth can become reinfected if the coronal seal is lost over time, or if a new crack provides a pathway for oral bacteria. Periapical lesions that failed to heal after the initial treatment may also harbor persistent infection. Retreatment addresses both the canals and the seal.',
+  },
+  {
+    title: 'Cracked Root',
+    body: 'A root fracture can produce symptoms identical to a failed root canal — bone loss, persistent pain, sinus tract. In these cases retreatment is not indicated, and the tooth may need to be extracted. We evaluate for fracture before recommending retreatment so patients are not subjected to a procedure that will not help.',
+  },
+  {
+    title: 'Instrument Separation',
+    body: 'A file fragment lodged in a canal during the original treatment can block access to the apical portion. In many cases the fragment can be retrieved or bypassed under microscope. In others, the fragment remains in place but the remaining canal can still be adequately treated. We discuss the likelihood of success honestly before proceeding.',
+  },
+];
+
+const faqs = [
+  {
+    q: 'How do I know if my root canal has failed?',
+    a: 'Symptoms of a failing root canal include persistent or recurring pain in the treated tooth, swelling in the gum above the tooth, a pimple-like sinus tract on the gum, or bone loss visible on a routine dental X-ray. Some failing root canals are entirely asymptomatic and discovered only on radiographic examination. If your dentist notices bone loss around a previously treated tooth, a consultation here will determine whether retreatment is indicated.',
+  },
+  {
+    q: 'Is retreatment likely to work?',
+    a: 'Retreatment success depends heavily on the cause of failure. Cases involving missed canals or an inadequate seal generally have high retreatment success rates — often comparable to initial treatment. Cases involving persistent infection in complex anatomy, severe root fracture, or perforation carry a more guarded prognosis. We will give you an honest assessment of your specific case before recommending retreatment.',
+  },
+  {
+    q: 'What is involved in the retreatment procedure?',
+    a: 'The existing restoration or access cavity is reopened. The old root canal filling material — typically gutta-percha — is removed using heat, solvents, and small instruments. Once the canals are accessible, we examine them under the operating microscope for missed canals, ledges, perforations, or instrument fragments. The canals are re-instrumented and re-obturated. The procedure generally takes longer than initial treatment.',
+  },
+  {
+    q: 'What if retreatment cannot be done or does not succeed?',
+    a: 'Endodontic microsurgery — an apicoectomy — is the next option when non-surgical retreatment is not feasible or has not resolved the infection. Surgery accesses the root tip directly through the gum and bone, allowing the source of infection to be addressed surgically. If both options have been exhausted, extraction followed by implant placement may be the appropriate path. We discuss all options before any decision is made.',
+  },
+];
+---
+
+<BaseLayout
+  title="Root Canal Retreatment in Laguna Hills, CA — Saddleback Valley Endodontics"
+  description="Failed root canal? Root canal retreatment in Laguna Hills and Mission Viejo, CA. Fellowship-trained endodontists identify and correct the cause of failure. (949) 837-3033."
+>
+  <Header variant="solid" />
+
+  <main>
+
+    <section class="page-intro">
+      <p class="page-eyebrow">Root Canal Retreatment · Laguna Hills, CA</p>
+      <h1 class="page-title">When the first treatment<br/>needs a second chance.</h1>
+      <p class="page-lede">
+        A previously treated tooth that remains symptomatic or shows new bone loss is not
+        necessarily lost. Retreatment identifies why the original treatment failed — and
+        corrects it.
+      </p>
+    </section>
+
+    <section class="rert-why-section">
+      <div class="rert-why-inner">
+        <p class="rert-why-eyebrow">Why Retreatment Happens</p>
+        <h2 class="rert-why-headline">Common reasons root canals fail.</h2>
+        <p class="rert-why-intro">
+          Root canal failure is not always the result of inadequate initial treatment —
+          anatomy, restoration breakdown, and bacterial persistence all play a role. Identifying
+          the specific cause is essential before recommending retreatment.
+        </p>
+        <div class="rert-reasons-grid">
+          {reasons.map(r => (
+            <div class="rert-reason-card">
+              <h3 class="rert-reason-title">{r.title}</h3>
+              <p class="rert-reason-body">{r.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="rert-process-section">
+      <div class="rert-process-inner">
+        <div class="rert-process-text">
+          <p class="rert-process-eyebrow">The Retreatment Process</p>
+          <h2 class="rert-process-headline">What happens during retreatment.</h2>
+          <p>Retreatment begins with a thorough diagnostic review — clinical examination, digital radiographs, and cone-beam CT when indicated. Understanding the anatomy and the cause of failure informs how we approach the case.</p>
+          <p>The existing coronal restoration or access filling is removed and the pulp chamber is reopened. Old gutta-percha and sealer are removed from the canals using a combination of heat, rotary instruments, and chelating solvents. This process takes longer than the initial treatment — a molar retreatment may require 90–120 minutes.</p>
+          <p>Under operating microscope magnification, we inspect the canal system for any anatomy that was missed in the original treatment: additional canals, isthmuses connecting canals, or areas of under-instrumentation. Instrument fragments, if present, are addressed at this stage.</p>
+          <p>Once the canals are cleaned, shaped, and disinfected, they are obturated with fresh gutta-percha and sealer. A temporary coronal seal is placed, and a report is sent to your general dentist for final restoration placement.</p>
+        </div>
+        <div class="rert-prognosis-box">
+          <h3 class="rert-prognosis-title">Retreatment Prognosis</h3>
+          <p class="rert-prognosis-body">
+            Published success rates for root canal retreatment range from 75–85% in most
+            series — somewhat lower than initial treatment, reflecting the increased complexity.
+            Cases identified early, before extensive bone destruction, have better outcomes.
+            We provide a case-specific prognosis at your consultation.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="rert-faq-section">
+      <div class="rert-faq-header">
+        <p class="rert-faq-eyebrow">Common Questions</p>
+        <h2 class="rert-faq-headline">Retreatment FAQ.</h2>
+      </div>
+      <div class="rert-faq-list">
+        {faqs.map(f => (
+          <details class="rert-faq-item" name="rert-faq">
+            <summary class="rert-faq-q">
+              <span>{f.q}</span>
+              <span class="rert-faq-icon" aria-hidden="true"></span>
+            </summary>
+            <div class="rert-faq-a">
+              <p>{f.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <section class="rert-cta-band">
+      <div class="rert-cta-inner">
+        <p class="rert-cta-eyebrow">Serving Laguna Hills & South Orange County</p>
+        <h2 class="rert-cta-headline">Not sure if your tooth can be saved? Let's find out.</h2>
+        <p class="rert-cta-body">
+          Call <a href="tel:+19498373033">(949) 837-3033</a> to schedule a consultation.
+          We will review your X-rays, evaluate the tooth, and give you an honest assessment.
+        </p>
+        <a href="/request-an-appointment/" class="rert-cta-btn">Request a Consultation</a>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style is:global>
+  main { padding-top: var(--header-h); }
+
+  .page-intro {
+    padding: clamp(80px, 13vh, 140px) clamp(28px, 6vw, 88px) clamp(60px, 9vh, 100px);
+    max-width: 960px;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .page-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    margin: 0 0 32px;
+  }
+  .page-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(48px, 7.5vw, 96px);
+    line-height: 1;
+    letter-spacing: -0.015em;
+    margin: 0 0 28px;
+  }
+  .page-lede {
+    font-size: clamp(16px, 1.5vw, 19px);
+    line-height: 1.65;
+    color: var(--color-ink-soft);
+    max-width: 58ch;
+    margin: 0;
+  }
+
+  .rert-why-section {
+    padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .rert-why-inner { max-width: 1100px; }
+  .rert-why-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    margin: 0 0 20px;
+  }
+  .rert-why-headline {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(28px, 4vw, 52px);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin: 0 0 20px;
+  }
+  .rert-why-intro {
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.68;
+    color: var(--color-ink-soft);
+    max-width: 66ch;
+    margin: 0 0 clamp(48px, 7vh, 72px);
+  }
+  .rert-reasons-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--color-line);
+    border: 1px solid var(--color-line);
+  }
+  .rert-reason-card {
+    background: var(--color-paper);
+    padding: clamp(28px, 4vw, 44px);
+    transition: background 0.3s var(--ease-out);
+  }
+  .rert-reason-card:hover { background: var(--color-paper-warm); }
+  .rert-reason-title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(17px, 1.8vw, 22px);
+    line-height: 1.2;
+    margin: 0 0 14px;
+    color: var(--color-ink);
+  }
+  .rert-reason-body {
+    font-size: clamp(13px, 1.1vw, 15px);
+    line-height: 1.68;
+    color: var(--color-ink-soft);
+    margin: 0;
+  }
+
+  .rert-process-section {
+    padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .rert-process-inner {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: clamp(48px, 7vw, 88px);
+    align-items: start;
+    max-width: 1100px;
+  }
+  .rert-process-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    margin: 0 0 20px;
+  }
+  .rert-process-headline {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(28px, 3.5vw, 44px);
+    line-height: 1.1;
+    letter-spacing: -0.008em;
+    margin: 0 0 24px;
+  }
+  .rert-process-text p {
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.72;
+    color: var(--color-ink-soft);
+    margin: 0 0 18px;
+    max-width: 64ch;
+  }
+  .rert-prognosis-box {
+    background: var(--color-paper-warm);
+    border: 1px solid var(--color-line);
+    padding: clamp(28px, 4vw, 44px);
+    position: sticky;
+    top: calc(var(--header-h) + 32px);
+  }
+  .rert-prognosis-title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(18px, 2vw, 24px);
+    margin: 0 0 16px;
+    color: var(--color-ink);
+  }
+  .rert-prognosis-body {
+    font-size: clamp(13px, 1.1vw, 15px);
+    line-height: 1.68;
+    color: var(--color-ink-soft);
+    margin: 0;
+  }
+
+  .rert-faq-section {
+    padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .rert-faq-header { margin-bottom: clamp(40px, 6vh, 60px); }
+  .rert-faq-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    margin: 0 0 20px;
+  }
+  .rert-faq-headline {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(28px, 4vw, 52px);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+  .rert-faq-list { max-width: 840px; }
+  .rert-faq-item { border-bottom: 1px solid var(--color-line); }
+  .rert-faq-item:first-child { border-top: 1px solid var(--color-line); }
+  .rert-faq-q {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: clamp(20px, 3vh, 30px) 0;
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--font-display);
+    font-size: clamp(18px, 2vw, 26px);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--color-ink);
+    transition: color 0.2s var(--ease-out);
+  }
+  .rert-faq-q::-webkit-details-marker { display: none; }
+  .rert-faq-q:hover { color: var(--color-ink-soft); }
+  .rert-faq-icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    position: relative;
+  }
+  .rert-faq-icon::before,
+  .rert-faq-icon::after {
+    content: '';
+    position: absolute;
+    background: currentColor;
+    transition: transform 0.3s var(--ease-out), opacity 0.25s var(--ease-out);
+  }
+  .rert-faq-icon::before { width: 1px; height: 100%; left: 50%; top: 0; transform: translateX(-50%); }
+  .rert-faq-icon::after  { width: 100%; height: 1px; top: 50%; left: 0; transform: translateY(-50%); }
+  .rert-faq-item[open] .rert-faq-icon::before { transform: translateX(-50%) rotate(90deg); opacity: 0; }
+  .rert-faq-a {
+    padding: 0 0 clamp(20px, 3.5vh, 32px);
+    max-width: 66ch;
+  }
+  .rert-faq-a p {
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.72;
+    color: var(--color-ink-soft);
+    margin: 0;
+  }
+
+  .rert-cta-band {
+    padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
+  }
+  .rert-cta-inner { max-width: 640px; }
+  .rert-cta-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    margin: 0 0 28px;
+  }
+  .rert-cta-headline {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: 1.1;
+    letter-spacing: -0.008em;
+    margin: 0 0 20px;
+  }
+  .rert-cta-body {
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.68;
+    color: var(--color-ink-soft);
+    margin: 0 0 36px;
+  }
+  .rert-cta-body a { border-bottom: 1px solid currentColor; transition: opacity 0.2s; }
+  .rert-cta-body a:hover { opacity: 0.6; }
+  .rert-cta-btn {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 16px 36px;
+    border: 1px solid var(--color-ink);
+    color: var(--color-ink);
+    transition: background 0.28s var(--ease-out), color 0.28s var(--ease-out);
+  }
+  .rert-cta-btn:hover {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  @media (max-width: 960px) {
+    .rert-reasons-grid { grid-template-columns: repeat(2, 1fr); }
+    .rert-process-inner { grid-template-columns: 1fr; }
+    .rert-prognosis-box { position: static; }
+  }
+  @media (max-width: 560px) {
+    .rert-reasons-grid { grid-template-columns: 1fr; }
+  }
+</style>

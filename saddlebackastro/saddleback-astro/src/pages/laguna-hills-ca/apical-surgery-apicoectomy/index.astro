@@ -1,0 +1,381 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+
+const whenNeeded = [
+  'Persistent periapical infection after root canal treatment or retreatment',
+  'Anatomic obstacles that prevent complete non-surgical treatment (e.g., calcified canals near the apex, severely curved root tips)',
+  'Root resorption at the apex requiring direct surgical debridement',
+  'A broken instrument in the apical portion of the canal that cannot be retrieved non-surgically',
+  'A perforation or ledge at the root tip level',
+  'Biopsy of a periapical lesion to rule out non-endodontic pathology',
+];
+
+const steps = [
+  {
+    number: '01',
+    title: 'Anesthesia & Preparation',
+    body: 'Local anesthesia is administered — the same type used for root canal treatment. The surgical site is fully numb before any incision is made. Patients who are anxious about surgery can discuss sedation options at the consultation.',
+  },
+  {
+    number: '02',
+    title: 'Incision & Flap',
+    body: 'A small incision is made in the gum tissue adjacent to the affected tooth. A soft-tissue flap is carefully reflected to expose the underlying bone. The incision is designed for predictable healing and is closed with fine sutures at the end of the procedure.',
+  },
+  {
+    number: '03',
+    title: 'Bony Access & Curettage',
+    body: 'A small amount of bone overlying the root tip is removed to access the periapical area. Infected and inflamed tissue is carefully removed from around the root end. This tissue is sent to a pathology laboratory when a biopsy is clinically indicated.',
+  },
+  {
+    number: '04',
+    title: 'Root-End Resection',
+    body: 'The apical 3 mm of the root are resected at a 90-degree bevel using a surgical handpiece. This removes the apical delta — a complex network of tiny accessory canals at the root tip that cannot be instrumented from above — and exposes clean root structure for sealing.',
+  },
+  {
+    number: '05',
+    title: 'Retrograde Preparation & Filling',
+    body: 'Under operating microscope magnification, a small cavity is prepared in the cut root end using ultrasonic tips. The cavity is cleaned, dried, and filled with a biocompatible material — typically mineral trioxide aggregate (MTA) or a similar calcium silicate cement. This retrograde seal prevents recontamination of the canal from the surgical site.',
+  },
+  {
+    number: '06',
+    title: 'Closure & Healing',
+    body: 'The flap is repositioned and sutured. Sutures are typically removed at a follow-up visit 5–7 days after surgery. Swelling and bruising are expected in the first 48–72 hours. Full bony healing, confirmed radiographically, occurs over 6–12 months.',
+  },
+];
+---
+
+<BaseLayout
+  title="Apicoectomy / Apical Surgery in Laguna Hills, CA — Saddleback Valley Endodontics"
+  description="Endodontic microsurgery and apicoectomy in Laguna Hills and Mission Viejo, CA. When non-surgical treatment cannot resolve root tip infection, surgery is the answer. (949) 837-3033."
+>
+  <Header variant="solid" />
+
+  <main>
+
+    <section class="page-intro">
+      <p class="page-eyebrow">Apical Surgery · Laguna Hills, CA</p>
+      <h1 class="page-title">When surgery<br/>is the answer.</h1>
+      <p class="page-lede">
+        Endodontic microsurgery — including apicoectomy — is a precise, well-tolerated
+        procedure that resolves infection at the root tip when non-surgical treatment
+        cannot reach it. Recovery is faster than most patients expect.
+      </p>
+    </section>
+
+    <section class="api-what-section">
+      <div class="api-what-inner">
+        <div class="api-what-text">
+          <p class="api-what-eyebrow">What It Is</p>
+          <h2 class="api-what-headline">Endodontic microsurgery, explained.</h2>
+          <p>An apicoectomy — formally, apical microsurgery — is an endodontic surgical procedure in which the tip of a tooth's root is accessed through the gum and bone, infected tissue is removed, the root end is resected, and a hermetic seal is placed at the cut end. It is performed under operating microscope magnification, typically with ultrasonic instruments.</p>
+          <p>The procedure addresses infection and pathology that cannot be resolved by working through the crown of the tooth. It is not an extraction — the tooth remains in place and continues to function normally after healing.</p>
+          <p>Endodontic microsurgery is a predictable procedure with published success rates of 85–90% in modern series when performed with microscope magnification, ultrasonic retrograde preparation, and biocompatible retrograde filling materials.</p>
+        </div>
+        <div class="api-when-box">
+          <h3 class="api-when-title">When Surgery Is Indicated</h3>
+          <ul class="api-when-list">
+            {whenNeeded.map(item => <li>{item}</li>)}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="api-steps-section">
+      <div class="api-steps-header">
+        <p class="api-steps-eyebrow">The Procedure</p>
+        <h2 class="api-steps-headline">Step by step.</h2>
+      </div>
+      <div class="api-steps">
+        {steps.map(s => (
+          <div class="api-step">
+            <div class="api-step-number">{s.number}</div>
+            <div class="api-step-content">
+              <h3 class="api-step-title">{s.title}</h3>
+              <p class="api-step-body">{s.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="api-recovery-section">
+      <div class="api-recovery-inner">
+        <p class="api-recovery-eyebrow">Recovery</p>
+        <h2 class="api-recovery-headline">What to expect after surgery.</h2>
+        <p class="api-recovery-body">
+          Swelling, bruising, and soreness are normal for the first 3–5 days. Most patients
+          manage comfortably with prescribed pain medication and ice. Soft foods for one
+          week, gentle oral hygiene, and suture removal at 5–7 days. Full radiographic
+          healing takes 6–12 months. Detailed post-operative instructions are provided
+          at your appointment — and also available on our{' '}
+          <a href="/post-operative-instructions/#surgery">post-op care page</a>.
+        </p>
+      </div>
+    </section>
+
+    <section class="api-cta-band">
+      <div class="api-cta-inner">
+        <p class="api-cta-eyebrow">Laguna Hills & Mission Viejo</p>
+        <h2 class="api-cta-headline">A consultation begins with an honest assessment.</h2>
+        <p class="api-cta-body">
+          If you have been told a tooth needs to come out, a second opinion here may
+          reveal surgical options. Call <a href="tel:+19498373033">(949) 837-3033</a> or
+          request an appointment online.
+        </p>
+        <a href="/request-an-appointment/" class="api-cta-btn">Request a Consultation</a>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style is:global>
+  main { padding-top: var(--header-h); }
+
+  .page-intro {
+    padding: clamp(80px, 13vh, 140px) clamp(28px, 6vw, 88px) clamp(60px, 9vh, 100px);
+    max-width: 960px;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .page-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    margin: 0 0 32px;
+  }
+  .page-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(52px, 8vw, 104px);
+    line-height: 1;
+    letter-spacing: -0.015em;
+    margin: 0 0 28px;
+  }
+  .page-lede {
+    font-size: clamp(16px, 1.5vw, 19px);
+    line-height: 1.65;
+    color: var(--color-ink-soft);
+    max-width: 58ch;
+    margin: 0;
+  }
+
+  .api-what-section {
+    padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .api-what-inner {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: clamp(48px, 7vw, 88px);
+    align-items: start;
+    max-width: 1100px;
+  }
+  .api-what-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    margin: 0 0 20px;
+  }
+  .api-what-headline {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(28px, 3.5vw, 44px);
+    line-height: 1.1;
+    letter-spacing: -0.008em;
+    margin: 0 0 24px;
+  }
+  .api-what-text p {
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.72;
+    color: var(--color-ink-soft);
+    margin: 0 0 18px;
+    max-width: 64ch;
+  }
+  .api-when-box {
+    background: var(--color-paper-warm);
+    border: 1px solid var(--color-line);
+    padding: clamp(28px, 4vw, 44px);
+    position: sticky;
+    top: calc(var(--header-h) + 32px);
+  }
+  .api-when-title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.2;
+    margin: 0 0 20px;
+    color: var(--color-ink);
+  }
+  .api-when-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .api-when-list li {
+    font-size: clamp(13px, 1.1vw, 15px);
+    line-height: 1.58;
+    color: var(--color-ink-soft);
+    padding: 10px 0 10px 18px;
+    border-bottom: 1px solid var(--color-line);
+    position: relative;
+  }
+  .api-when-list li:first-child { border-top: 1px solid var(--color-line); }
+  .api-when-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 7px;
+    height: 1px;
+    background: var(--color-ink-soft);
+    opacity: 0.5;
+  }
+
+  .api-steps-section {
+    padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .api-steps-header { margin-bottom: clamp(48px, 7vh, 72px); }
+  .api-steps-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    margin: 0 0 20px;
+  }
+  .api-steps-headline {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(28px, 4vw, 52px);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+  .api-steps { max-width: 840px; }
+  .api-step {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 0 clamp(24px, 4vw, 52px);
+    padding: clamp(36px, 5vh, 60px) 0;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .api-step:first-child { border-top: 1px solid var(--color-line); }
+  .api-step-number {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 300;
+    color: var(--color-ink-soft);
+    opacity: 0.35;
+    line-height: 1.1;
+    padding-top: 4px;
+  }
+  .api-step-title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(19px, 2vw, 26px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 12px;
+    color: var(--color-ink);
+  }
+  .api-step-body {
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.72;
+    color: var(--color-ink-soft);
+    margin: 0;
+    max-width: 62ch;
+  }
+
+  .api-recovery-section {
+    background: var(--color-paper-warm);
+    border-bottom: 1px solid var(--color-line);
+    padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
+  }
+  .api-recovery-inner { max-width: 680px; }
+  .api-recovery-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    margin: 0 0 20px;
+  }
+  .api-recovery-headline {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: 1.1;
+    letter-spacing: -0.008em;
+    margin: 0 0 20px;
+  }
+  .api-recovery-body {
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.72;
+    color: var(--color-ink-soft);
+    margin: 0;
+  }
+  .api-recovery-body a { border-bottom: 1px solid currentColor; transition: opacity 0.2s; }
+  .api-recovery-body a:hover { opacity: 0.6; }
+
+  .api-cta-band {
+    padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
+  }
+  .api-cta-inner { max-width: 640px; }
+  .api-cta-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    margin: 0 0 28px;
+  }
+  .api-cta-headline {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: 1.1;
+    letter-spacing: -0.008em;
+    margin: 0 0 20px;
+  }
+  .api-cta-body {
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.68;
+    color: var(--color-ink-soft);
+    margin: 0 0 36px;
+  }
+  .api-cta-body a { border-bottom: 1px solid currentColor; transition: opacity 0.2s; }
+  .api-cta-body a:hover { opacity: 0.6; }
+  .api-cta-btn {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 16px 36px;
+    border: 1px solid var(--color-ink);
+    color: var(--color-ink);
+    transition: background 0.28s var(--ease-out), color 0.28s var(--ease-out);
+  }
+  .api-cta-btn:hover {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  @media (max-width: 900px) {
+    .api-what-inner { grid-template-columns: 1fr; }
+    .api-when-box { position: static; }
+  }
+  @media (max-width: 560px) {
+    .api-step { grid-template-columns: 1fr; gap: 8px 0; }
+    .api-step-number { font-size: 26px; }
+  }
+</style>

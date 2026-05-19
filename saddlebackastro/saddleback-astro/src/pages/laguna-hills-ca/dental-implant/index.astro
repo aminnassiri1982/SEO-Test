@@ -1,0 +1,377 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+
+const comparison = [
+  {
+    factor: 'Success rate',
+    rct: 'Above 90% long-term in published series under modern conditions.',
+    implant: 'Above 90–95% at 10 years for properly selected patients.',
+  },
+  {
+    factor: 'Treatment timeline',
+    rct: 'One to two visits. Crown placed by your dentist within 4–6 weeks.',
+    implant: 'Extraction, 3–6 months healing, implant placement, 3–6 months osseointegration, crown. Often 9–18 months total.',
+  },
+  {
+    factor: 'Cost',
+    rct: 'Root canal + crown is typically $1,500–$3,000. Usually covered in part by dental insurance.',
+    implant: 'Implant + crown is typically $3,500–$5,500. Less frequently covered by insurance.',
+  },
+  {
+    factor: 'Bone preservation',
+    rct: 'Preserves the natural tooth root and periodontal ligament. No bone loss occurs.',
+    implant: 'Replaces a missing root with titanium. Some bone remodeling occurs after extraction before placement.',
+  },
+  {
+    factor: 'Proprioception',
+    rct: 'Periodontal ligament provides sensory feedback about bite forces — an implant cannot replicate this.',
+    implant: 'No periodontal ligament. Patients cannot feel bite forces on the implant the way they can on a natural tooth.',
+  },
+  {
+    factor: 'Appearance',
+    rct: 'Natural tooth with a crown. Gum architecture unchanged.',
+    implant: 'Can look identical to a natural tooth, but gum contouring around the implant may differ slightly.',
+  },
+  {
+    factor: 'Adjacent teeth',
+    rct: 'No effect on adjacent teeth.',
+    implant: 'No effect on adjacent teeth — advantage over a bridge, which requires grinding down neighbors.',
+  },
+];
+
+const faqs = [
+  {
+    q: 'Are implants better than root canals?',
+    a: 'Neither is categorically better. Long-term success rates are comparable. A root canal saves your natural tooth, which has proprioceptive feedback, natural gum architecture, and a smaller treatment footprint. Implants are the right choice when a tooth cannot be saved. Our strong bias is toward saving natural teeth — but when saving a tooth is not clinically reasonable, we say so plainly.',
+  },
+  {
+    q: 'What makes a tooth "unsaveable"?',
+    a: 'Vertical root fractures, severe resorption extending into the root, insufficient remaining tooth structure to support a crown, or advanced periodontal bone loss can make a tooth unsalvageable. We use cone-beam CT and the operating microscope to fully evaluate a tooth before recommending extraction. Sometimes a tooth that looks hopeless on a 2D radiograph is more treatable than it appeared.',
+  },
+  {
+    q: 'My dentist said I should pull it and get an implant. Should I get a second opinion?',
+    a: 'Yes — and we say that without reservation. Endodontists are trained specifically to evaluate whether a tooth can be saved. A consultation here gives you a definitive answer about treatability before any irreversible decisions are made. If the tooth is not saveable, we will tell you that clearly and help you coordinate next steps.',
+  },
+  {
+    q: 'Can I have an implant placed immediately after extraction?',
+    a: 'Immediate implant placement is possible in some cases, but not all. It depends on the condition of the bone at the extraction site, the presence or absence of infection, and the patient\'s overall health. Your general dentist or an oral surgeon will evaluate this after a complete examination.',
+  },
+];
+---
+
+<BaseLayout
+  title="Dental Implant vs. Root Canal in Laguna Hills, CA — Saddleback Valley Endodontics"
+  description="An honest comparison of dental implants vs. root canal treatment from an endodontist's perspective. Serving Laguna Hills and Mission Viejo, CA. (949) 837-3033."
+>
+  <Header variant="solid" />
+
+  <main>
+
+    <section class="page-intro">
+      <p class="page-eyebrow">Dental Implant vs. Root Canal · Laguna Hills, CA</p>
+      <h1 class="page-title">Save the tooth<br/>or replace it?</h1>
+      <p class="page-lede">
+        This is the first question we ask with every patient who has a tooth in trouble.
+        Here is an honest comparison — from the specialist whose bias is toward saving teeth.
+      </p>
+    </section>
+
+    <section class="di-intro-section">
+      <div class="di-intro-inner">
+        <h2 class="di-intro-headline">Our position on this question.</h2>
+        <p class="di-intro-body">
+          We are endodontists. We save teeth for a living. That gives us an obvious perspective — but it is grounded in evidence, not commercial interest. Long-term data on endodontic treatment performed under modern conditions consistently shows success rates above 90%, comparable to implant outcomes over the same time horizon.
+        </p>
+        <p class="di-intro-body">
+          A natural tooth with an intact periodontal ligament responds to bite forces differently than any implant can. It has sensory feedback. It preserves the surrounding bone without requiring a healing period. A successful root canal on a tooth with a good crown is, by most measures, the best possible outcome for that tooth.
+        </p>
+        <p class="di-intro-body">
+          That said: not every tooth can or should be saved. When saving a tooth is not clinically reasonable — due to fracture, resorption, inadequate bone support, or structural failure — we say so clearly. A well-placed implant on a non-saveable tooth is a far better outcome than an unsuccessful root canal on one.
+        </p>
+      </div>
+    </section>
+
+    <section class="di-table-section">
+      <p class="di-table-eyebrow">Side by Side</p>
+      <h2 class="di-table-headline">How they compare.</h2>
+      <div class="di-table">
+        <div class="di-table-head">
+          <div class="di-col-factor"></div>
+          <div class="di-col-rct">Root Canal + Crown</div>
+          <div class="di-col-implant">Implant + Crown</div>
+        </div>
+        {comparison.map(row => (
+          <div class="di-table-row">
+            <div class="di-col-factor">{row.factor}</div>
+            <div class="di-col-rct">{row.rct}</div>
+            <div class="di-col-implant">{row.implant}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="di-faq-section">
+      <div class="di-faq-header">
+        <p class="di-faq-eyebrow">Common Questions</p>
+        <h2 class="di-faq-headline">Implant vs. root canal FAQ.</h2>
+      </div>
+      <div class="di-faq-list">
+        {faqs.map(f => (
+          <details class="di-faq-item" name="di-faq">
+            <summary class="di-faq-q">
+              <span>{f.q}</span>
+              <span class="di-faq-icon" aria-hidden="true"></span>
+            </summary>
+            <div class="di-faq-a">
+              <p>{f.a}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <section class="di-cta-band">
+      <div class="di-cta-inner">
+        <p class="di-cta-eyebrow">Get a definitive answer</p>
+        <h2 class="di-cta-headline">Know before you decide.</h2>
+        <p class="di-cta-body">
+          A consultation with our endodontist will tell you definitively whether your tooth can
+          be saved — and what treatment would look like. Call{' '}
+          <a href="tel:+19498373033">(949) 837-3033</a> or request online.
+          Located at 25800 Jeronimo Road, Suite 300, Mission Viejo.
+        </p>
+        <a href="/request-an-appointment/" class="di-cta-btn">Request a Consultation</a>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style is:global>
+  main { padding-top: var(--header-h); }
+
+  .page-intro {
+    padding: clamp(80px, 13vh, 140px) clamp(28px, 6vw, 88px) clamp(60px, 9vh, 100px);
+    max-width: 960px;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .page-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    margin: 0 0 32px;
+  }
+  .page-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(52px, 8vw, 104px);
+    line-height: 1;
+    letter-spacing: -0.015em;
+    margin: 0 0 28px;
+  }
+  .page-lede {
+    font-size: clamp(16px, 1.5vw, 19px);
+    line-height: 1.65;
+    color: var(--color-ink-soft);
+    max-width: 58ch;
+    margin: 0;
+  }
+
+  .di-intro-section {
+    padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .di-intro-inner { max-width: 780px; }
+  .di-intro-headline {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(28px, 4vw, 52px);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin: 0 0 28px;
+  }
+  .di-intro-body {
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.72;
+    color: var(--color-ink-soft);
+    margin: 0 0 18px;
+  }
+
+  .di-table-section {
+    padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .di-table-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    margin: 0 0 20px;
+  }
+  .di-table-headline {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(28px, 4vw, 52px);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin: 0 0 clamp(40px, 6vh, 64px);
+  }
+  .di-table { max-width: 1100px; }
+  .di-table-head,
+  .di-table-row {
+    display: grid;
+    grid-template-columns: 180px 1fr 1fr;
+    gap: 0;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .di-table-head { border-top: 1px solid var(--color-line); }
+  .di-table-head > div {
+    padding: 14px 20px;
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    background: var(--color-paper-warm);
+  }
+  .di-table-row > div {
+    padding: clamp(16px, 2.5vh, 24px) 20px;
+    font-size: clamp(13px, 1.1vw, 15px);
+    line-height: 1.6;
+    color: var(--color-ink-soft);
+    border-right: 1px solid var(--color-line);
+  }
+  .di-table-row > div:last-child { border-right: 0; }
+  .di-col-factor {
+    font-size: 11px !important;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 500 !important;
+    color: var(--color-ink) !important;
+    background: var(--color-paper-warm);
+  }
+  .di-table-head .di-col-factor { background: var(--color-paper-warm); }
+
+  .di-faq-section {
+    padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .di-faq-header { margin-bottom: clamp(40px, 6vh, 60px); }
+  .di-faq-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    margin: 0 0 20px;
+  }
+  .di-faq-headline {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(28px, 4vw, 52px);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+  .di-faq-list { max-width: 840px; }
+  .di-faq-item { border-bottom: 1px solid var(--color-line); }
+  .di-faq-item:first-child { border-top: 1px solid var(--color-line); }
+  .di-faq-q {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: clamp(20px, 3vh, 30px) 0;
+    cursor: pointer;
+    list-style: none;
+    font-family: var(--font-display);
+    font-size: clamp(18px, 2vw, 26px);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--color-ink);
+    transition: color 0.2s var(--ease-out);
+  }
+  .di-faq-q::-webkit-details-marker { display: none; }
+  .di-faq-q:hover { color: var(--color-ink-soft); }
+  .di-faq-icon {
+    flex-shrink: 0;
+    width: 20px; height: 20px;
+    position: relative;
+  }
+  .di-faq-icon::before,
+  .di-faq-icon::after {
+    content: '';
+    position: absolute;
+    background: currentColor;
+    transition: transform 0.3s var(--ease-out), opacity 0.25s var(--ease-out);
+  }
+  .di-faq-icon::before { width: 1px; height: 100%; left: 50%; top: 0; transform: translateX(-50%); }
+  .di-faq-icon::after  { width: 100%; height: 1px; top: 50%; left: 0; transform: translateY(-50%); }
+  .di-faq-item[open] .di-faq-icon::before { transform: translateX(-50%) rotate(90deg); opacity: 0; }
+  .di-faq-a {
+    padding: 0 0 clamp(20px, 3.5vh, 32px);
+    max-width: 66ch;
+  }
+  .di-faq-a p {
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.72;
+    color: var(--color-ink-soft);
+    margin: 0;
+  }
+
+  .di-cta-band { padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px); }
+  .di-cta-inner { max-width: 640px; }
+  .di-cta-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    margin: 0 0 28px;
+  }
+  .di-cta-headline {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: 1.1;
+    letter-spacing: -0.008em;
+    margin: 0 0 20px;
+  }
+  .di-cta-body {
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.68;
+    color: var(--color-ink-soft);
+    margin: 0 0 36px;
+  }
+  .di-cta-body a { border-bottom: 1px solid currentColor; transition: opacity 0.2s; }
+  .di-cta-body a:hover { opacity: 0.6; }
+  .di-cta-btn {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 16px 36px;
+    border: 1px solid var(--color-ink);
+    color: var(--color-ink);
+    transition: background 0.28s var(--ease-out), color 0.28s var(--ease-out);
+  }
+  .di-cta-btn:hover {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  @media (max-width: 760px) {
+    .di-table-head, .di-table-row { grid-template-columns: 1fr; }
+    .di-col-factor { border-bottom: 1px solid var(--color-line); }
+    .di-table-row > div { border-right: 0; border-bottom: 1px solid var(--color-line); }
+    .di-table-row > div:last-child { border-bottom: 0; }
+  }
+</style>

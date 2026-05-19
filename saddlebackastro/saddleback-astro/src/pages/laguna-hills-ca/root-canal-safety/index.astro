@@ -1,0 +1,286 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+
+const myths = [
+  {
+    id: 'pain',
+    myth: '"Root canals are very painful."',
+    fact: 'Root canal treatment relieves pain — it does not cause it.',
+    body: [
+      'This is the most persistent myth in dentistry, and the one most at odds with the actual clinical experience of patients who have had the procedure. Root canal treatment is performed under local anesthesia. The tooth and surrounding tissue are completely numb before any instrumentation begins. The procedure itself is no more uncomfortable than having a filling placed.',
+      'The pain associated with "root canals" is the pain that precedes the procedure — the throbbing, pressure, and heat sensitivity of pulpitis or a dental abscess. Root canal treatment resolves that pain. The vast majority of patients report that the procedure was far less uncomfortable than they anticipated, and that post-treatment soreness for 1–2 days is mild and managed with over-the-counter analgesics.',
+      'Published patient experience surveys consistently show that patients who have had root canal treatment rate the experience as far less uncomfortable than they expected — and significantly less unpleasant than the toothache that led to it.',
+    ],
+  },
+  {
+    id: 'cancer',
+    myth: '"Root canals cause cancer."',
+    fact: 'There is no credible scientific evidence linking root canal treatment to cancer.',
+    body: [
+      'This claim originates from a theory advanced in the 1920s by Dr. Weston Price, who proposed that bacteria harbored in root-canal-treated teeth could travel through the body and cause systemic disease, including cancer. This theory — called "focal infection theory" in its original form — was thoroughly investigated and rejected by the scientific community decades ago.',
+      'The American Association of Endodontists (AAE), the American Dental Association (ADA), the American Cancer Society, and every major medical and dental professional body have reviewed the available evidence and concluded there is no valid scientific basis for a link between root canal treatment and cancer.',
+      'Large-scale epidemiological studies have not demonstrated any increased cancer risk in patients who have had root canal treatment. One peer-reviewed study published in JAMA Otolaryngology found that patients with multiple root canals had a 45% lower risk of certain oral cancers — the opposite of what the claim would predict.',
+      'We raise this not to dismiss patient concerns, but because this claim circulates widely online and causes some patients to avoid necessary treatment — with real consequences for their oral and overall health. If you have read something that concerns you, bring it to your appointment. We are glad to discuss the evidence directly.',
+    ],
+  },
+  {
+    id: 'systemic',
+    myth: '"Root canals cause systemic disease."',
+    fact: 'The focal infection hypothesis was tested, found unsupported, and abandoned by mainstream medicine.',
+    body: [
+      'The modern iteration of this concern — that bacteria sealed inside a root-canal-treated tooth continuously leak toxins into the bloodstream, causing conditions from heart disease to arthritis — is a revival of the discredited focal infection theory. It is sometimes presented with selective citations and updated framing, but the underlying claim remains the same one that was investigated and rejected in the mid-20th century.',
+      'Untreated oral infection — including the abscess that makes root canal treatment necessary in the first place — does have established associations with systemic inflammatory conditions. The relevant question is whether treating that infection (with root canal therapy) is safer than leaving it untreated or extracting the tooth. The answer, supported by the scientific consensus of every major dental and medical body, is yes.',
+      'Root canal treatment is performed on tens of millions of teeth per year in the United States. If the procedure caused significant systemic disease, it would be detectable in population-level health data. It is not.',
+      'We take patient concerns seriously. If you have questions about the evidence — or have read a specific claim you would like us to address — please bring it to your consultation. We will answer directly and point you to primary sources.',
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Root Canal Safety in Laguna Hills, CA — Saddleback Valley Endodontics"
+  description="Evidence-based answers to common concerns about root canal safety. Addressing the pain myth, cancer claim, and systemic disease link — with clear sources. Mission Viejo, CA."
+>
+  <Header variant="solid" />
+
+  <main>
+
+    <section class="page-intro">
+      <p class="page-eyebrow">Root Canal Safety · Laguna Hills, CA</p>
+      <h1 class="page-title">The facts about<br/>root canal safety.</h1>
+      <p class="page-lede">
+        Root canal treatment has accumulated a remarkable body of misinformation over the
+        past century. We address the most common concerns directly — with evidence, not
+        dismissal.
+      </p>
+    </section>
+
+    <section class="rcs-context-section">
+      <div class="rcs-context-inner">
+        <h2 class="rcs-context-headline">Why these concerns persist.</h2>
+        <p>Concerns about root canal safety are understandable. Some circulate in communities that value alternative health perspectives; others appear on websites that cite real scientific sources — selectively and out of context. We are not going to tell you to simply trust us. We are going to walk through the evidence.</p>
+        <p>The professional bodies who have reviewed this evidence — the American Association of Endodontists, the American Dental Association, and the American Cancer Society among them — have reached the same conclusion: root canal treatment, performed under modern standards, is safe. The more meaningful safety question is the reverse: what are the risks of leaving infected teeth untreated?</p>
+      </div>
+    </section>
+
+    <div class="rcs-myths">
+      {myths.map((m, i) => (
+        <section class="rcs-myth-section" id={m.id}>
+          <div class="rcs-myth-inner">
+            <div class="rcs-myth-header">
+              <p class="rcs-myth-label">Common Concern {String(i + 1).padStart(2, '0')}</p>
+              <h2 class="rcs-myth-claim">{m.myth}</h2>
+              <div class="rcs-fact-block">
+                <p class="rcs-fact-label">The evidence:</p>
+                <p class="rcs-fact-statement">{m.fact}</p>
+              </div>
+            </div>
+            <div class="rcs-myth-body">
+              {m.body.map(p => <p>{p}</p>)}
+            </div>
+          </div>
+        </section>
+      ))}
+    </div>
+
+    <section class="rcs-closing-section">
+      <div class="rcs-closing-inner">
+        <p class="rcs-closing-eyebrow">Our Position</p>
+        <h2 class="rcs-closing-headline">We welcome the conversation.</h2>
+        <p class="rcs-closing-body">
+          Patients who come to us with concerns about root canal safety are not being
+          unreasonable — they are doing their due diligence. We take those concerns
+          seriously. If you have read something specific that worries you, bring it to
+          your appointment. We will look at it together and tell you what the evidence
+          actually says.
+        </p>
+        <p class="rcs-closing-body">
+          What we will not do is dismiss your concern or rush past it. An informed
+          patient is a better patient, and the evidence on root canal safety is strong
+          enough that we do not need to avoid the question.
+        </p>
+        <a href="/request-an-appointment/" class="rcs-cta-btn">Schedule a Consultation</a>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style is:global>
+  main { padding-top: var(--header-h); }
+
+  .page-intro {
+    padding: clamp(80px, 13vh, 140px) clamp(28px, 6vw, 88px) clamp(60px, 9vh, 100px);
+    max-width: 960px;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .page-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    margin: 0 0 32px;
+  }
+  .page-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(52px, 8vw, 104px);
+    line-height: 1;
+    letter-spacing: -0.015em;
+    margin: 0 0 28px;
+  }
+  .page-lede {
+    font-size: clamp(16px, 1.5vw, 19px);
+    line-height: 1.65;
+    color: var(--color-ink-soft);
+    max-width: 58ch;
+    margin: 0;
+  }
+
+  .rcs-context-section {
+    padding: clamp(72px, 11vh, 120px) clamp(28px, 6vw, 88px);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .rcs-context-inner { max-width: 720px; }
+  .rcs-context-headline {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(26px, 3.5vw, 44px);
+    line-height: 1.1;
+    letter-spacing: -0.008em;
+    margin: 0 0 24px;
+  }
+  .rcs-context-inner p {
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.72;
+    color: var(--color-ink-soft);
+    margin: 0 0 18px;
+  }
+
+  .rcs-myths {}
+
+  .rcs-myth-section {
+    padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .rcs-myth-section:nth-child(even) { background: var(--color-paper-warm); }
+
+  .rcs-myth-inner {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: clamp(48px, 7vw, 88px);
+    align-items: start;
+    max-width: 1200px;
+  }
+
+  .rcs-myth-label {
+    font-size: 10px;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    margin: 0 0 20px;
+  }
+
+  .rcs-myth-claim {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-style: italic;
+    font-size: clamp(22px, 2.8vw, 36px);
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+    margin: 0 0 28px;
+    color: var(--color-ink);
+  }
+
+  .rcs-fact-block {
+    background: var(--color-ink);
+    padding: 20px 24px;
+    margin-top: 4px;
+  }
+  .rcs-myth-section:nth-child(even) .rcs-fact-block {
+    background: var(--color-ink);
+  }
+
+  .rcs-fact-label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: rgba(255,255,255,0.55);
+    margin: 0 0 8px;
+  }
+
+  .rcs-fact-statement {
+    font-family: var(--font-display);
+    font-size: clamp(14px, 1.4vw, 17px);
+    font-weight: 400;
+    line-height: 1.45;
+    color: var(--color-paper);
+    margin: 0;
+  }
+
+  .rcs-myth-body {
+    padding-top: 4px;
+  }
+  .rcs-myth-body p {
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.72;
+    color: var(--color-ink-soft);
+    margin: 0 0 20px;
+    max-width: 64ch;
+  }
+  .rcs-myth-body p:last-child { margin-bottom: 0; }
+
+  .rcs-closing-section {
+    padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
+  }
+  .rcs-closing-inner { max-width: 680px; }
+  .rcs-closing-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    margin: 0 0 24px;
+  }
+  .rcs-closing-headline {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(28px, 4vw, 52px);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin: 0 0 24px;
+  }
+  .rcs-closing-body {
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.72;
+    color: var(--color-ink-soft);
+    margin: 0 0 20px;
+  }
+  .rcs-cta-btn {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 16px 36px;
+    border: 1px solid var(--color-ink);
+    color: var(--color-ink);
+    margin-top: 16px;
+    transition: background 0.28s var(--ease-out), color 0.28s var(--ease-out);
+  }
+  .rcs-cta-btn:hover {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  @media (max-width: 900px) {
+    .rcs-myth-inner { grid-template-columns: 1fr; }
+  }
+</style>
