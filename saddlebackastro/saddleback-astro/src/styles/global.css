@@ -93,7 +93,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .header-utility--right { justify-self: end; }
 
 .header-utility a,
-.header-utility button {
+.header-utility button:not(.menu-toggle) {
   position: relative;
   padding: 6px 0;
   color: inherit;
@@ -283,9 +283,10 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .menu-toggle span {
   display: block;
-  height: 1.5px;
+  height: 2px;
   width: 100%;
   background: currentColor;
+  border-radius: 1px;
   transition: opacity 0.2s var(--ease-out);
 }
 
