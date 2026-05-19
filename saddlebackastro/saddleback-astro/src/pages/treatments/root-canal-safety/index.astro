@@ -388,19 +388,22 @@ const related = [
   .rcs-stat-label { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; color: var(--color-ink-soft); }
 
   .rcs-what { border-bottom: 1px solid var(--color-line); padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px); }
-  .rcs-what-inner { display: grid; grid-template-columns: 1fr 480px; gap: clamp(48px, 7vw, 96px); align-items: center; max-width: 1200px; }
+  .rcs-what-inner { display: grid; grid-template-columns: 1fr 480px; gap: clamp(48px, 7vw, 96px); align-items: center; max-width: 1200px;
+    margin: 0 auto; }
   .rcs-what-image { overflow: hidden; }
   .rcs-what-image img { width: 100%; display: block; }
 
   .rcs-benefits { padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px); background: var(--color-paper-warm); border-bottom: 1px solid var(--color-line); }
-  .rcs-benefits-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(24px, 4vw, 48px); margin-top: clamp(40px, 6vh, 64px); max-width: 1200px; margin-left: auto; margin-right: auto; }
+  .rcs-benefits-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(24px, 4vw, 48px); margin-top: clamp(40px, 6vh, 64px); max-width: 1200px;
+    margin: 0 auto; margin-left: auto; margin-right: auto; }
   .rcs-benefit-card { border-top: 2px solid var(--color-line); padding-top: clamp(20px, 3vh, 32px); }
   .rcs-benefit-icon { width: 28px; height: 28px; border: 1px solid var(--color-ink); border-radius: 50%; margin-bottom: 20px; }
   .rcs-benefit-title { font-family: var(--font-display); font-weight: 400; font-size: clamp(18px, 1.8vw, 22px); margin: 0 0 12px; line-height: 1.2; }
   .rcs-benefit-body { font-size: clamp(13px, 1.1vw, 15px); line-height: 1.65; color: var(--color-ink-soft); margin: 0; }
 
   .rcs-steps-section { padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px); border-bottom: 1px solid var(--color-line); }
-  .rcs-steps-inner { display: grid; grid-template-columns: 380px 1fr; gap: clamp(48px, 7vw, 96px); align-items: start; max-width: 1200px; }
+  .rcs-steps-inner { display: grid; grid-template-columns: 380px 1fr; gap: clamp(48px, 7vw, 96px); align-items: start; max-width: 1200px;
+    margin: 0 auto; }
   .rcs-steps-header { position: sticky; top: calc(var(--header-h) + 32px); }
   .rcs-steps-list { display: flex; flex-direction: column; }
   .rcs-step { display: grid; grid-template-columns: 64px 1fr; gap: 0 clamp(16px, 3vw, 32px); padding: clamp(28px, 4vh, 44px) 0; border-bottom: 1px solid var(--color-line); }
@@ -410,7 +413,8 @@ const related = [
   .rcs-step-body { font-size: clamp(14px, 1.2vw, 16px); line-height: 1.7; color: var(--color-ink-soft); margin: 0; }
 
   .rcs-tech { border-bottom: 1px solid var(--color-line); padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px); background: var(--color-paper-warm); }
-  .rcs-tech-inner { display: grid; grid-template-columns: 480px 1fr; gap: clamp(48px, 7vw, 96px); align-items: center; max-width: 1200px; }
+  .rcs-tech-inner { display: grid; grid-template-columns: 480px 1fr; gap: clamp(48px, 7vw, 96px); align-items: center; max-width: 1200px;
+    margin: 0 auto; }
   .rcs-tech-image img { width: 100%; display: block; }
   .rcs-tech-list { list-style: none; margin: 0 0 32px; padding: 0; }
   .rcs-tech-list li { padding: 14px 0; border-bottom: 1px solid var(--color-line); font-size: clamp(14px, 1.2vw, 16px); color: var(--color-ink-soft); line-height: 1.55; }
@@ -419,13 +423,15 @@ const related = [
   .rcs-tech-list li span { font-size: clamp(13px, 1.1vw, 15px); }
 
   .rcs-when { padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px); border-bottom: 1px solid var(--color-line); }
-  .rcs-when-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(24px, 4vw, 40px); margin-top: clamp(40px, 6vh, 64px); max-width: 1200px; margin-left: auto; margin-right: auto; }
+  .rcs-when-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(24px, 4vw, 40px); margin-top: clamp(40px, 6vh, 64px); max-width: 1200px;
+    margin: 0 auto; margin-left: auto; margin-right: auto; }
   .rcs-when-card { background: var(--color-paper-warm); border: 1px solid var(--color-line); padding: clamp(24px, 3.5vw, 36px); }
   .rcs-when-title { font-family: var(--font-display); font-weight: 400; font-size: clamp(16px, 1.6vw, 20px); line-height: 1.2; margin: 0 0 12px; }
   .rcs-when-body { font-size: clamp(13px, 1.1vw, 15px); line-height: 1.65; color: var(--color-ink-soft); margin: 0; }
 
   .rcs-why { padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px); border-bottom: 1px solid var(--color-line); }
-  .rcs-why-inner { display: grid; grid-template-columns: 480px 1fr; gap: clamp(48px, 7vw, 96px); align-items: center; max-width: 1200px; }
+  .rcs-why-inner { display: grid; grid-template-columns: 480px 1fr; gap: clamp(48px, 7vw, 96px); align-items: center; max-width: 1200px;
+    margin: 0 auto; }
   .rcs-why-image img { width: 100%; display: block; }
   .rcs-why-list { list-style: none; margin: 0 0 36px; padding: 0; display: flex; flex-direction: column; gap: 0; }
   .rcs-why-list li { font-size: clamp(14px, 1.2vw, 16px); line-height: 1.65; color: var(--color-ink-soft); padding: 14px 0; border-bottom: 1px solid var(--color-line); }
@@ -450,7 +456,8 @@ const related = [
   .rcs-faq-a p { font-size: clamp(15px, 1.3vw, 17px); line-height: 1.72; color: var(--color-ink-soft); margin: 0; }
 
   .rcs-form-section { padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px); border-bottom: 1px solid var(--color-line); }
-  .rcs-form-inner { display: grid; grid-template-columns: 380px 1fr; gap: clamp(48px, 7vw, 96px); align-items: start; max-width: 1100px; }
+  .rcs-form-inner { display: grid; grid-template-columns: 380px 1fr; gap: clamp(48px, 7vw, 96px); align-items: start; max-width: 1100px;
+    margin: 0 auto; }
   .rcs-form-details { list-style: none; margin: 32px 0 0; padding: 0; }
   .rcs-form-details li { display: flex; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--color-line); font-size: 14px; line-height: 1.55; color: var(--color-ink-soft); }
   .rcs-form-details li:first-child { border-top: 1px solid var(--color-line); }
