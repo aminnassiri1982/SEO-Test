@@ -3,83 +3,183 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
 
+const stats = [
+  { value: '4×–25×',  label: 'Microscope Magnification' },
+  { value: 'CBCT',    label: '3D Imaging Available' },
+  { value: 'Single-Use', label: 'NiTi File Protocol' },
+  { value: '90%',     label: 'Less Radiation vs. Film' },
+];
+
+const benefits = [
+  { title: 'See the Invisible', body: 'The operating microscope reveals calcifications, cracks, and missed canals that are simply invisible without magnification.' },
+  { title: '3D Diagnosis', body: 'Cone-beam CT gives us a volumetric picture before treatment begins — no surprises mid-procedure.' },
+  { title: 'Safer Instrumentation', body: 'Single-use NiTi files eliminate instrument fatigue, reducing the risk of file separation to near zero.' },
+  { title: 'Less Radiation', body: 'Digital radiography exposes patients to up to 90% less radiation than conventional film while producing sharper images.' },
+];
+
 const technologies = [
   {
     number: '01',
     name: 'Operating Microscope',
-    tagline: 'We see what cannot otherwise be seen.',
-    body: 'The operating microscope changed endodontics more than any other single development. At magnifications between 4× and 25×, with coaxial illumination that follows the surgeon\'s line of sight directly into the canal, structures that were invisible become workable: calcified canal orifices, hairline cracks, missed accessory canals, separated file fragments. Every procedure — surgical and non-surgical — is performed under microscope magnification at our Laguna Hills–area office.',
-    specs: ['4× to 25× magnification range', 'Coaxial LED illumination', 'Video documentation of every case', 'Used in all surgical and non-surgical procedures'],
+    body: 'At magnifications between 4× and 25×, with coaxial LED illumination that follows the surgeon\'s line of sight directly into the canal, the operating microscope reveals what is otherwise invisible — calcified orifices, hairline cracks, accessory canals, separated file fragments. Every procedure at our practice is performed under microscope magnification.',
+    specs: ['4× to 25× magnification', 'Coaxial LED illumination', 'Video documentation every case', 'Surgical and non-surgical use'],
   },
   {
     number: '02',
     name: 'Cone-Beam CT Imaging',
-    tagline: 'Three dimensions before the first instrument.',
-    body: 'Conventional dental X-rays are two-dimensional projections of three-dimensional anatomy. They miss things — extra canals, the true extent of resorption, the precise location of a root tip relative to the mandibular nerve or maxillary sinus. Cone-beam CT gives us a volumetric image we can navigate slice by slice. We use CBCT selectively: not as a default, but for cases where the three-dimensional picture changes the treatment decision. We use limited-field, low-dose protocols to minimize radiation exposure.',
-    specs: ['Limited-field, low-dose CBCT', 'Sub-millimeter voxel resolution', 'Surgical planning and trauma assessment', 'Identifies extra canals, resorption, fractures'],
+    body: 'Conventional dental X-rays are flat projections of three-dimensional anatomy. CBCT gives us a volumetric image of the tooth and surrounding bone, navigable slice by slice. We use limited-field, low-dose protocols selectively — only when the three-dimensional picture changes the treatment decision.',
+    specs: ['Limited-field, low-dose protocol', 'Sub-millimeter voxel resolution', 'Surgical pre-planning', 'Trauma and resorption assessment'],
   },
   {
     number: '03',
     name: 'NiTi Rotary Instrumentation',
-    tagline: 'Precision inside a curved canal.',
-    body: 'Nickel-titanium rotary files are super-elastic — they follow the natural curve of a root canal without straightening it, perforating it, or breaking. We use a single-use protocol: every file set is used once, then discarded. This eliminates instrument fatigue as a failure mode entirely. Electronic apex locators confirm working length in real time throughout instrumentation. The combination of rotary NiTi files and precise length measurement has made canal preparation far more predictable than older hand-filing techniques.',
-    specs: ['Reciprocating and continuous-rotation systems', 'Single-use protocol — no instrument reuse', 'Electronic apex locator throughout', 'Matched to canal anatomy case by case'],
+    body: 'Super-elastic nickel-titanium rotary files follow the natural curve of a root canal without straightening or perforating it. We use a single-use protocol — every file set is discarded after one case, eliminating instrument fatigue as a failure mode. Electronic apex locators confirm working length throughout.',
+    specs: ['Reciprocating and continuous rotation', 'Single-use — no instrument reuse', 'Electronic apex locator', 'Matched to anatomy per case'],
   },
   {
     number: '04',
     name: 'Digital Radiography',
-    tagline: 'Immediate, low-dose, high-resolution.',
-    body: 'We use direct digital radiography for all intraoral imaging. Images appear instantly, can be adjusted and zoomed at chairside without losing resolution, and expose patients to up to 90% less radiation than conventional film. For endodontic treatment, we typically take working-length, mid-treatment, and final-obturation radiographs — all reviewed on a large monitor at the chair in real time.',
-    specs: ['Up to 90% less radiation than film', 'Immediate chairside display and review', 'Digital sharing with referring dentist', 'High-contrast periapical sensors'],
+    body: 'Direct digital sensors produce instant, high-resolution images at up to 90% less radiation than film. We take working-length, mid-treatment, and final-obturation radiographs — each reviewed in real time on a large chairside monitor. Images are shared digitally with your referring dentist.',
+    specs: ['Up to 90% less radiation', 'Immediate chairside display', 'Digital sharing with referrers', 'High-contrast periapical sensors'],
   },
+];
+
+const faqs = [
+  { q: 'Is the operating microscope used for every procedure?', a: 'Yes. We use operating microscope magnification for every non-surgical root canal, retreatment, and surgical procedure. The microscope is not reserved for complex cases — it is our standard of care.' },
+  { q: 'Does cone-beam CT mean more radiation?', a: 'CBCT does involve more radiation than a standard periapical X-ray, which is why we use it selectively. We use limited-field, low-dose protocols and only order CBCT when the three-dimensional picture will change the treatment decision. For most routine cases, 2D digital radiography is sufficient.' },
+  { q: 'What is the advantage of single-use NiTi files?', a: 'Nickel-titanium files become fatigued with repeated use, even when sterilized. A fatigued file can separate inside a canal without warning, creating a significant complication. Single-use protocol eliminates this risk entirely — every case begins with factory-fresh instruments.' },
+  { q: 'Can I see the images during my procedure?', a: 'Yes. Digital radiographs are displayed on a large monitor at the chair and reviewed with you in real time. Microscope video can also be recorded and reviewed. Transparency is part of how we work.' },
+];
+
+const related = [
+  { label: 'Root Canal Treatment', href: '/laguna-hills-ca/root-canal-treatment/', desc: 'How technology improves every step of non-surgical therapy.' },
+  { label: 'Apical Surgery', href: '/laguna-hills-ca/apical-surgery-apicoectomy/', desc: 'Microsurgery where the microscope is indispensable.' },
+  { label: 'Root Canal Safety', href: '/laguna-hills-ca/root-canal-safety/', desc: 'The science behind modern endodontic materials.' },
+  { label: 'All Treatments', href: '/laguna-hills-ca/', desc: 'Browse all endodontic services in Laguna Hills, CA.' },
 ];
 ---
 
 <BaseLayout
   title="Endodontic Technology in Laguna Hills, CA — Saddleback Valley Endodontics"
-  description="Operating microscope, cone-beam CT, NiTi rotary instrumentation, and digital radiography at our Laguna Hills–area endodontic office. (949) 837-3033."
+  description="Operating microscope, cone-beam CT, NiTi rotary instrumentation, and digital radiography at our Laguna Hills–area endodontic practice. (949) 837-3033."
 >
   <Header variant="solid" />
 
-  <main>
+  <main class="lht-page">
 
-    <section class="page-intro">
-      <p class="page-eyebrow">Technology · Laguna Hills, CA</p>
-      <h1 class="page-title">The tools that<br/>let us see.</h1>
-      <p class="page-lede">
-        Endodontics has been transformed by instrumentation that makes the invisible visible.
-        Every procedure at our Laguna Hills–area office uses the full arsenal — selectively
-        and deliberately.
-      </p>
+    <!-- HERO -->
+    <section class="lht-hero">
+      <div class="lht-hero-image">
+        <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1600&q=80" alt="Advanced endodontic technology" />
+        <div class="lht-hero-overlay"></div>
+      </div>
+      <div class="lht-hero-content">
+        <p class="lht-eyebrow">Technology · Laguna Hills, CA</p>
+        <h1 class="lht-hero-title">The tools that<br/>let us see.</h1>
+        <p class="lht-hero-sub">Operating microscope, cone-beam CT, and digital radiography — the full arsenal of modern endodontics.</p>
+        <a href="/request-an-appointment/" class="lht-btn-filled">Request an Appointment</a>
+      </div>
+      <div class="lht-stats-bar">
+        {stats.map(s => (
+          <div class="lht-stat">
+            <span class="lht-stat-value">{s.value}</span>
+            <span class="lht-stat-label">{s.label}</span>
+          </div>
+        ))}
+      </div>
     </section>
 
-    <section class="lhtech-list">
+    <!-- WHAT -->
+    <section class="lht-what">
+      <div class="lht-what-inner">
+        <div class="lht-what-text">
+          <p class="lht-eyebrow">Our Equipment</p>
+          <h2 class="lht-section-title">Technology that changes what is possible.</h2>
+          <p class="lht-body">Endodontics has been transformed in the past twenty years by instrumentation that makes the invisible visible and the unpredictable predictable. We use every tool in this arsenal — not as marketing, but because each one genuinely changes outcomes when applied to the right case.</p>
+          <p class="lht-body">The operating microscope alone changed our specialty more than any other development. Everything else — CBCT, rotary NiTi, digital radiography — extends that foundation of precision.</p>
+          <a href="/technology/" class="lht-btn-outline">Our Full Technology Suite</a>
+        </div>
+        <div class="lht-what-img">
+          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=900&q=80" alt="Root canal instruments and equipment" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFITS -->
+    <section class="lht-benefits">
+      <p class="lht-eyebrow lht-center">Why it matters</p>
+      <h2 class="lht-section-title lht-center">What precision technology means for you.</h2>
+      <div class="lht-benefits-grid">
+        {benefits.map(b => (
+          <div class="lht-benefit">
+            <div class="lht-benefit-icon" aria-hidden="true"></div>
+            <h3 class="lht-benefit-title">{b.title}</h3>
+            <p class="lht-benefit-body">{b.body}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- TECHNOLOGY LIST -->
+    <section class="lht-list">
       {technologies.map((t, i) => (
-        <article class={`lhtech-row ${i % 2 === 1 ? 'lhtech-row--reverse' : ''}`}>
-          <div class="lhtech-content">
-            <p class="lhtech-number">{t.number}</p>
-            <h2 class="lhtech-name">{t.name}</h2>
-            <p class="lhtech-tagline">{t.tagline}</p>
-            <p class="lhtech-body">{t.body}</p>
-            <ul class="lhtech-specs">
+        <article class={`lht-row ${i % 2 === 1 ? 'lht-row--alt' : ''}`}>
+          <div class="lht-row-accent"></div>
+          <div class="lht-row-content">
+            <span class="lht-row-num">{t.number}</span>
+            <h2 class="lht-row-name">{t.name}</h2>
+            <p class="lht-row-body">{t.body}</p>
+            <ul class="lht-row-specs">
               {t.specs.map(s => <li>{s}</li>)}
             </ul>
           </div>
-          <div class="lhtech-accent"></div>
         </article>
       ))}
     </section>
 
-    <section class="lhtech-cta">
-      <div class="lhtech-cta-inner">
-        <p class="lhtech-cta-eyebrow">Serving Laguna Hills & South Orange County</p>
-        <h2 class="lhtech-cta-headline">Precision endodontics, close to home.</h2>
-        <p class="lhtech-cta-body">
-          Call <a href="tel:+19498373033">(949) 837-3033</a> to schedule.
-          Located at 25800 Jeronimo Road, Suite 300, Mission Viejo — minutes from Laguna Hills,
-          Lake Forest, and Aliso Viejo.
-        </p>
-        <a href="/request-an-appointment/" class="lhtech-cta-btn">Request an Appointment</a>
+    <!-- FAQ -->
+    <section class="lht-faq">
+      <div class="lht-faq-inner">
+        <p class="lht-eyebrow">Common Questions</p>
+        <h2 class="lht-section-title">Technology FAQ.</h2>
+        <div class="lht-faq-list">
+          {faqs.map(f => (
+            <details class="lht-faq-item" name="lht-faq">
+              <summary class="lht-faq-q">
+                <span>{f.q}</span>
+                <span class="lht-faq-icon" aria-hidden="true"></span>
+              </summary>
+              <div class="lht-faq-a"><p>{f.a}</p></div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- RELATED -->
+    <section class="lht-related">
+      <p class="lht-eyebrow lht-center">Also in Laguna Hills</p>
+      <h2 class="lht-section-title lht-center">Related treatments.</h2>
+      <div class="lht-related-grid">
+        {related.map(r => (
+          <a href={r.href} class="lht-related-card">
+            <h3 class="lht-related-name">{r.label}</h3>
+            <p class="lht-related-desc">{r.desc}</p>
+            <span class="lht-related-arrow" aria-hidden="true">→</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- BOTTOM CTA -->
+    <section class="lht-cta">
+      <div class="lht-cta-inner">
+        <h2 class="lht-cta-title">Precision endodontics, close to home.</h2>
+        <p class="lht-cta-body">Call <a href="tel:+19498373033">(949) 837-3033</a> or request online. Located at 25800 Jeronimo Road, Suite 300, Mission Viejo — minutes from Laguna Hills.</p>
+        <div class="lht-cta-btns">
+          <a href="/request-an-appointment/" class="lht-cta-btn-white">Request an Appointment</a>
+          <a href="tel:+19498373033" class="lht-cta-btn-ghost">Call (949) 837-3033</a>
+        </div>
       </div>
     </section>
 
@@ -89,173 +189,102 @@ const technologies = [
 </BaseLayout>
 
 <style is:global>
-  main { padding-top: var(--header-h); }
+  .lht-page { padding-top: var(--header-h); }
+  .lht-eyebrow { font-size: 11px; letter-spacing: 0.36em; text-transform: uppercase; font-weight: 500; color: var(--color-ink-soft); margin: 0 0 16px; }
+  .lht-section-title { font-family: var(--font-display); font-weight: 300; font-size: clamp(28px,4vw,52px); line-height: 1.05; letter-spacing: -0.01em; margin: 0 0 24px; }
+  .lht-body { font-size: clamp(15px,1.3vw,17px); line-height: 1.72; color: var(--color-ink-soft); margin: 0 0 18px; }
+  .lht-center { text-align: center; }
+  .lht-btn-filled { display: inline-block; font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 500; padding: 16px 36px; background: var(--color-ink); color: var(--color-paper); border: 1px solid var(--color-ink); transition: background 0.28s var(--ease-out),color 0.28s var(--ease-out); }
+  .lht-btn-filled:hover { background: transparent; color: var(--color-ink); }
+  .lht-btn-outline { display: inline-block; font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 500; padding: 14px 32px; border: 1px solid var(--color-ink); color: var(--color-ink); transition: background 0.28s var(--ease-out),color 0.28s var(--ease-out); }
+  .lht-btn-outline:hover { background: var(--color-ink); color: var(--color-paper); }
 
-  .page-intro {
-    padding: clamp(80px, 13vh, 140px) clamp(28px, 6vw, 88px) clamp(60px, 9vh, 100px);
-    max-width: 960px;
-    border-bottom: 1px solid var(--color-line);
-  }
-  .page-eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.36em;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: var(--color-ink-soft);
-    margin: 0 0 32px;
-  }
-  .page-title {
-    font-family: var(--font-display);
-    font-weight: 300;
-    font-size: clamp(52px, 8vw, 104px);
-    line-height: 1;
-    letter-spacing: -0.015em;
-    margin: 0 0 28px;
-  }
-  .page-lede {
-    font-size: clamp(16px, 1.5vw, 19px);
-    line-height: 1.65;
-    color: var(--color-ink-soft);
-    max-width: 58ch;
-    margin: 0;
-  }
+  .lht-hero { position: relative; min-height: 520px; display: flex; flex-direction: column; justify-content: flex-end; }
+  .lht-hero-image { position: absolute; inset: 0; overflow: hidden; }
+  .lht-hero-image img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+  .lht-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom,rgba(10,10,10,0.2) 0%,rgba(10,10,10,0.65) 100%); }
+  .lht-hero-content { position: relative; padding: clamp(56px,10vh,120px) clamp(28px,6vw,88px) 48px; color: #fff; max-width: 800px; }
+  .lht-hero-content .lht-eyebrow { color: rgba(255,255,255,0.65); }
+  .lht-hero-title { font-family: var(--font-display); font-weight: 300; font-size: clamp(36px,5.5vw,72px); line-height: 1.05; letter-spacing: -0.015em; margin: 0 0 18px; color: #fff; }
+  .lht-hero-sub { font-size: clamp(15px,1.4vw,18px); color: rgba(255,255,255,0.82); margin: 0 0 32px; max-width: 52ch; line-height: 1.6; }
+  .lht-hero .lht-btn-filled { background: #fff; color: var(--color-ink); border-color: #fff; }
+  .lht-hero .lht-btn-filled:hover { background: transparent; color: #fff; }
+  .lht-stats-bar { position: relative; display: grid; grid-template-columns: repeat(4,1fr); background: var(--color-paper); border-top: 1px solid var(--color-line); }
+  .lht-stat { display: flex; flex-direction: column; align-items: center; padding: clamp(20px,3.5vh,32px) 16px; border-right: 1px solid var(--color-line); text-align: center; }
+  .lht-stat:last-child { border-right: 0; }
+  .lht-stat-value { font-family: var(--font-display); font-size: clamp(26px,3.2vw,40px); font-weight: 300; line-height: 1; margin-bottom: 6px; }
+  .lht-stat-label { font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; color: var(--color-ink-soft); }
 
-  .lhtech-list { }
+  .lht-what { border-bottom: 1px solid var(--color-line); padding: clamp(80px,12vh,140px) clamp(28px,6vw,88px); }
+  .lht-what-inner { display: grid; grid-template-columns: 1fr 480px; gap: clamp(48px,7vw,96px); align-items: center; max-width: 1200px; }
+  .lht-what-img img { width: 100%; display: block; }
 
-  .lhtech-row {
-    display: grid;
-    grid-template-columns: 1fr 420px;
-    min-height: 560px;
-    border-bottom: 1px solid var(--color-line);
-  }
-  .lhtech-row--reverse { grid-template-columns: 420px 1fr; }
-  .lhtech-row--reverse .lhtech-content { order: 2; }
-  .lhtech-row--reverse .lhtech-accent { order: 1; }
+  .lht-benefits { padding: clamp(80px,12vh,140px) clamp(28px,6vw,88px); background: var(--color-paper-warm); border-bottom: 1px solid var(--color-line); }
+  .lht-benefits-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: clamp(24px,4vw,48px); margin-top: clamp(40px,6vh,64px); max-width: 1200px; margin-left: auto; margin-right: auto; }
+  .lht-benefit { border-top: 2px solid var(--color-line); padding-top: clamp(20px,3vh,32px); }
+  .lht-benefit-icon { width: 28px; height: 28px; border: 1px solid var(--color-ink); border-radius: 50%; margin-bottom: 20px; }
+  .lht-benefit-title { font-family: var(--font-display); font-weight: 400; font-size: clamp(18px,1.8vw,22px); margin: 0 0 12px; line-height: 1.2; }
+  .lht-benefit-body { font-size: clamp(13px,1.1vw,15px); line-height: 1.65; color: var(--color-ink-soft); margin: 0; }
 
-  .lhtech-content {
-    padding: clamp(56px, 8vw, 96px) clamp(40px, 6vw, 80px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  .lhtech-accent {
-    background: var(--color-paper-warm);
-    border-left: 1px solid var(--color-line);
-  }
-  .lhtech-row--reverse .lhtech-accent {
-    border-left: 0;
-    border-right: 1px solid var(--color-line);
-  }
+  .lht-list {}
+  .lht-row { display: grid; grid-template-columns: 420px 1fr; min-height: 520px; border-bottom: 1px solid var(--color-line); }
+  .lht-row--alt { grid-template-columns: 1fr 420px; }
+  .lht-row--alt .lht-row-accent { order: 2; }
+  .lht-row--alt .lht-row-content { order: 1; }
+  .lht-row-accent { background: var(--color-paper-warm); border-right: 1px solid var(--color-line); }
+  .lht-row--alt .lht-row-accent { border-right: 0; border-left: 1px solid var(--color-line); }
+  .lht-row-content { padding: clamp(56px,8vw,96px) clamp(40px,6vw,80px); display: flex; flex-direction: column; justify-content: center; }
+  .lht-row-num { font-family: var(--font-display); font-size: 52px; font-weight: 300; color: var(--color-ink-soft); opacity: 0.28; line-height: 1; margin-bottom: 20px; display: block; }
+  .lht-row-name { font-family: var(--font-display); font-weight: 400; font-size: clamp(26px,3vw,38px); line-height: 1.08; letter-spacing: -0.005em; margin: 0 0 16px; }
+  .lht-row-body { font-size: clamp(14px,1.2vw,16px); line-height: 1.72; color: var(--color-ink-soft); margin: 0 0 28px; max-width: 58ch; }
+  .lht-row-specs { list-style: none; margin: 0; padding: 0; }
+  .lht-row-specs li { font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 500; color: var(--color-ink-soft); padding: 10px 0 10px 16px; border-bottom: 1px solid var(--color-line); position: relative; }
+  .lht-row-specs li:first-child { border-top: 1px solid var(--color-line); }
+  .lht-row-specs li::before { content: ''; position: absolute; left: 0; top: 50%; width: 6px; height: 1px; background: currentColor; }
 
-  .lhtech-number {
-    font-family: var(--font-display);
-    font-size: 52px;
-    font-weight: 300;
-    color: var(--color-ink-soft);
-    opacity: 0.28;
-    margin: 0 0 24px;
-    line-height: 1;
-  }
-  .lhtech-name {
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-size: clamp(26px, 3.2vw, 40px);
-    line-height: 1.08;
-    letter-spacing: -0.005em;
-    margin: 0 0 12px;
-  }
-  .lhtech-tagline {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: clamp(15px, 1.5vw, 19px);
-    color: var(--color-ink-soft);
-    margin: 0 0 24px;
-    line-height: 1.4;
-  }
-  .lhtech-body {
-    font-size: clamp(14px, 1.2vw, 16px);
-    line-height: 1.72;
-    color: var(--color-ink-soft);
-    margin: 0 0 28px;
-    max-width: 58ch;
-  }
-  .lhtech-specs {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  .lhtech-specs li {
-    font-size: 12px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: var(--color-ink-soft);
-    padding: 10px 0 10px 16px;
-    border-bottom: 1px solid var(--color-line);
-    position: relative;
-  }
-  .lhtech-specs li:first-child { border-top: 1px solid var(--color-line); }
-  .lhtech-specs li::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 50%;
-    width: 6px; height: 1px;
-    background: currentColor;
-  }
+  .lht-faq { padding: clamp(80px,12vh,140px) clamp(28px,6vw,88px); background: var(--color-paper-warm); border-bottom: 1px solid var(--color-line); }
+  .lht-faq-inner { max-width: 900px; }
+  .lht-faq-inner .lht-section-title { margin-bottom: clamp(40px,6vh,60px); }
+  .lht-faq-item { border-bottom: 1px solid var(--color-line); }
+  .lht-faq-item:first-child { border-top: 1px solid var(--color-line); }
+  .lht-faq-q { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: clamp(20px,3vh,30px) 0; cursor: pointer; list-style: none; font-family: var(--font-display); font-size: clamp(18px,2vw,26px); font-weight: 400; line-height: 1.2; color: var(--color-ink); transition: color 0.2s var(--ease-out); }
+  .lht-faq-q::-webkit-details-marker { display: none; }
+  .lht-faq-q:hover { color: var(--color-ink-soft); }
+  .lht-faq-icon { flex-shrink: 0; width: 20px; height: 20px; position: relative; }
+  .lht-faq-icon::before,.lht-faq-icon::after { content: ''; position: absolute; background: currentColor; transition: transform 0.3s var(--ease-out),opacity 0.25s var(--ease-out); }
+  .lht-faq-icon::before { width: 1px; height: 100%; left: 50%; top: 0; transform: translateX(-50%); }
+  .lht-faq-icon::after  { width: 100%; height: 1px; top: 50%; left: 0; transform: translateY(-50%); }
+  .lht-faq-item[open] .lht-faq-icon::before { transform: translateX(-50%) rotate(90deg); opacity: 0; }
+  .lht-faq-a { padding: 0 0 clamp(20px,3.5vh,32px); max-width: 66ch; }
+  .lht-faq-a p { font-size: clamp(15px,1.3vw,17px); line-height: 1.72; color: var(--color-ink-soft); margin: 0; }
 
-  .lhtech-cta {
-    padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
-    border-top: 1px solid var(--color-line);
-  }
-  .lhtech-cta-inner { max-width: 640px; }
-  .lhtech-cta-eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.36em;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: var(--color-ink-soft);
-    margin: 0 0 28px;
-  }
-  .lhtech-cta-headline {
-    font-family: var(--font-display);
-    font-weight: 300;
-    font-size: clamp(28px, 4vw, 48px);
-    line-height: 1.1;
-    letter-spacing: -0.008em;
-    margin: 0 0 20px;
-  }
-  .lhtech-cta-body {
-    font-size: clamp(15px, 1.3vw, 17px);
-    line-height: 1.68;
-    color: var(--color-ink-soft);
-    margin: 0 0 36px;
-  }
-  .lhtech-cta-body a { border-bottom: 1px solid currentColor; transition: opacity 0.2s; }
-  .lhtech-cta-body a:hover { opacity: 0.6; }
-  .lhtech-cta-btn {
-    display: inline-block;
-    font-size: 12px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    font-weight: 500;
-    padding: 16px 36px;
-    border: 1px solid var(--color-ink);
-    color: var(--color-ink);
-    transition: background 0.28s var(--ease-out), color 0.28s var(--ease-out);
-  }
-  .lhtech-cta-btn:hover {
-    background: var(--color-ink);
-    color: var(--color-paper);
-  }
+  .lht-related { padding: clamp(80px,12vh,140px) clamp(28px,6vw,88px); border-bottom: 1px solid var(--color-line); }
+  .lht-related-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; margin-top: clamp(40px,6vh,56px); border-left: 1px solid var(--color-line); }
+  .lht-related-card { display: flex; flex-direction: column; padding: clamp(24px,3.5vw,36px); border-right: 1px solid var(--color-line); border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); text-decoration: none; color: var(--color-ink); transition: background 0.22s var(--ease-out); gap: 10px; }
+  .lht-related-card:hover { background: var(--color-paper-warm); }
+  .lht-related-name { font-family: var(--font-display); font-weight: 400; font-size: clamp(16px,1.6vw,20px); line-height: 1.2; margin: 0; }
+  .lht-related-desc { font-size: 13px; line-height: 1.55; color: var(--color-ink-soft); margin: 0; flex: 1; }
+  .lht-related-arrow { font-size: 16px; color: var(--color-ink-soft); }
 
+  .lht-cta { padding: clamp(80px,12vh,140px) clamp(28px,6vw,88px); background: var(--color-ink); color: var(--color-paper); }
+  .lht-cta-inner { max-width: 720px; }
+  .lht-cta-title { font-family: var(--font-display); font-weight: 300; font-size: clamp(32px,5vw,64px); line-height: 1.05; letter-spacing: -0.01em; margin: 0 0 20px; color: #fff; }
+  .lht-cta-body { font-size: clamp(15px,1.3vw,17px); line-height: 1.65; color: rgba(255,255,255,0.72); margin: 0 0 36px; }
+  .lht-cta-body a { color: #fff; border-bottom: 1px solid rgba(255,255,255,0.4); }
+  .lht-cta-btns { display: flex; flex-wrap: wrap; gap: 16px; }
+  .lht-cta-btn-white { display: inline-block; font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 500; padding: 16px 36px; background: #fff; color: var(--color-ink); border: 1px solid #fff; transition: background 0.28s var(--ease-out),color 0.28s var(--ease-out); }
+  .lht-cta-btn-white:hover { background: transparent; color: #fff; }
+  .lht-cta-btn-ghost { display: inline-block; font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 500; padding: 14px 32px; border: 1px solid rgba(255,255,255,0.4); color: rgba(255,255,255,0.82); transition: background 0.28s var(--ease-out),color 0.28s var(--ease-out),border-color 0.28s; }
+  .lht-cta-btn-ghost:hover { background: rgba(255,255,255,0.1); color: #fff; border-color: #fff; }
+
+  @media (max-width: 1024px) { .lht-benefits-grid,.lht-related-grid { grid-template-columns: repeat(2,1fr); } }
   @media (max-width: 860px) {
-    .lhtech-row,
-    .lhtech-row--reverse {
-      grid-template-columns: 1fr;
-      min-height: auto;
-    }
-    .lhtech-row .lhtech-content,
-    .lhtech-row--reverse .lhtech-content { order: 1; }
-    .lhtech-accent { display: none; }
+    .lht-what-inner { grid-template-columns: 1fr; }
+    .lht-row,.lht-row--alt { grid-template-columns: 1fr; min-height: auto; }
+    .lht-row-accent { display: none; }
+    .lht-row--alt .lht-row-content,.lht-row--alt .lht-row-accent { order: unset; }
+    .lht-stats-bar { grid-template-columns: repeat(2,1fr); }
+    .lht-stat:nth-child(2) { border-right: 0; }
   }
+  @media (max-width: 600px) { .lht-benefits-grid,.lht-related-grid { grid-template-columns: 1fr; } .lht-related-grid { border-left: 0; } .lht-related-card { border-left: 1px solid var(--color-line); } }
 </style>
