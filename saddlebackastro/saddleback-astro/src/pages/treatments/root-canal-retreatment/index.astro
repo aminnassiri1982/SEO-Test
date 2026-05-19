@@ -71,8 +71,8 @@ const related = [
         <a href="/request-an-appointment/" class="rcr-hero-btn">Request an Appointment</a>
       </div>
       <div class="rcr-stats-bar">
-        {stats.map(s => (
-          <div class="rcr-stat">
+        {stats.map((s, i) => (
+          <div class="rcr-stat" data-reveal data-reveal-delay={String(i + 1)}>
             <span class="rcr-stat-value">{s.value}</span>
             <span class="rcr-stat-label">{s.label}</span>
           </div>
@@ -83,14 +83,14 @@ const related = [
     <!-- WHAT IS IT -->
     <section class="rcr-what">
       <div class="rcr-what-inner">
-        <div class="rcr-what-text">
+        <div class="rcr-what-text" data-reveal="right">
           <p class="rcr-section-eyebrow">Root Canal Retreatment</p>
           <h2 class="rcr-section-title">What is root canal retreatment?</h2>
           <p class="rcr-body-text">Root canal retreatment is a procedure that revisits a previously root-canal-treated tooth that has failed to heal or has developed new disease. The endodontist removes the old filling material, re-cleans and re-shapes the canal system, and re-seals it — correcting whatever caused the original treatment to fall short.</p>
           <p class="rcr-body-text">Retreatment is not a sign of failure by patient or dentist. Complex anatomy, new decay, a leaking crown, or an undetected second canal can all lead to reinfection years after a technically sound original procedure. Specialist diagnosis determines the exact cause and the best path forward.</p>
           <a href="/request-an-appointment/" class="rcr-outline-btn">Request an Appointment</a>
         </div>
-        <div class="rcr-what-image">
+        <div class="rcr-what-image" data-reveal="left">
           <img
             src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?auto=format&fit=crop&w=900&q=80"
             alt="Retreatment procedure under operating microscope"
@@ -102,11 +102,11 @@ const related = [
 
     <!-- BENEFITS -->
     <section class="rcr-benefits">
-      <p class="rcr-section-eyebrow rcr-centered">Why choose specialist retreatment?</p>
-      <h2 class="rcr-section-title rcr-centered">Benefits of root canal retreatment.</h2>
+      <p class="rcr-section-eyebrow rcr-centered" data-reveal>Why choose specialist retreatment?</p>
+      <h2 class="rcr-section-title rcr-centered" data-reveal>Benefits of root canal retreatment.</h2>
       <div class="rcr-benefits-grid">
-        {benefits.map(b => (
-          <div class="rcr-benefit-card">
+        {benefits.map((b, i) => (
+          <div class="rcr-benefit-card" data-reveal data-reveal-delay={String((i % 3) + 1)}>
             <div class="rcr-benefit-icon" aria-hidden="true"></div>
             <h3 class="rcr-benefit-title">{b.title}</h3>
             <p class="rcr-benefit-body">{b.body}</p>
@@ -119,13 +119,13 @@ const related = [
     <section class="rcr-steps-section">
       <div class="rcr-steps-inner">
         <div class="rcr-steps-header">
-          <p class="rcr-section-eyebrow">The Procedure</p>
-          <h2 class="rcr-section-title">Our step-by-step<br/>retreatment process.</h2>
+          <p class="rcr-section-eyebrow" data-reveal>The Procedure</p>
+          <h2 class="rcr-section-title" data-reveal>Our step-by-step<br/>retreatment process.</h2>
           <p class="rcr-body-text">Every retreatment begins with understanding why the first procedure failed. No two cases are the same, but every case follows the same disciplined sequence.</p>
         </div>
         <div class="rcr-steps-list">
           {steps.map(s => (
-            <div class="rcr-step">
+            <div class="rcr-step" data-reveal>
               <div class="rcr-step-num">{s.number}</div>
               <div>
                 <h3 class="rcr-step-title">{s.title}</h3>
@@ -140,14 +140,14 @@ const related = [
     <!-- TECHNOLOGY -->
     <section class="rcr-tech">
       <div class="rcr-tech-inner">
-        <div class="rcr-tech-image">
+        <div class="rcr-tech-image" data-reveal="left">
           <img
             src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=900&q=80"
             alt="Cone-beam CT imaging used for retreatment planning"
             loading="lazy"
           />
         </div>
-        <div class="rcr-tech-text">
+        <div class="rcr-tech-text" data-reveal="right">
           <p class="rcr-section-eyebrow">Technology</p>
           <h2 class="rcr-section-title">Technology that<br/>finds what was missed.</h2>
           <ul class="rcr-tech-list">
@@ -175,11 +175,11 @@ const related = [
 
     <!-- WHEN NEEDED -->
     <section class="rcr-when">
-      <p class="rcr-section-eyebrow rcr-centered">Symptoms & Indications</p>
-      <h2 class="rcr-section-title rcr-centered">When retreatment is needed.</h2>
+      <p class="rcr-section-eyebrow rcr-centered" data-reveal>Symptoms & Indications</p>
+      <h2 class="rcr-section-title rcr-centered" data-reveal>When retreatment is needed.</h2>
       <div class="rcr-when-grid">
-        {symptoms.map(s => (
-          <div class="rcr-when-card">
+        {symptoms.map((s, i) => (
+          <div class="rcr-when-card" data-reveal data-reveal-delay={String(i + 1)}>
             <h3 class="rcr-when-title">{s.title}</h3>
             <p class="rcr-when-body">{s.body}</p>
           </div>
@@ -190,14 +190,14 @@ const related = [
     <!-- WHY CHOOSE US -->
     <section class="rcr-why">
       <div class="rcr-why-inner">
-        <div class="rcr-why-image">
+        <div class="rcr-why-image" data-reveal="left">
           <img
             src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80"
             alt="Saddleback Valley Endodontics specialist team"
             loading="lazy"
           />
         </div>
-        <div class="rcr-why-text">
+        <div class="rcr-why-text" data-reveal="right">
           <p class="rcr-section-eyebrow">South OC Retreatment Specialist</p>
           <h2 class="rcr-section-title">Why choose us for retreatment in Laguna Hills?</h2>
           <ul class="rcr-why-list">
@@ -215,12 +215,12 @@ const related = [
     <section class="rcr-faq">
       <div class="rcr-faq-inner">
         <div class="rcr-faq-header">
-          <p class="rcr-section-eyebrow">Frequently Asked Questions</p>
-          <h2 class="rcr-section-title">Root canal retreatment FAQ.</h2>
+          <p class="rcr-section-eyebrow" data-reveal>Frequently Asked Questions</p>
+          <h2 class="rcr-section-title" data-reveal>Root canal retreatment FAQ.</h2>
         </div>
         <div class="rcr-faq-list">
           {faqs.map(f => (
-            <details class="rcr-faq-item" name="rcr-faq">
+            <details class="rcr-faq-item" name="rcr-faq" data-reveal>
               <summary class="rcr-faq-q">
                 <span>{f.q}</span>
                 <span class="rcr-faq-icon" aria-hidden="true"></span>

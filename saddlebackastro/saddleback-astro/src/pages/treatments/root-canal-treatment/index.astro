@@ -72,8 +72,8 @@ const related = [
         <a href="/request-an-appointment/" class="rct-hero-btn">Request an Appointment</a>
       </div>
       <div class="rct-stats-bar">
-        {stats.map(s => (
-          <div class="rct-stat">
+        {stats.map((s, i) => (
+          <div class="rct-stat" data-reveal data-reveal-delay={String(i + 1)}>
             <span class="rct-stat-value">{s.value}</span>
             <span class="rct-stat-label">{s.label}</span>
           </div>
@@ -84,14 +84,14 @@ const related = [
     <!-- WHAT IS IT -->
     <section class="rct-what">
       <div class="rct-what-inner">
-        <div class="rct-what-text">
+        <div class="rct-what-text" data-reveal="right">
           <p class="rct-section-eyebrow">Root Canal Treatment</p>
           <h2 class="rct-section-title">What is root canal treatment?</h2>
           <p class="rct-body-text">Root canal treatment removes infected or inflamed pulp tissue from inside a tooth, cleans and shapes the canal system, and seals it to prevent reinfection. The procedure relieves pain — it doesn't cause it — and preserves the natural tooth that would otherwise require extraction.</p>
           <p class="rct-body-text">The dental pulp is the soft tissue containing nerves and blood vessels at the center of each tooth. Once a tooth is fully formed, the pulp is not essential to function. A treated tooth can last a lifetime with the right restoration.</p>
           <a href="/request-an-appointment/" class="rct-outline-btn">Request an Appointment</a>
         </div>
-        <div class="rct-what-image">
+        <div class="rct-what-image" data-reveal="left">
           <img
             src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c?auto=format&fit=crop&w=900&q=80"
             alt="Endodontist performing root canal under operating microscope"
@@ -103,11 +103,11 @@ const related = [
 
     <!-- BENEFITS -->
     <section class="rct-benefits">
-      <p class="rct-section-eyebrow rct-centered">Why treat with an endodontist?</p>
-      <h2 class="rct-section-title rct-centered">Benefits of root canal treatment.</h2>
+      <p class="rct-section-eyebrow rct-centered" data-reveal>Why treat with an endodontist?</p>
+      <h2 class="rct-section-title rct-centered" data-reveal>Benefits of root canal treatment.</h2>
       <div class="rct-benefits-grid">
-        {benefits.map(b => (
-          <div class="rct-benefit-card">
+        {benefits.map((b, i) => (
+          <div class="rct-benefit-card" data-reveal data-reveal-delay={String((i % 3) + 1)}>
             <div class="rct-benefit-icon" aria-hidden="true"></div>
             <h3 class="rct-benefit-title">{b.title}</h3>
             <p class="rct-benefit-body">{b.body}</p>
@@ -120,13 +120,13 @@ const related = [
     <section class="rct-steps-section">
       <div class="rct-steps-inner">
         <div class="rct-steps-header">
-          <p class="rct-section-eyebrow">The Procedure</p>
-          <h2 class="rct-section-title">Our step-by-step<br/>treatment process.</h2>
+          <p class="rct-section-eyebrow" data-reveal>The Procedure</p>
+          <h2 class="rct-section-title" data-reveal>Our step-by-step<br/>treatment process.</h2>
           <p class="rct-body-text">Every appointment follows the same careful sequence — no shortcuts, no rushing. Most cases are complete in a single visit.</p>
         </div>
         <div class="rct-steps-list">
           {steps.map(s => (
-            <div class="rct-step">
+            <div class="rct-step" data-reveal>
               <div class="rct-step-num">{s.number}</div>
               <div>
                 <h3 class="rct-step-title">{s.title}</h3>
@@ -141,14 +141,14 @@ const related = [
     <!-- TECHNOLOGY -->
     <section class="rct-tech">
       <div class="rct-tech-inner">
-        <div class="rct-tech-image">
+        <div class="rct-tech-image" data-reveal="left">
           <img
             src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=900&q=80"
             alt="Cone-beam CT imaging for endodontic diagnosis"
             loading="lazy"
           />
         </div>
-        <div class="rct-tech-text">
+        <div class="rct-tech-text" data-reveal="right">
           <p class="rct-section-eyebrow">Technology</p>
           <h2 class="rct-section-title">Technology that<br/>changes everything.</h2>
           <ul class="rct-tech-list">
@@ -176,11 +176,11 @@ const related = [
 
     <!-- WHEN NEEDED -->
     <section class="rct-when">
-      <p class="rct-section-eyebrow rct-centered">Symptoms</p>
-      <h2 class="rct-section-title rct-centered">When root canal treatment is needed.</h2>
+      <p class="rct-section-eyebrow rct-centered" data-reveal>Symptoms</p>
+      <h2 class="rct-section-title rct-centered" data-reveal>When root canal treatment is needed.</h2>
       <div class="rct-when-grid">
-        {symptoms.map(s => (
-          <div class="rct-when-card">
+        {symptoms.map((s, i) => (
+          <div class="rct-when-card" data-reveal data-reveal-delay={String(i + 1)}>
             <h3 class="rct-when-title">{s.title}</h3>
             <p class="rct-when-body">{s.body}</p>
           </div>
@@ -191,14 +191,14 @@ const related = [
     <!-- WHY CHOOSE US -->
     <section class="rct-why">
       <div class="rct-why-inner">
-        <div class="rct-why-image">
+        <div class="rct-why-image" data-reveal="left">
           <img
             src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80"
             alt="Saddleback Valley Endodontics team"
             loading="lazy"
           />
         </div>
-        <div class="rct-why-text">
+        <div class="rct-why-text" data-reveal="right">
           <p class="rct-section-eyebrow">South OC · Tooth No. 1</p>
           <h2 class="rct-section-title">Why choose us for root canal treatment in Laguna Hills?</h2>
           <ul class="rct-why-list">
@@ -216,12 +216,12 @@ const related = [
     <section class="rct-faq">
       <div class="rct-faq-inner">
         <div class="rct-faq-header">
-          <p class="rct-section-eyebrow">Frequently Asked Questions</p>
-          <h2 class="rct-section-title">Root canal FAQ.</h2>
+          <p class="rct-section-eyebrow" data-reveal>Frequently Asked Questions</p>
+          <h2 class="rct-section-title" data-reveal>Root canal FAQ.</h2>
         </div>
         <div class="rct-faq-list">
           {faqs.map(f => (
-            <details class="rct-faq-item" name="rct-faq">
+            <details class="rct-faq-item" name="rct-faq" data-reveal>
               <summary class="rct-faq-q">
                 <span>{f.q}</span>
                 <span class="rct-faq-icon" aria-hidden="true"></span>
@@ -286,11 +286,11 @@ const related = [
 
     <!-- RELATED TREATMENTS -->
     <section class="rct-related">
-      <p class="rct-section-eyebrow rct-centered">Also in Laguna Hills</p>
-      <h2 class="rct-section-title rct-centered">Related endodontic treatments.</h2>
+      <p class="rct-section-eyebrow rct-centered" data-reveal>Also in Laguna Hills</p>
+      <h2 class="rct-section-title rct-centered" data-reveal>Related endodontic treatments.</h2>
       <div class="rct-related-grid">
-        {related.map(r => (
-          <a href={r.href} class="rct-related-card">
+        {related.map((r, i) => (
+          <a href={r.href} class="rct-related-card" data-reveal data-reveal-delay={String((i % 3) + 1)}>
             <h3 class="rct-related-name">{r.label}</h3>
             <p class="rct-related-desc">{r.desc}</p>
             <span class="rct-related-arrow" aria-hidden="true">→</span>
@@ -301,7 +301,7 @@ const related = [
 
     <!-- BOTTOM CTA -->
     <section class="rct-bottom-cta">
-      <div class="rct-bottom-cta-inner">
+      <div class="rct-bottom-cta-inner" data-reveal>
         <h2 class="rct-bottom-cta-title">Ready to save your tooth?</h2>
         <p class="rct-bottom-cta-body">Call <a href="tel:+19498373033">(949) 837-3033</a> or request online. Same-day appointments available for urgent pain.</p>
         <div class="rct-bottom-cta-btns">
