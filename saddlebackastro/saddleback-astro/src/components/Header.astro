@@ -1,7 +1,7 @@
 ---
 export interface Props {
   variant?: 'transparent' | 'solid';
-  active?: 'diagnosis' | 'services' | 'team' | 'tech' | 'journal' | 'faq' | 'contact';
+  active?: 'diagnosis' | 'services' | 'team' | 'tech' | 'journal' | 'faq' | 'contact' | 'patients';
 }
 
 const { variant = 'transparent', active } = Astro.props;
@@ -12,7 +12,13 @@ const treatments = [
   { label: 'Root Canal Retreatment',       href: '/treatments/root-canal-retreatment/' },
   { label: 'Apical Surgery / Apicoectomy', href: '/treatments/apical-surgery-apicoectomy/' },
   { label: 'Anxiety & Sedation',           href: '/treatments/anxiety-sedation/' },
-  { label: 'Dental Implants',                 href: '/treatments/dental-implant/' },
+  { label: 'Dental Implants',              href: '/treatments/dental-implant/' },
+];
+
+const patients = [
+  { label: 'Your First Visit',              href: '/patients/first-visit/' },
+  { label: 'Insurance & Financing',         href: '/patients/insurance-financing/' },
+  { label: 'Post-Operative Instructions',   href: '/patients/post-operative-instructions/' },
 ];
 ---
 
@@ -87,7 +93,35 @@ const treatments = [
 
     <a href="/team/"       class={active === 'team'  ? 'is-active' : ''}>Team</a>
     <a href="/technology/" class={active === 'tech'  ? 'is-active' : ''}>Tech</a>
-    <a href="/faq/"        class={active === 'faq'   ? 'is-active' : ''}>FAQ</a>
+
+    <!-- For Patients dropdown -->
+    <div class="nav-has-dropdown" id="patientsNav">
+      <a href="/patients/"
+         class={`nav-dropdown-trigger ${active === 'patients' ? 'is-active' : ''}`}
+         aria-haspopup="true"
+         aria-expanded="false"
+         id="patientsToggle">
+        For Patients
+        <svg class="nav-chevron" viewBox="0 0 24 24" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </a>
+      <div class="nav-dropdown" id="patientsDropdown" role="region" aria-label="Patient pages">
+        <div class="nav-dropdown-inner">
+          <p class="nav-dropdown-eyebrow">Patient Resources</p>
+          <ul class="nav-dropdown-list">
+            {patients.map(p => (
+              <li>
+                <a href={p.href} class="nav-dropdown-link">
+                  <span>{p.label}</span>
+                  <span class="nav-dropdown-arrow" aria-hidden="true"></span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
   </nav>
 </header>
 
@@ -130,8 +164,23 @@ const treatments = [
 
     <a href="/team/"    style="--i:2" tabindex="-1">Team</a>
     <a href="/technology/" style="--i:3" tabindex="-1">Tech</a>
-    <a href="/blog/"   style="--i:4" tabindex="-1">Journal</a>
-    <a href="/faq/"    style="--i:5" tabindex="-1">FAQ</a>
+
+    <!-- For Patients accordion in mobile -->
+    <div class="mobile-acc" style="--i:4">
+      <button class="mobile-acc-btn" aria-expanded="false" tabindex="-1">
+        For Patients
+        <svg class="mobile-acc-chevron" viewBox="0 0 24 24" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+      <div class="mobile-acc-panel">
+        {patients.map(p => (
+          <a href={p.href} tabindex="-1">{p.label}</a>
+        ))}
+      </div>
+    </div>
+
+    <a href="/blog/"   style="--i:5" tabindex="-1">Journal</a>
     <a href="/contact/" style="--i:6" tabindex="-1">Contact</a>
   </nav>
 
@@ -245,6 +294,43 @@ const treatments = [
     });
     document.addEventListener('click', e => {
       if (!servicesNav.contains(e.target)) scheduleClose();
+    });
+  }
+
+  // ── Desktop For Patients dropdown ────────────────────────────
+  const patientsNav      = document.getElementById('patientsNav');
+  const patientsToggle   = document.getElementById('patientsToggle');
+  const patientsDropdown = document.getElementById('patientsDropdown');
+
+  if (patientsNav && patientsToggle && patientsDropdown) {
+    let pCloseTimer;
+
+    function openPatientsDropdown() {
+      clearTimeout(pCloseTimer);
+      patientsNav.classList.add('is-open');
+      patientsToggle.setAttribute('aria-expanded', 'true');
+    }
+    function schedulePatientsClose() {
+      pCloseTimer = setTimeout(() => {
+        patientsNav.classList.remove('is-open');
+        patientsToggle.setAttribute('aria-expanded', 'false');
+      }, 120);
+    }
+
+    patientsNav.addEventListener('mouseenter', openPatientsDropdown);
+    patientsNav.addEventListener('mouseleave', schedulePatientsClose);
+    patientsDropdown.addEventListener('mouseenter', openPatientsDropdown);
+    patientsDropdown.addEventListener('mouseleave', schedulePatientsClose);
+
+    patientsToggle.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        patientsNav.classList.contains('is-open') ? schedulePatientsClose() : openPatientsDropdown();
+      }
+      if (e.key === 'Escape') schedulePatientsClose();
+    });
+    document.addEventListener('click', e => {
+      if (!patientsNav.contains(e.target)) schedulePatientsClose();
     });
   }
 </script>
