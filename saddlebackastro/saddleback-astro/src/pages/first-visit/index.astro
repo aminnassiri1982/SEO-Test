@@ -1,0 +1,290 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const steps = [
+  {
+    number: '01',
+    title: 'Check-in & Paperwork',
+    body: 'Plan to arrive about 10 minutes before your appointment. Our front desk team will confirm your personal and insurance information. New patients complete a medical and dental history form — you can request this in advance by email so you can fill it out at home. We review your history before the doctor enters the room, so the clinical conversation can focus on your tooth, not on paperwork.',
+  },
+  {
+    number: '02',
+    title: 'Consultation & Imaging',
+    body: 'The doctor will review your history, ask about your symptoms, and perform a clinical examination that may include pulp vitality testing, percussion and palpation testing, and periodontal probing. Digital periapical X-rays are taken at the chair. In cases of diagnostic complexity — multiple symptomatic teeth, prior treatment, suspected fracture, or unusual anatomy — cone-beam CT imaging may be recommended. You will see every image on the monitor.',
+  },
+  {
+    number: '03',
+    title: 'Review of Findings',
+    body: 'The doctor reviews the examination and imaging findings with you directly, explains the diagnosis in plain language, and shows you the relevant images. If the tooth requires treatment, the nature, reason, and expected outcome of that treatment are explained in full before any decision is made. If no treatment is needed, you will hear that clearly too — with a monitoring plan if indicated.',
+  },
+  {
+    number: '04',
+    title: 'Treatment Plan Discussion',
+    body: 'If treatment is recommended, we discuss the proposed approach, the number of appointments involved, post-operative expectations, and the cost. Our team provides a written fee estimate and reviews insurance benefits with you. Many patients choose to proceed with treatment at the same appointment; others prefer to schedule a second visit. There is no pressure either way — informed consent means you decide.',
+  },
+];
+
+const bringItems = [
+  'Government-issued photo ID',
+  'Insurance card (if applicable)',
+  'Current medication list (name, dose, and prescribing physician)',
+  'Prior dental X-rays related to the tooth in question',
+  'Name and contact information of your referring or general dentist',
+  'Any records from previous root canal treatment on the same tooth',
+];
+---
+
+<BaseLayout
+  title="First Visit — Saddleback Valley Endodontics"
+  description="What to expect at your first appointment at Saddleback Valley Endodontics in Mission Viejo, CA — check-in, examination, imaging, and treatment planning."
+>
+  <Header variant="solid" />
+
+  <main>
+
+    <section class="page-intro">
+      <p class="page-eyebrow">First Visit</p>
+      <h1 class="page-title">What to expect.</h1>
+      <p class="page-lede">
+        The first appointment is a conversation as much as an examination. We take the time
+        to understand your history, explain what we find, and answer every question before
+        any treatment is scheduled.
+      </p>
+    </section>
+
+    <section class="fv-steps-section">
+      <div class="fv-steps">
+        {steps.map(s => (
+          <div class="fv-step">
+            <div class="fv-step-number">{s.number}</div>
+            <div class="fv-step-content">
+              <h2 class="fv-step-title">{s.title}</h2>
+              <p class="fv-step-body">{s.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="fv-bring-section">
+      <div class="fv-bring-inner">
+        <p class="fv-bring-eyebrow">Before You Arrive</p>
+        <h2 class="fv-bring-headline">What to bring.</h2>
+        <p class="fv-bring-intro">
+          Having the right information on hand helps us make the most of your appointment time.
+        </p>
+        <ul class="fv-bring-list">
+          {bringItems.map(item => <li>{item}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <section class="fv-cta-band">
+      <div class="fv-cta-inner">
+        <p class="fv-cta-eyebrow">Ready to schedule?</p>
+        <h2 class="fv-cta-headline">Most patients are seen within 48 hours.</h2>
+        <p class="fv-cta-body">
+          Call <a href="tel:+19498373033">(949) 837-3033</a> or submit a request online and
+          we will follow up the same business day.
+        </p>
+        <a href="/request-an-appointment/" class="fv-cta-btn">Request an Appointment</a>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style is:global>
+  main { padding-top: var(--header-h); }
+
+  .page-intro {
+    padding: clamp(80px, 13vh, 140px) clamp(28px, 6vw, 88px) clamp(60px, 9vh, 100px);
+    max-width: 960px;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .page-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    margin: 0 0 32px;
+  }
+  .page-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(52px, 8vw, 104px);
+    line-height: 1;
+    letter-spacing: -0.015em;
+    margin: 0 0 28px;
+  }
+  .page-lede {
+    font-size: clamp(16px, 1.5vw, 19px);
+    line-height: 1.65;
+    color: var(--color-ink-soft);
+    max-width: 58ch;
+    margin: 0;
+  }
+
+  .fv-steps-section {
+    padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
+  }
+
+  .fv-steps {
+    max-width: 840px;
+  }
+
+  .fv-step {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 0 clamp(24px, 4vw, 52px);
+    padding: clamp(48px, 7vh, 80px) 0;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .fv-step:first-child { border-top: 1px solid var(--color-line); }
+
+  .fv-step-number {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 3.5vw, 48px);
+    font-weight: 300;
+    color: var(--color-ink-soft);
+    opacity: 0.35;
+    line-height: 1.1;
+    padding-top: 4px;
+  }
+
+  .fv-step-title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(22px, 2.5vw, 32px);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin: 0 0 18px;
+    color: var(--color-ink);
+  }
+
+  .fv-step-body {
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.72;
+    color: var(--color-ink-soft);
+    margin: 0;
+    max-width: 64ch;
+  }
+
+  .fv-bring-section {
+    background: var(--color-paper-warm);
+    border-top: 1px solid var(--color-line);
+    border-bottom: 1px solid var(--color-line);
+    padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
+  }
+
+  .fv-bring-inner { max-width: 680px; }
+
+  .fv-bring-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    margin: 0 0 24px;
+  }
+
+  .fv-bring-headline {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(32px, 4.5vw, 56px);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin: 0 0 20px;
+  }
+
+  .fv-bring-intro {
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.68;
+    color: var(--color-ink-soft);
+    margin: 0 0 32px;
+  }
+
+  .fv-bring-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .fv-bring-list li {
+    font-size: clamp(14px, 1.2vw, 16px);
+    line-height: 1.55;
+    color: var(--color-ink-soft);
+    padding: 14px 0 14px 22px;
+    border-bottom: 1px solid var(--color-line);
+    position: relative;
+  }
+  .fv-bring-list li:first-child { border-top: 1px solid var(--color-line); }
+  .fv-bring-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 7px;
+    height: 1px;
+    background: var(--color-ink-soft);
+    opacity: 0.5;
+  }
+
+  .fv-cta-band {
+    padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
+  }
+
+  .fv-cta-inner { max-width: 640px; }
+
+  .fv-cta-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    margin: 0 0 28px;
+  }
+
+  .fv-cta-headline {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: 1.1;
+    letter-spacing: -0.008em;
+    margin: 0 0 20px;
+  }
+
+  .fv-cta-body {
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.68;
+    color: var(--color-ink-soft);
+    margin: 0 0 36px;
+  }
+  .fv-cta-body a { border-bottom: 1px solid currentColor; transition: opacity 0.2s; }
+  .fv-cta-body a:hover { opacity: 0.6; }
+
+  .fv-cta-btn {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 16px 36px;
+    border: 1px solid var(--color-ink);
+    color: var(--color-ink);
+    transition: background 0.28s var(--ease-out), color 0.28s var(--ease-out);
+  }
+  .fv-cta-btn:hover {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  @media (max-width: 580px) {
+    .fv-step { grid-template-columns: 1fr; gap: 8px 0; }
+    .fv-step-number { font-size: 28px; }
+  }
+</style>

@@ -45,7 +45,7 @@ const doctors = [
 
 <BaseLayout
   title="Our Doctors — Saddleback Valley Endodontics"
-  description="Meet the three board-certified and fellowship-trained endodontists at Saddleback Valley Endodontics serving Mission Viejo and Laguna Hills, CA."
+  description="Meet the board-certified and fellowship-trained endodontists at Saddleback Valley Endodontics serving Mission Viejo, Laguna Hills, and surrounding Orange County, CA."
 >
   <Header variant="solid" />
 
@@ -55,35 +55,40 @@ const doctors = [
       <p class="page-eyebrow">Our Doctors</p>
       <h1 class="page-title">The specialists.</h1>
       <p class="page-lede">
-        Three fellowship-trained endodontists with combined experience spanning trauma, microsurgery,
-        advanced imaging, and complex retreatment. Every case is reviewed at the attending level —
-        no delegation of specialist decisions.
+        Specialist-level care means every case is reviewed, diagnosed, and treated by a
+        fellowship-trained endodontist. Three doctors, one standard: no delegation of
+        clinical judgment.
       </p>
     </section>
 
-    <section class="dr-list">
+    <section class="docs-list">
       {doctors.map((doc, i) => (
-        <article class="dr-card" id={`doctor-${i + 1}`}>
-          <div class="dr-portrait-wrap">
-            <img class="dr-portrait" src={doc.portrait} alt={doc.name} loading={i === 0 ? 'eager' : 'lazy'} />
+        <article class="docs-card" id={`doctor-${i + 1}`}>
+          <div class="docs-portrait-wrap">
+            <img
+              class="docs-portrait"
+              src={doc.portrait}
+              alt={doc.name}
+              loading={i === 0 ? 'eager' : 'lazy'}
+            />
           </div>
-          <div class="dr-info">
-            <p class="dr-eyebrow">{doc.credentials}</p>
-            <h2 class="dr-name">{doc.name}</h2>
-            <p class="dr-role">{doc.title}</p>
-            <div class="dr-bio">
+          <div class="docs-info">
+            <p class="docs-credentials">{doc.credentials}</p>
+            <h2 class="docs-name">{doc.name}</h2>
+            <p class="docs-role">{doc.title}</p>
+            <div class="docs-bio">
               {doc.bio.map(p => <p>{p}</p>)}
             </div>
-            <div class="dr-cols">
+            <div class="docs-cols">
               <div>
-                <h3 class="dr-col-label">Clinical Focus</h3>
-                <ul class="dr-detail-list">
+                <h3 class="docs-col-label">Clinical Focus</h3>
+                <ul class="docs-detail-list">
                   {doc.focus.map(f => <li>{f}</li>)}
                 </ul>
               </div>
               <div>
-                <h3 class="dr-col-label">Education &amp; Training</h3>
-                <ul class="dr-detail-list">
+                <h3 class="docs-col-label">Education &amp; Training</h3>
+                <ul class="docs-detail-list">
                   {doc.education.map(e => <li>{e}</li>)}
                 </ul>
               </div>
@@ -93,15 +98,16 @@ const doctors = [
       ))}
     </section>
 
-    <section class="dr-referral-band">
-      <div class="dr-referral-inner">
-        <p class="dr-referral-eyebrow">For Referring Doctors</p>
-        <h2 class="dr-referral-headline">We work alongside your team, not around it.</h2>
-        <p class="dr-referral-body">
-          We send a detailed consultation report within 24 hours of every patient visit. Urgent referrals
-          are seen the same day when possible. Call us directly at <a href="tel:+19498373033">(949) 837-3033</a> or use the referral form.
+    <section class="docs-referral-band">
+      <div class="docs-referral-inner">
+        <p class="docs-referral-eyebrow">For Referring Doctors</p>
+        <h2 class="docs-referral-headline">We work alongside your team, not around it.</h2>
+        <p class="docs-referral-body">
+          We send a detailed consultation report within 24 hours of every patient visit. Urgent
+          referrals are seen the same day when possible. Call us directly at{' '}
+          <a href="tel:+19498373033">(949) 837-3033</a> or use the referral form.
         </p>
-        <a href="/contact/#referral" class="dr-cta-btn">Refer a Patient</a>
+        <a href="/contact/#referral" class="docs-cta-btn">Refer a Patient</a>
       </div>
     </section>
 
@@ -142,11 +148,11 @@ const doctors = [
     margin: 0;
   }
 
-  .dr-list {
+  .docs-list {
     padding: 0 clamp(28px, 6vw, 88px);
   }
 
-  .dr-card {
+  .docs-card {
     display: grid;
     grid-template-columns: 320px 1fr;
     gap: clamp(40px, 6vw, 96px);
@@ -155,7 +161,7 @@ const doctors = [
     align-items: start;
   }
 
-  .dr-portrait-wrap {
+  .docs-portrait-wrap {
     width: 100%;
     aspect-ratio: 3 / 4;
     overflow: hidden;
@@ -163,16 +169,16 @@ const doctors = [
     position: sticky;
     top: calc(var(--header-h) + 32px);
   }
-  .dr-portrait {
+  .docs-portrait {
     width: 100%;
     height: 100%;
     object-fit: cover;
     filter: grayscale(100%);
     transition: filter 0.6s var(--ease-out);
   }
-  .dr-card:hover .dr-portrait { filter: grayscale(0%); }
+  .docs-card:hover .docs-portrait { filter: grayscale(0%); }
 
-  .dr-eyebrow {
+  .docs-credentials {
     font-size: 11px;
     letter-spacing: 0.28em;
     text-transform: uppercase;
@@ -181,7 +187,7 @@ const doctors = [
     margin: 0 0 16px;
   }
 
-  .dr-name {
+  .docs-name {
     font-family: var(--font-display);
     font-weight: 300;
     font-size: clamp(36px, 4.5vw, 60px);
@@ -190,7 +196,7 @@ const doctors = [
     margin: 0 0 8px;
   }
 
-  .dr-role {
+  .docs-role {
     font-size: 13px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -199,7 +205,7 @@ const doctors = [
     margin: 0 0 36px;
   }
 
-  .dr-bio p {
+  .docs-bio p {
     font-size: clamp(15px, 1.3vw, 17px);
     line-height: 1.72;
     color: var(--color-ink-soft);
@@ -207,7 +213,7 @@ const doctors = [
     max-width: 62ch;
   }
 
-  .dr-cols {
+  .docs-cols {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
@@ -216,7 +222,7 @@ const doctors = [
     border-top: 1px solid var(--color-line);
   }
 
-  .dr-col-label {
+  .docs-col-label {
     font-size: 10px;
     letter-spacing: 0.34em;
     text-transform: uppercase;
@@ -225,28 +231,28 @@ const doctors = [
     margin: 0 0 18px;
   }
 
-  .dr-detail-list {
+  .docs-detail-list {
     list-style: none;
     margin: 0;
     padding: 0;
   }
-  .dr-detail-list li {
+  .docs-detail-list li {
     font-size: 14px;
     line-height: 1.55;
     color: var(--color-ink-soft);
     padding: 7px 0;
     border-bottom: 1px solid var(--color-line);
   }
-  .dr-detail-list li:first-child { border-top: 1px solid var(--color-line); }
+  .docs-detail-list li:first-child { border-top: 1px solid var(--color-line); }
 
-  .dr-referral-band {
+  .docs-referral-band {
     background: var(--color-paper-warm);
     padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
     border-top: 1px solid var(--color-line);
   }
-  .dr-referral-inner { max-width: 680px; }
+  .docs-referral-inner { max-width: 680px; }
 
-  .dr-referral-eyebrow {
+  .docs-referral-eyebrow {
     font-size: 11px;
     letter-spacing: 0.36em;
     text-transform: uppercase;
@@ -255,7 +261,7 @@ const doctors = [
     margin: 0 0 28px;
   }
 
-  .dr-referral-headline {
+  .docs-referral-headline {
     font-family: var(--font-display);
     font-weight: 300;
     font-size: clamp(28px, 4vw, 48px);
@@ -264,16 +270,16 @@ const doctors = [
     margin: 0 0 24px;
   }
 
-  .dr-referral-body {
+  .docs-referral-body {
     font-size: clamp(15px, 1.3vw, 17px);
     line-height: 1.68;
     color: var(--color-ink-soft);
     margin: 0 0 36px;
   }
-  .dr-referral-body a { border-bottom: 1px solid currentColor; transition: opacity 0.2s; }
-  .dr-referral-body a:hover { opacity: 0.6; }
+  .docs-referral-body a { border-bottom: 1px solid currentColor; transition: opacity 0.2s; }
+  .docs-referral-body a:hover { opacity: 0.6; }
 
-  .dr-cta-btn {
+  .docs-cta-btn {
     display: inline-block;
     font-size: 12px;
     letter-spacing: 0.28em;
@@ -284,17 +290,17 @@ const doctors = [
     color: var(--color-ink);
     transition: background 0.28s var(--ease-out), color 0.28s var(--ease-out);
   }
-  .dr-cta-btn:hover {
+  .docs-cta-btn:hover {
     background: var(--color-ink);
     color: var(--color-paper);
   }
 
   @media (max-width: 900px) {
-    .dr-card { grid-template-columns: 1fr; }
-    .dr-portrait-wrap { max-width: 320px; position: static; aspect-ratio: 1 / 1; }
+    .docs-card { grid-template-columns: 1fr; }
+    .docs-portrait-wrap { max-width: 320px; position: static; aspect-ratio: 1 / 1; }
   }
   @media (max-width: 560px) {
-    .dr-cols { grid-template-columns: 1fr; gap: 32px; }
-    .dr-portrait-wrap { max-width: 100%; }
+    .docs-cols { grid-template-columns: 1fr; gap: 32px; }
+    .docs-portrait-wrap { max-width: 100%; }
   }
 </style>

@@ -428,6 +428,223 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .mobile-menu-sep { opacity: 0.35; }
 
 /* =====================================================
+   DESKTOP SERVICES DROPDOWN / MEGA MENU
+   ===================================================== */
+
+.nav-has-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-chevron {
+  width: 12px;
+  height: 12px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  transition: transform 0.3s var(--ease-out);
+  flex-shrink: 0;
+}
+.nav-has-dropdown.is-open .nav-chevron {
+  transform: rotate(180deg);
+}
+
+.nav-dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 320px;
+  background: var(--color-paper);
+  border: 1px solid var(--color-line);
+  box-shadow: 0 8px 40px rgba(20, 20, 20, 0.10);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.22s var(--ease-out),
+    visibility 0s linear 0.22s,
+    transform 0.22s var(--ease-out);
+  transform: translateX(-50%) translateY(-6px);
+  z-index: 200;
+}
+.nav-has-dropdown.is-open .nav-dropdown {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition:
+    opacity 0.22s var(--ease-out),
+    visibility 0s linear 0s,
+    transform 0.22s var(--ease-out);
+  transform: translateX(-50%) translateY(0);
+}
+
+.nav-dropdown-inner {
+  padding: 28px 28px 20px;
+}
+
+.nav-dropdown-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--color-ink-soft);
+  margin: 0 0 18px;
+}
+
+.nav-dropdown-list {
+  list-style: none;
+  margin: 0 0 14px;
+  padding: 0;
+}
+
+.nav-dropdown-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--color-ink);
+  border-bottom: 1px solid var(--color-line);
+  transition: color 0.18s var(--ease-out);
+  text-transform: none;
+}
+.nav-dropdown-list li:first-child .nav-dropdown-link {
+  border-top: 1px solid var(--color-line);
+}
+.nav-dropdown-link:hover { color: var(--color-ink-soft); }
+
+.nav-dropdown-arrow {
+  display: inline-block;
+  width: 14px;
+  height: 1px;
+  background: currentColor;
+  position: relative;
+  flex-shrink: 0;
+  transition: width 0.18s var(--ease-out);
+}
+.nav-dropdown-arrow::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -3px;
+  width: 5px;
+  height: 5px;
+  border-right: 1px solid currentColor;
+  border-top: 1px solid currentColor;
+  transform: rotate(45deg);
+}
+.nav-dropdown-link:hover .nav-dropdown-arrow { width: 20px; }
+
+.nav-dropdown-all {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+  padding: 14px 0 0;
+  transition: color 0.18s var(--ease-out);
+}
+.nav-dropdown-all:hover { color: var(--color-ink); }
+.nav-dropdown-all:hover .nav-dropdown-arrow { width: 20px; }
+
+/* =====================================================
+   MOBILE SERVICES ACCORDION (inside overlay)
+   ===================================================== */
+
+.mobile-acc {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+.mobile-acc:first-of-type { border-top: 1px solid rgba(255, 255, 255, 0.07); }
+
+.mobile-acc-btn {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-display);
+  font-size: clamp(38px, 6vw, 72px);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: rgba(255, 255, 255, 0.65);
+  padding: clamp(14px, 2.2vw, 22px) 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity  0.5s var(--ease-out) calc(var(--i, 0) * 0.055s),
+    transform 0.55s var(--ease-out) calc(var(--i, 0) * 0.055s),
+    color 0.2s var(--ease-out) 0s;
+}
+.mobile-menu.is-open .mobile-acc-btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+.mobile-acc-btn:hover,
+.mobile-acc.is-open .mobile-acc-btn { color: #fff; }
+
+.mobile-acc-chevron {
+  width: clamp(20px, 3vw, 32px);
+  height: clamp(20px, 3vw, 32px);
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.4;
+  flex-shrink: 0;
+  transition: transform 0.3s var(--ease-out);
+}
+.mobile-acc.is-open .mobile-acc-chevron { transform: rotate(180deg); }
+
+.mobile-acc-panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.38s var(--ease-out);
+  display: flex;
+  flex-direction: column;
+  padding-left: clamp(16px, 2.5vw, 32px);
+}
+
+.mobile-acc-panel a {
+  font-family: var(--font-ui);
+  font-size: clamp(14px, 1.8vw, 18px);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  opacity: 1 !important;
+  transform: none !important;
+  transition: color 0.2s var(--ease-out) !important;
+}
+.mobile-acc-panel a:hover { color: #fff; }
+.mobile-acc-panel a:first-child { border-top: 1px solid rgba(255, 255, 255, 0.05); }
+
+.mobile-acc-all {
+  font-size: clamp(11px, 1.4vw, 13px) !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase;
+  font-weight: 500 !important;
+  color: rgba(255, 255, 255, 0.3) !important;
+  padding-bottom: clamp(14px, 2.2vw, 22px) !important;
+}
+.mobile-acc-all:hover { color: rgba(255, 255, 255, 0.7) !important; }
+
+/* =====================================================
    Breakpoint — swap desktop nav for mobile hamburger
    ===================================================== */
 @media (max-width: 860px) {

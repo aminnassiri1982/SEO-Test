@@ -1,0 +1,221 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const policies = [
+  {
+    id: 'appointments',
+    title: 'Appointments',
+    body: 'All treatment begins with a consultation appointment. At that visit we review your medical and dental history, perform a clinical examination, and take any necessary radiographs. We schedule with sufficient time to give each patient unhurried attention — typically 60 minutes for a new-patient consultation and 90 minutes for a treatment visit. Same-day urgent appointments are reserved daily for patients in acute pain.',
+  },
+  {
+    id: 'cancellations',
+    title: 'Cancellations & Rescheduling',
+    body: 'We ask for at least 24 hours\' notice if you need to cancel or reschedule. This allows us to offer the time to another patient who may be waiting. Appointments cancelled with less than 24 hours\' notice, or missed without notice, may be subject to a late-cancellation fee. We understand that genuine emergencies arise; please call us as early as possible so we can accommodate everyone.',
+  },
+  {
+    id: 'late-arrivals',
+    title: 'Late Arrivals',
+    body: 'Arriving more than 15 minutes after your scheduled appointment time may require rescheduling, as proceeding into a shortened slot often does not allow adequate time to complete the planned care. If you anticipate being late, please call ahead — we will do our best to accommodate you when the schedule allows.',
+  },
+  {
+    id: 'insurance',
+    title: 'Insurance',
+    body: 'We accept most major PPO dental insurance plans and will file claims on your behalf. Our team verifies benefits before your first appointment and provides a written fee estimate for your portion. Because insurance contracts vary widely, the estimate we provide is based on information your carrier gives us — final patient responsibility is determined once the claim is processed. We are not contracted with HMO or Medicaid plans.',
+  },
+  {
+    id: 'hipaa',
+    title: 'HIPAA & Privacy',
+    body: 'Your health information is protected under the Health Insurance Portability and Accountability Act (HIPAA). We do not disclose your records to third parties without your written authorization, except as required for treatment, billing, or as otherwise permitted by law. You have the right to access your records and to request corrections. A full copy of our Notice of Privacy Practices is available at the front desk and upon request.',
+  },
+  {
+    id: 'records',
+    title: 'Patient Records & Referrals',
+    body: 'We maintain complete digital records of all radiographs, clinical notes, and treatment documentation. Copies of your records can be requested in writing; we fulfill requests within 10 business days. For patients referred by a general dentist, we send a written consultation report to the referring office within 24 hours of every appointment. If you were referred, your dentist remains your primary dental provider and will complete your final restoration.',
+  },
+  {
+    id: 'medical-history',
+    title: 'Medical History & Medications',
+    body: 'Please inform us of any changes to your medical history, medications, or allergies at every visit. Certain medical conditions and medications — including anticoagulants, bisphosphonates, immunosuppressants, and blood pressure medications — can affect treatment planning and post-operative recovery. Accurate medical history is essential for your safety.',
+  },
+  {
+    id: 'minors',
+    title: 'Minors',
+    body: 'Patients under 18 must be accompanied by a parent or legal guardian for their initial consultation. A signed consent form from a parent or guardian is required before treatment can begin on a minor. The responsible party must be present or reachable by phone during the appointment.',
+  },
+];
+---
+
+<BaseLayout
+  title="Office Policy — Saddleback Valley Endodontics"
+  description="Office policy for Saddleback Valley Endodontics: appointments, cancellations, insurance, HIPAA, patient records, and more."
+>
+  <Header variant="solid" />
+
+  <main>
+
+    <section class="page-intro">
+      <p class="page-eyebrow">Office Policy</p>
+      <h1 class="page-title">How we run the practice.</h1>
+      <p class="page-lede">
+        Clear expectations on both sides make for a better experience. Here is how appointments,
+        cancellations, insurance, and records work at our office.
+      </p>
+    </section>
+
+    <section class="policy-section">
+      <div class="policy-list">
+        {policies.map(p => (
+          <div class="policy-item" id={p.id}>
+            <h2 class="policy-title">{p.title}</h2>
+            <p class="policy-body">{p.body}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="policy-contact-band">
+      <div class="policy-contact-inner">
+        <p class="policy-contact-eyebrow">Questions?</p>
+        <h2 class="policy-contact-headline">We're happy to walk through any of this.</h2>
+        <p class="policy-contact-body">
+          Call us at <a href="tel:+19498373033">(949) 837-3033</a>, Monday through Thursday
+          8 am – 5 pm and Friday 8 am – 2 pm. Our front desk team can answer questions about
+          insurance, scheduling, and records.
+        </p>
+        <a href="/contact/" class="policy-cta-btn">Contact the Office</a>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style is:global>
+  main { padding-top: var(--header-h); }
+
+  .page-intro {
+    padding: clamp(80px, 13vh, 140px) clamp(28px, 6vw, 88px) clamp(60px, 9vh, 100px);
+    max-width: 960px;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .page-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    margin: 0 0 32px;
+  }
+  .page-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(52px, 8vw, 104px);
+    line-height: 1;
+    letter-spacing: -0.015em;
+    margin: 0 0 28px;
+  }
+  .page-lede {
+    font-size: clamp(16px, 1.5vw, 19px);
+    line-height: 1.65;
+    color: var(--color-ink-soft);
+    max-width: 58ch;
+    margin: 0;
+  }
+
+  .policy-section {
+    padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
+  }
+
+  .policy-list {
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .policy-item {
+    padding: clamp(40px, 6vh, 64px) 0;
+    border-bottom: 1px solid var(--color-line);
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: clamp(24px, 4vw, 56px);
+    align-items: start;
+  }
+  .policy-item:first-child { border-top: 1px solid var(--color-line); }
+
+  .policy-title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+    margin: 0;
+    padding-top: 4px;
+    color: var(--color-ink);
+  }
+
+  .policy-body {
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.72;
+    color: var(--color-ink-soft);
+    margin: 0;
+  }
+
+  .policy-contact-band {
+    background: var(--color-paper-warm);
+    border-top: 1px solid var(--color-line);
+    padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
+  }
+
+  .policy-contact-inner { max-width: 640px; }
+
+  .policy-contact-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    margin: 0 0 28px;
+  }
+
+  .policy-contact-headline {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: 1.1;
+    letter-spacing: -0.008em;
+    margin: 0 0 20px;
+  }
+
+  .policy-contact-body {
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.68;
+    color: var(--color-ink-soft);
+    margin: 0 0 36px;
+  }
+  .policy-contact-body a { border-bottom: 1px solid currentColor; transition: opacity 0.2s; }
+  .policy-contact-body a:hover { opacity: 0.6; }
+
+  .policy-cta-btn {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 16px 36px;
+    border: 1px solid var(--color-ink);
+    color: var(--color-ink);
+    transition: background 0.28s var(--ease-out), color 0.28s var(--ease-out);
+  }
+  .policy-cta-btn:hover {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  @media (max-width: 700px) {
+    .policy-item { grid-template-columns: 1fr; gap: 12px; }
+  }
+</style>

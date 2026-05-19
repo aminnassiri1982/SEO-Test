@@ -6,6 +6,16 @@ export interface Props {
 
 const { variant = 'transparent', active } = Astro.props;
 const headerClass = variant === 'solid' ? 'site-header is-inner' : 'site-header';
+
+const treatments = [
+  { label: 'Root Canal Treatment',      href: '/laguna-hills-ca/root-canal-treatment/' },
+  { label: 'Root Canal Retreatment',    href: '/laguna-hills-ca/root-canal-retreatment/' },
+  { label: 'Apical Surgery',            href: '/laguna-hills-ca/apical-surgery-apicoectomy/' },
+  { label: 'Root Canal Safety',         href: '/laguna-hills-ca/root-canal-safety/' },
+  { label: 'Anxiety & Sedation',        href: '/laguna-hills-ca/anxiety-sedation/' },
+  { label: 'Dental Implant vs. RCT',    href: '/laguna-hills-ca/dental-implant/' },
+  { label: 'Technology',                href: '/laguna-hills-ca/technology/' },
+];
 ---
 
 <header class={headerClass} id="siteHeader">
@@ -42,16 +52,49 @@ const headerClass = variant === 'solid' ? 'site-header is-inner' : 'site-header'
 
   <!-- DESKTOP NAV — centered under logo -->
   <nav class="main-nav desktop-only" aria-label="Primary">
-    <a href="/#diagnosis"  class={active === 'diagnosis' ? 'is-active' : ''}>Diagnosis</a>
-    <a href="/services/"   class={active === 'services'  ? 'is-active' : ''}>Services</a>
-    <a href="/team/"       class={active === 'team'      ? 'is-active' : ''}>Team</a>
-    <a href="/technology/" class={active === 'tech'      ? 'is-active' : ''}>Tech</a>
-    <a href="/faq/"        class={active === 'faq'       ? 'is-active' : ''}>FAQ</a>
+    <a href="/#diagnosis" class={active === 'diagnosis' ? 'is-active' : ''}>Diagnosis</a>
+
+    <!-- Services with mega-menu dropdown -->
+    <div class="nav-has-dropdown" id="servicesNav">
+      <a href="/services/"
+         class={`nav-dropdown-trigger ${active === 'services' ? 'is-active' : ''}`}
+         aria-haspopup="true"
+         aria-expanded="false"
+         id="servicesToggle">
+        Services
+        <svg class="nav-chevron" viewBox="0 0 24 24" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </a>
+      <div class="nav-dropdown" id="servicesDropdown" role="region" aria-label="Treatment pages">
+        <div class="nav-dropdown-inner">
+          <p class="nav-dropdown-eyebrow">Treatments · Laguna Hills, CA</p>
+          <ul class="nav-dropdown-list">
+            {treatments.map(t => (
+              <li>
+                <a href={t.href} class="nav-dropdown-link">
+                  <span>{t.label}</span>
+                  <span class="nav-dropdown-arrow" aria-hidden="true"></span>
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a href="/laguna-hills-ca/" class="nav-dropdown-all">
+            All treatments in Laguna Hills
+            <span class="nav-dropdown-arrow" aria-hidden="true"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <a href="/team/"       class={active === 'team'  ? 'is-active' : ''}>Team</a>
+    <a href="/technology/" class={active === 'tech'  ? 'is-active' : ''}>Tech</a>
+    <a href="/faq/"        class={active === 'faq'   ? 'is-active' : ''}>FAQ</a>
   </nav>
 </header>
 
 <!-- =====================================================
-     FULL-SCREEN OVERLAY MENU — mobile only (Omega-style)
+     FULL-SCREEN OVERLAY — mobile (Omega-style)
      ===================================================== -->
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Navigation">
 
@@ -69,19 +112,35 @@ const headerClass = variant === 'solid' ? 'site-header is-inner' : 'site-header'
   </div>
 
   <nav class="mobile-menu-nav" aria-label="Mobile navigation">
-    <a href="/#diagnosis"  style="--i:0" tabindex="-1">Diagnosis</a>
-    <a href="/services/"   style="--i:1" tabindex="-1">Services</a>
-    <a href="/team/"       style="--i:2" tabindex="-1">Team</a>
+    <a href="/#diagnosis" style="--i:0" tabindex="-1">Diagnosis</a>
+
+    <!-- Services accordion in mobile -->
+    <div class="mobile-acc" style="--i:1">
+      <button class="mobile-acc-btn" aria-expanded="false" tabindex="-1">
+        Services
+        <svg class="mobile-acc-chevron" viewBox="0 0 24 24" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+      <div class="mobile-acc-panel">
+        {treatments.map(t => (
+          <a href={t.href} tabindex="-1">{t.label}</a>
+        ))}
+        <a href="/laguna-hills-ca/" tabindex="-1" class="mobile-acc-all">All treatments →</a>
+      </div>
+    </div>
+
+    <a href="/team/"    style="--i:2" tabindex="-1">Team</a>
     <a href="/technology/" style="--i:3" tabindex="-1">Tech</a>
-    <a href="/blog/"       style="--i:4" tabindex="-1">Journal</a>
-    <a href="/faq/"        style="--i:5" tabindex="-1">FAQ</a>
-    <a href="/contact/"    style="--i:6" tabindex="-1">Contact</a>
+    <a href="/blog/"   style="--i:4" tabindex="-1">Journal</a>
+    <a href="/faq/"    style="--i:5" tabindex="-1">FAQ</a>
+    <a href="/contact/" style="--i:6" tabindex="-1">Contact</a>
   </nav>
 
   <div class="mobile-menu-footer">
-    <a href="tel:+19496001234" tabindex="-1">(949) 600-1234</a>
+    <a href="tel:+19498373033" tabindex="-1">(949) 837-3033</a>
     <span class="mobile-menu-sep" aria-hidden="true">·</span>
-    <a href="/contact/" tabindex="-1">Book a Consultation</a>
+    <a href="/request-an-appointment/" tabindex="-1">Book a Visit</a>
   </div>
 
 </div>
@@ -100,6 +159,7 @@ const headerClass = variant === 'solid' ? 'site-header is-inner' : 'site-header'
     onScroll();
   }
 
+  // ── Mobile overlay ──────────────────────────────────────────
   function openMenu() {
     if (!menu || !toggle) return;
     menu.classList.add('is-open');
@@ -109,25 +169,84 @@ const headerClass = variant === 'solid' ? 'site-header is-inner' : 'site-header'
     menu.querySelectorAll('[tabindex="-1"]').forEach(el => el.removeAttribute('tabindex'));
     setTimeout(() => closeBtn?.focus(), 60);
   }
-
   function closeMenu() {
     if (!menu || !toggle) return;
     menu.classList.remove('is-open');
     menu.setAttribute('aria-hidden', 'true');
     toggle.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
-    menu.querySelectorAll('a').forEach(el => el.setAttribute('tabindex', '-1'));
+    menu.querySelectorAll('a, button').forEach(el => {
+      if (!el.closest('.mobile-menu-bar')) el.setAttribute('tabindex', '-1');
+    });
     toggle.focus();
   }
-
   toggle?.addEventListener('click', openMenu);
   closeBtn?.addEventListener('click', closeMenu);
-
-  document.addEventListener('keydown', (e) => {
+  document.addEventListener('keydown', e => {
     if (e.key === 'Escape' && menu?.classList.contains('is-open')) closeMenu();
   });
-
-  menu?.querySelectorAll('.mobile-menu-nav a').forEach(link =>
+  menu?.querySelectorAll('.mobile-menu-nav > a').forEach(link =>
     link.addEventListener('click', closeMenu)
   );
+
+  // ── Mobile Services accordion ────────────────────────────────
+  const accBtns = document.querySelectorAll('.mobile-acc-btn');
+  accBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const panel   = btn.nextElementSibling;
+      const isOpen  = btn.getAttribute('aria-expanded') === 'true';
+      // close all others
+      accBtns.forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
+        b.closest('.mobile-acc').classList.remove('is-open');
+        b.nextElementSibling.style.maxHeight = '0';
+      });
+      if (!isOpen) {
+        btn.setAttribute('aria-expanded', 'true');
+        btn.closest('.mobile-acc').classList.add('is-open');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+      }
+    });
+  });
+  menu?.querySelectorAll('.mobile-acc-panel a').forEach(link =>
+    link.addEventListener('click', closeMenu)
+  );
+
+  // ── Desktop Services dropdown ────────────────────────────────
+  const servicesNav     = document.getElementById('servicesNav');
+  const servicesToggle  = document.getElementById('servicesToggle');
+  const servicesDropdown = document.getElementById('servicesDropdown');
+
+  if (servicesNav && servicesToggle && servicesDropdown) {
+    let closeTimer;
+
+    function openDropdown() {
+      clearTimeout(closeTimer);
+      servicesNav.classList.add('is-open');
+      servicesToggle.setAttribute('aria-expanded', 'true');
+    }
+    function scheduleClose() {
+      closeTimer = setTimeout(() => {
+        servicesNav.classList.remove('is-open');
+        servicesToggle.setAttribute('aria-expanded', 'false');
+      }, 120);
+    }
+
+    servicesNav.addEventListener('mouseenter', openDropdown);
+    servicesNav.addEventListener('mouseleave', scheduleClose);
+    servicesDropdown.addEventListener('mouseenter', openDropdown);
+    servicesDropdown.addEventListener('mouseleave', scheduleClose);
+
+    // Keyboard: Enter/Space on trigger opens; Escape closes
+    servicesToggle.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        servicesNav.classList.contains('is-open') ? scheduleClose() : openDropdown();
+      }
+      if (e.key === 'Escape') scheduleClose();
+    });
+    document.addEventListener('click', e => {
+      if (!servicesNav.contains(e.target)) scheduleClose();
+    });
+  }
 </script>
