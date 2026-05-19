@@ -1,0 +1,130 @@
+---
+export interface Props {
+  variant?: 'transparent' | 'solid';
+  active?: 'diagnosis' | 'services' | 'team' | 'tech' | 'journal' | 'faq';
+}
+
+const { variant = 'transparent', active } = Astro.props;
+const headerClass = variant === 'solid' ? 'site-header is-inner' : 'site-header';
+---
+
+<header class={headerClass} id="siteHeader">
+  <div class="header-top">
+
+    <!-- LEFT: Contact Us (desktop) / Hamburger (mobile) -->
+    <div class="header-utility header-utility--left">
+      <a href="/#contact" class="label-long desktop-only">Contact Us</a>
+      <button class="menu-toggle mobile-only" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <!-- CENTER: Logo -->
+    <a href="/" class="logo" aria-label="Saddleback Valley Endodontics — Home">
+      <span class="logo-line1">Saddleback Valley</span>
+      <span class="logo-line2">Endodontics</span>
+    </a>
+
+    <!-- RIGHT: Doctors + Search -->
+    <div class="header-utility header-utility--right">
+      <a href="/#doctors" class="label-long desktop-only">Doctors</a>
+      <button class="search-btn underline-on-hover" aria-label="Search">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"></circle>
+          <line x1="20" y1="20" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- DESKTOP NAV -->
+  <nav class="main-nav desktop-only" aria-label="Primary">
+    <a href="/#diagnosis" class={active === 'diagnosis' ? 'is-active' : ''}>Diagnosis</a>
+    <a href="/#services"  class={active === 'services'  ? 'is-active' : ''}>Services</a>
+    <a href="/#team"      class={active === 'team'      ? 'is-active' : ''}>Team</a>
+    <a href="/#tech"      class={active === 'tech'      ? 'is-active' : ''}>Tech</a>
+    <a href="/blog/"      class={active === 'journal'   ? 'is-active' : ''}>Journal</a>
+    <a href="/#faq"       class={active === 'faq'       ? 'is-active' : ''}>FAQ</a>
+  </nav>
+</header>
+
+<!-- MOBILE DRAWER -->
+<div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+  <div class="mobile-drawer-overlay" id="drawerOverlay"></div>
+  <aside class="mobile-drawer-panel" aria-label="Mobile menu">
+    <button class="drawer-close" id="drawerClose" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+      </svg>
+    </button>
+
+    <nav class="mobile-nav" aria-label="Mobile primary">
+      <a href="/#diagnosis" class={active === 'diagnosis' ? 'is-active' : ''}>Diagnosis</a>
+      <a href="/#services"  class={active === 'services'  ? 'is-active' : ''}>Services</a>
+      <a href="/#team"      class={active === 'team'      ? 'is-active' : ''}>Team</a>
+      <a href="/#tech"      class={active === 'tech'      ? 'is-active' : ''}>Tech</a>
+      <a href="/blog/"      class={active === 'journal'   ? 'is-active' : ''}>Journal</a>
+      <a href="/#faq"       class={active === 'faq'       ? 'is-active' : ''}>FAQ</a>
+    </nav>
+
+    <div class="mobile-utility">
+      <a href="/#contact">Contact Us</a>
+      <a href="/#doctors">Doctors</a>
+    </div>
+  </aside>
+</div>
+
+<script>
+  // Transparent → solid on scroll (homepage only)
+  const header = document.getElementById('siteHeader');
+  if (header && !header.classList.contains('is-inner')) {
+    const threshold = () => window.innerHeight - 80;
+    const onScroll = () => {
+      if (window.scrollY > threshold()) header.classList.add('is-solid');
+      else header.classList.remove('is-solid');
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  // Mobile drawer
+  const toggle  = document.getElementById('menuToggle');
+  const drawer  = document.getElementById('mobileDrawer');
+  const overlay = document.getElementById('drawerOverlay');
+  const closeBtn = document.getElementById('drawerClose');
+
+  function openDrawer() {
+    drawer.classList.add('is-open');
+    drawer.setAttribute('aria-hidden', 'false');
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.classList.add('is-active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer() {
+    drawer.classList.remove('is-open');
+    drawer.setAttribute('aria-hidden', 'true');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.classList.remove('is-active');
+    document.body.style.overflow = '';
+  }
+
+  if (toggle && drawer && overlay && closeBtn) {
+    toggle.addEventListener('click', openDrawer);
+    overlay.addEventListener('click', closeDrawer);
+    closeBtn.addEventListener('click', closeDrawer);
+
+    // Close drawer when clicking any nav link
+    drawer.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeDrawer);
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && drawer.classList.contains('is-open')) closeDrawer();
+    });
+  }
+</script>

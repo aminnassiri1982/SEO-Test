@@ -1,0 +1,169 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+// Pull every blog post, filter drafts, sort newest first
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const featured = posts[0];
+const rest     = posts.slice(1);
+
+const fmt = (d) => d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<BaseLayout title="Journal — Saddleback Valley Endodontics">
+
+  <Header variant="solid" active="journal" />
+
+  <main>
+
+    <section class="journal-intro">
+      <p class="journal-eyebrow">Journal</p>
+      <h1 class="page-title">Notes from the practice.</h1>
+      <p class="page-lede">
+        Articles on endodontics, patient care, and the science of saving teeth —
+        written by our doctors, in plain language.
+      </p>
+    </section>
+
+    {featured && (
+      <section class="featured-post">
+        <a href={`/blog/${featured.slug}/`} class="featured-link">
+          <div class="featured-image">
+            <img src={featured.data.heroImage} alt={featured.data.heroAlt ?? ''} />
+          </div>
+          <div class="featured-meta-block">
+            <p class="post-meta">
+              {featured.data.category}
+              <span class="post-meta-divider">·</span> {featured.data.readTime}
+              <span class="post-meta-divider">·</span> {fmt(featured.data.date)}
+            </p>
+            <h2 class="featured-title">{featured.data.title}</h2>
+            <p class="featured-excerpt">{featured.data.deck}</p>
+            <span class="read-link">Read the article <span class="arrow"></span></span>
+          </div>
+        </a>
+      </section>
+    )}
+
+    {rest.length > 0 && (
+      <section class="post-grid-wrap">
+        <p class="post-grid-eyebrow">More articles</p>
+        <div class="post-grid">
+          {rest.map(post => (
+            <article class="post-card">
+              <a href={`/blog/${post.slug}/`}>
+                <div class="post-image">
+                  <img src={post.data.heroImage} alt={post.data.heroAlt ?? ''} />
+                </div>
+                <p class="post-meta">{post.data.category} <span class="post-meta-divider">·</span> {post.data.readTime}</p>
+                <h3 class="post-title">{post.data.title}</h3>
+                <p class="post-excerpt">{post.data.deck}</p>
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+    )}
+
+  </main>
+
+  <Footer />
+
+</BaseLayout>
+
+<style is:global>
+  main { padding-top: calc(var(--header-h-top) + var(--header-h-nav)); }
+
+  .journal-intro {
+    padding: clamp(80px, 14vh, 140px) clamp(28px, 6vw, 88px) clamp(56px, 8vh, 96px);
+    max-width: 1080px;
+  }
+  .journal-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.36em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    margin: 0 0 32px;
+  }
+  .page-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(48px, 7vw, 96px);
+    line-height: 1;
+    letter-spacing: -0.01em;
+    margin: 0 0 28px;
+    max-width: 14ch;
+  }
+  .page-lede {
+    font-size: clamp(16px, 1.5vw, 19px);
+    line-height: 1.6;
+    color: var(--color-ink-soft);
+    max-width: 56ch;
+    margin: 0;
+  }
+
+  .featured-post { padding: 0 clamp(28px, 6vw, 88px) clamp(80px, 12vh, 140px); }
+  .featured-link { display: block; color: inherit; }
+  .featured-image { width: 100%; aspect-ratio: 16 / 9; overflow: hidden; margin-bottom: 36px; background: #f0ede5; }
+  .featured-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease-out); }
+  .featured-link:hover .featured-image img { transform: scale(1.03); }
+
+  .post-meta {
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    margin: 0 0 22px;
+  }
+  .post-meta-divider { display: inline-block; margin: 0 8px; opacity: 0.5; }
+  .featured-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(36px, 5vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.005em;
+    margin: 0 0 24px;
+    max-width: 18ch;
+  }
+  .featured-excerpt { font-size: 17px; line-height: 1.65; color: var(--color-ink-soft); max-width: 58ch; margin: 0 0 32px; }
+  .read-link {
+    display: inline-flex; align-items: center; gap: 14px;
+    font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 500;
+    padding: 6px 0; border-bottom: 1px solid var(--color-ink); color: var(--color-ink);
+  }
+  .read-link .arrow {
+    display: inline-block; width: 26px; height: 1px; background: currentColor; position: relative;
+    transition: width 0.35s var(--ease-out);
+  }
+  .read-link .arrow::after {
+    content: ''; position: absolute; right: 0; top: 50%; width: 8px; height: 8px;
+    border-top: 1px solid currentColor; border-right: 1px solid currentColor;
+    transform: translateY(-50%) rotate(45deg);
+  }
+  .read-link:hover .arrow { width: 38px; }
+
+  .post-grid-wrap { padding: 0 clamp(28px, 6vw, 88px) clamp(80px, 12vh, 140px); border-top: 1px solid var(--color-line); }
+  .post-grid-eyebrow {
+    font-size: 11px; letter-spacing: 0.36em; text-transform: uppercase;
+    font-weight: 500; color: var(--color-ink-soft);
+    margin: 0 0 clamp(40px, 6vh, 64px);
+    padding-top: clamp(48px, 7vh, 80px);
+  }
+  .post-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(48px, 6vw, 80px) clamp(28px, 3.5vw, 56px); }
+  .post-card a { display: block; color: inherit; }
+  .post-image { width: 100%; aspect-ratio: 4 / 3; overflow: hidden; margin-bottom: 24px; background: #f0ede5; }
+  .post-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease-out); }
+  .post-card a:hover .post-image img { transform: scale(1.04); }
+  .post-card .post-meta { margin-bottom: 14px; font-size: 10px; letter-spacing: 0.26em; }
+  .post-title { font-family: var(--font-display); font-weight: 400; font-size: clamp(22px, 2.4vw, 28px); line-height: 1.18; letter-spacing: -0.003em; margin: 0 0 14px; }
+  .post-excerpt { font-size: 14px; line-height: 1.6; color: var(--color-ink-soft); margin: 0; max-width: 42ch; }
+
+  @media (max-width: 980px) { .post-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 540px) { .post-grid { grid-template-columns: 1fr; } }
+</style>
