@@ -55,13 +55,41 @@ const doctors = [
   <main>
 
     <section class="page-intro">
-      <p class="page-eyebrow">Our Doctors</p>
+      <p class="page-eyebrow">Our Team</p>
       <h1 class="page-title">The specialists.</h1>
-      <p class="page-lede">
-        Specialist-level care means every case is reviewed, diagnosed, and treated by a
-        board-certified or fellowship-trained endodontist. Three doctors, one standard:
-        no delegation of clinical judgment.
-      </p>
+      <div class="page-lede-block">
+        <p class="page-lede">
+          We feel fortunate to be part of an AMAZING dental team! We are proud that our team
+          shares a do-good attitude, as well as the values of honesty and professional integrity.
+          Our doctors, receptionists and clinical assistants are highly skilled and focused on
+          delivering kind, comfortable, and efficient care.
+        </p>
+        <p class="page-lede">
+          Although we take great pride in the quality of our work, our highest joy comes through
+          genuinely helping people. We love to "turn that frown upside down" and build positive
+          trusting relationships.
+        </p>
+        <p class="page-lede">
+          Our team extends beyond our own office into the community as we work with many talented
+          General Dentists and Specialists. We are privileged to serve as an extension of their
+          teams and are grateful for their trust and confidence in us. We all work together for
+          one purpose — caring for YOU the very best that we can!
+        </p>
+      </div>
+    </section>
+
+    <section class="team-video">
+      <div class="team-video-inner">
+        <div class="team-video-embed">
+          <iframe
+            src="https://www.youtube.com/embed/E4-ryf6jQ5Y"
+            title="Saddleback Valley Endodontics Team"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
     </section>
 
     <section class="docs-list">
@@ -132,12 +160,32 @@ const doctors = [
     letter-spacing: -0.015em;
     margin: 0 0 28px;
   }
+  .page-lede-block { max-width: 68ch; display: flex; flex-direction: column; gap: 20px; }
   .page-lede {
-    font-size: clamp(16px, 1.5vw, 19px);
-    line-height: 1.65;
+    font-size: clamp(15px, 1.4vw, 18px);
+    line-height: 1.72;
     color: var(--color-ink-soft);
-    max-width: 58ch;
     margin: 0;
+  }
+
+  .team-video {
+    border-bottom: 1px solid var(--color-line);
+    background: var(--color-paper-warm);
+    padding: clamp(56px, 9vh, 96px) clamp(28px, 6vw, 88px);
+  }
+  .team-video-inner { max-width: 960px; margin: 0 auto; }
+  .team-video-embed {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+  }
+  .team-video-embed iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
   }
 
   .docs-list {
