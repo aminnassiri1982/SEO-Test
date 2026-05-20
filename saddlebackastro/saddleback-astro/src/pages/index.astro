@@ -100,6 +100,19 @@ const SLIDE_IMG   = 'https://cdn.shortpixel.ai/spai/q_lossless+w_838+to_webp+ret
     <div class="showcase-progress"><span id="progressBar"></span></div>
   </section>
 
+  <!-- WELCOME -->
+  <section class="welcome-section">
+    <div class="welcome-inner" data-reveal>
+      <p class="welcome-eyebrow">Welcome to Saddleback Valley Endodontics</p>
+      <p class="welcome-body">
+        We are South Orange County's trusted source for gentle, expert care. We have the expertise,
+        technology, and compassion to give you the very best endodontic care available. We look
+        forward to helping you preserve the natural health of your teeth, and to showing you why
+        there has never been a better time to have a root canal.
+      </p>
+    </div>
+  </section>
+
   <!-- DIAGNOSIS -->
   <section class="section" id="diagnosis">
     <header class="section-header">
@@ -585,6 +598,22 @@ const SLIDE_IMG   = 'https://cdn.shortpixel.ai/spai/q_lossless+w_838+to_webp+ret
   }
 
   /* SECTIONS — shared */
+  .welcome-section {
+    padding: clamp(72px, 11vh, 120px) clamp(28px, 6vw, 88px);
+    border-bottom: 1px solid var(--color-line);
+    background: var(--color-paper-warm);
+  }
+  .welcome-inner { max-width: 860px; }
+  .welcome-eyebrow {
+    font-size: 11px; letter-spacing: 0.36em; text-transform: uppercase;
+    font-weight: 500; color: var(--color-ink-soft); margin: 0 0 28px;
+  }
+  .welcome-body {
+    font-family: var(--font-display); font-weight: 300;
+    font-size: clamp(22px, 2.8vw, 36px); line-height: 1.5;
+    letter-spacing: -0.005em; color: var(--color-ink); margin: 0;
+  }
+
   .section {
     position: relative;
     padding: clamp(96px, 16vh, 180px) clamp(28px, 6vw, 88px);
