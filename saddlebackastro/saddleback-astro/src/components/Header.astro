@@ -69,7 +69,7 @@ const practice = [
 
     <!-- Services with mega-menu dropdown -->
     <div class="nav-has-dropdown" id="servicesNav">
-      <a href="/services/"
+      <a href="#"
          class={`nav-dropdown-trigger ${active === 'services' ? 'is-active' : ''}`}
          aria-haspopup="true"
          aria-expanded="false"
@@ -102,7 +102,7 @@ const practice = [
 
     <!-- For Patients dropdown -->
     <div class="nav-has-dropdown" id="patientsNav">
-      <a href="/patients/"
+      <a href="#"
          class={`nav-dropdown-trigger ${active === 'patients' ? 'is-active' : ''}`}
          aria-haspopup="true"
          aria-expanded="false"
@@ -131,7 +131,7 @@ const practice = [
 
     <!-- Our Practice dropdown -->
     <div class="nav-has-dropdown" id="practiceNav">
-      <a href="/our-practice/about-us/"
+      <a href="#"
          class={`nav-dropdown-trigger ${active === 'practice' ? 'is-active' : ''}`}
          aria-haspopup="true"
          aria-expanded="false"
@@ -332,6 +332,7 @@ const practice = [
     servicesNav.addEventListener('mouseleave', scheduleClose);
     servicesDropdown.addEventListener('mouseenter', openDropdown);
     servicesDropdown.addEventListener('mouseleave', scheduleClose);
+    servicesToggle.addEventListener('click', e => { e.preventDefault(); servicesNav.classList.contains('is-open') ? scheduleClose() : openDropdown(); });
 
     // Keyboard: Enter/Space on trigger opens; Escape closes
     servicesToggle.addEventListener('keydown', e => {
@@ -370,6 +371,7 @@ const practice = [
     practiceNav.addEventListener('mouseleave', schedulePracticeClose);
     practiceDropdown.addEventListener('mouseenter', openPracticeDropdown);
     practiceDropdown.addEventListener('mouseleave', schedulePracticeClose);
+    practiceToggle.addEventListener('click', e => { e.preventDefault(); practiceNav.classList.contains('is-open') ? schedulePracticeClose() : openPracticeDropdown(); });
 
     practiceToggle.addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' ') {
@@ -407,6 +409,7 @@ const practice = [
     patientsNav.addEventListener('mouseleave', schedulePatientsClose);
     patientsDropdown.addEventListener('mouseenter', openPatientsDropdown);
     patientsDropdown.addEventListener('mouseleave', schedulePatientsClose);
+    patientsToggle.addEventListener('click', e => { e.preventDefault(); patientsNav.classList.contains('is-open') ? schedulePatientsClose() : openPatientsDropdown(); });
 
     patientsToggle.addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' ') {
