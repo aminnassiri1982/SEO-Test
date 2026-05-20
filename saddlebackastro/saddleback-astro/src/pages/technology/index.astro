@@ -73,14 +73,29 @@ const technologies = [
   <main>
 
     <section class="page-intro">
-      <p class="page-eyebrow">Technology</p>
-      <h1 class="page-title">The tools that change what's possible.</h1>
-      <p class="page-lede">
-        Several remarkable endodontic advancements in recent years have made saving your tooth
-        more comfortable, thorough, and predictable than ever. We take pride in practicing on
-        the leading edge of technology and offering our patients the very best treatment
-        available anywhere.
-      </p>
+      <div class="page-intro-grid">
+        <div class="page-intro-text">
+          <p class="page-eyebrow">Technology</p>
+          <h1 class="page-title">The tools that change what's possible.</h1>
+          <p class="page-lede">
+            Several remarkable endodontic advancements in recent years have made saving your tooth
+            more comfortable, thorough, and predictable than ever. We take pride in practicing on
+            the leading edge of technology and offering our patients the very best treatment
+            available anywhere.
+          </p>
+        </div>
+        <div class="page-intro-video">
+          <div class="tech-video-embed">
+            <iframe
+              src="https://www.youtube.com/embed/pjNVdhCcJhw?start=12"
+              title="Saddleback Valley Endodontics Technology"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="tech-list">
@@ -113,8 +128,29 @@ const technologies = [
 
   .page-intro {
     padding: clamp(80px, 13vh, 140px) clamp(28px, 6vw, 88px) clamp(60px, 9vh, 100px);
-    max-width: 960px;
     border-bottom: 1px solid var(--color-line);
+  }
+  .page-intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(48px, 5vw, 80px);
+    align-items: center;
+  }
+  .tech-video-embed {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+  }
+  .tech-video-embed iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+  }
+  @media (max-width: 860px) {
+    .page-intro-grid { grid-template-columns: 1fr; }
   }
   .page-eyebrow {
     font-size: 11px;
