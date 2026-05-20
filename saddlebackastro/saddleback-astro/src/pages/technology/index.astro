@@ -6,50 +6,66 @@ import Footer from '../../components/Footer.astro';
 const technologies = [
   {
     number: '01',
-    name: 'Operating Microscope',
-    tagline: 'We see what we cannot otherwise see.',
+    name: 'Gentlewave',
+    tagline: 'Advanced fluid dynamics. Cleaner canals. Stronger teeth.',
     image: 'https://images.unsplash.com/photo-1581595220892-b0739db3ba8c?auto=format&fit=crop&w=1200&q=80',
-    body: 'The operating microscope changed endodontics more than any other single development. At magnifications between 4× and 25×, with coaxial illumination that follows the surgeon\'s line of sight directly into the canal, structures that were previously invisible become workable. Calcifications. Hairline cracks. Untreated accessory canals. File fragments from prior treatment. The microscope does not guarantee a good outcome, but it changes what is knowable before and during treatment — and that matters enormously.',
-    specs: ['4× to 25× magnification range', 'Coaxial LED illumination', 'Video documentation of every case', 'Used in all surgical and non-surgical cases'],
+    body: 'Sonendo Gentlewave is state-of-the-art technology that uses advanced fluid dynamics and soundwaves to completely clean and disinfect even the most complex canal anatomy. This incredible system accomplishes this while simultaneously allowing us to conserve more of your tooth structure, resulting in a cleaner, yet stronger tooth. With the Gentlewave, we have been able to save teeth that otherwise would have needed to be extracted.',
+    specs: ['Advanced fluid dynamics & soundwave cleaning', 'Reaches complex canal anatomy', 'Preserves more natural tooth structure', 'Saves teeth previously considered unrestorable'],
   },
   {
     number: '02',
-    name: 'Cone-Beam CT Imaging',
-    tagline: 'Three dimensions, before the first instrument.',
+    name: 'Cone Beam CT',
+    tagline: 'Three-dimensional clarity before the first instrument.',
     image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1200&q=80',
-    body: 'Conventional dental radiographs are two-dimensional projections of three-dimensional anatomy. They miss things — extra canals, the true extent of resorption, the precise relationship between a root tip and adjacent structures. Cone-beam computed tomography gives us a volumetric image of the tooth and surrounding bone that we can navigate slice by slice. We use CBCT selectively: not as a default for every patient, but for cases where the three-dimensional picture changes the treatment decision.',
-    specs: ['Limited-field CBCT (low-dose)', 'Sub-millimeter voxel resolution', 'Pre-treatment planning for surgical cases', 'Trauma and resorption assessment'],
+    body: 'Cone Beam Computed Tomography (CBCT) allows us to see through anatomical structures in 3 dimensions and has proven to be an invaluable tool in the diagnosis and treatment of a wide range of endodontic scenarios. Canals, anatomical structures, and infectious lesions that are not visible with standard 2-dimensional x-rays are often seen clearly with CBCT. CBCT can be valuable in helping to identify teeth where treatment is needed that would otherwise go undetected. It is also extremely valuable in identifying cases where treatment would be predestined to failure — saving countless patients from wasting time, money, and hope on a lost cause.',
+    specs: ['3-dimensional anatomical imaging', 'Detects canals invisible on standard x-rays', 'Identifies infectious lesions with precision', 'Guides surgical case planning'],
   },
   {
     number: '03',
-    name: 'Nickel-Titanium Instrumentation',
-    tagline: 'Precision mechanics inside a curved canal.',
+    name: 'Surgical Operating Microscopes',
+    tagline: 'You cannot treat what you cannot see.',
     image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80',
-    body: 'NiTi rotary files have a super-elastic quality that allows them to follow the natural curve of a canal without straightening it, perforating it, or breaking. We use a single-use protocol — every set of files is used once, then discarded — which eliminates instrument fatigue as a failure mode entirely. Electronic apex locators confirm working length continuously throughout instrumentation. The combination of rotary NiTi files and real-time length measurement has made canal preparation far more predictable than it was under a hand-filing protocol.',
-    specs: ['Reciprocating and continuous-rotation systems', 'Single-use protocol (no instrument reuse)', 'Electronic apex location throughout', 'Matched to canal anatomy by case'],
+    body: 'Operating Microscopes are used throughout every treatment to ensure that treatment is safe, precise, and thorough. "The scope" is an absolutely essential piece of equipment in endodontic treatment — one cannot treat what they cannot see. At high magnification with coaxial illumination, calcifications, hairline cracks, untreated accessory canals, and instrument fragments all become visible and workable.',
+    specs: ['Used in every non-surgical and surgical case', 'High magnification with coaxial illumination', 'Video documentation available', 'Reveals what is invisible to the naked eye'],
   },
   {
     number: '04',
-    name: 'Digital Radiography',
-    tagline: 'Immediate, low-dose, high-resolution images.',
-    image: 'https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=1200&q=80',
-    body: 'We use direct digital radiography throughout treatment. Images appear immediately, can be zoomed and adjusted without losing resolution, and expose patients to a fraction of the radiation of conventional film. For endodontic cases, we typically take working-length, mid-treatment, and final-obturation radiographs — each assessed in real time on a large monitor at the chair.',
-    specs: ['Up to 90% radiation reduction vs. film', 'Immediate chairside review', 'Digital storage and sharing with referring dentist', 'High-contrast periapical sensors'],
+    name: 'Ultrasonic Instrumentation',
+    tagline: 'Precision beyond what a hand instrument can reach.',
+    image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=1200&q=80',
+    body: 'Ultrasonic instruments are small instruments that allow for very careful and controlled removal of tooth structure. Ultrasonic instruments are routinely used in combination with the operating microscope and CBCT scans to safely locate tiny hidden canals, which are otherwise untreatable. In surgical cases, ultrasonic retropreparation has replaced the bur as the standard of care, producing a cleaner, more conservatively shaped preparation entirely within the root end.',
+    specs: ['Hidden canal location', 'Broken instrument removal', 'Irrigant activation for deeper disinfection', 'Surgical retropreparation'],
   },
   {
     number: '05',
-    name: 'Ultrasonic Instrumentation',
-    tagline: 'Precision beyond what a hand can hold.',
-    image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=1200&q=80',
-    body: 'Ultrasonic tips vibrate at frequencies that allow us to accomplish things mechanically impossible with conventional hand instruments: removing broken files from deep within canals, troughing calcified chambers, activating irrigants to reach the full length of the root canal system, and refining preparations in the isthmus between canals. In surgical cases, ultrasonic retropreparation has replaced the bur as the standard of care — producing a cleaner, more conservatively shaped cavity entirely within the root end.',
-    specs: ['Broken instrument removal', 'Calcified canal negotiation', 'Irrigant activation (PUI/UAI)', 'Surgical retropreparation'],
+    name: 'Infection Control',
+    tagline: 'Water quality that exceeds CDC standards.',
+    image: 'https://images.unsplash.com/photo-1530026405186-ed1f139313f8?auto=format&fit=crop&w=1200&q=80',
+    body: 'High standards of asepsis and sterilization are adhered to in our office. One example is our Sterilox generator — an FDA-approved system used to destroy and prevent the formation of biofilms in dental treatment water lines. The Sterilox ensures that water used during treatment is completely safe and free of micro-organisms that typically inhabit water lines, allowing our water quality to dramatically exceed the standards set forth by the Centers for Disease Control.',
+    specs: ['FDA-approved Sterilox water treatment', 'Eliminates biofilm in treatment water lines', 'Exceeds CDC water quality standards', 'Full asepsis and sterilization protocols'],
+  },
+  {
+    number: '06',
+    name: 'Digital Radiography',
+    tagline: 'Immediate, low-dose, high-resolution images.',
+    image: 'https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?auto=format&fit=crop&w=1200&q=80',
+    body: 'Digital radiography is used instead of conventional x-rays, resulting in substantially less radiation exposure and more efficient treatment. Images are available instantly and do not require the environmentally harmful chemicals used to develop traditional film. CBCT scans also use digital radiography and require only a tiny fraction of the exposure of a medical CT scan.',
+    specs: ['Up to 90% radiation reduction vs. film', 'Immediate chairside image review', 'No chemical processing required', 'Seamless digital sharing with referring doctors'],
+  },
+  {
+    number: '07',
+    name: 'Secure Server & Patient Records',
+    tagline: 'Best-in-class software. Fully protected records.',
+    image: 'https://images.unsplash.com/photo-1633265486064-086b219458ec?auto=format&fit=crop&w=1200&q=80',
+    body: 'We use TDO Software, which we believe is the best endodontic software available. Created by a visionary endodontist, the features of TDO are extensive and the secure server is regularly backed up to ensure all patient information is protected. TDO technology allows documentation to be more thorough and allows us to communicate more effectively with both patients and referring doctors.',
+    specs: ['TDO endodontic practice software', 'Encrypted, regularly backed-up server', 'Detailed consultation reports for referring offices', 'Streamlined patient communication'],
   },
 ];
 ---
 
 <BaseLayout
   title="Technology — Saddleback Valley Endodontics"
-  description="Operating microscope, cone-beam CT, NiTi rotary instrumentation, and digital radiography — the tools that make modern endodontics precise and predictable."
+  description="From Gentlewave and cone-beam CT to surgical operating microscopes and digital radiography — the advanced technology that makes our endodontic care more comfortable, thorough, and predictable."
 >
 
   <Header variant="solid" active="tech" />
@@ -58,11 +74,12 @@ const technologies = [
 
     <section class="page-intro">
       <p class="page-eyebrow">Technology</p>
-      <h1 class="page-title">The tools that let us see.</h1>
+      <h1 class="page-title">The tools that change what's possible.</h1>
       <p class="page-lede">
-        Endodontics has been transformed in the past twenty years by instrumentation that
-        makes the invisible visible. We use every tool in that arsenal, selectively and
-        deliberately.
+        Several remarkable endodontic advancements in recent years have made saving your tooth
+        more comfortable, thorough, and predictable than ever. We take pride in practicing on
+        the leading edge of technology and offering our patients the very best treatment
+        available anywhere.
       </p>
     </section>
 
