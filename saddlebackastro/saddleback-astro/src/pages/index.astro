@@ -307,10 +307,11 @@ const SLIDE_IMG   = 'https://cdn.shortpixel.ai/spai/q_lossless+w_838+to_webp+ret
         <a href="#schedule" class="contact-cta">Request a Consultation <span class="arrow"></span></a>
       </div>
       <dl class="contact-meta">
-        <div><dt>Office</dt><dd>123 Practice Way<br/>Suite 400<br/>City, ST 00000</dd></div>
-        <div><dt>Hours</dt><dd>Mon — Fri · 8:00–5:00<br/>Sat · By appointment</dd></div>
-        <div><dt>Phone</dt><dd>(000) 000 — 0000</dd></div>
-        <div><dt>Email</dt><dd>hello@sbvendo.com</dd></div>
+        <div><dt>Location</dt><dd><a href="https://maps.app.goo.gl/x2rcKTvkHVg4LKfw8" target="_blank" rel="noopener noreferrer">25261 Paseo De Valencia, Suite 3<br/>Laguna Hills, CA 92637</a></dd></div>
+        <div><dt>Hours</dt><dd>Mon – Fri · 8:00 am – 5:00 pm<br/>Answering service after hours</dd></div>
+        <div><dt>Phone</dt><dd><a href="tel:+19495818890">(949) 581-8890</a></dd></div>
+        <div><dt>Fax</dt><dd>(949) 581-3902</dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:office@sbvendo.com">office@sbvendo.com</a></dd></div>
       </dl>
     </div>
   </section>
@@ -763,7 +764,9 @@ const SLIDE_IMG   = 'https://cdn.shortpixel.ai/spai/q_lossless+w_838+to_webp+ret
     transform: translateY(-50%) rotate(45deg);
   }
   .contact-cta:hover .arrow { width: 44px; }
-  .contact-meta { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  .contact-meta { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; }
+  .contact-meta a { color: inherit; border-bottom: 1px solid rgba(245,243,238,0.3); transition: opacity 0.2s; }
+  .contact-meta a:hover { opacity: 0.7; }
   .contact-meta dt { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(245, 243, 238, 0.5); margin-bottom: 10px; }
   .contact-meta dd { margin: 0; font-size: 15px; line-height: 1.6; color: rgba(245, 243, 238, 0.92); }
   @media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; align-items: start; } }
