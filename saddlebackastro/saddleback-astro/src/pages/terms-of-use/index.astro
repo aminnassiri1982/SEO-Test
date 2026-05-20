@@ -117,4 +117,75 @@ const lastUpdated = 'May 2026';
 
 <style is:global>
   main { padding-top: var(--header-h); }
+
+  .legal-intro {
+    padding: clamp(72px, 12vh, 120px) clamp(28px, 6vw, 88px) clamp(48px, 7vh, 72px);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .legal-eyebrow {
+    font-size: 11px; letter-spacing: 0.36em; text-transform: uppercase;
+    font-weight: 500; color: var(--color-ink-soft); margin: 0 0 24px;
+  }
+  .legal-title {
+    font-family: var(--font-display); font-weight: 300;
+    font-size: clamp(40px, 6vw, 80px); line-height: 1;
+    letter-spacing: -0.015em; margin: 0 0 20px;
+  }
+  .legal-meta { font-size: 13px; color: var(--color-ink-soft); margin: 0; }
+
+  .legal-body {
+    padding: clamp(56px, 9vh, 96px) clamp(28px, 6vw, 88px) clamp(80px, 12vh, 140px);
+  }
+
+  .legal-section {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: clamp(40px, 6vw, 96px);
+    padding: clamp(40px, 6vh, 60px) 0;
+    border-bottom: 1px solid var(--color-line);
+    align-items: start;
+  }
+  .legal-section:last-child { border-bottom: none; }
+
+  .legal-section h2 {
+    font-family: var(--font-display); font-weight: 400;
+    font-size: clamp(17px, 1.6vw, 21px); letter-spacing: -0.005em;
+    margin: 0; position: sticky; top: calc(var(--header-h) + 24px);
+    color: var(--color-ink);
+  }
+  .legal-section-content { min-width: 0; }
+  .legal-section h3 {
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    font-weight: 500; color: var(--color-ink-soft);
+    margin: 28px 0 12px;
+  }
+  .legal-section p {
+    font-size: clamp(15px, 1.3vw, 16px); line-height: 1.78;
+    color: var(--color-ink-soft); margin: 0 0 16px;
+  }
+  .legal-section p:last-child { margin-bottom: 0; }
+  .legal-section ul { margin: 0 0 16px 0; padding-left: 0; list-style: none; }
+  .legal-section ul li {
+    font-size: clamp(15px, 1.3vw, 16px); line-height: 1.7;
+    color: var(--color-ink-soft); padding: 8px 0 8px 20px;
+    position: relative; border-bottom: 1px solid var(--color-line);
+  }
+  .legal-section ul li:first-child { border-top: 1px solid var(--color-line); }
+  .legal-section ul li::before {
+    content: '—'; position: absolute; left: 0;
+    color: var(--color-ink-soft); font-size: 12px;
+  }
+  .legal-section strong { color: var(--color-ink); font-weight: 500; }
+  .legal-section a { border-bottom: 1px solid currentColor; transition: opacity 0.2s; }
+  .legal-section a:hover { opacity: 0.6; }
+  .legal-section address {
+    font-style: normal; font-size: 15px; line-height: 1.9;
+    color: var(--color-ink-soft);
+  }
+  .legal-section address a { display: inline; }
+
+  @media (max-width: 700px) {
+    .legal-section { grid-template-columns: 1fr; gap: 20px; }
+    .legal-section h2 { position: static; }
+  }
 </style>
