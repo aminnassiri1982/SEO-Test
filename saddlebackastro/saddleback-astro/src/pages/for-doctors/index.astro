@@ -1,0 +1,300 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<BaseLayout
+  title="For Referring Doctors — Saddleback Valley Endodontics"
+  description="Refer a patient to Saddleback Valley Endodontics. Log into your referral portal or submit a quick no-login referral. Same-day urgent appointments available."
+>
+  <Header variant="solid" />
+
+  <main>
+
+    <section class="fd-intro">
+      <p class="fd-eyebrow">For Referring Doctors</p>
+      <h1 class="fd-title">We work alongside<br/>your team.</h1>
+      <p class="fd-lede">
+        We send a detailed consultation report within 24 hours of every patient visit.
+        Urgent referrals are seen the same day when possible. Choose the referral method
+        that works best for your office.
+      </p>
+    </section>
+
+    <section class="fd-portals">
+      <div class="fd-portal-cards">
+
+        <div class="fd-portal-card" data-reveal data-reveal-delay="1">
+          <p class="fd-card-eyebrow">Existing Referring Doctors</p>
+          <h2 class="fd-card-title">Log in to your<br/>referral portal.</h2>
+          <p class="fd-card-body">
+            Access your secure portal to submit referrals, track case status, and retrieve
+            consultation reports for your patients — all in one place.
+          </p>
+          <a
+            href="https://securesite29.tdo4endo.com/RefDocsLogin.aspx"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="fd-card-btn fd-card-btn--primary"
+          >
+            Referring Doctor Login
+          </a>
+        </div>
+
+        <div class="fd-portal-card" data-reveal data-reveal-delay="2">
+          <p class="fd-card-eyebrow">New or No-Login Referral</p>
+          <h2 class="fd-card-title">Refer a patient<br/>without logging in.</h2>
+          <p class="fd-card-body">
+            Prefer a quick form? Submit your referral directly — no account required.
+            We'll contact your office to confirm and schedule.
+          </p>
+          <a
+            href="https://refer.sbvendo.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="fd-card-btn fd-card-btn--secondary"
+          >
+            Submit a Referral
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="fd-contact">
+      <div class="fd-contact-inner" data-reveal>
+        <p class="fd-contact-eyebrow">Prefer to call or fax?</p>
+        <h2 class="fd-contact-headline">We're available Mon – Fri, 8 am – 5 pm.</h2>
+        <div class="fd-contact-details">
+          <div class="fd-contact-item">
+            <p class="fd-contact-label">Phone</p>
+            <a href="tel:+19495818890" class="fd-contact-value">(949) 581-8890</a>
+          </div>
+          <div class="fd-contact-item">
+            <p class="fd-contact-label">Fax</p>
+            <p class="fd-contact-value">(949) 581-3902</p>
+          </div>
+          <div class="fd-contact-item">
+            <p class="fd-contact-label">Email</p>
+            <a href="mailto:office@sbvendo.com" class="fd-contact-value">office@sbvendo.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="fd-promise">
+      <div class="fd-promise-grid">
+        <div class="fd-promise-text" data-reveal>
+          <p class="fd-promise-eyebrow">Our Commitment</p>
+          <h2 class="fd-promise-headline">Your patients come back<br/>better informed.</h2>
+          <p class="fd-promise-body">
+            Every patient we see gets a written consultation report sent to your office
+            within 24 hours. We copy you on treatment plans, document findings with
+            microscope-grade imaging, and return the patient to your care with a clear
+            summary of what was done and what to expect.
+          </p>
+          <p class="fd-promise-body">
+            We do not compete with your practice. We are a specialist resource — our
+            role ends when the endodontic work is complete and the patient is back
+            in your chair.
+          </p>
+        </div>
+        <div class="fd-promise-list" data-reveal="right">
+          <ul>
+            <li>
+              <span class="fd-promise-num">01</span>
+              <div>
+                <p class="fd-promise-item-title">Same-day urgent slots reserved</p>
+                <p class="fd-promise-item-body">We hold time daily for urgent referrals. Call before noon for same-day scheduling.</p>
+              </div>
+            </li>
+            <li>
+              <span class="fd-promise-num">02</span>
+              <div>
+                <p class="fd-promise-item-title">24-hour consultation reports</p>
+                <p class="fd-promise-item-body">Detailed written report to your office after every visit, no exceptions.</p>
+              </div>
+            </li>
+            <li>
+              <span class="fd-promise-num">03</span>
+              <div>
+                <p class="fd-promise-item-title">In-office CBCT imaging</p>
+                <p class="fd-promise-item-body">3D diagnosis available chairside — no separate imaging referral needed.</p>
+              </div>
+            </li>
+            <li>
+              <span class="fd-promise-num">04</span>
+              <div>
+                <p class="fd-promise-item-title">Fellowship-trained endodontists</p>
+                <p class="fd-promise-item-body">Every case reviewed and treated at the specialist level — no delegation.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style is:global>
+  main { padding-top: var(--header-h); }
+
+  .fd-intro {
+    padding: clamp(80px, 13vh, 140px) clamp(28px, 6vw, 88px) clamp(60px, 9vh, 100px);
+    max-width: 960px;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .fd-eyebrow {
+    font-size: 11px; letter-spacing: 0.36em; text-transform: uppercase;
+    font-weight: 500; color: var(--color-ink-soft); margin: 0 0 32px;
+  }
+  .fd-title {
+    font-family: var(--font-display); font-weight: 300;
+    font-size: clamp(52px, 8vw, 104px); line-height: 1;
+    letter-spacing: -0.015em; margin: 0 0 28px;
+  }
+  .fd-lede {
+    font-size: clamp(16px, 1.5vw, 19px); line-height: 1.65;
+    color: var(--color-ink-soft); max-width: 58ch; margin: 0;
+  }
+
+  /* Portal cards */
+  .fd-portals {
+    padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .fd-portal-cards {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1px; background: var(--color-line); border: 1px solid var(--color-line);
+    max-width: 960px;
+  }
+  .fd-portal-card {
+    background: var(--color-paper);
+    padding: clamp(48px, 6vw, 72px) clamp(36px, 5vw, 60px);
+    display: flex; flex-direction: column; gap: 20px;
+  }
+  .fd-card-eyebrow {
+    font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+    font-weight: 500; color: var(--color-ink-soft); margin: 0;
+  }
+  .fd-card-title {
+    font-family: var(--font-display); font-weight: 300;
+    font-size: clamp(28px, 3.2vw, 40px); line-height: 1.1;
+    letter-spacing: -0.01em; margin: 0; color: var(--color-ink);
+  }
+  .fd-card-body {
+    font-size: clamp(14px, 1.2vw, 16px); line-height: 1.7;
+    color: var(--color-ink-soft); margin: 0; flex: 1;
+  }
+  .fd-card-btn {
+    display: inline-block; align-self: flex-start; margin-top: 8px;
+    font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase;
+    font-weight: 500; padding: 16px 36px;
+    transition: background 0.28s var(--ease-out), color 0.28s var(--ease-out);
+  }
+  .fd-card-btn--primary {
+    background: var(--color-ink); color: var(--color-paper);
+    border: 1px solid var(--color-ink);
+  }
+  .fd-card-btn--primary:hover { background: transparent; color: var(--color-ink); }
+  .fd-card-btn--secondary {
+    background: transparent; color: var(--color-ink);
+    border: 1px solid var(--color-ink);
+  }
+  .fd-card-btn--secondary:hover { background: var(--color-ink); color: var(--color-paper); }
+
+  /* Contact bar */
+  .fd-contact {
+    background: var(--color-paper-warm);
+    border-bottom: 1px solid var(--color-line);
+    padding: clamp(60px, 9vh, 100px) clamp(28px, 6vw, 88px);
+  }
+  .fd-contact-inner { max-width: 960px; }
+  .fd-contact-eyebrow {
+    font-size: 11px; letter-spacing: 0.36em; text-transform: uppercase;
+    font-weight: 500; color: var(--color-ink-soft); margin: 0 0 16px;
+  }
+  .fd-contact-headline {
+    font-family: var(--font-display); font-weight: 300;
+    font-size: clamp(24px, 3vw, 40px); line-height: 1.1;
+    letter-spacing: -0.008em; margin: 0 0 40px;
+  }
+  .fd-contact-details {
+    display: flex; gap: clamp(40px, 7vw, 96px); flex-wrap: wrap;
+  }
+  .fd-contact-label {
+    font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+    font-weight: 500; color: var(--color-ink-soft); margin: 0 0 8px;
+  }
+  .fd-contact-value {
+    font-family: var(--font-display); font-weight: 300;
+    font-size: clamp(20px, 2.2vw, 28px); line-height: 1;
+    color: var(--color-ink); display: block;
+    transition: color 0.2s;
+  }
+  a.fd-contact-value:hover { color: var(--color-ink-soft); }
+
+  /* Promise section */
+  .fd-promise {
+    padding: clamp(80px, 12vh, 140px) 0;
+  }
+  .fd-promise-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    align-items: start; max-width: 1200px; margin: 0 auto;
+  }
+  .fd-promise-text {
+    padding: clamp(48px, 7vw, 88px) clamp(32px, 5vw, 88px);
+  }
+  .fd-promise-eyebrow {
+    font-size: 11px; letter-spacing: 0.36em; text-transform: uppercase;
+    font-weight: 500; color: var(--color-ink-soft); margin: 0 0 20px;
+  }
+  .fd-promise-headline {
+    font-family: var(--font-display); font-weight: 300;
+    font-size: clamp(28px, 3.5vw, 46px); line-height: 1.1;
+    letter-spacing: -0.008em; margin: 0 0 28px;
+  }
+  .fd-promise-body {
+    font-size: clamp(15px, 1.3vw, 17px); line-height: 1.75;
+    color: var(--color-ink-soft); margin: 0 0 20px;
+  }
+  .fd-promise-list {
+    border-left: 1px solid var(--color-line);
+    padding: clamp(48px, 7vw, 88px) clamp(32px, 5vw, 88px);
+  }
+  .fd-promise-list ul {
+    list-style: none; margin: 0; padding: 0;
+  }
+  .fd-promise-list li {
+    display: flex; gap: 24px; align-items: start;
+    padding: clamp(24px, 3vh, 36px) 0;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .fd-promise-list li:first-child { border-top: 1px solid var(--color-line); }
+  .fd-promise-num {
+    font-size: 11px; letter-spacing: 0.2em; font-weight: 500;
+    color: var(--color-ink-soft); flex-shrink: 0; padding-top: 3px;
+  }
+  .fd-promise-item-title {
+    font-family: var(--font-display); font-weight: 400;
+    font-size: clamp(16px, 1.5vw, 19px); line-height: 1.2;
+    letter-spacing: -0.005em; margin: 0 0 8px; color: var(--color-ink);
+  }
+  .fd-promise-item-body {
+    font-size: 13px; line-height: 1.6;
+    color: var(--color-ink-soft); margin: 0;
+  }
+
+  @media (max-width: 860px) {
+    .fd-portal-cards { grid-template-columns: 1fr; }
+    .fd-promise-grid { grid-template-columns: 1fr; }
+    .fd-promise-list { border-left: none; border-top: 1px solid var(--color-line); }
+  }
+  @media (max-width: 560px) {
+    .fd-contact-details { flex-direction: column; gap: 28px; }
+  }
+</style>
