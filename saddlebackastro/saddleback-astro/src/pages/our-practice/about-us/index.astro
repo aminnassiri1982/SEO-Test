@@ -106,10 +106,6 @@ import Footer from '../../../components/Footer.astro';
           <p class="ab-stat-number">98%</p>
           <p class="ab-stat-label">Patient Satisfaction Rate</p>
         </div>
-        <div class="ab-stat" data-reveal data-reveal-delay="4">
-          <p class="ab-stat-number ab-stat-number--sm">Same-Day</p>
-          <p class="ab-stat-label">Urgent Appointments</p>
-        </div>
       </div>
     </section>
 
@@ -210,17 +206,14 @@ import Footer from '../../../components/Footer.astro';
     border-bottom: 1px solid var(--color-line);
   }
   .ab-stats-inner {
-    display: grid; grid-template-columns: repeat(4, 1fr);
-    gap: clamp(32px, 5vw, 56px); max-width: 960px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: clamp(32px, 5vw, 56px); max-width: 720px; margin: 0 auto;
   }
   .ab-stat { text-align: center; }
   .ab-stat-number {
     font-family: var(--font-display); font-weight: 300;
     font-size: clamp(32px, 5vw, 56px); line-height: 1; letter-spacing: -0.02em;
     color: var(--color-ink); margin: 0 0 10px;
-  }
-  .ab-stat-number--sm {
-    font-size: clamp(24px, 3vw, 36px);
   }
   .ab-stat-label {
     font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
@@ -255,10 +248,10 @@ import Footer from '../../../components/Footer.astro';
   @media (max-width: 960px) {
     .ab-story-grid { grid-template-columns: 1fr; }
     .ab-values-grid { grid-template-columns: repeat(2, 1fr); }
-    .ab-stats-inner { grid-template-columns: repeat(2, 1fr); }
+    .ab-stats-inner { grid-template-columns: repeat(3, 1fr); }
   }
   @media (max-width: 580px) {
     .ab-values-grid { grid-template-columns: 1fr; }
-    .ab-stats-inner { grid-template-columns: repeat(2, 1fr); }
+    .ab-stats-inner { grid-template-columns: 1fr; }
   }
 </style>
