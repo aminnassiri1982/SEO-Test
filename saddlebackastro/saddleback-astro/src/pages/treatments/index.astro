@@ -40,14 +40,21 @@ const treatments = [
 
   <main>
 
-    <section class="page-intro">
-      <p class="page-eyebrow">Treatments</p>
-      <h1 class="page-title">Specialist endodontics,<br/>close to home.</h1>
-      <p class="page-lede">
-        Saddleback Valley Endodontics serves Laguna Hills, Mission Viejo, Aliso Viejo, Lake
-        Forest, Rancho Santa Margarita, and surrounding South Orange County — with same-day
-        urgent appointments and fellowship-trained care for every case.
-      </p>
+    <section class="tx-hero">
+      <div class="tx-hero-image">
+        <img src="/images/Saddleback-Valley-Endodontics-team.webp" alt="Saddleback Valley Endodontics team" />
+        <div class="tx-hero-overlay"></div>
+      </div>
+      <div class="tx-hero-content">
+        <p class="tx-hero-eyebrow">Laguna Hills, CA</p>
+        <h1 class="tx-hero-title">Specialist endodontics,<br/>close to home.</h1>
+        <p class="tx-hero-sub">
+          Saddleback Valley Endodontics serves Laguna Hills, Mission Viejo, Aliso Viejo, Lake
+          Forest, Rancho Santa Margarita, and surrounding South Orange County — with same-day
+          urgent appointments and fellowship-trained care for every case.
+        </p>
+        <a href="/request-an-appointment/" class="tx-hero-btn">Request an Appointment</a>
+      </div>
     </section>
 
     <section class="tx-treatments">
@@ -113,35 +120,71 @@ const treatments = [
 <style is:global>
   main { padding-top: var(--header-h); }
 
-  .page-intro {
-    padding: clamp(80px, 13vh, 140px) clamp(28px, 6vw, 88px) clamp(60px, 9vh, 100px);
-    max-width: 960px;
-    margin: 0 auto;
-    border-bottom: 1px solid var(--color-line);
+  .tx-hero {
+    position: relative;
+    min-height: 520px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
-  .page-eyebrow {
+  .tx-hero-image {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+  .tx-hero-image img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+  }
+  .tx-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(10,10,10,0.25) 0%, rgba(10,10,10,0.65) 100%);
+  }
+  .tx-hero-content {
+    position: relative;
+    padding: clamp(56px, 10vh, 120px) clamp(28px, 6vw, 88px) 48px;
+    color: #fff;
+    max-width: 800px;
+  }
+  .tx-hero-eyebrow {
     font-size: 11px;
     letter-spacing: 0.36em;
     text-transform: uppercase;
     font-weight: 500;
-    color: var(--color-ink-soft);
-    margin: 0 0 32px;
+    color: rgba(255,255,255,0.65);
+    margin: 0 0 20px;
   }
-  .page-title {
+  .tx-hero-title {
     font-family: var(--font-display);
     font-weight: 300;
-    font-size: clamp(48px, 7.5vw, 96px);
-    line-height: 1;
+    font-size: clamp(36px, 5.5vw, 72px);
+    line-height: 1.05;
     letter-spacing: -0.015em;
-    margin: 0 0 28px;
+    margin: 0 0 18px;
+    color: #fff;
   }
-  .page-lede {
-    font-size: clamp(16px, 1.5vw, 19px);
-    line-height: 1.65;
-    color: var(--color-ink-soft);
-    max-width: 58ch;
-    margin: 0;
+  .tx-hero-sub {
+    font-size: clamp(15px, 1.4vw, 18px);
+    color: rgba(255,255,255,0.82);
+    margin: 0 0 32px;
+    max-width: 52ch;
+    line-height: 1.6;
   }
+  .tx-hero-btn {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 16px 36px;
+    border: 1px solid #fff;
+    background: #fff;
+    color: var(--color-ink);
+    transition: background 0.28s var(--ease-out), color 0.28s var(--ease-out);
+  }
+  .tx-hero-btn:hover { background: transparent; color: #fff; }
 
   .tx-treatments { padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px); }
   .tx-treatments-header { margin-bottom: clamp(48px, 7vh, 72px); }
