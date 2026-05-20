@@ -1,148 +1,139 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-
-const procedures = [
-  {
-    id: 'root-canal',
-    title: 'Root Canal Treatment',
-    sections: [
-      {
-        heading: 'What to Expect',
-        body: 'Mild to moderate soreness in the treated tooth and surrounding tissues is normal for 1–3 days following root canal treatment. The tooth may feel tender when biting, and the gum tissue around the injection sites may be sore. This is a normal inflammatory response and does not indicate a problem. Some patients have minimal discomfort; others experience more noticeable soreness. Both are within the normal range.',
-      },
-      {
-        heading: 'Medications',
-        body: 'For most patients, over-the-counter analgesics provide adequate pain relief. Ibuprofen (400–600 mg every 6–8 hours with food) is preferred when there are no contraindications, as it reduces inflammation as well as pain. Acetaminophen may be used alone or alternated with ibuprofen. If a prescription was given, take it as directed. Do not take more than the recommended dose of any analgesic.',
-      },
-      {
-        heading: 'Diet',
-        body: 'Avoid chewing on the treated tooth until your general dentist has placed a permanent restoration. The temporary filling placed at the end of your appointment is not designed for heavy chewing. Eat soft foods for the first 24–48 hours. Avoid hard, crunchy, or sticky foods on that side until fully restored. There is no restriction on temperature.',
-      },
-      {
-        heading: 'When to Call Us',
-        body: 'Call our office if you experience: swelling that is increasing after 48 hours, fever above 100.4°F, a visible abscess or sinus tract that was not present before treatment, severe pain unresponsive to analgesics, or the temporary filling coming out entirely. Minor swelling on the day of treatment is expected; spreading swelling is not.',
-      },
-      {
-        heading: 'Follow-up & Restoration',
-        body: 'A root canal-treated tooth must be permanently restored — typically with a crown placed by your general dentist — within 4–6 weeks of completing endodontic therapy. Delaying restoration significantly increases the risk of fracture. We will send a report to your referring dentist. If you do not have a general dentist, we are glad to help with a referral.',
-      },
-    ],
-  },
-  {
-    id: 'retreatment',
-    title: 'Root Canal Retreatment',
-    sections: [
-      {
-        heading: 'What to Expect',
-        body: 'Retreatment often involves more extensive instrumentation than initial treatment, and post-operative soreness is frequently more pronounced. Expect 2–4 days of discomfort. Swelling around the apex of the tooth is common and may peak at 48 hours before resolving. If a post was removed during retreatment, the tooth and surrounding bone may be more sensitive than after primary treatment.',
-      },
-      {
-        heading: 'Medications',
-        body: 'Ibuprofen is the analgesic of choice for retreatment unless contraindicated. Take 400–600 mg with food every 6 hours for the first 48 hours, even before pain begins if discomfort is anticipated. Do not combine ibuprofen with other NSAIDs. Antibiotics are prescribed only when active infection is present — complete the full course if given.',
-      },
-      {
-        heading: 'Diet',
-        body: 'Soft foods for the first 48–72 hours. Avoid the treated side entirely until the temporary filling is replaced with a permanent restoration. Do not eat anything that requires significant biting force on a retreated tooth without a crown.',
-      },
-      {
-        heading: 'When to Call Us',
-        body: 'Contact us promptly if: swelling is spreading into the jaw, neck, or floor of the mouth; you develop difficulty swallowing or breathing; fever exceeds 101°F; or pain is escalating rather than plateauing after the first 24 hours. These symptoms require prompt clinical evaluation.',
-      },
-      {
-        heading: 'Follow-up',
-        body: 'Retreatment cases are monitored with radiographic recall at 6 and 12 months. Healing of periapical bone loss takes time — most cases show radiographic improvement at 6 months and continued resolution at one year. If symptoms persist or worsen at any point, contact us before the scheduled recall.',
-      },
-    ],
-  },
-  {
-    id: 'surgery',
-    title: 'Endodontic Surgery / Apicoectomy',
-    sections: [
-      {
-        heading: 'What to Expect',
-        body: 'Swelling, bruising, and soreness are expected and normal following endodontic surgery. Swelling typically peaks at 48–72 hours and resolves over 5–7 days. Bruising on the face or neck is common and may appear the day after surgery; it resolves gradually over 7–10 days. Do not be alarmed by the extent of swelling — it does not indicate a complication.',
-      },
-      {
-        heading: 'Medications',
-        body: 'Take prescribed pain medications and antibiotics as directed beginning immediately after surgery. Do not wait for pain to become severe before taking analgesics — pre-emptive dosing is more effective. Continue antibiotics for the full prescribed course. Avoid aspirin for 72 hours after surgery as it promotes bleeding.',
-      },
-      {
-        heading: 'Swelling & Ice',
-        body: 'Apply an ice pack wrapped in a cloth to the surgical area for 20 minutes on, 20 minutes off during the first 24 hours. Ice is most effective in the first 24 hours; after that, it provides minimal benefit and moist heat can help resolve residual swelling. Keep your head elevated — sleeping with an extra pillow reduces overnight swelling.',
-      },
-      {
-        heading: 'Diet',
-        body: 'Maintain a soft diet for the first 5–7 days: yogurt, scrambled eggs, mashed potatoes, smoothies, soft fish, pasta. Avoid hard, crunchy, or sharp foods that could traumatize the surgical site. Do not use straws for 48 hours. Avoid alcohol and tobacco products entirely during the healing period — both impair wound healing significantly.',
-      },
-      {
-        heading: 'Oral Hygiene',
-        body: 'Do not brush the surgical site for the first 24 hours. From day 2 onward, gently brush the area with a soft-bristled brush. A prescribed or over-the-counter chlorhexidine rinse may be recommended; use as directed. Avoid vigorous rinsing or spitting for 48 hours. Do not probe the area with your tongue or fingers.',
-      },
-      {
-        heading: 'When to Call Us',
-        body: 'Call immediately if: bleeding does not slow with firm pressure after 20 minutes, swelling involves the eye or floor of the mouth, fever exceeds 101°F after the first 48 hours, sutures appear to have completely separated, or you experience numbness beyond the expected anesthetic duration (typically resolves within 8 hours).',
-      },
-      {
-        heading: 'Follow-up',
-        body: 'Sutures are typically removed at a visit scheduled 5–7 days after surgery. Radiographic recall for surgical cases is at 6 months and 1 year. Bone regeneration is a slow process — do not interpret lack of change at 3 months as failure. Most surgical cases show convincing healing at the 12-month radiograph.',
-      },
-    ],
-  },
-];
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
 ---
 
 <BaseLayout
   title="Post-Operative Instructions — Saddleback Valley Endodontics"
-  description="Post-operative care instructions after root canal treatment, retreatment, and endodontic surgery at Saddleback Valley Endodontics, Mission Viejo, CA."
+  description="Post-operative care instructions after root canal treatment or endodontic surgery at Saddleback Valley Endodontics. (949) 581-8890."
 >
   <Header variant="solid" />
 
   <main>
 
     <section class="page-intro">
-      <p class="page-eyebrow">Post-Op Care</p>
-      <h1 class="page-title">After your procedure.</h1>
+      <p class="page-eyebrow">For Patients</p>
+      <h1 class="page-title">After your<br/>procedure.</h1>
       <p class="page-lede">
-        Recovery after endodontic treatment is almost always smoother than patients expect.
-        These instructions help ensure it stays that way — and tell you when to call us if
-        something is off.
+        Most patients recover quickly. Follow these instructions to stay comfortable
+        and protect your results.
       </p>
     </section>
 
-    <nav class="postop-nav" aria-label="Jump to section">
-      {procedures.map(p => (
-        <a class="postop-nav-link" href={`#${p.id}`}>{p.title}</a>
-      ))}
-    </nav>
+    <section class="poi-root-canal">
+      <div class="poi-rc-inner">
+        <div class="poi-section-header">
+          <p class="poi-eyebrow" data-reveal>Root Canal Treatment</p>
+          <h2 class="poi-headline" data-reveal>After root canal treatment.</h2>
+        </div>
+        <ol class="poi-numbered-list" data-reveal>
+          <li class="poi-numbered-item">
+            <span class="poi-item-num">1</span>
+            <p class="poi-item-body">Do not eat until numbness wears off — you may bite your cheek or tongue without realizing it.</p>
+          </li>
+          <li class="poi-numbered-item">
+            <span class="poi-item-num">2</span>
+            <p class="poi-item-body">Mild to moderate soreness for 1–3 days is normal. Take ibuprofen (400–600 mg) every 6–8 hours with food, or acetaminophen if ibuprofen is contraindicated.</p>
+          </li>
+          <li class="poi-numbered-item">
+            <span class="poi-item-num">3</span>
+            <p class="poi-item-body">Avoid chewing on the treated tooth until a permanent crown is placed by your general dentist.</p>
+          </li>
+          <li class="poi-numbered-item">
+            <span class="poi-item-num">4</span>
+            <p class="poi-item-body">The temporary filling may feel slightly high — this usually self-corrects within a day. If it persists, call us.</p>
+          </li>
+          <li class="poi-numbered-item">
+            <span class="poi-item-num">5</span>
+            <p class="poi-item-body">Take any prescribed antibiotics for the full course, even if you feel better before they're finished.</p>
+          </li>
+          <li class="poi-numbered-item">
+            <span class="poi-item-num">6</span>
+            <p class="poi-item-body">Schedule your crown with your general dentist within 4–6 weeks. Delay increases fracture risk.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
 
-    <div class="postop-content">
-      {procedures.map(proc => (
-        <section class="postop-procedure" id={proc.id}>
-          <h2 class="postop-proc-title">{proc.title}</h2>
-          <div class="postop-proc-sections">
-            {proc.sections.map(s => (
-              <div class="postop-subsection">
-                <h3 class="postop-sub-heading">{s.heading}</h3>
-                <p class="postop-sub-body">{s.body}</p>
-              </div>
-            ))}
+    <section class="poi-surgery">
+      <div class="poi-surgery-inner">
+        <div class="poi-section-header">
+          <p class="poi-eyebrow" data-reveal>Endodontic Surgery</p>
+          <h2 class="poi-headline" data-reveal>After endodontic surgery (apicoectomy).</h2>
+        </div>
+        <ol class="poi-numbered-list" data-reveal>
+          <li class="poi-numbered-item">
+            <span class="poi-item-num">1</span>
+            <p class="poi-item-body">Apply ice to the outside of your face for 10 minutes on / 10 minutes off for the first 24 hours. This minimizes swelling.</p>
+          </li>
+          <li class="poi-numbered-item">
+            <span class="poi-item-num">2</span>
+            <p class="poi-item-body">Do not rinse, spit forcefully, or use a straw for 24 hours.</p>
+          </li>
+          <li class="poi-numbered-item">
+            <span class="poi-item-num">3</span>
+            <p class="poi-item-body">Eat soft foods for 3–5 days. Avoid anything hard, crunchy, or very hot near the surgical site.</p>
+          </li>
+          <li class="poi-numbered-item">
+            <span class="poi-item-num">4</span>
+            <p class="poi-item-body">Take ibuprofen and/or prescribed pain medication as directed. Discomfort peaks at 24–48 hours and improves steadily.</p>
+          </li>
+          <li class="poi-numbered-item">
+            <span class="poi-item-num">5</span>
+            <p class="poi-item-body">Mild bruising and swelling are expected and may peak at 48–72 hours. This is normal.</p>
+          </li>
+          <li class="poi-numbered-item">
+            <span class="poi-item-num">6</span>
+            <p class="poi-item-body">Sutures are typically removed at your follow-up appointment, usually within 5–7 days.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="poi-warning">
+      <div class="poi-warning-inner">
+        <div class="poi-section-header">
+          <p class="poi-eyebrow" data-reveal>Complications</p>
+          <h2 class="poi-headline" data-reveal>When to call us.</h2>
+        </div>
+        <div class="poi-warning-grid">
+          <div class="poi-warning-card" data-reveal data-reveal-delay="1">
+            <h3 class="poi-warning-title">Increasing pain after 3 days</h3>
+            <p class="poi-warning-body">Pain that is getting worse — not better — after the first 72 hours may indicate a complication.</p>
           </div>
-        </section>
-      ))}
-    </div>
+          <div class="poi-warning-card" data-reveal data-reveal-delay="2">
+            <h3 class="poi-warning-title">Visible swelling that is spreading</h3>
+            <p class="poi-warning-body">Swelling that extends beyond the treated area, especially toward the throat or eye, requires immediate attention.</p>
+          </div>
+          <div class="poi-warning-card" data-reveal data-reveal-delay="3">
+            <h3 class="poi-warning-title">Fever above 101&deg;F</h3>
+            <p class="poi-warning-body">Persistent fever following endodontic treatment or surgery should be evaluated promptly.</p>
+          </div>
+          <div class="poi-warning-card" data-reveal data-reveal-delay="4">
+            <h3 class="poi-warning-title">Displaced or lost temporary filling</h3>
+            <p class="poi-warning-body">If your temporary filling comes out completely, call us so we can replace it before bacteria re-enter the canal.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <section class="postop-emergency-band">
-      <div class="postop-emergency-inner">
-        <p class="postop-emergency-eyebrow">Not sure if what you're experiencing is normal?</p>
-        <h2 class="postop-emergency-headline">Call us — we would rather hear from you.</h2>
-        <p class="postop-emergency-body">
-          During office hours, call <a href="tel:+19495818890">(949) 581-8890</a>. Describe your
-          symptoms to our clinical team and we will advise you. If you are experiencing a
-          medical emergency — difficulty breathing or swallowing, rapidly spreading swelling —
-          call 911 or go to the nearest emergency room.
+    <section class="poi-contact">
+      <div class="poi-contact-inner" data-reveal>
+        <h2 class="poi-contact-headline">Questions about your recovery?</h2>
+        <p class="poi-contact-phone"><a href="tel:+19495818890">(949) 581-8890</a></p>
+        <p class="poi-contact-address"><a href="https://maps.app.goo.gl/x2rcKTvkHVg4LKfw8" target="_blank" rel="noopener noreferrer">25261 Paseo De Valencia, Suite 3<br/>Laguna Hills, CA 92637</a></p>
+        <p class="poi-contact-note">We return all calls the same business day.</p>
+      </div>
+    </section>
+
+    <section class="poi-cta-band">
+      <div class="poi-cta-inner" data-reveal>
+        <h2 class="poi-cta-headline">Concerned about your recovery?</h2>
+        <p class="poi-cta-body">
+          Call us — we'd rather hear from you early than late.
         </p>
+        <a href="tel:+19495818890" class="poi-cta-btn">Call (949) 581-8890</a>
       </div>
     </section>
 
@@ -157,6 +148,7 @@ const procedures = [
   .page-intro {
     padding: clamp(80px, 13vh, 140px) clamp(28px, 6vw, 88px) clamp(60px, 9vh, 100px);
     max-width: 960px;
+    margin: 0 auto;
     border-bottom: 1px solid var(--color-line);
   }
   .page-eyebrow {
@@ -170,7 +162,7 @@ const procedures = [
   .page-title {
     font-family: var(--font-display);
     font-weight: 300;
-    font-size: clamp(52px, 8vw, 104px);
+    font-size: clamp(48px, 7.5vw, 96px);
     line-height: 1;
     letter-spacing: -0.015em;
     margin: 0 0 28px;
@@ -183,119 +175,52 @@ const procedures = [
     margin: 0;
   }
 
-  .postop-nav {
-    display: flex;
-    gap: 0;
-    border-bottom: 1px solid var(--color-line);
-    padding: 0 clamp(28px, 6vw, 88px);
-    overflow-x: auto;
-  }
+  /* Shared section utilities */
+  .poi-eyebrow { font-size: 11px; letter-spacing: 0.36em; text-transform: uppercase; font-weight: 500; color: var(--color-ink-soft); margin: 0 0 20px; }
+  .poi-headline { font-family: var(--font-display); font-weight: 300; font-size: clamp(28px, 4vw, 52px); line-height: 1.1; letter-spacing: -0.01em; margin: 0; }
+  .poi-section-header { margin-bottom: clamp(40px, 6vh, 64px); }
 
-  .postop-nav-link {
-    font-size: 11px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: var(--color-ink-soft);
-    padding: 20px 24px;
-    border-bottom: 2px solid transparent;
-    white-space: nowrap;
-    transition: color 0.2s var(--ease-out), border-color 0.2s var(--ease-out);
-  }
-  .postop-nav-link:hover {
-    color: var(--color-ink);
-    border-bottom-color: var(--color-ink);
-  }
+  /* Numbered list shared */
+  .poi-numbered-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+  .poi-numbered-item { display: grid; grid-template-columns: 40px 1fr; gap: clamp(20px, 2.5vw, 36px); align-items: baseline; padding: clamp(24px, 3.5vh, 36px) 0; border-bottom: 1px solid var(--color-line); }
+  .poi-numbered-item:first-child { border-top: 1px solid var(--color-line); }
+  .poi-item-num { font-family: var(--font-display); font-weight: 300; font-size: clamp(22px, 2.5vw, 32px); line-height: 1; color: var(--color-ink-soft); opacity: 0.35; }
+  .poi-item-body { font-size: clamp(14px, 1.2vw, 16px); line-height: 1.7; color: var(--color-ink-soft); margin: 0; }
 
-  .postop-content {
-    padding: 0 clamp(28px, 6vw, 88px);
-  }
+  /* Root canal section */
+  .poi-root-canal { padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px); }
+  .poi-rc-inner { max-width: 800px; margin: 0 auto; }
 
-  .postop-procedure {
-    padding: clamp(72px, 11vh, 120px) 0;
-    border-bottom: 1px solid var(--color-line);
-    max-width: 860px;
-  }
+  /* Surgery section */
+  .poi-surgery { background: var(--color-paper-warm); border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px); }
+  .poi-surgery-inner { max-width: 800px; margin: 0 auto; }
 
-  .postop-proc-title {
-    font-family: var(--font-display);
-    font-weight: 300;
-    font-size: clamp(32px, 4.5vw, 56px);
-    line-height: 1.05;
-    letter-spacing: -0.01em;
-    margin: 0 0 clamp(44px, 7vh, 72px);
-    color: var(--color-ink);
-  }
+  /* Warning cards */
+  .poi-warning { padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px); }
+  .poi-warning-inner { max-width: 1120px; margin: 0 auto; }
+  .poi-warning-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--color-line); border: 1px solid var(--color-line); }
+  .poi-warning-card { background: var(--color-paper-warm); padding: clamp(32px, 4.5vw, 52px) clamp(24px, 3.5vw, 40px); display: flex; flex-direction: column; gap: 14px; }
+  .poi-warning-title { font-family: var(--font-display); font-weight: 400; font-size: clamp(18px, 2vw, 24px); line-height: 1.2; letter-spacing: -0.005em; margin: 0; color: var(--color-ink); }
+  .poi-warning-body { font-size: clamp(13px, 1.1vw, 15px); line-height: 1.65; color: var(--color-ink-soft); margin: 0; }
 
-  .postop-proc-sections {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
+  /* Contact section */
+  .poi-contact { background: var(--color-paper-warm); border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px); }
+  .poi-contact-inner { max-width: 680px; margin: 0 auto; text-align: center; }
+  .poi-contact-headline { font-family: var(--font-display); font-weight: 300; font-size: clamp(28px, 4vw, 52px); line-height: 1.1; letter-spacing: -0.01em; margin: 0 0 clamp(24px, 3.5vh, 36px); color: var(--color-ink); }
+  .poi-contact-phone { margin: 0 0 16px; }
+  .poi-contact-phone a { font-family: var(--font-display); font-size: clamp(22px, 3vw, 36px); font-weight: 300; color: var(--color-ink); text-decoration: none; border-bottom: 1px solid var(--color-line); transition: opacity 0.2s; }
+  .poi-contact-phone a:hover { opacity: 0.6; }
+  .poi-contact-address { font-size: clamp(14px, 1.2vw, 16px); line-height: 1.65; color: var(--color-ink-soft); margin: 0 0 20px; }
+  .poi-contact-note { font-size: 13px; letter-spacing: 0.02em; color: var(--color-ink-soft); margin: 0; opacity: 0.75; }
 
-  .postop-subsection {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: clamp(20px, 3vw, 44px);
-    padding: clamp(28px, 4vh, 44px) 0;
-    border-top: 1px solid var(--color-line);
-    align-items: start;
-  }
+  /* CTA band */
+  .poi-cta-band { background: var(--color-ink); color: var(--color-paper); padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px); }
+  .poi-cta-inner { max-width: 680px; margin: 0 auto; text-align: center; }
+  .poi-cta-headline { font-family: var(--font-display); font-weight: 300; font-size: clamp(28px, 4vw, 52px); line-height: 1.1; letter-spacing: -0.01em; margin: 0 0 20px; color: var(--color-paper); }
+  .poi-cta-body { font-size: clamp(15px, 1.3vw, 17px); line-height: 1.68; color: rgba(255,255,255,0.7); margin: 0 0 36px; }
+  .poi-cta-btn { display: inline-block; font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 500; padding: 16px 36px; border: 1px solid var(--color-paper); color: var(--color-paper); text-decoration: none; transition: background 0.28s var(--ease-out), color 0.28s var(--ease-out); }
+  .poi-cta-btn:hover { background: var(--color-paper); color: var(--color-ink); }
 
-  .postop-sub-heading {
-    font-size: 11px;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: var(--color-ink-soft);
-    margin: 0;
-    padding-top: 4px;
-  }
-
-  .postop-sub-body {
-    font-size: clamp(15px, 1.3vw, 17px);
-    line-height: 1.72;
-    color: var(--color-ink-soft);
-    margin: 0;
-  }
-
-  .postop-emergency-band {
-    background: var(--color-paper-warm);
-    border-top: 1px solid var(--color-line);
-    padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
-  }
-
-  .postop-emergency-inner { max-width: 680px; }
-
-  .postop-emergency-eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.36em;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: var(--color-ink-soft);
-    margin: 0 0 24px;
-  }
-
-  .postop-emergency-headline {
-    font-family: var(--font-display);
-    font-weight: 300;
-    font-size: clamp(28px, 4vw, 52px);
-    line-height: 1.1;
-    letter-spacing: -0.01em;
-    margin: 0 0 20px;
-  }
-
-  .postop-emergency-body {
-    font-size: clamp(15px, 1.3vw, 17px);
-    line-height: 1.68;
-    color: var(--color-ink-soft);
-    margin: 0;
-  }
-  .postop-emergency-body a { border-bottom: 1px solid currentColor; transition: opacity 0.2s; }
-  .postop-emergency-body a:hover { opacity: 0.6; }
-
-  @media (max-width: 640px) {
-    .postop-subsection { grid-template-columns: 1fr; gap: 8px; }
-    .postop-nav-link { padding: 16px 14px; }
-  }
+  @media (max-width: 720px) { .poi-warning-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 480px) { .poi-numbered-item { grid-template-columns: 32px 1fr; } }
 </style>
