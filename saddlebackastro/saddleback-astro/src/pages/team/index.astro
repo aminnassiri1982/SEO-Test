@@ -5,110 +5,158 @@ import Footer from '../../components/Footer.astro';
 
 const doctors = [
   {
-    name: 'Dr. A. Reyes',
+    name: 'Dr. Lars Björn Jönsson',
+    slug: 'lars-jonsson',
     title: 'Founding Partner',
-    credentials: 'DDS, MS · Board Certified Endodontist',
-    portrait: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=800&q=80',
+    credentials: 'DDS, MS · Diplomate, American Board of Endodontics',
+    portrait: '/images/LARS-BJoRN-JoNSSON-DDS-MS.webp',
     bio: [
-      'Dr. Reyes founded the practice with a clear conviction: that specialist endodontics should begin with a diagnosis conversation, not a procedure recommendation. Twenty-two years of clinical practice and a fellowship in microsurgical endodontics inform every consultation.',
-      'He trained at the UCLA School of Dentistry, completed a two-year residency in endodontics, and has maintained board certification through the American Board of Endodontics since 2008. His clinical focus is complex retreatment and cases referred after failed prior treatment.',
+      'Dr. Jönsson grew up in Salt Lake City, Utah, where his father — a general dentist — introduced him to the satisfaction of helping patients through dental care. He earned his undergraduate degree in Medical Biology at the University of Utah before attending the University of the Pacific Arthur A. Dugoni School of Dentistry, graduating in 2001 with high honors and membership in the Omicron Kappa Upsilon and Tau Kappa Omega dental honor societies.',
+      'After a period in general dentistry in San Francisco, Dr. Jönsson pursued specialty training in endodontics at the University of Illinois at Chicago, earning his MS in Oral Biology in 2005. He subsequently completed a fellowship in implant dentistry at Loma Linda University (2008–2010) and received training in IV sedation, broadening his ability to serve complex cases and anxious patients.',
     ],
-    focus: ['Complex retreatment', 'Microsurgical endodontics', 'Cracked tooth diagnosis', 'Interdisciplinary case planning'],
-    education: ['DDS — UCLA School of Dentistry', 'MS Endodontics — Loma Linda University', 'Board Certified — American Board of Endodontics'],
+    focus: ['Complex root canal treatment', 'Root canal retreatment', 'Endodontic microsurgery', 'IV sedation for anxious patients', 'Associate Clinical Professor, Loma Linda University'],
+    education: ['BS Medical Biology — University of Utah', 'DDS — University of the Pacific (High Honors, OKU/TKO)', 'MS Oral Biology / Endodontic Residency — University of Illinois at Chicago', 'Fellowship in Implant Dentistry — Loma Linda University', 'Diplomate — American Board of Endodontics'],
   },
   {
-    name: 'Dr. J. Okafor',
+    name: 'Dr. Charles Tatosian',
+    slug: 'charles-tatosian',
     title: 'Partner',
-    credentials: 'DDS, MS · Fellowship-Trained',
-    portrait: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=80',
+    credentials: 'DDS, MS · Diplomate, American Board of Endodontics',
+    portrait: '/images/Charles-Tatosian-DDS-MS.webp',
     bio: [
-      'Dr. Okafor leads the practice\'s imaging and microsurgical program. Her fellowship training in advanced diagnostics means she approaches every case from the CBCT image outward — understanding the three-dimensional anatomy before any instrument is placed.',
-      'She joined the practice in 2018 after completing fellowship training and has since built one of the most active cone-beam CT programs among endodontic specialty offices in Southern California.',
+      'Dr. Tatosian was born in St. Louis, Missouri, and has been in private practice in Mission Viejo since 1992 — making him one of the longest-established endodontists in the region. He earned his BS in Chemistry from the University of Missouri–St. Louis before completing his dental degree at the University of Missouri–Kansas City School of Dentistry.',
+      'Following a General Practice Residency at the VA Hospital in Kansas City and five years of combined general dentistry practice and faculty work at Washington University in St. Louis, Dr. Tatosian completed his endodontic specialty training and MS at the University of Texas Health Science Center in Houston. He holds an adjunct faculty appointment at the USC Herman Ostrow School of Dentistry.',
     ],
-    focus: ['CBCT-guided treatment planning', 'Endodontic microsurgery', 'Dental trauma', 'Calcified canal management'],
-    education: ['DDS — University of Southern California', 'MS Endodontics — University of Washington', 'Fellowship — Advanced Endodontics, Boston University'],
+    focus: ['Root canal treatment and retreatment', 'Endodontic microsurgery', 'Complex diagnosis and case planning', 'Adjunct Faculty — USC School of Dentistry'],
+    education: ['BS Chemistry — University of Missouri–St. Louis', 'DDS — University of Missouri–Kansas City', 'GPR — VA Hospital, Kansas City', 'MS / Endodontic Specialty — University of Texas Health Science Center, Houston', 'Diplomate — American Board of Endodontics'],
   },
   {
-    name: 'Dr. M. Chen',
+    name: 'Dr. Wayland Chu',
+    slug: 'wayland-chu',
     title: 'Associate',
-    credentials: 'DDS, MS',
-    portrait: 'https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=800&q=80',
+    credentials: 'DDS, MSD · Diplomate, American Board of Endodontics',
+    portrait: '/images/WAYLAND-CHU-DDS-MSD.webp',
     bio: [
-      'Dr. Chen joined Saddleback Valley Endodontics after her endodontic residency, bringing particular depth in managing pediatric trauma cases and teeth in patients undergoing cancer treatment — a population whose dental needs require close coordination with oncology teams.',
-      'She is fluent in Mandarin and Cantonese, and sees a broad caseload that includes many patients referred from across Orange County and Los Angeles.',
+      'Dr. Chu grew up in San Diego, California, and earned his BS in Neurobiology at UC Berkeley before attending the UCLA School of Dentistry, where he received the Outstanding Performance in Endodontics Award. During dental school he participated in a community service trip to China providing dental care to underserved populations.',
+      'He completed his endodontic residency at the University of Washington, earning his Master of Science in Dentistry (MSD), and returned to Southern California to join the Saddleback Valley Endodontics team. Outside the office, Dr. Chu is a former nationally ranked junior tennis player and remains active in pickleball, basketball, rock climbing, golf, board games, and escape rooms.',
     ],
-    focus: ['Pediatric endodontics', 'Oncology patient care', 'Dental trauma', 'Multilingual consultation (Mandarin, Cantonese)'],
-    education: ['DDS — University of California, San Francisco', 'MS Endodontics — New York University', 'Residency — Children\'s Hospital Los Angeles'],
+    focus: ['Root canal treatment and retreatment', 'Endodontic microsurgery', 'CBCT-guided diagnosis', 'Dental trauma management'],
+    education: ['BS Neurobiology — UC Berkeley', 'DDS — UCLA School of Dentistry (Outstanding Performance in Endodontics Award)', 'MSD / Endodontic Residency — University of Washington', 'Diplomate — American Board of Endodontics'],
   },
 ];
 ---
 
 <BaseLayout
-  title="Our Team — Saddleback Valley Endodontics"
-  description="Meet the fellowship-trained endodontists at Saddleback Valley Endodontics in Mission Viejo, CA."
+  title="Our Doctors — Saddleback Valley Endodontics"
+  description="Meet the board-certified and fellowship-trained endodontists at Saddleback Valley Endodontics serving Mission Viejo, Laguna Hills, and surrounding Orange County, CA."
 >
-
-  <Header variant="solid" active="team" />
+  <Header variant="solid" />
 
   <main>
 
     <section class="page-intro">
-      <p class="page-eyebrow">Team</p>
-      <h1 class="page-title">The doctors.</h1>
+      <p class="page-eyebrow">Our Doctors</p>
+      <h1 class="page-title">The specialists.</h1>
       <p class="page-lede">
-        Three fellowship-trained endodontists. Every case reviewed at the attending level.
-        We do not delegate specialist decisions.
+        Specialist-level care means every case is reviewed, diagnosed, and treated by a
+        board-certified or fellowship-trained endodontist. Three doctors, one standard:
+        no delegation of clinical judgment.
       </p>
     </section>
 
-    <section class="team-list">
+    <section class="docs-list">
       {doctors.map((doc, i) => (
-        <article class="doctor-card" id={`doctor-${i + 1}`}>
-          <div class="doctor-portrait-wrap">
-            <img class="doctor-portrait" src={doc.portrait} alt={doc.name} />
+        <article class="docs-card" id={`doctor-${i + 1}`}>
+          <div class="docs-portrait-wrap">
+            <img
+              class="docs-portrait"
+              src={doc.portrait}
+              alt={doc.name}
+              loading={i === 0 ? 'eager' : 'lazy'}
+            />
           </div>
-          <div class="doctor-info">
-            <p class="doctor-eyebrow">{doc.credentials}</p>
-            <h2 class="doctor-name">{doc.name}</h2>
-            <p class="doctor-title-label">{doc.title}</p>
-            <div class="doctor-bio">
+          <div class="docs-info">
+            <p class="docs-credentials">{doc.credentials}</p>
+            <h2 class="docs-name">{doc.name}</h2>
+            <p class="docs-role">{doc.title}</p>
+            <div class="docs-bio">
               {doc.bio.map(p => <p>{p}</p>)}
             </div>
-            <div class="doctor-columns">
+            <div class="docs-cols">
               <div>
-                <h3 class="doctor-col-label">Clinical Focus</h3>
-                <ul class="doctor-list">
+                <h3 class="docs-col-label">Clinical Focus</h3>
+                <ul class="docs-detail-list">
                   {doc.focus.map(f => <li>{f}</li>)}
                 </ul>
               </div>
               <div>
-                <h3 class="doctor-col-label">Education &amp; Training</h3>
-                <ul class="doctor-list">
+                <h3 class="docs-col-label">Education &amp; Training</h3>
+                <ul class="docs-detail-list">
                   {doc.education.map(e => <li>{e}</li>)}
                 </ul>
               </div>
             </div>
+            <a href={`/team/${doc.slug}/`} class="docs-full-bio-link">Read full biography →</a>
           </div>
         </article>
       ))}
     </section>
 
-    <section class="team-referral">
-      <div class="referral-inner">
-        <p class="referral-eyebrow">For Referring Doctors</p>
-        <h2 class="referral-title">We work alongside your team, not around it.</h2>
-        <p class="referral-body">
-          We send a detailed consultation report after every patient visit. Urgent referrals
-          are seen the same day when possible. Call us directly or use the referral form.
+    <section class="docs-referral-band">
+      <div class="docs-referral-header" data-reveal>
+        <p class="docs-referral-eyebrow">For Referring Doctors</p>
+        <h2 class="docs-referral-headline">We work alongside your team, not around it.</h2>
+        <p class="docs-referral-body">
+          We send a detailed consultation report within 24 hours of every patient visit. Urgent
+          referrals are seen the same day when possible. Choose the referral method that works
+          best for your office.
         </p>
-        <a href="/contact/#referral" class="cta-btn">Refer a Patient</a>
+      </div>
+
+      <div class="docs-referral-cards">
+        <div class="docs-referral-card" data-reveal data-reveal-delay="1">
+          <p class="docs-ref-card-eyebrow">Existing Referring Doctors</p>
+          <h3 class="docs-ref-card-title">Log in to your<br/>referral portal.</h3>
+          <p class="docs-ref-card-body">
+            Access your secure portal to submit referrals, view case updates, and retrieve
+            consultation reports for your patients.
+          </p>
+          <a
+            href="https://securesite29.tdo4endo.com/RefDocsLogin.aspx"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="docs-ref-card-btn docs-ref-card-btn--primary"
+          >
+            Referring Doctor Login
+          </a>
+        </div>
+
+        <div class="docs-referral-card" data-reveal data-reveal-delay="2">
+          <p class="docs-ref-card-eyebrow">New or No-Login Referral</p>
+          <h3 class="docs-ref-card-title">Refer a patient<br/>without logging in.</h3>
+          <p class="docs-ref-card-body">
+            Prefer a quick form? Submit your referral directly — no account required. We'll
+            contact your office to confirm and schedule.
+          </p>
+          <a
+            href="https://refer.sbvendo.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="docs-ref-card-btn docs-ref-card-btn--secondary"
+          >
+            Submit a Referral
+          </a>
+        </div>
+      </div>
+
+      <div class="docs-referral-contact" data-reveal>
+        <p>Questions? Call us directly at <a href="tel:+19495818890">(949) 581-8890</a> or fax <a href="tel:+19495813902">(949) 581-3902</a>.</p>
       </div>
     </section>
 
   </main>
 
   <Footer />
-
 </BaseLayout>
 
 <style is:global>
@@ -143,11 +191,11 @@ const doctors = [
     margin: 0;
   }
 
-  .team-list {
+  .docs-list {
     padding: 0 clamp(28px, 6vw, 88px);
   }
 
-  .doctor-card {
+  .docs-card {
     display: grid;
     grid-template-columns: 320px 1fr;
     gap: clamp(40px, 6vw, 96px);
@@ -156,24 +204,25 @@ const doctors = [
     align-items: start;
   }
 
-  .doctor-portrait-wrap {
+  .docs-portrait-wrap {
     width: 100%;
     aspect-ratio: 3 / 4;
     overflow: hidden;
     background: #f0ede5;
     position: sticky;
-    top: calc(var(--header-h-top) + 32px);
+    top: calc(var(--header-h) + 32px);
   }
-  .doctor-portrait {
+  .docs-portrait {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: top center;
     filter: grayscale(100%);
     transition: filter 0.6s var(--ease-out);
   }
-  .doctor-card:hover .doctor-portrait { filter: grayscale(0%); }
+  .docs-card:hover .docs-portrait { filter: grayscale(0%); }
 
-  .doctor-eyebrow {
+  .docs-credentials {
     font-size: 11px;
     letter-spacing: 0.28em;
     text-transform: uppercase;
@@ -182,7 +231,7 @@ const doctors = [
     margin: 0 0 16px;
   }
 
-  .doctor-name {
+  .docs-name {
     font-family: var(--font-display);
     font-weight: 300;
     font-size: clamp(36px, 4.5vw, 60px);
@@ -191,7 +240,7 @@ const doctors = [
     margin: 0 0 8px;
   }
 
-  .doctor-title-label {
+  .docs-role {
     font-size: 13px;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -200,7 +249,7 @@ const doctors = [
     margin: 0 0 36px;
   }
 
-  .doctor-bio p {
+  .docs-bio p {
     font-size: clamp(15px, 1.3vw, 17px);
     line-height: 1.72;
     color: var(--color-ink-soft);
@@ -208,7 +257,7 @@ const doctors = [
     max-width: 62ch;
   }
 
-  .doctor-columns {
+  .docs-cols {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
@@ -217,7 +266,7 @@ const doctors = [
     border-top: 1px solid var(--color-line);
   }
 
-  .doctor-col-label {
+  .docs-col-label {
     font-size: 10px;
     letter-spacing: 0.34em;
     text-transform: uppercase;
@@ -226,70 +275,109 @@ const doctors = [
     margin: 0 0 18px;
   }
 
-  .doctor-list {
+  .docs-detail-list {
     list-style: none;
     margin: 0;
     padding: 0;
   }
-  .doctor-list li {
+  .docs-detail-list li {
     font-size: 14px;
     line-height: 1.55;
     color: var(--color-ink-soft);
     padding: 7px 0;
     border-bottom: 1px solid var(--color-line);
   }
-  .doctor-list li:first-child { border-top: 1px solid var(--color-line); }
+  .docs-detail-list li:first-child { border-top: 1px solid var(--color-line); }
 
-  .team-referral {
+  .docs-full-bio-link {
+    display: inline-block;
+    margin-top: 36px;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-ink);
+    border-bottom: 1px solid currentColor;
+    transition: opacity 0.2s;
+  }
+  .docs-full-bio-link:hover { opacity: 0.6; }
+
+  .docs-referral-band {
     background: var(--color-paper-warm);
     padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
     border-top: 1px solid var(--color-line);
   }
-  .referral-inner { max-width: 680px; }
-  .referral-eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.36em;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: var(--color-ink-soft);
-    margin: 0 0 28px;
+
+  .docs-referral-header { max-width: 680px; margin-bottom: clamp(48px, 7vh, 72px); }
+
+  .docs-referral-eyebrow {
+    font-size: 11px; letter-spacing: 0.36em; text-transform: uppercase;
+    font-weight: 500; color: var(--color-ink-soft); margin: 0 0 28px;
   }
-  .referral-title {
-    font-family: var(--font-display);
-    font-weight: 300;
-    font-size: clamp(28px, 4vw, 48px);
-    line-height: 1.1;
-    letter-spacing: -0.008em;
-    margin: 0 0 24px;
+  .docs-referral-headline {
+    font-family: var(--font-display); font-weight: 300;
+    font-size: clamp(28px, 4vw, 48px); line-height: 1.1;
+    letter-spacing: -0.008em; margin: 0 0 24px;
   }
-  .referral-body {
-    font-size: clamp(15px, 1.3vw, 17px);
-    line-height: 1.68;
-    color: var(--color-ink-soft);
-    margin: 0 0 36px;
-  }
-  .cta-btn {
-    display: inline-block;
-    font-size: 12px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    font-weight: 500;
-    padding: 16px 36px;
-    border: 1px solid var(--color-ink);
-    color: var(--color-ink);
-    transition: background 0.28s var(--ease-out), color 0.28s var(--ease-out);
-  }
-  .cta-btn:hover {
-    background: var(--color-ink);
-    color: var(--color-paper);
+  .docs-referral-body {
+    font-size: clamp(15px, 1.3vw, 17px); line-height: 1.68;
+    color: var(--color-ink-soft); margin: 0;
   }
 
+  .docs-referral-cards {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1px; background: var(--color-line); border: 1px solid var(--color-line);
+    max-width: 880px;
+  }
+  .docs-referral-card {
+    background: var(--color-paper);
+    padding: clamp(40px, 5vw, 64px) clamp(32px, 4vw, 52px);
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .docs-ref-card-eyebrow {
+    font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+    font-weight: 500; color: var(--color-ink-soft); margin: 0;
+  }
+  .docs-ref-card-title {
+    font-family: var(--font-display); font-weight: 300;
+    font-size: clamp(24px, 2.8vw, 36px); line-height: 1.1;
+    letter-spacing: -0.008em; margin: 0; color: var(--color-ink);
+  }
+  .docs-ref-card-body {
+    font-size: clamp(14px, 1.2vw, 15px); line-height: 1.68;
+    color: var(--color-ink-soft); margin: 0; flex: 1;
+  }
+  .docs-ref-card-btn {
+    display: inline-block; align-self: flex-start; margin-top: 8px;
+    font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase;
+    font-weight: 500; padding: 14px 32px;
+    transition: background 0.28s var(--ease-out), color 0.28s var(--ease-out);
+  }
+  .docs-ref-card-btn--primary {
+    background: var(--color-ink); color: var(--color-paper);
+    border: 1px solid var(--color-ink);
+  }
+  .docs-ref-card-btn--primary:hover { background: transparent; color: var(--color-ink); }
+  .docs-ref-card-btn--secondary {
+    background: transparent; color: var(--color-ink);
+    border: 1px solid var(--color-ink);
+  }
+  .docs-ref-card-btn--secondary:hover { background: var(--color-ink); color: var(--color-paper); }
+
+  .docs-referral-contact {
+    margin-top: clamp(32px, 4vh, 48px);
+    font-size: 14px; color: var(--color-ink-soft);
+  }
+  .docs-referral-contact a { border-bottom: 1px solid currentColor; transition: opacity 0.2s; }
+  .docs-referral-contact a:hover { opacity: 0.6; }
+
   @media (max-width: 900px) {
-    .doctor-card { grid-template-columns: 1fr; }
-    .doctor-portrait-wrap { max-width: 320px; position: static; aspect-ratio: 1 / 1; }
+    .docs-card { grid-template-columns: 1fr; }
+    .docs-portrait-wrap { max-width: 320px; position: static; aspect-ratio: 1 / 1; }
+    .docs-referral-cards { grid-template-columns: 1fr; }
   }
   @media (max-width: 560px) {
-    .doctor-columns { grid-template-columns: 1fr; gap: 32px; }
-    .doctor-portrait-wrap { max-width: 100%; }
+    .docs-cols { grid-template-columns: 1fr; gap: 32px; }
+    .docs-portrait-wrap { max-width: 100%; }
   }
 </style>
