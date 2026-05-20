@@ -1,0 +1,204 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+
+const doctors = [
+  {
+    name: 'Dr. [First Last], DMD',
+    credential: 'Board-Certified Endodontist',
+    bio: 'Dr. [Last Name] completed his endodontic specialty training at [University] and has been practicing in South Orange County since [year]. He holds fellowship status with the American Association of Endodontists and is committed to microscope-guided, minimally invasive care. Outside the office, he enjoys [personal detail].',
+    education: [
+      'DMD — [Dental School]',
+      'Endodontic Residency — [University]',
+      'Fellowship, American Association of Endodontists',
+    ],
+  },
+  {
+    name: 'Dr. [First Last], DDS',
+    credential: 'Specialist Endodontist',
+    bio: 'Dr. [Last Name] joined Saddleback Valley Endodontics after completing her specialty training at [University]. She has a particular interest in the management of dental anxiety and sedation, and is known for her gentle, patient-centered approach. She is a member of the American Association of Endodontists and the California Association of Endodontists.',
+    education: [
+      'DDS — [Dental School]',
+      'Endodontic Residency — [University]',
+      'Member, California Association of Endodontists',
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Meet Our Doctors — Saddleback Valley Endodontics"
+  description="Meet the fellowship-trained endodontists at Saddleback Valley Endodontics in Mission Viejo, CA — specialists dedicated to saving teeth and patient comfort."
+>
+  <Header variant="solid" active="practice" />
+
+  <main>
+
+    <section class="md-intro">
+      <p class="md-eyebrow">Meet Our Doctors</p>
+      <h1 class="md-title">Fellowship-trained.<br/>Patient-focused.</h1>
+      <p class="md-lede">
+        Our endodontists bring years of advanced specialty training to every procedure —
+        combining surgical precision, modern technology, and genuine care for every patient.
+      </p>
+    </section>
+
+    <section class="md-doctors">
+      {doctors.map((doc, i) => (
+        <div class={`md-doctor-row ${i % 2 === 1 ? 'md-doctor-row--reverse' : ''}`}>
+          <div class="md-doctor-photo" data-reveal={i % 2 === 0 ? 'left' : 'right'}>
+            <img
+              src="/images/Saddleback-Valley-Endodontics.webp"
+              alt={doc.name}
+              loading="lazy"
+            />
+          </div>
+          <div class="md-doctor-info" data-reveal={i % 2 === 0 ? 'right' : 'left'}>
+            <p class="md-doctor-credential">{doc.credential}</p>
+            <h2 class="md-doctor-name">{doc.name}</h2>
+            <p class="md-doctor-bio">{doc.bio}</p>
+            <div class="md-doctor-edu">
+              <p class="md-edu-label">Education &amp; Credentials</p>
+              <ul class="md-edu-list">
+                {doc.education.map(e => <li>{e}</li>)}
+              </ul>
+            </div>
+          </div>
+        </div>
+      ))}
+    </section>
+
+    <section class="md-team-photo">
+      <div class="md-team-inner" data-reveal>
+        <img
+          src="/images/Saddleback-Valley-Endodontics.webp"
+          alt="Saddleback Valley Endodontics team"
+          loading="lazy"
+        />
+        <p class="md-team-caption">Our full team — doctors, clinical staff, and front office — dedicated to your care.</p>
+      </div>
+    </section>
+
+    <section class="md-cta">
+      <div class="md-cta-inner" data-reveal>
+        <p class="md-cta-eyebrow">Ready to schedule?</p>
+        <h2 class="md-cta-headline">Meet us in person.</h2>
+        <p class="md-cta-body">
+          Call <a href="tel:+19498373033">(949) 837-3033</a> or request an appointment.
+          Same-day urgent care available.
+        </p>
+        <a href="/request-an-appointment/" class="md-cta-btn">Request an Appointment</a>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style is:global>
+  main { padding-top: var(--header-h); }
+
+  .md-intro {
+    padding: clamp(80px, 13vh, 140px) clamp(28px, 6vw, 88px) clamp(60px, 9vh, 100px);
+    max-width: 960px; margin: 0 auto;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .md-eyebrow {
+    font-size: 11px; letter-spacing: 0.36em; text-transform: uppercase;
+    font-weight: 500; color: var(--color-ink-soft); margin: 0 0 32px;
+  }
+  .md-title {
+    font-family: var(--font-display); font-weight: 300;
+    font-size: clamp(48px, 7.5vw, 96px); line-height: 1;
+    letter-spacing: -0.015em; margin: 0 0 28px;
+  }
+  .md-lede {
+    font-size: clamp(16px, 1.5vw, 19px); line-height: 1.65;
+    color: var(--color-ink-soft); max-width: 58ch; margin: 0;
+  }
+
+  .md-doctors { padding: clamp(80px, 12vh, 140px) 0; }
+  .md-doctor-row {
+    display: grid; grid-template-columns: 1fr 1fr;
+    border-top: 1px solid var(--color-line);
+  }
+  .md-doctor-row--reverse { direction: rtl; }
+  .md-doctor-row--reverse > * { direction: ltr; }
+  .md-doctor-photo img {
+    width: 100%; min-height: 560px; object-fit: cover; display: block;
+  }
+  .md-doctor-info {
+    padding: clamp(48px, 7vw, 88px) clamp(32px, 5vw, 72px);
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .md-doctor-credential {
+    font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase;
+    font-weight: 500; color: var(--color-ink-soft); margin: 0 0 16px;
+  }
+  .md-doctor-name {
+    font-family: var(--font-display); font-weight: 300;
+    font-size: clamp(28px, 3.5vw, 44px); line-height: 1.1;
+    letter-spacing: -0.01em; margin: 0 0 24px; color: var(--color-ink);
+  }
+  .md-doctor-bio {
+    font-size: clamp(14px, 1.2vw, 16px); line-height: 1.75;
+    color: var(--color-ink-soft); margin: 0 0 28px;
+  }
+  .md-edu-label {
+    font-size: 10px; letter-spacing: 0.34em; text-transform: uppercase;
+    font-weight: 500; color: var(--color-ink-soft); margin: 0 0 12px;
+  }
+  .md-edu-list {
+    list-style: none; margin: 0; padding: 0;
+    border-top: 1px solid var(--color-line);
+  }
+  .md-edu-list li {
+    font-size: 13px; color: var(--color-ink-soft); line-height: 1.5;
+    padding: 10px 0; border-bottom: 1px solid var(--color-line);
+  }
+
+  .md-team-photo {
+    background: var(--color-paper-warm);
+    border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line);
+    padding: clamp(60px, 9vh, 100px) clamp(28px, 6vw, 88px);
+  }
+  .md-team-inner { max-width: 960px; margin: 0 auto; }
+  .md-team-inner img { width: 100%; max-height: 480px; object-fit: cover; display: block; }
+  .md-team-caption {
+    font-size: 13px; color: var(--color-ink-soft); text-align: center;
+    margin: 20px 0 0; line-height: 1.5;
+  }
+
+  .md-cta { padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px); }
+  .md-cta-inner { max-width: 680px; margin: 0 auto; text-align: center; }
+  .md-cta-eyebrow {
+    font-size: 11px; letter-spacing: 0.36em; text-transform: uppercase;
+    font-weight: 500; color: var(--color-ink-soft); margin: 0 0 28px;
+  }
+  .md-cta-headline {
+    font-family: var(--font-display); font-weight: 300;
+    font-size: clamp(28px, 4vw, 52px); line-height: 1.1;
+    letter-spacing: -0.01em; margin: 0 0 20px;
+  }
+  .md-cta-body {
+    font-size: clamp(15px, 1.3vw, 17px); line-height: 1.68;
+    color: var(--color-ink-soft); margin: 0 0 36px;
+  }
+  .md-cta-body a { border-bottom: 1px solid currentColor; transition: opacity 0.2s; }
+  .md-cta-body a:hover { opacity: 0.6; }
+  .md-cta-btn {
+    display: inline-block; font-size: 12px; letter-spacing: 0.28em;
+    text-transform: uppercase; font-weight: 500; padding: 16px 36px;
+    border: 1px solid var(--color-ink); color: var(--color-ink);
+    transition: background 0.28s var(--ease-out), color 0.28s var(--ease-out);
+  }
+  .md-cta-btn:hover { background: var(--color-ink); color: var(--color-paper); }
+
+  @media (max-width: 860px) {
+    .md-doctor-row { grid-template-columns: 1fr; direction: ltr; }
+    .md-doctor-photo { order: -1; }
+    .md-doctor-photo img { min-height: 360px; }
+  }
+</style>

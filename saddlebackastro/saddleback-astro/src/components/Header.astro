@@ -1,7 +1,7 @@
 ---
 export interface Props {
   variant?: 'transparent' | 'solid';
-  active?: 'diagnosis' | 'services' | 'team' | 'tech' | 'journal' | 'faq' | 'contact' | 'patients';
+  active?: 'diagnosis' | 'services' | 'team' | 'tech' | 'journal' | 'faq' | 'contact' | 'patients' | 'practice';
 }
 
 const { variant = 'transparent', active } = Astro.props;
@@ -19,6 +19,14 @@ const patients = [
   { label: 'Your First Visit',              href: '/patients/first-visit/' },
   { label: 'Insurance & Financing',         href: '/patients/insurance-financing/' },
   { label: 'Post-Operative Instructions',   href: '/patients/post-operative-instructions/' },
+];
+
+const practice = [
+  { label: 'About Us',             href: '/our-practice/about-us/' },
+  { label: 'Meet Our Doctors',     href: '/our-practice/meet-our-doctors/' },
+  { label: 'Advanced Technology',  href: '/our-practice/advanced-technology/' },
+  { label: 'Why Choose Us',        href: '/our-practice/why-choose-us/' },
+  { label: 'Patient Reviews',      href: '/our-practice/patient-reviews/' },
 ];
 ---
 
@@ -120,6 +128,35 @@ const patients = [
       </div>
     </div>
 
+    <!-- Our Practice dropdown -->
+    <div class="nav-has-dropdown" id="practiceNav">
+      <a href="/our-practice/about-us/"
+         class={`nav-dropdown-trigger ${active === 'practice' ? 'is-active' : ''}`}
+         aria-haspopup="true"
+         aria-expanded="false"
+         id="practiceToggle">
+        Our Practice
+        <svg class="nav-chevron" viewBox="0 0 24 24" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </a>
+      <div class="nav-dropdown" id="practiceDropdown" role="region" aria-label="Our Practice pages">
+        <div class="nav-dropdown-inner">
+          <p class="nav-dropdown-eyebrow">Our Practice</p>
+          <ul class="nav-dropdown-list">
+            {practice.map(p => (
+              <li>
+                <a href={p.href} class="nav-dropdown-link">
+                  <span>{p.label}</span>
+                  <span class="nav-dropdown-arrow" aria-hidden="true"></span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <a href="/team/"       class={active === 'team'  ? 'is-active' : ''}>Team</a>
     <a href="/technology/" class={active === 'tech'  ? 'is-active' : ''}>Tech</a>
   </nav>
@@ -177,11 +214,26 @@ const patients = [
       </div>
     </div>
 
-    <a href="/team/"    style="--i:3" tabindex="-1">Team</a>
-    <a href="/technology/" style="--i:4" tabindex="-1">Tech</a>
+    <!-- Our Practice accordion in mobile -->
+    <div class="mobile-acc" style="--i:3">
+      <button class="mobile-acc-btn" aria-expanded="false" tabindex="-1">
+        Our Practice
+        <svg class="mobile-acc-chevron" viewBox="0 0 24 24" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+      <div class="mobile-acc-panel">
+        {practice.map(p => (
+          <a href={p.href} tabindex="-1">{p.label}</a>
+        ))}
+      </div>
+    </div>
 
-    <a href="/blog/"   style="--i:5" tabindex="-1">Journal</a>
-    <a href="/contact/" style="--i:6" tabindex="-1">Contact</a>
+    <a href="/team/"    style="--i:4" tabindex="-1">Team</a>
+    <a href="/technology/" style="--i:5" tabindex="-1">Tech</a>
+
+    <a href="/blog/"   style="--i:6" tabindex="-1">Journal</a>
+    <a href="/contact/" style="--i:7" tabindex="-1">Contact</a>
   </nav>
 
   <div class="mobile-menu-footer">
@@ -294,6 +346,43 @@ const patients = [
     });
     document.addEventListener('click', e => {
       if (!servicesNav.contains(e.target)) scheduleClose();
+    });
+  }
+
+  // ── Desktop Our Practice dropdown ────────────────────────────
+  const practiceNav      = document.getElementById('practiceNav');
+  const practiceToggle   = document.getElementById('practiceToggle');
+  const practiceDropdown = document.getElementById('practiceDropdown');
+
+  if (practiceNav && practiceToggle && practiceDropdown) {
+    let prCloseTimer;
+
+    function openPracticeDropdown() {
+      clearTimeout(prCloseTimer);
+      practiceNav.classList.add('is-open');
+      practiceToggle.setAttribute('aria-expanded', 'true');
+    }
+    function schedulePracticeClose() {
+      prCloseTimer = setTimeout(() => {
+        practiceNav.classList.remove('is-open');
+        practiceToggle.setAttribute('aria-expanded', 'false');
+      }, 120);
+    }
+
+    practiceNav.addEventListener('mouseenter', openPracticeDropdown);
+    practiceNav.addEventListener('mouseleave', schedulePracticeClose);
+    practiceDropdown.addEventListener('mouseenter', openPracticeDropdown);
+    practiceDropdown.addEventListener('mouseleave', schedulePracticeClose);
+
+    practiceToggle.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        practiceNav.classList.contains('is-open') ? schedulePracticeClose() : openPracticeDropdown();
+      }
+      if (e.key === 'Escape') schedulePracticeClose();
+    });
+    document.addEventListener('click', e => {
+      if (!practiceNav.contains(e.target)) schedulePracticeClose();
     });
   }
 

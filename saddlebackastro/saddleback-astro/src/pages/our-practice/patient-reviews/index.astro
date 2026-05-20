@@ -1,0 +1,270 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+
+const reviews = [
+  {
+    quote: "I was terrified of getting a root canal, but the team at Saddleback Valley Endodontics made it completely painless. Dr. [Name] explained everything step by step and I barely felt a thing. I couldn't believe how easy it was.",
+    author: 'Sarah M.',
+    location: 'Mission Viejo, CA',
+    rating: 5,
+  },
+  {
+    quote: "After a failed root canal elsewhere, I came here for retreatment. The difference in technology and expertise was immediately obvious. They found two canals the first office missed. My tooth has been perfect ever since.",
+    author: 'James R.',
+    location: 'Laguna Hills, CA',
+    rating: 5,
+  },
+  {
+    quote: "I have severe dental anxiety and have avoided the dentist for years. They were so patient and understanding. Used sedation and I barely remember the appointment. Finally have a healthy tooth I almost lost.",
+    author: 'Michelle T.',
+    location: 'Aliso Viejo, CA',
+    rating: 5,
+  },
+  {
+    quote: "Needed an emergency root canal on a Friday. They got me in within two hours of calling. Professional, efficient, and genuinely caring staff. This is the gold standard for dental care.",
+    author: 'David K.',
+    location: 'Lake Forest, CA',
+    rating: 5,
+  },
+  {
+    quote: "My general dentist referred me here for a complicated case involving a curved root. The CT scan showed exactly what was going on and they treated it non-surgically when I thought surgery was unavoidable. Incredible.",
+    author: 'Patricia L.',
+    location: 'Rancho Santa Margarita, CA',
+    rating: 5,
+  },
+  {
+    quote: "The office is immaculate, the staff is warm and professional, and Dr. [Name] clearly loves what she does. I've recommended Saddleback Valley Endodontics to everyone I know who needs a root canal.",
+    author: 'Robert H.',
+    location: 'Mission Viejo, CA',
+    rating: 5,
+  },
+];
+---
+
+<BaseLayout
+  title="Patient Reviews — Saddleback Valley Endodontics"
+  description="Read patient reviews for Saddleback Valley Endodontics in Mission Viejo, CA — see what patients from Laguna Hills, Aliso Viejo, and South OC say about their experience."
+>
+  <Header variant="solid" active="practice" />
+
+  <main>
+
+    <section class="pr-intro">
+      <p class="pr-eyebrow">Patient Reviews</p>
+      <h1 class="pr-title">What our patients say<br/>about their care.</h1>
+      <p class="pr-lede">
+        We're proud of the trust our patients place in us. Read what people from Laguna Hills,
+        Mission Viejo, and throughout South Orange County have to say about their experience.
+      </p>
+    </section>
+
+    <section class="pr-rating-bar">
+      <div class="pr-rating-inner">
+        <div class="pr-rating-item" data-reveal data-reveal-delay="1">
+          <p class="pr-rating-score">5.0</p>
+          <div class="pr-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="pr-rating-source">Google Reviews</p>
+        </div>
+        <div class="pr-rating-divider" aria-hidden="true"></div>
+        <div class="pr-rating-item" data-reveal data-reveal-delay="2">
+          <p class="pr-rating-score">5.0</p>
+          <div class="pr-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="pr-rating-source">Healthgrades</p>
+        </div>
+        <div class="pr-rating-divider" aria-hidden="true"></div>
+        <div class="pr-rating-item" data-reveal data-reveal-delay="3">
+          <p class="pr-rating-score">5.0</p>
+          <div class="pr-stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <p class="pr-rating-source">Yelp</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="pr-reviews">
+      <div class="pr-reviews-grid">
+        {reviews.map((r, i) => (
+          <div class="pr-review-card" data-reveal data-reveal-delay={String((i % 3) + 1)}>
+            <div class="pr-review-stars" aria-label={`${r.rating} out of 5 stars`}>
+              {'★'.repeat(r.rating)}
+            </div>
+            <blockquote class="pr-review-quote">
+              <p>"{r.quote}"</p>
+            </blockquote>
+            <div class="pr-review-author">
+              <p class="pr-author-name">{r.author}</p>
+              <p class="pr-author-location">{r.location}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="pr-leave-review">
+      <div class="pr-leave-inner" data-reveal>
+        <p class="pr-section-eyebrow">Share Your Experience</p>
+        <h2 class="pr-section-headline">Your feedback helps other<br/>patients find the right care.</h2>
+        <p class="pr-leave-body">
+          If you've been a patient at Saddleback Valley Endodontics, we'd be honored if you
+          shared your experience. Reviews help patients facing dental fear or uncertainty know
+          what to expect.
+        </p>
+        <a href="https://g.page/r/review" class="pr-leave-btn" target="_blank" rel="noopener noreferrer">
+          Leave a Google Review
+        </a>
+      </div>
+    </section>
+
+    <section class="pr-cta">
+      <div class="pr-cta-inner" data-reveal>
+        <p class="pr-cta-eyebrow">Ready to schedule?</p>
+        <h2 class="pr-cta-headline">Join thousands of patients<br/>who trust our care.</h2>
+        <p class="pr-cta-body">
+          Call <a href="tel:+19498373033">(949) 837-3033</a> or request an appointment online.
+          Same-day urgent care available.
+        </p>
+        <a href="/request-an-appointment/" class="pr-cta-btn">Request an Appointment</a>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<style is:global>
+  main { padding-top: var(--header-h); }
+
+  .pr-intro {
+    padding: clamp(80px, 13vh, 140px) clamp(28px, 6vw, 88px) clamp(60px, 9vh, 100px);
+    max-width: 960px; margin: 0 auto;
+    border-bottom: 1px solid var(--color-line);
+  }
+  .pr-eyebrow {
+    font-size: 11px; letter-spacing: 0.36em; text-transform: uppercase;
+    font-weight: 500; color: var(--color-ink-soft); margin: 0 0 32px;
+  }
+  .pr-title {
+    font-family: var(--font-display); font-weight: 300;
+    font-size: clamp(48px, 7.5vw, 96px); line-height: 1;
+    letter-spacing: -0.015em; margin: 0 0 28px;
+  }
+  .pr-lede {
+    font-size: clamp(16px, 1.5vw, 19px); line-height: 1.65;
+    color: var(--color-ink-soft); max-width: 58ch; margin: 0;
+  }
+
+  .pr-rating-bar {
+    background: var(--color-paper-warm);
+    border-bottom: 1px solid var(--color-line);
+    padding: clamp(48px, 7vh, 72px) clamp(28px, 6vw, 88px);
+  }
+  .pr-rating-inner {
+    display: flex; align-items: center; justify-content: center;
+    gap: clamp(32px, 6vw, 80px); max-width: 800px; margin: 0 auto;
+  }
+  .pr-rating-item { text-align: center; }
+  .pr-rating-score {
+    font-family: var(--font-display); font-weight: 300;
+    font-size: clamp(40px, 6vw, 64px); line-height: 1; letter-spacing: -0.02em;
+    color: var(--color-ink); margin: 0 0 8px;
+  }
+  .pr-stars { font-size: 18px; color: #c9a84c; letter-spacing: 2px; margin: 0 0 10px; }
+  .pr-rating-source {
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    font-weight: 500; color: var(--color-ink-soft); margin: 0;
+  }
+  .pr-rating-divider {
+    width: 1px; height: 64px; background: var(--color-line); flex-shrink: 0;
+  }
+
+  .pr-reviews { padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px); }
+  .pr-reviews-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: var(--color-line); border: 1px solid var(--color-line);
+    max-width: 1200px; margin: 0 auto;
+  }
+  .pr-review-card {
+    background: var(--color-paper);
+    padding: clamp(32px, 4vw, 48px) clamp(24px, 3vw, 36px);
+    display: flex; flex-direction: column; gap: 20px;
+  }
+  .pr-review-stars { font-size: 16px; color: #c9a84c; letter-spacing: 2px; }
+  .pr-review-quote {
+    margin: 0; flex: 1;
+  }
+  .pr-review-quote p {
+    font-family: var(--font-display); font-weight: 300;
+    font-size: clamp(15px, 1.4vw, 18px); line-height: 1.65;
+    color: var(--color-ink); margin: 0; font-style: italic;
+  }
+  .pr-author-name {
+    font-size: 13px; font-weight: 600; color: var(--color-ink); margin: 0 0 4px;
+  }
+  .pr-author-location {
+    font-size: 12px; color: var(--color-ink-soft); margin: 0;
+  }
+
+  .pr-leave-review {
+    background: var(--color-paper-warm);
+    border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line);
+    padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
+  }
+  .pr-leave-inner { max-width: 680px; margin: 0 auto; text-align: center; }
+  .pr-section-eyebrow {
+    font-size: 11px; letter-spacing: 0.36em; text-transform: uppercase;
+    font-weight: 500; color: var(--color-ink-soft); margin: 0 0 20px;
+  }
+  .pr-section-headline {
+    font-family: var(--font-display); font-weight: 300;
+    font-size: clamp(28px, 4vw, 48px); line-height: 1.1;
+    letter-spacing: -0.008em; margin: 0 0 24px;
+  }
+  .pr-leave-body {
+    font-size: clamp(15px, 1.3vw, 17px); line-height: 1.68;
+    color: var(--color-ink-soft); margin: 0 0 36px;
+  }
+  .pr-leave-btn {
+    display: inline-block; font-size: 12px; letter-spacing: 0.28em;
+    text-transform: uppercase; font-weight: 500; padding: 16px 36px;
+    border: 1px solid var(--color-ink); color: var(--color-ink);
+    transition: background 0.28s var(--ease-out), color 0.28s var(--ease-out);
+  }
+  .pr-leave-btn:hover { background: var(--color-ink); color: var(--color-paper); }
+
+  .pr-cta { padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px); }
+  .pr-cta-inner { max-width: 680px; margin: 0 auto; text-align: center; }
+  .pr-cta-eyebrow {
+    font-size: 11px; letter-spacing: 0.36em; text-transform: uppercase;
+    font-weight: 500; color: var(--color-ink-soft); margin: 0 0 28px;
+  }
+  .pr-cta-headline {
+    font-family: var(--font-display); font-weight: 300;
+    font-size: clamp(28px, 4vw, 52px); line-height: 1.1;
+    letter-spacing: -0.01em; margin: 0 0 20px;
+  }
+  .pr-cta-body {
+    font-size: clamp(15px, 1.3vw, 17px); line-height: 1.68;
+    color: var(--color-ink-soft); margin: 0 0 36px;
+  }
+  .pr-cta-body a { border-bottom: 1px solid currentColor; transition: opacity 0.2s; }
+  .pr-cta-body a:hover { opacity: 0.6; }
+  .pr-cta-btn {
+    display: inline-block; font-size: 12px; letter-spacing: 0.28em;
+    text-transform: uppercase; font-weight: 500; padding: 16px 36px;
+    border: 1px solid var(--color-ink); color: var(--color-ink);
+    transition: background 0.28s var(--ease-out), color 0.28s var(--ease-out);
+  }
+  .pr-cta-btn:hover { background: var(--color-ink); color: var(--color-paper); }
+
+  @media (max-width: 960px) {
+    .pr-reviews-grid { grid-template-columns: repeat(2, 1fr); }
+    .pr-rating-inner { gap: clamp(20px, 4vw, 48px); }
+  }
+  @media (max-width: 680px) {
+    .pr-reviews-grid { grid-template-columns: 1fr; }
+    .pr-rating-inner { flex-direction: column; }
+    .pr-rating-divider { width: 64px; height: 1px; }
+  }
+</style>
