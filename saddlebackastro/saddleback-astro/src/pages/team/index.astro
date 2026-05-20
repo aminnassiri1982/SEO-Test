@@ -55,39 +55,40 @@ const doctors = [
   <main>
 
     <section class="page-intro">
-      <p class="page-eyebrow">Our Team</p>
-      <h1 class="page-title">The specialists.</h1>
-      <div class="page-lede-block">
-        <p class="page-lede">
-          We feel fortunate to be part of an AMAZING dental team! We are proud that our team
-          shares a do-good attitude, as well as the values of honesty and professional integrity.
-          Our doctors, receptionists and clinical assistants are highly skilled and focused on
-          delivering kind, comfortable, and efficient care.
-        </p>
-        <p class="page-lede">
-          Although we take great pride in the quality of our work, our highest joy comes through
-          genuinely helping people. We love to "turn that frown upside down" and build positive
-          trusting relationships.
-        </p>
-        <p class="page-lede">
-          Our team extends beyond our own office into the community as we work with many talented
-          General Dentists and Specialists. We are privileged to serve as an extension of their
-          teams and are grateful for their trust and confidence in us. We all work together for
-          one purpose — caring for YOU the very best that we can!
-        </p>
-      </div>
-    </section>
-
-    <section class="team-video">
-      <div class="team-video-inner">
-        <div class="team-video-embed">
-          <iframe
-            src="https://www.youtube.com/embed/E4-ryf6jQ5Y"
-            title="Saddleback Valley Endodontics Team"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            loading="lazy"
-          ></iframe>
+      <div class="page-intro-grid">
+        <div class="page-intro-text">
+          <p class="page-eyebrow">Our Team</p>
+          <h1 class="page-title">The specialists.</h1>
+          <div class="page-lede-block">
+            <p class="page-lede">
+              We feel fortunate to be part of an AMAZING dental team! We are proud that our team
+              shares a do-good attitude, as well as the values of honesty and professional integrity.
+              Our doctors, receptionists and clinical assistants are highly skilled and focused on
+              delivering kind, comfortable, and efficient care.
+            </p>
+            <p class="page-lede">
+              Although we take great pride in the quality of our work, our highest joy comes through
+              genuinely helping people. We love to "turn that frown upside down" and build positive
+              trusting relationships.
+            </p>
+            <p class="page-lede">
+              Our team extends beyond our own office into the community as we work with many talented
+              General Dentists and Specialists. We are privileged to serve as an extension of their
+              teams and are grateful for their trust and confidence in us. We all work together for
+              one purpose — caring for YOU the very best that we can!
+            </p>
+          </div>
+        </div>
+        <div class="page-intro-video">
+          <div class="team-video-embed">
+            <iframe
+              src="https://www.youtube.com/embed/E4-ryf6jQ5Y"
+              title="Saddleback Valley Endodontics Team"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
         </div>
       </div>
     </section>
@@ -141,8 +142,14 @@ const doctors = [
 
   .page-intro {
     padding: clamp(80px, 13vh, 140px) clamp(28px, 6vw, 88px) clamp(60px, 9vh, 100px);
-    max-width: 960px;
     border-bottom: 1px solid var(--color-line);
+  }
+  .page-intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(48px, 7vw, 96px);
+    align-items: center;
+    max-width: 1280px;
   }
   .page-eyebrow {
     font-size: 11px;
@@ -155,25 +162,18 @@ const doctors = [
   .page-title {
     font-family: var(--font-display);
     font-weight: 300;
-    font-size: clamp(52px, 8vw, 104px);
+    font-size: clamp(48px, 6vw, 88px);
     line-height: 1;
     letter-spacing: -0.015em;
     margin: 0 0 28px;
   }
-  .page-lede-block { max-width: 68ch; display: flex; flex-direction: column; gap: 20px; }
+  .page-lede-block { display: flex; flex-direction: column; gap: 18px; }
   .page-lede {
-    font-size: clamp(15px, 1.4vw, 18px);
+    font-size: clamp(14px, 1.3vw, 17px);
     line-height: 1.72;
     color: var(--color-ink-soft);
     margin: 0;
   }
-
-  .team-video {
-    border-bottom: 1px solid var(--color-line);
-    background: var(--color-paper-warm);
-    padding: clamp(56px, 9vh, 96px) clamp(28px, 6vw, 88px);
-  }
-  .team-video-inner { max-width: 960px; margin: 0 auto; }
   .team-video-embed {
     position: relative;
     width: 100%;
@@ -369,6 +369,7 @@ const doctors = [
   .docs-referral-contact a:hover { opacity: 0.6; }
 
   @media (max-width: 900px) {
+    .page-intro-grid { grid-template-columns: 1fr; }
     .docs-card { grid-template-columns: 1fr; }
     .docs-portrait-wrap { max-width: 320px; position: static; aspect-ratio: 1 / 1; }
     .docs-referral-cards { grid-template-columns: 1fr; }
