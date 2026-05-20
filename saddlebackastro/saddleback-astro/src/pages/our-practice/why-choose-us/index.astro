@@ -45,13 +45,20 @@ const reasons = [
 
   <main>
 
-    <section class="wc-intro">
-      <p class="wc-eyebrow">Why Choose Us</p>
-      <h1 class="wc-title">The specialist difference<br/>is real.</h1>
-      <p class="wc-lede">
-        Not all root canals are the same. A fellowship-trained endodontist, a surgical
-        microscope, and in-office 3D imaging change what's possible — and what you experience.
-      </p>
+    <section class="wc-hero">
+      <div class="wc-hero-image">
+        <img src="/images/Saddleback-Valley-Endodontics-team.webp" alt="Saddleback Valley Endodontics team" />
+        <div class="wc-hero-overlay"></div>
+      </div>
+      <div class="wc-hero-content">
+        <p class="wc-hero-eyebrow">Laguna Hills, CA</p>
+        <h1 class="wc-hero-title">The specialist difference<br/>is real.</h1>
+        <p class="wc-hero-sub">
+          Not all root canals are the same. A fellowship-trained endodontist, a surgical
+          microscope, and in-office 3D imaging change what's possible — and what you experience.
+        </p>
+        <a href="/request-an-appointment/" class="wc-hero-btn">Request an Appointment</a>
+      </div>
     </section>
 
     <section class="wc-reasons">
@@ -137,24 +144,41 @@ const reasons = [
 <style is:global>
   main { padding-top: var(--header-h); }
 
-  .wc-intro {
-    padding: clamp(80px, 13vh, 140px) clamp(28px, 6vw, 88px) clamp(60px, 9vh, 100px);
-    max-width: 960px; margin: 0 auto;
-    border-bottom: 1px solid var(--color-line);
+  .wc-hero {
+    position: relative; min-height: 520px;
+    display: flex; flex-direction: column; justify-content: flex-end;
   }
-  .wc-eyebrow {
+  .wc-hero-image { position: absolute; inset: 0; overflow: hidden; }
+  .wc-hero-image img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+  .wc-hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(10,10,10,0.25) 0%, rgba(10,10,10,0.65) 100%);
+  }
+  .wc-hero-content {
+    position: relative;
+    padding: clamp(56px, 10vh, 120px) clamp(28px, 6vw, 88px) 48px;
+    color: #fff; max-width: 800px;
+  }
+  .wc-hero-eyebrow {
     font-size: 11px; letter-spacing: 0.36em; text-transform: uppercase;
-    font-weight: 500; color: var(--color-ink-soft); margin: 0 0 32px;
+    font-weight: 500; color: rgba(255,255,255,0.65); margin: 0 0 20px;
   }
-  .wc-title {
+  .wc-hero-title {
     font-family: var(--font-display); font-weight: 300;
-    font-size: clamp(48px, 7.5vw, 96px); line-height: 1;
-    letter-spacing: -0.015em; margin: 0 0 28px;
+    font-size: clamp(36px, 5.5vw, 72px); line-height: 1.05;
+    letter-spacing: -0.015em; margin: 0 0 18px; color: #fff;
   }
-  .wc-lede {
-    font-size: clamp(16px, 1.5vw, 19px); line-height: 1.65;
-    color: var(--color-ink-soft); max-width: 58ch; margin: 0;
+  .wc-hero-sub {
+    font-size: clamp(15px, 1.4vw, 18px); color: rgba(255,255,255,0.82);
+    margin: 0 0 32px; max-width: 52ch; line-height: 1.6;
   }
+  .wc-hero-btn {
+    display: inline-block; font-size: 12px; letter-spacing: 0.28em;
+    text-transform: uppercase; font-weight: 500; padding: 16px 36px;
+    border: 1px solid #fff; background: #fff; color: var(--color-ink);
+    transition: background 0.28s var(--ease-out), color 0.28s var(--ease-out);
+  }
+  .wc-hero-btn:hover { background: transparent; color: #fff; }
 
   .wc-reasons { padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px); }
   .wc-reasons-header { margin-bottom: clamp(48px, 7vh, 72px); text-align: center; }
@@ -170,7 +194,7 @@ const reasons = [
   .wc-reasons-grid {
     display: grid; grid-template-columns: repeat(3, 1fr);
     gap: 1px; background: var(--color-line); border: 1px solid var(--color-line);
-    max-width: 1200px;
+    max-width: 1200px; margin: 0 auto;
   }
   .wc-reason-card {
     background: var(--color-paper);
