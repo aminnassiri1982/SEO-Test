@@ -173,6 +173,20 @@ const SLIDE_IMG   = 'https://cdn.shortpixel.ai/spai/q_lossless+w_838+to_webp+ret
     </ul>
   </section>
 
+  <!-- MISSION -->
+  <section class="mission-section">
+    <div class="mission-inner">
+      <div class="mission-label" data-reveal>
+        <p class="mission-eyebrow">Our Mission</p>
+        <div class="mission-rule"></div>
+      </div>
+      <blockquote class="mission-text" data-reveal="right">
+        <p>Our mission is to provide exceptional endodontic care and service for our patients and referring doctors. We provide skillful treatment in a compassionate, accommodating, and comfortable environment.</p>
+        <p>We strive to create a positive experience for everyone in our office, and to exceed our patients' expectations at all steps throughout their treatment. We work with a spirit of optimism and positivity, understanding that this is how we serve best as a team and genuinely care for people. We constantly refine our knowledge, skills, and ourselves to better accomplish our mission.</p>
+      </blockquote>
+    </div>
+  </section>
+
   <!-- TEAM -->
   <section class="section section--dark" id="team">
     <header class="section-header">
@@ -598,6 +612,39 @@ const SLIDE_IMG   = 'https://cdn.shortpixel.ai/spai/q_lossless+w_838+to_webp+ret
   }
 
   /* SECTIONS — shared */
+  .mission-section {
+    padding: clamp(80px, 13vh, 140px) clamp(28px, 6vw, 88px);
+    border-bottom: 1px solid var(--color-line);
+  }
+  .mission-inner {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: clamp(48px, 7vw, 120px);
+    align-items: start;
+    max-width: 1100px;
+  }
+  .mission-eyebrow {
+    font-size: 11px; letter-spacing: 0.36em; text-transform: uppercase;
+    font-weight: 500; color: var(--color-ink-soft); margin: 0 0 20px;
+  }
+  .mission-rule {
+    width: 32px; height: 1px; background: var(--color-ink-soft);
+  }
+  .mission-text {
+    margin: 0; padding: 0; border: none;
+  }
+  .mission-text p {
+    font-family: var(--font-display); font-weight: 300;
+    font-size: clamp(19px, 2.2vw, 28px); line-height: 1.65;
+    letter-spacing: -0.005em; color: var(--color-ink);
+    margin: 0 0 24px;
+  }
+  .mission-text p:last-child { margin-bottom: 0; }
+  @media (max-width: 700px) {
+    .mission-inner { grid-template-columns: 1fr; gap: 32px; }
+    .mission-rule { display: none; }
+  }
+
   .welcome-section {
     padding: clamp(72px, 11vh, 120px) clamp(28px, 6vw, 88px);
     border-bottom: 1px solid var(--color-line);
