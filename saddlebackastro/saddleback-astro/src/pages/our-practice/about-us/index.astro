@@ -107,7 +107,7 @@ import Footer from '../../../components/Footer.astro';
           <p class="ab-stat-label">Patient Satisfaction Rate</p>
         </div>
         <div class="ab-stat" data-reveal data-reveal-delay="4">
-          <p class="ab-stat-number">Same-Day</p>
+          <p class="ab-stat-number ab-stat-number--sm">Same-Day</p>
           <p class="ab-stat-label">Urgent Appointments</p>
         </div>
       </div>
@@ -218,6 +218,9 @@ import Footer from '../../../components/Footer.astro';
     font-family: var(--font-display); font-weight: 300;
     font-size: clamp(32px, 5vw, 56px); line-height: 1; letter-spacing: -0.02em;
     color: var(--color-ink); margin: 0 0 10px;
+  }
+  .ab-stat-number--sm {
+    font-size: clamp(24px, 3vw, 36px);
   }
   .ab-stat-label {
     font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
