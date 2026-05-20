@@ -91,9 +91,6 @@ const patients = [
       </div>
     </div>
 
-    <a href="/team/"       class={active === 'team'  ? 'is-active' : ''}>Team</a>
-    <a href="/technology/" class={active === 'tech'  ? 'is-active' : ''}>Tech</a>
-
     <!-- For Patients dropdown -->
     <div class="nav-has-dropdown" id="patientsNav">
       <a href="/patients/"
@@ -122,6 +119,9 @@ const patients = [
         </div>
       </div>
     </div>
+
+    <a href="/team/"       class={active === 'team'  ? 'is-active' : ''}>Team</a>
+    <a href="/technology/" class={active === 'tech'  ? 'is-active' : ''}>Tech</a>
   </nav>
 </header>
 
@@ -162,11 +162,8 @@ const patients = [
       </div>
     </div>
 
-    <a href="/team/"    style="--i:2" tabindex="-1">Team</a>
-    <a href="/technology/" style="--i:3" tabindex="-1">Tech</a>
-
     <!-- For Patients accordion in mobile -->
-    <div class="mobile-acc" style="--i:4">
+    <div class="mobile-acc" style="--i:2">
       <button class="mobile-acc-btn" aria-expanded="false" tabindex="-1">
         For Patients
         <svg class="mobile-acc-chevron" viewBox="0 0 24 24" aria-hidden="true">
@@ -179,6 +176,9 @@ const patients = [
         ))}
       </div>
     </div>
+
+    <a href="/team/"    style="--i:3" tabindex="-1">Team</a>
+    <a href="/technology/" style="--i:4" tabindex="-1">Tech</a>
 
     <a href="/blog/"   style="--i:5" tabindex="-1">Journal</a>
     <a href="/contact/" style="--i:6" tabindex="-1">Contact</a>
