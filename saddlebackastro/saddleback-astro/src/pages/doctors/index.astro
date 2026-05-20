@@ -99,15 +99,54 @@ const doctors = [
     </section>
 
     <section class="docs-referral-band">
-      <div class="docs-referral-inner">
+      <div class="docs-referral-header" data-reveal>
         <p class="docs-referral-eyebrow">For Referring Doctors</p>
         <h2 class="docs-referral-headline">We work alongside your team, not around it.</h2>
         <p class="docs-referral-body">
           We send a detailed consultation report within 24 hours of every patient visit. Urgent
-          referrals are seen the same day when possible. Call us directly at{' '}
-          <a href="tel:+19495818890">(949) 581-8890</a> or use the referral form.
+          referrals are seen the same day when possible. Choose the referral method that works
+          best for your office.
         </p>
-        <a href="/contact/#referral" class="docs-cta-btn">Refer a Patient</a>
+      </div>
+
+      <div class="docs-referral-cards">
+        <div class="docs-referral-card" data-reveal data-reveal-delay="1">
+          <p class="docs-ref-card-eyebrow">Existing Referring Doctors</p>
+          <h3 class="docs-ref-card-title">Log in to your<br/>referral portal.</h3>
+          <p class="docs-ref-card-body">
+            Access your secure portal to submit referrals, view case updates, and retrieve
+            consultation reports for your patients.
+          </p>
+          <a
+            href="https://securesite29.tdo4endo.com/RefDocsLogin.aspx"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="docs-ref-card-btn docs-ref-card-btn--primary"
+          >
+            Referring Doctor Login
+          </a>
+        </div>
+
+        <div class="docs-referral-card" data-reveal data-reveal-delay="2">
+          <p class="docs-ref-card-eyebrow">New or No-Login Referral</p>
+          <h3 class="docs-ref-card-title">Refer a patient<br/>without logging in.</h3>
+          <p class="docs-ref-card-body">
+            Prefer a quick form? Submit your referral directly — no account required. We'll
+            contact your office to confirm and schedule.
+          </p>
+          <a
+            href="https://refer.sbvendo.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="docs-ref-card-btn docs-ref-card-btn--secondary"
+          >
+            Submit a Referral
+          </a>
+        </div>
+      </div>
+
+      <div class="docs-referral-contact" data-reveal>
+        <p>Questions? Call us directly at <a href="tel:+19495818890">(949) 581-8890</a> or fax <a href="tel:+19495813902">(949) 581-3902</a>.</p>
       </div>
     </section>
 
@@ -250,54 +289,74 @@ const doctors = [
     padding: clamp(80px, 12vh, 140px) clamp(28px, 6vw, 88px);
     border-top: 1px solid var(--color-line);
   }
-  .docs-referral-inner { max-width: 680px; }
+
+  .docs-referral-header { max-width: 680px; margin-bottom: clamp(48px, 7vh, 72px); }
 
   .docs-referral-eyebrow {
-    font-size: 11px;
-    letter-spacing: 0.36em;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: var(--color-ink-soft);
-    margin: 0 0 28px;
+    font-size: 11px; letter-spacing: 0.36em; text-transform: uppercase;
+    font-weight: 500; color: var(--color-ink-soft); margin: 0 0 28px;
   }
-
   .docs-referral-headline {
-    font-family: var(--font-display);
-    font-weight: 300;
-    font-size: clamp(28px, 4vw, 48px);
-    line-height: 1.1;
-    letter-spacing: -0.008em;
-    margin: 0 0 24px;
+    font-family: var(--font-display); font-weight: 300;
+    font-size: clamp(28px, 4vw, 48px); line-height: 1.1;
+    letter-spacing: -0.008em; margin: 0 0 24px;
   }
-
   .docs-referral-body {
-    font-size: clamp(15px, 1.3vw, 17px);
-    line-height: 1.68;
-    color: var(--color-ink-soft);
-    margin: 0 0 36px;
+    font-size: clamp(15px, 1.3vw, 17px); line-height: 1.68;
+    color: var(--color-ink-soft); margin: 0;
   }
-  .docs-referral-body a { border-bottom: 1px solid currentColor; transition: opacity 0.2s; }
-  .docs-referral-body a:hover { opacity: 0.6; }
 
-  .docs-cta-btn {
-    display: inline-block;
-    font-size: 12px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    font-weight: 500;
-    padding: 16px 36px;
-    border: 1px solid var(--color-ink);
-    color: var(--color-ink);
+  .docs-referral-cards {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1px; background: var(--color-line); border: 1px solid var(--color-line);
+    max-width: 880px;
+  }
+  .docs-referral-card {
+    background: var(--color-paper);
+    padding: clamp(40px, 5vw, 64px) clamp(32px, 4vw, 52px);
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .docs-ref-card-eyebrow {
+    font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase;
+    font-weight: 500; color: var(--color-ink-soft); margin: 0;
+  }
+  .docs-ref-card-title {
+    font-family: var(--font-display); font-weight: 300;
+    font-size: clamp(24px, 2.8vw, 36px); line-height: 1.1;
+    letter-spacing: -0.008em; margin: 0; color: var(--color-ink);
+  }
+  .docs-ref-card-body {
+    font-size: clamp(14px, 1.2vw, 15px); line-height: 1.68;
+    color: var(--color-ink-soft); margin: 0; flex: 1;
+  }
+  .docs-ref-card-btn {
+    display: inline-block; align-self: flex-start; margin-top: 8px;
+    font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase;
+    font-weight: 500; padding: 14px 32px;
     transition: background 0.28s var(--ease-out), color 0.28s var(--ease-out);
   }
-  .docs-cta-btn:hover {
-    background: var(--color-ink);
-    color: var(--color-paper);
+  .docs-ref-card-btn--primary {
+    background: var(--color-ink); color: var(--color-paper);
+    border: 1px solid var(--color-ink);
   }
+  .docs-ref-card-btn--primary:hover { background: transparent; color: var(--color-ink); }
+  .docs-ref-card-btn--secondary {
+    background: transparent; color: var(--color-ink);
+    border: 1px solid var(--color-ink);
+  }
+  .docs-ref-card-btn--secondary:hover { background: var(--color-ink); color: var(--color-paper); }
+
+  .docs-referral-contact {
+    margin-top: clamp(32px, 4vh, 48px);
+    font-size: 14px; color: var(--color-ink-soft);
+  }
+  .docs-referral-contact a { border-bottom: 1px solid currentColor; transition: opacity 0.2s; }
+  .docs-referral-contact a:hover { opacity: 0.6; }
 
   @media (max-width: 900px) {
     .docs-card { grid-template-columns: 1fr; }
     .docs-portrait-wrap { max-width: 320px; position: static; aspect-ratio: 1 / 1; }
+    .docs-referral-cards { grid-template-columns: 1fr; }
   }
   @media (max-width: 560px) {
     .docs-cols { grid-template-columns: 1fr; gap: 32px; }
