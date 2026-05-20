@@ -19,6 +19,7 @@ const patients = [
   { label: 'Your First Visit',              href: '/patients/first-visit/' },
   { label: 'Insurance & Financing',         href: '/patients/insurance-financing/' },
   { label: 'Post-Operative Instructions',   href: '/patients/post-operative-instructions/' },
+  { label: 'Patient Login',                 href: 'https://securesite29.tdo4endo.com/PatientsLogin.aspx', external: true },
 ];
 
 const practice = [
@@ -117,7 +118,7 @@ const practice = [
           <ul class="nav-dropdown-list">
             {patients.map(p => (
               <li>
-                <a href={p.href} class="nav-dropdown-link">
+                <a href={p.href} class="nav-dropdown-link" target={p.external ? '_blank' : undefined} rel={p.external ? 'noopener noreferrer' : undefined}>
                   <span>{p.label}</span>
                   <span class="nav-dropdown-arrow" aria-hidden="true"></span>
                 </a>
@@ -207,7 +208,7 @@ const practice = [
       </button>
       <div class="mobile-acc-panel">
         {patients.map(p => (
-          <a href={p.href} tabindex="-1">{p.label}</a>
+          <a href={p.href} tabindex="-1" target={p.external ? '_blank' : undefined} rel={p.external ? 'noopener noreferrer' : undefined}>{p.label}</a>
         ))}
       </div>
     </div>
