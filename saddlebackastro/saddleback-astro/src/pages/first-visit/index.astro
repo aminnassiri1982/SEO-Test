@@ -1,7 +1,7 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
-import Header from '../../../components/Header.astro';
-import Footer from '../../../components/Footer.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
 ---
 
 <BaseLayout
@@ -13,12 +13,23 @@ import Footer from '../../../components/Footer.astro';
   <main>
 
     <section class="page-intro">
-      <p class="page-eyebrow">For Patients</p>
-      <h1 class="page-title">Your first visit,<br/>made easy.</h1>
-      <p class="page-lede">
-        We know a specialist referral can feel unfamiliar. Here's exactly what to expect —
-        from the moment you call to the moment you leave.
-      </p>
+      <div class="page-intro-grid">
+        <div class="page-intro-text">
+          <p class="page-eyebrow">For Patients</p>
+          <h1 class="page-title">Your first visit,<br/>made easy.</h1>
+          <p class="page-lede">
+            We know a specialist referral can feel unfamiliar. Here's exactly what to expect —
+            from the moment you call to the moment you leave.
+          </p>
+        </div>
+        <div class="page-intro-image">
+          <img
+            src="/images/Saddleback-Valley-Endodontics-team.webp"
+            alt="Saddleback Valley Endodontics team"
+            loading="eager"
+          />
+        </div>
+      </div>
     </section>
 
     <section class="fv-bring">
@@ -149,9 +160,23 @@ import Footer from '../../../components/Footer.astro';
 
   .page-intro {
     padding: clamp(80px, 13vh, 140px) clamp(28px, 6vw, 88px) clamp(60px, 9vh, 100px);
-    max-width: 960px;
-    margin: 0 auto;
     border-bottom: 1px solid var(--color-line);
+  }
+  .page-intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: clamp(48px, 5vw, 80px);
+    align-items: center;
+  }
+  .page-intro-image img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    max-height: 480px;
+  }
+  @media (max-width: 860px) {
+    .page-intro-grid { grid-template-columns: 1fr; }
+    .page-intro-image { order: -1; }
+    .page-intro-image img { max-height: 280px; }
   }
   .page-eyebrow {
     font-size: 11px;
