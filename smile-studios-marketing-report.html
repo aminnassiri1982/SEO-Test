@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smile Studios Dentistry - Marketing Report</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:#f0f4f8;color:#1a202c;line-height:1.6}
+.container{max-width:1100px;margin:0 auto;padding:20px}
+.cover{background:linear-gradient(135deg,#0f4c75 0%,#3282b8 50%,#0f4c75 100%);color:#fff;border-radius:16px;padding:60px 50px;margin-bottom:30px;position:relative;overflow:hidden}
+.cover::after{content:'';position:absolute;top:-50%;right:-20%;width:500px;height:500px;background:rgba(255,255,255,.05);border-radius:50%}
+.cover h1{font-size:2.6em;font-weight:800;margin-bottom:8px}
+.cover .subtitle{font-size:1.2em;opacity:.85;margin-bottom:30px}
+.cover-meta{display:flex;gap:30px;flex-wrap:wrap;font-size:.95em;opacity:.8}
+.cover-meta span{display:flex;align-items:center;gap:6px}
+.section{background:#fff;border-radius:12px;padding:35px 40px;margin-bottom:24px;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.section h2{font-size:1.5em;color:#0f4c75;margin-bottom:20px;padding-bottom:10px;border-bottom:2px solid #e2e8f0;display:flex;align-items:center;gap:10px}
+.section h3{font-size:1.15em;color:#2d3748;margin:20px 0 10px}
+.score-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:20px}
+.score-card{background:linear-gradient(135deg,#f7fafc,#edf2f7);border-radius:12px;padding:24px;text-align:center;border:1px solid #e2e8f0}
+.score-card .big{font-size:2.4em;font-weight:800;color:#0f4c75}
+.score-card .label{font-size:.85em;color:#718096;margin-top:4px}
+.score-card.green .big{color:#38a169}
+.score-card.red .big{color:#e53e3e}
+.score-card.orange .big{color:#dd6b20}
+.score-card.blue .big{color:#3182ce}
+.stars{color:#f6ad55;font-size:1.3em;letter-spacing:2px}
+table{width:100%;border-collapse:collapse;margin:15px 0}
+th{background:#0f4c75;color:#fff;padding:12px 16px;text-align:left;font-size:.85em;text-transform:uppercase;letter-spacing:.5px}
+td{padding:11px 16px;border-bottom:1px solid #e2e8f0;font-size:.92em}
+tr:hover td{background:#f7fafc}
+.badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.78em;font-weight:600;text-transform:uppercase}
+.badge.high{background:#fed7d7;color:#c53030}
+.badge.medium{background:#fefcbf;color:#975a16}
+.badge.low{background:#c6f6d5;color:#276749}
+.bar-chart{margin:15px 0}
+.bar-row{display:flex;align-items:center;margin-bottom:10px}
+.bar-label{width:160px;font-size:.88em;color:#4a5568;flex-shrink:0}
+.bar-track{flex:1;background:#e2e8f0;border-radius:8px;height:28px;position:relative;overflow:hidden}
+.bar-fill{height:100%;border-radius:8px;display:flex;align-items:center;justify-content:flex-end;padding-right:10px;font-size:.78em;font-weight:700;color:#fff;transition:width .5s}
+.bar-fill.blue{background:linear-gradient(90deg,#3182ce,#2b6cb0)}
+.bar-fill.green{background:linear-gradient(90deg,#38a169,#2f855a)}
+.bar-fill.orange{background:linear-gradient(90deg,#dd6b20,#c05621)}
+.bar-fill.red{background:linear-gradient(90deg,#e53e3e,#c53030)}
+.bar-fill.teal{background:linear-gradient(90deg,#319795,#2c7a7b)}
+.donut-container{display:flex;align-items:center;gap:30px;flex-wrap:wrap;justify-content:center;margin:20px 0}
+.donut{width:180px;height:180px;position:relative}
+.donut svg{transform:rotate(-90deg)}
+.donut-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center}
+.donut-center .val{font-size:2em;font-weight:800;color:#0f4c75}
+.donut-center .lbl{font-size:.75em;color:#718096}
+.donut-legend{display:flex;flex-direction:column;gap:8px}
+.legend-item{display:flex;align-items:center;gap:8px;font-size:.88em}
+.legend-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0}
+.timeline{position:relative;padding-left:30px;margin:20px 0}
+.timeline::before{content:'';position:absolute;left:12px;top:0;bottom:0;width:3px;background:#e2e8f0;border-radius:2px}
+.timeline-item{position:relative;margin-bottom:24px}
+.timeline-item::before{content:'';position:absolute;left:-24px;top:4px;width:16px;height:16px;border-radius:50%;border:3px solid #0f4c75;background:#fff}
+.timeline-item.phase1::before{background:#e53e3e;border-color:#e53e3e}
+.timeline-item.phase2::before{background:#dd6b20;border-color:#dd6b20}
+.timeline-item.phase3::before{background:#3182ce;border-color:#3182ce}
+.timeline-item.phase4::before{background:#38a169;border-color:#38a169}
+.timeline-phase{font-weight:700;font-size:1em;margin-bottom:6px}
+.timeline-actions{list-style:none;padding:0}
+.timeline-actions li{padding:4px 0;font-size:.9em;color:#4a5568;padding-left:14px;position:relative}
+.timeline-actions li::before{content:'';position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:50%;background:#a0aec0}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:700px){.two-col{grid-template-columns:1fr}.cover{padding:30px 20px}.cover h1{font-size:1.8em}.section{padding:20px 16px}.score-row{grid-template-columns:repeat(2,1fr)}.bar-label{width:100px;font-size:.8em}.bar-fill{font-size:.7em;padding-right:6px}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap}th,td{padding:8px 10px;font-size:.8em}.cover-meta{gap:12px;font-size:.85em}.section h2{font-size:1.2em;flex-wrap:wrap}.cannibal-example .vs{flex-direction:column}.cannibal-example .page-box{min-width:100%}.cannibal-example .vs-icon{align-self:center}.timeline{padding-left:24px}.cannibal-example{padding:14px}.cannibal-fix{padding:10px 12px;font-size:.85em}}
+.alert{padding:14px 18px;border-radius:8px;margin:12px 0;font-size:.92em;display:block;overflow-wrap:break-word;word-wrap:break-word;word-break:break-word}
+.alert.critical{background:#fed7d7;border-left:4px solid #e53e3e;color:#742a2a}
+.alert.warning{background:#fefcbf;border-left:4px solid #d69e2e;color:#744210}
+.alert.success{background:#c6f6d5;border-left:4px solid #38a169;color:#22543d}
+.alert.info{background:#bee3f8;border-left:4px solid #3182ce;color:#2a4365}
+code{background:#f7fafc;padding:2px 6px;border-radius:4px;font-size:.85em;word-break:break-all;display:inline}
+.container{overflow-x:hidden}
+.footer{text-align:center;padding:30px;color:#a0aec0;font-size:.85em}
+.tag-row{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.tag{background:#edf2f7;color:#4a5568;padding:4px 12px;border-radius:20px;font-size:.82em}
+.tag.missing{background:#fed7d7;color:#c53030}
+.tag.found{background:#c6f6d5;color:#276749}
+.cannibal-example{background:#fff5f5;border:1px solid #fed7d7;border-radius:10px;padding:20px;margin:12px 0}
+.cannibal-example .vs{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin:10px 0}
+.cannibal-example .page-box{flex:1;min-width:200px;padding:14px;border-radius:8px;font-size:.9em}
+.cannibal-example .page-box.service{background:#c6f6d5;border:1px solid #9ae6b4}
+.cannibal-example .page-box.blog{background:#fed7d7;border:1px solid #feb2b2}
+.cannibal-example .vs-icon{font-size:1.4em;font-weight:800;color:#e53e3e;flex-shrink:0}
+.cannibal-fix{background:#f0fff4;border:1px solid #c6f6d5;border-radius:8px;padding:14px 18px;margin:8px 0;font-size:.92em}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- COVER -->
+<div class="cover">
+  <h1>Marketing & SEO Report</h1>
+  <div class="subtitle">Smile Studios Dentistry &mdash; Bakersfield, CA</div>
+  <div class="cover-meta">
+    <span>&#127760; smilestudiosdentistry.com</span>
+    <span>&#128205; 3612 Coffee Rd, Ste A, Bakersfield, CA 93308</span>
+    <span>&#128222; (661) 587-7645</span>
+    <span>&#128197; April 3, 2026</span>
+  </div>
+</div>
+
+<!-- EXECUTIVE SUMMARY -->
+<div class="section">
+  <h2>&#128202; Executive Summary</h2>
+  <p style="margin-bottom:20px;font-size:1.02em">Smile Studios Dentistry is a well-established practice with <strong>excellent patient reviews</strong> and a solid service lineup. However, there are significant opportunities to improve digital visibility, SEO performance, and patient acquisition.</p>
+
+  <div class="score-row">
+    <div class="score-card green"><div class="big">4.8</div><div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><div class="label">Average Rating</div></div>
+    <div class="score-card blue"><div class="big">533+</div><div class="label">Total Reviews</div></div>
+    <div class="score-card orange"><div class="big">~16</div><div class="label">Indexed Pages</div></div>
+    <div class="score-card red"><div class="big">471</div><div class="label">Instagram Followers</div></div>
+  </div>
+
+  <h3>Top 5 Priority Actions</h3>
+  <div class="alert critical"><strong>1.</strong> Fix website accessibility issues (403 errors blocking crawlers)</div>
+  <div class="alert critical"><strong>2.</strong> Build dedicated service pages with SEO-optimized content</div>
+  <div class="alert warning"><strong>3.</strong> Optimize Google Business Profile & local SEO strategy</div>
+  <div class="alert warning"><strong>4.</strong> Develop content marketing targeting high-value dental keywords (without cannibalizing service pages)</div>
+  <div class="alert info"><strong>5.</strong> Improve social media engagement & consistency</div>
+</div>
+
+<!-- BUSINESS OVERVIEW -->
+<div class="section">
+  <h2>&#127973; Business Overview</h2>
+  <div class="two-col">
+    <div>
+      <h3>Practice Details</h3>
+      <table>
+        <tr><td><strong>Lead Dentists</strong></td><td>Dr. Arbi Ismailyan, DMD & Dr. Ani Ismailyan, DMD</td></tr>
+        <tr><td><strong>Associate</strong></td><td>Dr. Zara Hakobyan, DMD</td></tr>
+        <tr><td><strong>Years Open</strong></td><td>6+ years in Bakersfield</td></tr>
+        <tr><td><strong>Hours</strong></td><td>Mon-Thu 8am-5pm, Fri 8am-1pm</td></tr>
+        <tr><td><strong>Insurance</strong></td><td>Delta Dental, Liberty, Cigna, First Dental Health</td></tr>
+        <tr><td><strong>Financing</strong></td><td>CareCredit, Sunbit</td></tr>
+        <tr><td><strong>Languages</strong></td><td>Multilingual staff</td></tr>
+      </table>
+    </div>
+    <div>
+      <h3>Services Offered</h3>
+      <table>
+        <tr><td><strong>General</strong></td><td>Checkups, cleanings, X-rays, oral cancer screening</td></tr>
+        <tr><td><strong>Cosmetic</strong></td><td>Veneers, whitening, smile makeovers</td></tr>
+        <tr><td><strong>Restorative</strong></td><td>Implants, crowns, bridges, root canals</td></tr>
+        <tr><td><strong>Orthodontics</strong></td><td>Six Month Smiles, clear aligners</td></tr>
+        <tr><td><strong>Surgical</strong></td><td>Extractions, bone grafts</td></tr>
+        <tr><td><strong>Emergency</strong></td><td>Same-day emergency dentistry</td></tr>
+      </table>
+    </div>
+  </div>
+  <h3>Technology & Differentiators</h3>
+  <div class="tag-row">
+    <span class="tag">Intraoral Cameras</span>
+    <span class="tag">iTero Digital Scanning</span>
+    <span class="tag">Digital X-Rays</span>
+    <span class="tag">Spa-Like Ambiance</span>
+    <span class="tag">Husband-Wife Team</span>
+    <span class="tag">Multilingual</span>
+  </div>
+</div>
+
+<!-- ONLINE REPUTATION -->
+<div class="section">
+  <h2>&#11088; Online Reputation</h2>
+  <div class="bar-chart">
+    <div class="bar-row"><span class="bar-label">Google (276)</span><div class="bar-track"><div class="bar-fill blue" style="width:96%">4.8 &#9733;</div></div></div>
+    <div class="bar-row"><span class="bar-label">Birdeye Agg. (533)</span><div class="bar-track"><div class="bar-fill green" style="width:96%">4.8 &#9733;</div></div></div>
+    <div class="bar-row"><span class="bar-label">Chamber (407)</span><div class="bar-track"><div class="bar-fill teal" style="width:96%">4.8 &#9733;</div></div></div>
+    <div class="bar-row"><span class="bar-label">Yelp (47)</span><div class="bar-track"><div class="bar-fill orange" style="width:70%">~3.5 &#9733;</div></div></div>
+  </div>
+  <div class="two-col">
+    <div>
+      <h3 style="color:#38a169">Strengths</h3>
+      <ul style="padding-left:18px;font-size:.92em">
+        <li>4.8 stars consistently across platforms</li>
+        <li>Patients praise gentle dentists & friendly staff</li>
+        <li>533+ total reviews &mdash; strong social proof</li>
+        <li>Welcoming atmosphere & modern facility</li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="color:#e53e3e">Opportunities</h3>
+      <ul style="padding-left:18px;font-size:.92em">
+        <li>Only 47 Yelp reviews &mdash; big gap vs. Google</li>
+        <li>Implement systematic post-visit review requests</li>
+        <li>Respond to all reviews (positive & negative) promptly</li>
+        <li>Add review generation via text/email follow-up</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- SEO AUDIT -->
+<div class="section">
+  <h2>&#128269; SEO Audit Findings</h2>
+
+  <h3>Technical SEO Issues</h3>
+  <div class="alert critical"><strong>CRITICAL:</strong> Website returns 403 errors to crawlers/bots. If Googlebot faces the same issue, indexation is severely impacted. Review Wix/Cloudflare security settings immediately.</div>
+  <div class="alert critical"><strong>CRITICAL:</strong> robots.txt and sitemap.xml could not be verified due to 403 blocks. These are foundational for search engine crawling.</div>
+  <div class="alert warning"><strong>WARNING:</strong> NAP inconsistency &mdash; "Smile Studios Dentistry" on website vs. "Smile Studios Family and Cosmetic Dentistry" on Facebook. Standardize across all platforms.</div>
+
+  <h3>Site Architecture &mdash; Indexed Pages</h3>
+  <div class="two-col">
+    <div>
+      <h3 style="color:#38a169;margin-top:8px">Pages Found (16)</h3>
+      <div class="tag-row">
+        <span class="tag found">Homepage</span>
+        <span class="tag found">Services</span>
+        <span class="tag found">Dental Implants</span>
+        <span class="tag found">Veneers</span>
+        <span class="tag found">Whitening</span>
+        <span class="tag found">Checkup</span>
+        <span class="tag found">Emergency</span>
+        <span class="tag found">Our Doctors</span>
+        <span class="tag found">About</span>
+        <span class="tag found">First Visit</span>
+        <span class="tag found">Specials</span>
+        <span class="tag found">Promo</span>
+        <span class="tag found">Location</span>
+        <span class="tag found">FAQ</span>
+        <span class="tag found">Dr. Ani Page</span>
+        <span class="tag found">1 Blog Post</span>
+      </div>
+    </div>
+    <div>
+      <h3 style="color:#e53e3e;margin-top:8px">Missing Pages</h3>
+      <div class="tag-row">
+        <span class="tag missing">Root Canals</span>
+        <span class="tag missing">Crowns & Bridges</span>
+        <span class="tag missing">Extractions</span>
+        <span class="tag missing">Bone Grafts</span>
+        <span class="tag missing">Aligners / Ortho</span>
+        <span class="tag missing">Oral Cancer Screening</span>
+        <span class="tag missing">Dental Fillings</span>
+        <span class="tag missing">Full Mouth Rehab</span>
+        <span class="tag missing">Neighborhood Pages</span>
+        <span class="tag missing">Blog Content</span>
+      </div>
+    </div>
+  </div>
+
+  <h3>Title Tag Analysis</h3>
+  <table>
+    <tr><th>Page</th><th>Current Title</th><th>Issue</th></tr>
+    <tr><td>Homepage</td><td>Dentists in Bakersfield, CA | Smile Studios Dentistry</td><td><span class="badge low">OK</span></td></tr>
+    <tr><td>Services</td><td>Dental Services | Smile Studios Dentistry</td><td><span class="badge medium">Missing "Bakersfield"</span></td></tr>
+    <tr><td>Implants</td><td>Dental Implants in Bakersfield, CA | Expert Tooth Replacement</td><td><span class="badge low">OK</span></td></tr>
+    <tr><td>Veneers</td><td>Smile Makeover | Veneers in Bakersfield, CA</td><td><span class="badge low">OK</span></td></tr>
+    <tr><td>Emergency</td><td>Same-Day Dentist | Emergency Dentistry in Bakersfield, CA</td><td><span class="badge low">OK</span></td></tr>
+    <tr><td>Promo</td><td>Dentists in Bakersfield, CA | Promo - $119 Checkups</td><td><span class="badge medium">Cannibalization risk w/ Homepage</span></td></tr>
+  </table>
+</div>
+
+<!-- BLOG STRATEGY & CANNIBALIZATION -->
+<div class="section">
+  <h2>&#9888; Blog Strategy & Keyword Cannibalization Risk</h2>
+  <p style="margin-bottom:16px;font-size:1.02em"><strong>Keyword cannibalization</strong> occurs when multiple pages on your site compete for the same search term. This confuses Google about which page to rank, often resulting in <em>neither</em> page ranking well. As Smile Studios builds out blog content, it is critical to avoid writing blog posts that target the same primary keywords as existing (or planned) service pages.</p>
+
+  <div class="alert critical"><strong>Key Rule:</strong> Service pages should target transactional keywords (e.g., "emergency dentist Bakersfield"). Blog posts should target informational keywords that <em>support</em> the service page without competing with it.</div>
+
+  <h3>Cannibalization Examples at Smile Studios</h3>
+
+  <div class="cannibal-example">
+    <strong>Example 1: Emergency Dentistry</strong>
+    <div class="vs">
+      <div class="page-box service"><strong>&#9989; Service Page (Exists)</strong><br>"Emergency Dentistry in Bakersfield, CA"<br><em>Target: "emergency dentist bakersfield"</em></div>
+      <div class="vs-icon">vs.</div>
+      <div class="page-box blog"><strong>&#10060; Blog Post (Avoid This)</strong><br>"Emergency Dentist in Bakersfield &mdash; What You Need to Know"<br><em>Target: "emergency dentist bakersfield"</em></div>
+    </div>
+    <div class="cannibal-fix">&#128161; <strong>Fix:</strong> Instead, write blog posts like <em>"What to Do When You Chip a Tooth at Night"</em> or <em>"5 Signs You Need Emergency Dental Care"</em> &mdash; these target informational queries and link back to the Emergency service page.</div>
+  </div>
+
+  <div class="cannibal-example">
+    <strong>Example 2: Dental Implants</strong>
+    <div class="vs">
+      <div class="page-box service"><strong>&#9989; Service Page (Exists)</strong><br>"Dental Implants in Bakersfield, CA"<br><em>Target: "dental implants bakersfield"</em></div>
+      <div class="vs-icon">vs.</div>
+      <div class="page-box blog"><strong>&#10060; Blog Post (Avoid This)</strong><br>"Dental Implants in Bakersfield &mdash; Your Complete Guide"<br><em>Target: "dental implants bakersfield"</em></div>
+    </div>
+    <div class="cannibal-fix">&#128161; <strong>Fix:</strong> Instead, write <em>"How Long Do Dental Implants Last?"</em> or <em>"Dental Implants vs. Bridges: Which Is Right for You?"</em> &mdash; these answer questions and funnel readers to the Implants service page.</div>
+  </div>
+
+  <div class="cannibal-example">
+    <strong>Example 3: Teeth Whitening</strong>
+    <div class="vs">
+      <div class="page-box service"><strong>&#9989; Service Page (Exists)</strong><br>"Teeth Whitening in Bakersfield, CA"<br><em>Target: "teeth whitening bakersfield"</em></div>
+      <div class="vs-icon">vs.</div>
+      <div class="page-box blog"><strong>&#10060; Blog Post (Avoid This)</strong><br>"Best Teeth Whitening in Bakersfield"<br><em>Target: "teeth whitening bakersfield"</em></div>
+    </div>
+    <div class="cannibal-fix">&#128161; <strong>Fix:</strong> Instead, write <em>"Professional vs. At-Home Teeth Whitening: What Actually Works?"</em> or <em>"How to Keep Your Teeth White After a Whitening Treatment"</em> &mdash; informational intent that supports the service page.</div>
+  </div>
+
+  <h3>Blog Content Strategy: The Right Approach</h3>
+  <table>
+    <tr><th>Service Page (Transactional)</th><th>&#10060; Don't Write This Blog</th><th>&#9989; Write This Instead</th></tr>
+    <tr><td>Emergency Dentistry Bakersfield</td><td>"Emergency Dentist Bakersfield"</td><td>"What Counts as a Dental Emergency?"</td></tr>
+    <tr><td>Dental Implants Bakersfield</td><td>"Implants in Bakersfield Guide"</td><td>"Am I a Candidate for Dental Implants?"</td></tr>
+    <tr><td>Veneers Bakersfield</td><td>"Best Veneers Bakersfield"</td><td>"Veneers vs. Crowns: Which Do You Need?"</td></tr>
+    <tr><td>Teeth Whitening Bakersfield</td><td>"Whitening Bakersfield CA"</td><td>"Do Whitening Strips Actually Work?"</td></tr>
+    <tr><td>Root Canals (new page)</td><td>"Root Canal Bakersfield"</td><td>"Does a Root Canal Hurt? What to Expect"</td></tr>
+    <tr><td>Aligners / Ortho (new page)</td><td>"Invisalign Bakersfield"</td><td>"Am I Too Old for Clear Aligners?"</td></tr>
+  </table>
+
+  <div class="alert info"><strong>Strategy:</strong> Every blog post should target a unique informational keyword and include an internal link to the relevant service page. This builds topical authority, avoids cannibalization, and funnels organic traffic toward conversion pages.</div>
+</div>
+
+<!-- LOCAL SEO -->
+<div class="section">
+  <h2>&#128205; Local SEO & Directory Presence</h2>
+  <div class="two-col">
+    <div>
+      <h3 style="color:#38a169">Confirmed Listings</h3>
+      <div class="tag-row">
+        <span class="tag found">Google Business Profile</span>
+        <span class="tag found">Yelp</span>
+        <span class="tag found">Nextdoor</span>
+        <span class="tag found">Yellow Pages</span>
+        <span class="tag found">Chamber of Commerce</span>
+        <span class="tag found">Demandforce</span>
+        <span class="tag found">Birdeye</span>
+        <span class="tag found">Little Guide Bakersfield</span>
+        <span class="tag found">Dental-Cosmetics.com</span>
+      </div>
+    </div>
+    <div>
+      <h3 style="color:#e53e3e">Missing / Unconfirmed</h3>
+      <div class="tag-row">
+        <span class="tag missing">Healthgrades</span>
+        <span class="tag missing">ZocDoc</span>
+        <span class="tag missing">WebMD</span>
+        <span class="tag missing">Vitals.com</span>
+        <span class="tag missing">1-800-DENTIST</span>
+      </div>
+    </div>
+  </div>
+  <h3>Google Business Profile Recommendations</h3>
+  <ul style="padding-left:18px;font-size:.92em">
+    <li>Set primary category to <strong>"Dentist"</strong> with secondary: Cosmetic Dentist, Emergency Dental Service, Dental Implants Provider</li>
+    <li>Publish Google Posts weekly (offers, tips, team highlights)</li>
+    <li>Add Q&A section with common patient questions</li>
+    <li>Upload new photos monthly &mdash; team, office, before/after</li>
+    <li>Add service area for Rosedale, Riverlakes, NW Bakersfield neighborhoods</li>
+  </ul>
+</div>
+
+<!-- KEYWORD OPPORTUNITIES -->
+<div class="section">
+  <h2>&#128273; Keyword Opportunities</h2>
+  <table>
+    <tr><th>Keyword</th><th>Search Volume</th><th>Current Status</th><th>Priority</th></tr>
+    <tr><td>dentist bakersfield</td><td>High</td><td>Moderate visibility</td><td><span class="badge high">HIGH</span></td></tr>
+    <tr><td>best dentist bakersfield</td><td>Medium</td><td>Low visibility</td><td><span class="badge high">HIGH</span></td></tr>
+    <tr><td>dental implants bakersfield</td><td>Medium</td><td>Has page</td><td><span class="badge high">HIGH</span></td></tr>
+    <tr><td>emergency dentist bakersfield</td><td>Medium</td><td>Has page</td><td><span class="badge high">HIGH</span></td></tr>
+    <tr><td>cosmetic dentist bakersfield</td><td>Medium</td><td>Low visibility</td><td><span class="badge high">HIGH</span></td></tr>
+    <tr><td>invisalign / aligners bakersfield</td><td>Medium</td><td><span class="badge high">No page</span></td><td><span class="badge high">HIGH</span></td></tr>
+    <tr><td>bakersfield dentist near me</td><td>High</td><td>Unknown</td><td><span class="badge high">HIGH</span></td></tr>
+    <tr><td>teeth whitening bakersfield</td><td>Medium</td><td>Has page</td><td><span class="badge medium">MED</span></td></tr>
+    <tr><td>veneers bakersfield</td><td>Low-Med</td><td>Has page</td><td><span class="badge medium">MED</span></td></tr>
+    <tr><td>root canal bakersfield</td><td>Low-Med</td><td><span class="badge high">No page</span></td><td><span class="badge medium">MED</span></td></tr>
+    <tr><td>family dentist bakersfield</td><td>Medium</td><td><span class="badge high">No page</span></td><td><span class="badge medium">MED</span></td></tr>
+    <tr><td>affordable dentist bakersfield</td><td>Medium</td><td><span class="badge high">No page</span></td><td><span class="badge medium">MED</span></td></tr>
+  </table>
+</div>
+
+<!-- COMPETITIVE LANDSCAPE -->
+<div class="section">
+  <h2>&#9878; Competitive Landscape</h2>
+  <table>
+    <tr><th>Competitor</th><th>Key Strengths</th><th>Threat Level</th></tr>
+    <tr><td><strong>Capital Dental Group</strong></td><td>On-site implant center, free consults, CT scans, All-on-4</td><td><span class="badge high">HIGH</span></td></tr>
+    <tr><td><strong>Signature Smile Dental Studio</strong></td><td>Direct name competitor, active online presence</td><td><span class="badge medium">MEDIUM</span></td></tr>
+    <tr><td><strong>Valley Grace Dental</strong></td><td>Family-focused, comprehensive dentistry</td><td><span class="badge medium">MEDIUM</span></td></tr>
+    <tr><td><strong>Auburn Dental Center</strong></td><td>Established local presence</td><td><span class="badge low">LOW</span></td></tr>
+    <tr><td><strong>Northwest Dental Arts</strong></td><td>NW Bakersfield location coverage</td><td><span class="badge low">LOW</span></td></tr>
+  </table>
+  <h3>Your Differentiators</h3>
+  <div class="tag-row" style="margin-top:10px">
+    <span class="tag found">Husband-Wife Team (Trust)</span>
+    <span class="tag found">Spa-Like Ambiance (Premium)</span>
+    <span class="tag found">Multilingual (Community)</span>
+    <span class="tag found">iTero + Digital Tech</span>
+    <span class="tag found">4.8 Stars / 533+ Reviews</span>
+  </div>
+</div>
+
+<!-- SOCIAL MEDIA -->
+<div class="section">
+  <h2>&#128241; Social Media Analysis</h2>
+  <div class="score-row">
+    <div class="score-card"><div class="big" style="color:#E1306C">471</div><div class="label">Instagram Followers</div></div>
+    <div class="score-card"><div class="big" style="color:#E1306C">177</div><div class="label">Instagram Posts</div></div>
+    <div class="score-card"><div class="big" style="color:#1877F2">Active</div><div class="label">Facebook Page</div></div>
+    <div class="score-card"><div class="big" style="color:#333">Minimal</div><div class="label">TikTok Presence</div></div>
+  </div>
+  <div class="alert warning"><strong>Assessment:</strong> 471 Instagram followers after 6+ years is significantly below potential. Inconsistent posting schedule limits growth and engagement.</div>
+  <h3>Recommended Content Pillars</h3>
+  <div class="tag-row">
+    <span class="tag">Before/After Transformations</span>
+    <span class="tag">Team Spotlights</span>
+    <span class="tag">Dental Tips & Education</span>
+    <span class="tag">Patient Testimonials</span>
+    <span class="tag">Behind-the-Scenes</span>
+    <span class="tag">Community Involvement</span>
+    <span class="tag">Short-Form Video (Reels/TikTok)</span>
+  </div>
+</div>
+
+<!-- ACTION PLAN -->
+<div class="section">
+  <h2>&#128640; Prioritized Action Plan</h2>
+  <div class="timeline">
+
+    <div class="timeline-item phase1">
+      <div class="timeline-phase" style="color:#e53e3e">Phase 1: Critical Fixes (Weeks 1-2)</div>
+      <ul class="timeline-actions">
+        <li>Fix 403 crawler/bot blocking issues</li>
+        <li>Verify & submit XML sitemap to Google Search Console</li>
+        <li>Audit and fix robots.txt</li>
+        <li>Standardize NAP across all listings & directories</li>
+        <li>Fully optimize Google Business Profile</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item phase2">
+      <div class="timeline-phase" style="color:#dd6b20">Phase 2: Quick Wins (Weeks 2-4)</div>
+      <ul class="timeline-actions">
+        <li>Optimize title tags & meta descriptions on all pages</li>
+        <li>Add schema markup (LocalBusiness, Dentist, MedicalOrganization)</li>
+        <li>Create missing service pages (aligners, root canals, crowns, etc.)</li>
+        <li>Implement systematic review generation workflow</li>
+        <li>Claim missing directory listings (Healthgrades, ZocDoc, etc.)</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item phase3">
+      <div class="timeline-phase" style="color:#3182ce">Phase 3: Growth Initiatives (Months 2-3)</div>
+      <ul class="timeline-actions">
+        <li>Launch blog content targeting informational keywords (avoid cannibalizing service pages)</li>
+        <li>Create neighborhood pages (Rosedale, Riverlakes, NW Bakersfield)</li>
+        <li>Build FAQ content for featured snippets & AI search</li>
+        <li>Increase social media to 3-4 posts/week with video</li>
+      </ul>
+    </div>
+
+    <div class="timeline-item phase4">
+      <div class="timeline-phase" style="color:#38a169">Phase 4: Long-Term Strategy (Months 3-6)</div>
+      <ul class="timeline-actions">
+        <li>Develop "Best Dentist in Bakersfield" cornerstone content</li>
+        <li>Build local backlinks (Chamber, news, sponsorships)</li>
+        <li>Create comparison pages (Implants vs. Bridges, etc.)</li>
+        <li>Launch patient video testimonial program</li>
+        <li>Optimize for AI search engines (AEO/GEO)</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!-- METRICS -->
+<div class="section">
+  <h2>&#128200; Key Metrics & Targets</h2>
+  <table>
+    <tr><th>Metric</th><th>Current</th><th>3-Month Target</th><th>6-Month Target</th></tr>
+    <tr><td>Google Reviews</td><td>276</td><td><strong>325+</strong></td><td><strong>400+</strong></td></tr>
+    <tr><td>Google Rating</td><td>4.8 &#9733;</td><td>Maintain 4.8+</td><td>Maintain 4.8+</td></tr>
+    <tr><td>Indexed Pages</td><td>~16</td><td><strong>30+</strong></td><td><strong>50+</strong></td></tr>
+    <tr><td>Instagram Followers</td><td>471</td><td><strong>750+</strong></td><td><strong>1,200+</strong></td></tr>
+    <tr><td>Organic Traffic</td><td>Baseline TBD</td><td>+25%</td><td>+50%</td></tr>
+    <tr><td>GBP Actions</td><td>Baseline TBD</td><td>Track & Grow</td><td>+30%</td></tr>
+  </table>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p><strong>Smile Studios Dentistry &mdash; Marketing & SEO Report</strong></p>
+  <p>Prepared April 3, 2026 | Confidential</p>
+</div>
+
+</div>
+</body>
+</html>
